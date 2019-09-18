@@ -19,7 +19,7 @@
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"></property>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <!--装配自定义类型转换器-->
@@ -32,7 +32,7 @@
         </property>
     </bean>
     <!-- 自动扫描的包名 -->
-    <context:component-scan base-package="com.cqupt.zyx.Controller"/>
+    <context:component-scan base-package="com.edu.victor.Controller"/>
 
     <!--文件上传配置-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -46,7 +46,7 @@
     </bean>
     <bean class="com.cqupt.zyx.AOP.goodsAop"/>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <!--注入hibernate的验证器-->
         <property name="providerClass"  value="org.hibernate.validator.HibernateValidator"/>

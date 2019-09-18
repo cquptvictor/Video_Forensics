@@ -19,7 +19,7 @@
         <property name="hostName" value="${redis.host}"/>
         <property name="port" value="${redis.port}"/>
         <property name="password" value="${redis.password}"/>
-        <property name="usePool" value="${redis.usePool}"/>
+        <property name="usePool" value="${redis.pool}"/>
         <property name="poolConfig" ref="jedisPoolConfig"/>
     </bean>
 
