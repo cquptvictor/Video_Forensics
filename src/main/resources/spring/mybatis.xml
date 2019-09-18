@@ -7,7 +7,7 @@
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
 	<plugins>
-		<plugin interceptor="com.cqupt.zyx.Dao.interceptor.PageInterceptor"></plugin>
+		<plugin interceptor="com.edu.victor.Dao.interceptor"></plugin>
 	</plugins>
 
 </configuration>

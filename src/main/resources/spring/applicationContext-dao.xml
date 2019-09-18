@@ -6,10 +6,10 @@
 
 
 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/Mall?serverTimezone=GMT&amp;useSSL=false"/>
-		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
-		<property name="user" value="root"/>
-		<property name="password" value="202106"/>
+		<property name="jdbcUrl" value="${mysql.url}"/>
+		<property name="driverClass" value="${mysql.drive}"/>
+		<property name="user" value="${mysql.username}"/>
+		<property name="password" value="${mysql.password}"/>
         <!-- 每60秒检查所有连接池中的空闲连接。Default: 0 -->
         <property name="idleConnectionTestPeriod" value="60" />
         <!-- 初始化时获取三个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
