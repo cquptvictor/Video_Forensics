@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.StuManagementDao">
+    <insert id="addStu" >
+        insert into stu (username,password) values(#{username},#{username});
+    </insert>
+    <update id="updateStu" parameterType="Student">
+        update stu
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="classNum != null">
+                class_num = #{classNum},
+            </if>
+            <if test="birth != null">
+                birth = #{birth},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="sexual != null">
+                sexual = #{sexual}
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+    <select id="searchStu" parameterType="StuSearch" resultType="Student">
+        select id,name,birth,email,phone,sexual,username from stu
+        <where>
+            <if test="classNum != null">
+                class_num = #{classNum},
+            </if>
+            <if test="stuNum != null">
+                and username = #{stuNum};
+            </if>
+            <if test="stuName != null">
+                and name like "%${stuName}%"
+            </if>
+        </where>
+    </select>
+</mapper>

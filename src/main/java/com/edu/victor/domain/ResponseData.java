@@ -4,7 +4,12 @@ public class ResponseData<T> {
     private int code;
     private String message;
     private T data;
+    public ResponseData(){
 
+    }
+    public ResponseData(int code){
+        this.code = code;
+    }
     public int getCode() {
         return code;
     }

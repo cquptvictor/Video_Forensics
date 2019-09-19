@@ -1,8 +1,13 @@
 package com.edu.victor.domain;
 
+
 public class Teacher extends User{
+
     private String name;
+
     private String email;
+
+
 
     public String getName() {
         return name;
@@ -20,5 +25,11 @@ public class Teacher extends User{
         this.email = email;
     }
 
-
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                super.toString()+'}';
+    }
 }

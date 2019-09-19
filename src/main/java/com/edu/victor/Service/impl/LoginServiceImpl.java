@@ -12,7 +12,7 @@ public class LoginServiceImpl implements LoginService {
     LoginDao loginDao;
     @Override
     public Boolean login(Teacher teacher) {
-        int id = loginDao.login(teacher);
+        int id = loginDao.teacherLogin(teacher);
         if(id == -1) {
             return false;
         }else{

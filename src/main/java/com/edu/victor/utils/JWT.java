@@ -3,10 +3,11 @@ package com.edu.victor.utils;
 import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTVerifier;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
-
+@Component
 public class JWT {
     private static final String SECRET = "XX#$%()(#*!()!KL<><MQLMNQNQJQK sdfkjsdrow32234545fdf>?N<:{LWPW";
 
@@ -15,7 +16,7 @@ public class JWT {
     private static final String PAYLOAD = "payload";
 
     //加密，传入一个对象和有效期
-    public static <T> String sign(T object, long maxAge) {
+    public static<T>  String sign(T object, long maxAge) {
         try {
             final JWTSigner signer = new JWTSigner(SECRET);
             final Map<String, Object> claims = new HashMap<String, Object>();
