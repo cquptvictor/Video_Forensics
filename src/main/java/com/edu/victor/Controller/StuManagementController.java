@@ -4,12 +4,15 @@ import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.StuSearch;
 import com.edu.victor.domain.Student;
+import com.edu.victor.utils.ExcelUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RequestMapping("/admin")
 @Controller
@@ -51,7 +54,9 @@ public class StuManagementController {
         return null;
     }
     @RequestMapping(value = "/batchImport",method = RequestMethod.POST)
+    @ResponseBody
     public ResponseData batchImport(MultipartFile excel){
-
+        List<Student> lsit = ExcelUtils.excelToStudent(excel);
+        return null;
     }
 }
