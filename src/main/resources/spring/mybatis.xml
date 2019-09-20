@@ -6,5 +6,8 @@
 		<setting name="useGeneratedKeys" value="true"/>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
+	<plugins>
+		<plugin interceptor="com.edu.victor.Dao.interceptor.PageInterceptor"></plugin>
+	</plugins>
 
 </configuration>

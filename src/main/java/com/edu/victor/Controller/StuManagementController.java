@@ -2,6 +2,7 @@ package com.edu.victor.Controller;
 
 import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.Service.StuManagementService;
+import com.edu.victor.domain.Page;
 import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.StuSearch;
 import com.edu.victor.domain.Student;
@@ -13,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 /**学生管理，增删改查和批量导入*/
 @RequestMapping("/admin")
 @Controller
@@ -44,9 +48,15 @@ public class StuManagementController {
 
     @RequestMapping(value = "/sStu",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData searchStu(StuSearch stuSearch){
+    public ResponseData searchStu(String classNum, String stuNum, String name){
+        Map<String,Object> map = new HashMap<>();
+        map.put("classNum",classNum);
+        map.put("username",stuNum);
+        map.put("name",name);
         ResponseData responseData = new ResponseData(200);
-        responseData.setData(stuManagementService.searchStu(stuSearch));
+        Page<Student> page = new Page<>();
+        page.setFilter(map);
+        responseData.setData(stuManagementService.searchStu(page));
         return responseData;
     }
     @RequestMapping(value = "/dStu", method = RequestMethod.POST)
@@ -63,5 +73,10 @@ public class StuManagementController {
         String message = String.format("一共导入%d个，失败%d个",list.size(),duplicateNum);
         responseData.setMessage(message);
         return responseData;
+    }
+    @RequestMapping(value = "/test",method = RequestMethod.POST)
+    @ResponseBody
+    public List<Student> test(){
+       return stuManagementService.test();
     }
 }

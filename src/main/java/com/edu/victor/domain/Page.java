@@ -16,18 +16,9 @@ public class Page<T> {
     // 每页显示条数
     private int pageNumber = 8;
     //数据存放
-    List<T> data;
+    private List<T> content;
     //过滤条件
-    Map<String,Object> filter;
-    private int code;
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
+    private Map<String,Object> filter;
 
     public Map<String, Object> getFilter() {
         return filter;
@@ -35,14 +26,6 @@ public class Page<T> {
 
     public void setFilter(Map<String, Object> filter) {
         this.filter = filter;
-    }
-
-    public List<T> getData() {
-        return data;
-    }
-
-    public void setData(List<T> data) {
-        this.data = data;
     }
 
     public int getTotalNumber() {
@@ -78,5 +61,13 @@ public class Page<T> {
 
     public void setPageNumber(int pageNumber) {
         this.pageNumber = pageNumber;
+    }
+
+    public List<T> getContent() {
+        return content;
+    }
+
+    public void setContent(List<T> content) {
+        this.content = content;
     }
 }

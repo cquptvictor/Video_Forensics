@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-@Intercepts({@Signature(type=StatementHandler.class,method="prepare",args={Connection.class})})
+@Intercepts(value = {@Signature(type=StatementHandler.class,method="prepare",args={Connection.class})})
 public class PageInterceptor implements Interceptor {
 
     public Object intercept(Invocation arg0) throws Throwable {

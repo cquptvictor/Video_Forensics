@@ -2,11 +2,8 @@ package com.edu.victor.Service.impl;
 
 import com.edu.victor.Dao.StuManagementDao;
 import com.edu.victor.Service.StuManagementService;
-import com.edu.victor.domain.StuSearch;
+import com.edu.victor.domain.Page;
 import com.edu.victor.domain.Student;
-import org.apache.ibatis.session.ExecutorType;
-import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
@@ -17,8 +14,6 @@ import java.util.List;
 public class StuManagementServiceImpl implements StuManagementService {
     @Autowired
     StuManagementDao stuManagementDao;
-    @Autowired
-    SqlSessionTemplate sqlSessionTemplate;
     @Override
     public Boolean addStu(String username) {
         return stuManagementDao.addStu(username);
@@ -29,9 +24,13 @@ public class StuManagementServiceImpl implements StuManagementService {
         return stuManagementDao.updateStu(student);
     }
 
+
+
     @Override
-    public List<Student> searchStu(StuSearch stuSearch) {
-        return stuManagementDao.searchStu(stuSearch);
+    public Page<Student> searchStu(Page<Student> page) {
+        Page<Student> page2 = stuManagementDao.searchStuByPage(page);
+        page.setContent(page2.getContent());
+        return page;
     }
 
    /* @Override
@@ -56,5 +55,10 @@ public class StuManagementServiceImpl implements StuManagementService {
             }
         }
         return duplicateNum;
+    }
+
+    @Override
+    public List<Student> test() {
+        return stuManagementDao.test();
     }
 }

@@ -4,6 +4,13 @@
 
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.StuManagementDao">
+
+    <resultMap id="PageMap" type="Page">
+        <collection property="content" ofType="Student">
+            <result property="classNum" column="class_num"/>
+        </collection>
+    </resultMap>
+
     <insert id="addStu" >
         insert into stu (username,password) values(#{username},#{username});
     </insert>
@@ -37,21 +44,25 @@
         </set>
         where id = #{id};
     </update>
-    <select id="searchStu" parameterType="StuSearch" resultType="Student">
-        select id,name,birth,email,phone,sexual,username from stu
+    <select id="searchStuByPage"  resultMap="PageMap">
+        select class_num from stu
         <where>
-            <if test="classNum != null">
-                class_num = #{classNum}
+            <if test="filter.classNum != null">
+                class_num = #{filter.classNum}
             </if>
-            <if test="stuNum != null">
-                and username = #{stuNum}
+            <if test="filter.stuNum != null">
+                and username = #{filter.stuNum}
             </if>
-            <if test="stuName != null">
-                and name like "%${stuName}%"
+            <if test="filter.stuName != null">
+                and name like "%${filter.stuName}%"
             </if>
         </where>
     </select>
     <insert id="batchImport" parameterType="Student">
         insert into stu(username,password,name,sexual) values(#{username},#{password},#{name},#{sexual});
     </insert>
+    <select id="test" resultType="Student">
+        select * from stu;
+    </select>
+
 </mapper>

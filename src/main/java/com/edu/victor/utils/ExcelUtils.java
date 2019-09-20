@@ -8,6 +8,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -17,7 +18,6 @@ import java.util.*;
  * Excel文件的第一行为题目
  * 只能导入姓名、学号、性别三个参数
  * */
-
 public class ExcelUtils {
     public static File converToFile(MultipartFile file){
         // 获取文件名

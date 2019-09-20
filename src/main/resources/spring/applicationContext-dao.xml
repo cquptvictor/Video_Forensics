@@ -55,11 +55,5 @@
     	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     	<property name="basePackage" value="com.edu.victor.Dao"/>
 	</bean>
-	<!-- 配置一个可以进行批量执行的sqlSession -->
-	<bean id = "sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<!--ref:引入关联的sqlSessionFactory-->
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
-		<!--设置值value为支持批量操作-->
-		<constructor-arg name="executorType" value="BATCH"/>
-	</bean>
+
 </beans>
