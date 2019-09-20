@@ -17,4 +17,13 @@ public class globalException {
         responseData.setMessage("Duplicate usernames");
         return responseData;
     }
+    /**权限不够的问题*/
+    @ExceptionHandler(NotAuthorizedException.class)
+    @ResponseBody
+    public ResponseData duplicatedUsername(NotAuthorizedException e){
+        ResponseData responseData = new ResponseData();
+        responseData.setCode(0);
+        responseData.setMessage("You have no right to do these operations");
+        return responseData;
+    }
 }

@@ -38,11 +38,15 @@ public class JWT {
             if (claims.containsKey(EXP) && claims.containsKey(PAYLOAD)) {
                 long exp = (Long)claims.get(EXP);
                 long currentTimeMillis = System.currentTimeMillis();
+                /*方便测试，先不判断时间
                 if (exp > currentTimeMillis) {
                     String json = (String)claims.get(PAYLOAD);
                     ObjectMapper objectMapper = new ObjectMapper();
                     return objectMapper.readValue(json, classT);
-                }
+                }*/
+                String json = (String)claims.get(PAYLOAD);
+                ObjectMapper objectMapper = new ObjectMapper();
+                return objectMapper.readValue(json, classT);
             }
             return null;
         } catch (Exception e) {

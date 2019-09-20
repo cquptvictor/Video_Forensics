@@ -27,7 +27,7 @@ public class LoginController {
             responseData.setCode(200);
             responseData.setMessage("login Successful");
             Map map = new HashMap();
-            map.put("token",JWT.sign(teacher,10000000));
+            map.put("token",JWT.sign(teacher,120000));
             responseData.setData(map);
         }else{
             responseData.setCode(0);

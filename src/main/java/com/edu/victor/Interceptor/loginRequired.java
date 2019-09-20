@@ -14,7 +14,7 @@ public class loginRequired implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         String token = httpServletRequest.getParameter("token");
         Teacher teacher = JWT.unsign(token, Teacher.class);
-        System.out.println(teacher);
+        httpServletRequest.setAttribute("Teacher",teacher);
         if(teacher == null)
             return true;
         return true;
