@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.LoginDao">
+    <select id="teacherLogin" parameterType="Teacher" resultType="Integer">
+      select IFNULL(MAX(id),-1) from teacher where username = #{username} and password = #{password};
+    </select>
+
+
+</mapper>
