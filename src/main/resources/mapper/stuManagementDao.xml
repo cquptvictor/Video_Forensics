@@ -38,11 +38,17 @@
                 class_num = #{classNum},
             </if>
             <if test="stuNum != null">
-                and username = #{stuNum};
+                and username = #{stuNum},
+            </if>
+            <if test="password != null">
+                and password = #{password},
             </if>
             <if test="stuName != null">
                 and name like "%${stuName}%"
             </if>
         </where>
     </select>
+    <insert id="batchImport" parameterType="Student">
+        insert into stu(username,password,name,sexual) values(#{username},#{password},#{name},#{sexual});
+    </insert>
 </mapper>

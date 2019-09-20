@@ -48,11 +48,18 @@
     	<property name="typeAliasesPackage" value="com.edu.victor.domain"/>
     	<!-- 扫描mybatis的SQL配置文件 -->
     	<property name="mapperLocations" value="classpath:mapper/*.xml"/>
-    </bean>
+	</bean>
     
     <!-- 扫描Dao接口包 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
     	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     	<property name="basePackage" value="com.edu.victor.Dao"/>
-    </bean>
+	</bean>
+	<!-- 配置一个可以进行批量执行的sqlSession -->
+	<bean id = "sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<!--ref:引入关联的sqlSessionFactory-->
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+		<!--设置值value为支持批量操作-->
+		<constructor-arg name="executorType" value="BATCH"/>
+	</bean>
 </beans>

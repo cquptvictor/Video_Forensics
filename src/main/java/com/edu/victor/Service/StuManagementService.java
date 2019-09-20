@@ -9,4 +9,5 @@ public interface StuManagementService {
     Boolean addStu(String username);
     Boolean updateStu(Student student);
     List<Student> searchStu(StuSearch stuSearch);
+    int batchImport(List<Student> list);
 }

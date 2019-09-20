@@ -1,4 +1,4 @@
-package com.edu.victor.Controller;
+package com.edu.victor.Exception;
 
 import com.edu.victor.domain.ResponseData;
 import org.springframework.dao.DuplicateKeyException;

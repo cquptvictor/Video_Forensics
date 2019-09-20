@@ -1,5 +1,6 @@
 package com.edu.victor.Controller;
 
+import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.StuSearch;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-
+/**学生管理，增删改查和批量导入*/
 @RequestMapping("/admin")
 @Controller
 public class StuManagementController {
@@ -55,8 +56,12 @@ public class StuManagementController {
     }
     @RequestMapping(value = "/batchImport",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData batchImport(MultipartFile excel){
-        List<Student> lsit = ExcelUtils.excelToStudent(excel);
-        return null;
+    public ResponseData batchImport(MultipartFile excel) throws StuNumNotFound {
+        List<Student> list = ExcelUtils.excelToStudent(excel);
+        int duplicateNum = stuManagementService.batchImport(list);
+        ResponseData responseData = new ResponseData(200);
+        String message = String.format("一共导入%d个，失败%d个",list.size(),duplicateNum);
+        responseData.setMessage(message);
+        return responseData;
     }
 }

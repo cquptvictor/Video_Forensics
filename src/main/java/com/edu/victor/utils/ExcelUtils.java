@@ -1,5 +1,6 @@
 package com.edu.victor.utils;
 
+import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.domain.StuSearch;
 import com.edu.victor.domain.Student;
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -7,12 +8,15 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+/**
+ * Excel文件的第一行为题目
+ * 只能导入姓名、学号、性别三个参数
+ * */
 
 public class ExcelUtils {
     public static File converToFile(MultipartFile file){
@@ -31,7 +35,7 @@ public class ExcelUtils {
         }
             return null;
     }
-    public static List<Student> excelToStudent(MultipartFile multipartFile){
+    public static List<Student> excelToStudent(MultipartFile multipartFile) throws StuNumNotFound {
         List<Student> list = new ArrayList<>();
         File file = converToFile(multipartFile);
         try{
@@ -43,30 +47,32 @@ public class ExcelUtils {
             HSSFRow hssfRow = sheet.getRow(0);
             int totalcolumns = hssfRow.getLastCellNum();
             Map<Integer,String> map = new HashMap<>();
+            int stuNum = -1;
+            int sexual = -1;
+            int name = -1;
             for(int i = 0; i < totalcolumns; i++){
                 String column = hssfRow.getCell(i).getStringCellValue();
                 if(column.equals("学号")){
-                    map.put(i,"stuNum");
+                    stuNum = i;
                 }else if(column.equals("性别")){
-                    map.put(i,"sexual");
+                    sexual = i;
                 }else if(column.equals("姓名")){
-                    map.put(i,"name");
+                    name = i;
                 }
+            }
+            /**Excel中没有学号列，抛出错误*/
+            if(stuNum == -1){
+                throw new StuNumNotFound();
             }
             for(int i = 1; i < totalRows; i++){
                 Student student = new Student();
-                 hssfRow = sheet.getRow(i);
-                for(int j = 0; j < totalcolumns; j++){
-                    String value = hssfRow.getCell(j).getStringCellValue();
-                    if(map.get(j).equals("stuNum")){
-                     student.setUsername(value);
-                     student.setPassword(value);
-                 }else if(map.get(j).equals("name")){
-                        student.setName(value);
-                    }else if(map.get(j).equals("sexual")){
-                        student.setSexual(value);
-                    }
-                }
+                hssfRow = sheet.getRow(i);
+                student.setUsername(hssfRow.getCell(stuNum).getStringCellValue());
+                student.setPassword(hssfRow.getCell(stuNum).getStringCellValue());
+                if(sexual != -1)
+                    student.setSexual(hssfRow.getCell(sexual).getStringCellValue());
+                if(name != -1)
+                    student.setName(hssfRow.getCell(name).getStringCellValue());
                 list.add(student);
             }
         }catch (IOException e){
