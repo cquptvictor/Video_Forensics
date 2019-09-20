@@ -25,8 +25,8 @@ public class NewsAndNoticeController {
     @ResponseBody
     public ResponseData addNews(News news, HttpServletRequest httpServletRequest){
         Teacher teacher =(Teacher)httpServletRequest.getAttribute("Teacher");
-        news.setPublisher_id(teacher.getId());
-        news.setPublisher_name(teacher.getName());
+        news.setPublisherId(teacher.getId());
+        news.setPublisherName(teacher.getName());
         ResponseData responseData = new ResponseData();
         if(newsAndNoticeService.addNews(news))
         {
@@ -55,7 +55,7 @@ public class NewsAndNoticeController {
     @ResponseBody
     public ResponseData updateNews(News news,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
-        if(teacher.getId() != news.getPublisher_id()){
+        if(teacher.getId() != news.getPublisherId()){
             throw  new NotAuthorizedException();
         }
         ResponseData responseData = new ResponseData();

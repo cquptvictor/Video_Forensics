@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -48,7 +49,7 @@ public class StuManagementController {
 
     @RequestMapping(value = "/sStu",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData searchStu(String classNum, String stuNum, String name){
+    public ResponseData searchStu(String classNum, String stuNum, String name, @RequestParam("page") Integer currentPage){
         Map<String,Object> map = new HashMap<>();
         map.put("classNum",classNum);
         map.put("username",stuNum);
@@ -56,6 +57,7 @@ public class StuManagementController {
         ResponseData responseData = new ResponseData(200);
         Page<Student> page = new Page<>();
         page.setFilter(map);
+        page.setCurrentPage(currentPage) ;
         responseData.setData(stuManagementService.searchStu(page));
         return responseData;
     }

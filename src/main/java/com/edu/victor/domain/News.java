@@ -6,9 +6,9 @@ public class News {
     private int id;
     private String title;
     private String content;
-    private int publisher_id;
-    private String publisher_name = "神秘人物";
-    private Date publish_time;
+    private int publisherId;
+    private String publisherName = "神秘人物";
+    private Date publishTime;
 
     public String getTitle() {
         return title;
@@ -34,28 +34,28 @@ public class News {
         this.content = content;
     }
 
-    public int getPublisher_id() {
-        return publisher_id;
+    public int getPublisherId() {
+        return publisherId;
     }
 
-    public void setPublisher_id(int publisher_id) {
-        this.publisher_id = publisher_id;
+    public void setPublisherId(int publisherId) {
+        this.publisherId = publisherId;
     }
 
-    public String getPublisher_name() {
-        return publisher_name;
+    public String getPublisherName() {
+        return publisherName;
     }
 
-    public void setPublisher_name(String publisher_name) {
-        if(publisher_name != null)
-            this.publisher_name = publisher_name;
+    public void setPublisherName(String publisherName) {
+        if(publisherName != null)
+            this.publisherName = publisherName;
     }
 
-    public Date getPublish_time() {
-        return publish_time;
+    public Date getPublishTime() {
+        return publishTime;
     }
 
-    public void setPublish_time(Date publish_time) {
-        this.publish_time = publish_time;
+    public void setPublishTime(Date publishTime) {
+        this.publishTime = publishTime;
     }
 }
