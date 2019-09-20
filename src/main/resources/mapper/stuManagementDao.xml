@@ -17,28 +17,28 @@
         update stu
         <set>
             <if test="name != null">
-                name = #{name},
+                name = #{name}
             </if>
             <if test="phone != null">
-                phone = #{phone},
+                ,phone = #{phone}
             </if>
             <if test="classNum != null">
-                class_num = #{classNum},
+                ,class_num = #{classNum}
             </if>
             <if test="birth != null">
-                birth = #{birth},
+                ,birth = #{birth}
             </if>
             <if test="password != null">
-                password = #{password},
+                ,password = #{password}
             </if>
             <if test="username != null">
-                username = #{username},
+                ,username = #{username}
             </if>
             <if test="email != null">
-                email = #{email},
+                ,email = #{email}
             </if>
             <if test="sexual != null">
-                sexual = #{sexual}
+                ,sexual = #{sexual}
             </if>
         </set>
         where id = #{id};

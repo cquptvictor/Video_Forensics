@@ -4,10 +4,27 @@
 
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.NewsDao">
+    <resultMap id="PageMap" type="Page">
+        <collection property="content" ofType="News" autoMapping="true">
+        </collection>
+    </resultMap>
     <insert id="addNews" parameterType="News">
         insert into news (title,content,publisher_id,publisher_name)value (#{title},#{content},#{publisher_id},#{publisher_name});
     </insert>
     <delete id="deleteNews">
-        delete * from news where id = #{id};
+        delete from news where id = #{id};
     </delete>
+    <update id="updateNews" parameterType="News">
+        update news <set>
+        <if test="content != null">
+            content = #{content}
+        </if>
+        <if test="title != null">
+            ,title = #{title}
+        </if>
+    </set>where id = #{id};
+    </update>
+    <select id="searchNewsByPage" parameterType="Page" resultMap="PageMap">
+        select * from news
+    </select>
 </mapper>

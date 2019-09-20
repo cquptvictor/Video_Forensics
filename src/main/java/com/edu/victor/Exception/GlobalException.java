@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @ControllerAdvice
-public class globalException {
+public class GlobalException {
     /**处理账号重复的问题*/
     @ExceptionHandler(DuplicateKeyException.class)
     @ResponseBody
@@ -23,7 +23,7 @@ public class globalException {
     public ResponseData duplicatedUsername(NotAuthorizedException e){
         ResponseData responseData = new ResponseData();
         responseData.setCode(0);
-        responseData.setMessage("You have no right to do these operations");
+        responseData.setMessage("You do not have permission to perform this operation");
         return responseData;
     }
 }
