@@ -11,5 +11,4 @@ public interface StuManagementDao {
     Boolean updateStu(Student student);
     Page<Student> searchStuByPage(Page<Student> page);
     Boolean batchImport(Student student);
-    List<Student> test();
 }

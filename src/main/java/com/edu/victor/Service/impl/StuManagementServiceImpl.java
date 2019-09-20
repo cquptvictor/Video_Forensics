@@ -57,8 +57,4 @@ public class StuManagementServiceImpl implements StuManagementService {
         return duplicateNum;
     }
 
-    @Override
-    public List<Student> test() {
-        return stuManagementDao.test();
-    }
 }

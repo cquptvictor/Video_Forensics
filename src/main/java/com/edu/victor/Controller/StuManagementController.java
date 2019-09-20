@@ -74,9 +74,5 @@ public class StuManagementController {
         responseData.setMessage(message);
         return responseData;
     }
-    @RequestMapping(value = "/test",method = RequestMethod.POST)
-    @ResponseBody
-    public List<Student> test(){
-       return stuManagementService.test();
-    }
+
 }

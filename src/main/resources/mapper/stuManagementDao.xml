@@ -6,8 +6,7 @@
 <mapper namespace="com.edu.victor.Dao.StuManagementDao">
 
     <resultMap id="PageMap" type="Page">
-        <collection property="content" ofType="Student">
-            <result property="classNum" column="class_num"/>
+        <collection property="content" ofType="Student" autoMapping="true">
         </collection>
     </resultMap>
 
@@ -45,7 +44,7 @@
         where id = #{id};
     </update>
     <select id="searchStuByPage"  resultMap="PageMap">
-        select class_num from stu
+        select * from stu
         <where>
             <if test="filter.classNum != null">
                 class_num = #{filter.classNum}
@@ -61,8 +60,6 @@
     <insert id="batchImport" parameterType="Student">
         insert into stu(username,password,name,sexual) values(#{username},#{password},#{name},#{sexual});
     </insert>
-    <select id="test" resultType="Student">
-        select * from stu;
-    </select>
+
 
 </mapper>
