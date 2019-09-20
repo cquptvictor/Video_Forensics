@@ -22,6 +22,12 @@
             <if test="birth != null">
                 birth = #{birth},
             </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="username != null">
+                username = #{username},
+            </if>
             <if test="email != null">
                 email = #{email},
             </if>
@@ -35,13 +41,10 @@
         select id,name,birth,email,phone,sexual,username from stu
         <where>
             <if test="classNum != null">
-                class_num = #{classNum},
+                class_num = #{classNum}
             </if>
             <if test="stuNum != null">
-                and username = #{stuNum},
-            </if>
-            <if test="password != null">
-                and password = #{password},
+                and username = #{stuNum}
             </if>
             <if test="stuName != null">
                 and name like "%${stuName}%"
