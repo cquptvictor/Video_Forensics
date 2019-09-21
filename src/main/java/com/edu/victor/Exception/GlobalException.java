@@ -26,4 +26,14 @@ public class GlobalException {
         responseData.setMessage("You do not have permission to perform this operation");
         return responseData;
     }
+
+    /**信息不完善的问题*/
+    @ExceptionHandler(IncompleteInformationException.class)
+    @ResponseBody
+    public ResponseData incompleteInformation(){
+        ResponseData responseData = new ResponseData();
+        responseData.setCode(0);
+        responseData.setMessage("You need to complete your information first");
+        return responseData;
+    }
 }

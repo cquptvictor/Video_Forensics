@@ -12,13 +12,16 @@ public class LoginServiceImpl implements LoginService {
     LoginDao loginDao;
     @Override
     public Boolean login(Teacher teacher) {
-        int id = loginDao.teacherLogin(teacher);
-        if(id == -1) {
+        Teacher teacher1 = loginDao.teacherLogin(teacher);
+        if(teacher1.getId() == -1) {
             return false;
         }else{
-            teacher.setId(id);
+            teacher.setId(teacher1.getId());
+            teacher.setEmail(teacher1.getEmail());
+            teacher.setName(teacher1.getName());
+            teacher.setUsername(null);
             return true;
         }
-
     }
+
 }

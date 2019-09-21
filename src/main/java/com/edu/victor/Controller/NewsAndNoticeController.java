@@ -1,5 +1,7 @@
 package com.edu.victor.Controller;
 
+import com.edu.victor.Dao.LoginDao;
+import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Service.NewsAndNoticeService;
 import com.edu.victor.domain.News;
@@ -23,10 +25,14 @@ public class NewsAndNoticeController {
     /**新闻添加*/
     @RequestMapping(value = "/aNews",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData addNews(News news, HttpServletRequest httpServletRequest){
+    public ResponseData addNews(News news, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
         Teacher teacher =(Teacher)httpServletRequest.getAttribute("Teacher");
         news.setPublisherId(teacher.getId());
         news.setPublisherName(teacher.getName());
+        if(teacher.getName() == null || teacher.getEmail() == null){
+            if(!newsAndNoticeService.teacherInfo(teacher))
+                throw new IncompleteInformationException();
+        }
         ResponseData responseData = new ResponseData();
         if(newsAndNoticeService.addNews(news))
         {

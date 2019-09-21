@@ -7,7 +7,7 @@ public class News {
     private String title;
     private String content;
     private int publisherId;
-    private String publisherName = "神秘人物";
+    private String publisherName;
     private Date publishTime;
 
     public String getTitle() {
@@ -47,7 +47,6 @@ public class News {
     }
 
     public void setPublisherName(String publisherName) {
-        if(publisherName != null)
             this.publisherName = publisherName;
     }
 
