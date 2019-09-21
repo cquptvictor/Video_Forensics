@@ -4,7 +4,6 @@ import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.Page;
 import com.edu.victor.domain.ResponseData;
-import com.edu.victor.domain.StuSearch;
 import com.edu.victor.domain.Student;
 import com.edu.victor.utils.ExcelUtils;
 import org.springframework.beans.factory.annotation.Autowired;

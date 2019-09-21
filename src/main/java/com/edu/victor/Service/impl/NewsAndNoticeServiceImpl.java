@@ -50,6 +50,10 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
         teacher.setName(teacher1.getName());
         teacher.setEmail(teacher1.getEmail());
         return true;
+    }
 
+    @Override
+    public News getSpecificNews(int id) {
+        return newsDao.getSpecificNews(id);
     }
 }

@@ -10,4 +10,5 @@ public interface NewsAndNoticeService {
      Boolean updateNews(News news);
      Page<News> searchNews(Page<News> page);
      Boolean teacherInfo(Teacher teacher);
+     News getSpecificNews(int id);
 }

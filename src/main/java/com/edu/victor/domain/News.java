@@ -1,7 +1,9 @@
 package com.edu.victor.domain;
 
-import java.util.Date;
+import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.Date;
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class News {
     private int id;
     private String title;

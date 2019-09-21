@@ -10,5 +10,6 @@ public interface NewsDao {
     Boolean updateNews(News news);
     Page<News> searchNewsByPage(Page<News> page);
     Teacher teacherInfo(Integer id);
+    News getSpecificNews(int id);
 
 }

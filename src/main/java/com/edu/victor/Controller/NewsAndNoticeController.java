@@ -10,10 +10,7 @@ import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -82,6 +79,12 @@ public class NewsAndNoticeController {
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);
         return  responseData;
-
+    }
+    @RequestMapping(value="/news/{news_id}",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseData specificNews(@PathVariable("news_id") Integer news_id){
+        ResponseData responseData = new ResponseData(200);
+        responseData.setData(newsAndNoticeService.getSpecificNews(news_id));
+        return responseData;
     }
 }

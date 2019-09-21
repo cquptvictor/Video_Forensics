@@ -4,4 +4,5 @@ import com.edu.victor.domain.Teacher;
 
 public interface LoginDao {
     Teacher teacherLogin(Teacher teacher);
+    Boolean updateInfo(Teacher teacher);
 }

@@ -36,4 +36,13 @@ public class GlobalException {
         responseData.setMessage("You need to complete your information first");
         return responseData;
     }
+    /**文件上传类型不符合规定*/
+    @ExceptionHandler(UnsupportedFileTypeException.class)
+    @ResponseBody
+    public ResponseData unsupportedFileType(){
+        ResponseData responseData = new ResponseData();
+        responseData.setCode(0);
+        responseData.setMessage("You need to upload correct file type");
+        return responseData;
+    }
 }
