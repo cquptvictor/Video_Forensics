@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.CourseDao">
+    <insert id="addCourse" parameterType="Course">
+        insert into course(tea_id,tea_name,title,description,pic)value (#{tea_id},#{tea_name},#{title},#{description},#{picUrl});
+    </insert>
+    <insert id="addChapter" parameterType="Chapter">
+        insert into course_chapter(title,weights,superior_id)value (#{title},#{weights},#{superior_id});
+    </insert>
+    <insert id="addSection" parameterType="Section">
+        insert into course_section(title,weights,superior_id,url)value (#{title},#{weights},#{superior_id},#{url});
+    </insert>
+    <select id="searchCourses" resultType="Course">
+        select * from course where tea_id = #{id};
+    </select>
+</mapper>

@@ -1,37 +1,51 @@
 package com.edu.victor.utils;
 
 import com.edu.victor.Exception.UnsupportedFileTypeException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * 处理头像的文件上传*/
-public class AvatarUpload {
-    private static String baseUrl = "E:\\avatar\\";
+public class ImageUploadUtils {
+    private static String avatarBaseUrl = "E:\\netClass\\avatar\\";
+    private static String courseImageBaseUrl = "E:\\netClass\\course\\";
+    private static String courseVideoBaseUrl = "E:\\netClass\\video\\";
     private static List<String> suffixes = new ArrayList<>();
+    private static List<String> videoSuffixes = new ArrayList<>();
+
     static {
         suffixes.add("jpg");
         suffixes.add("png");
+        videoSuffixes.add("mp4");
     }
-    public static String save(MultipartFile multipartFile,String id) throws UnsupportedFileTypeException {
+    public static String saveImage(MultipartFile multipartFile,String id,String type) throws UnsupportedFileTypeException {
         /**判断文件类型是否符合规定*/
         String fileName = multipartFile.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
-        if(!suffixes.contains(suffix))
-            throw new UnsupportedFileTypeException();
-            //获取子路径
+        if(type.equals("video")){
+            if(!videoSuffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+        }else {
+            if (!suffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+        }
+        //获取子路径
         int dir1 = id.hashCode()&0xf;
         int dir2 = id.hashCode()&0xf0;
 
         String path = dir1+File.separator+dir2+File.separator+id+"_teacher."+suffix;
         //创建目录
-        String catalog = baseUrl + path;
+        String catalog = null;
+        if(type.equals("avatar"))
+            catalog = avatarBaseUrl + path;
+        else if(type.equals(courseImageBaseUrl))
+            catalog = courseImageBaseUrl + path;
+        else
+            catalog = courseVideoBaseUrl + path;
         File catalogFile = new File(catalog);
         if(!catalogFile.getParentFile().exists()){
             catalogFile.mkdirs();

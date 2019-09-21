@@ -1,12 +1,23 @@
 package com.edu.victor.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Section {
     private int id;
     private int weights;
     private int superior_id;
     private String title;
     private String url;
+    private MultipartFile video;
     private String duration;
+
+    public MultipartFile getVideo() {
+        return video;
+    }
+
+    public void setVideo(MultipartFile video) {
+        this.video = video;
+    }
 
     public String getDuration() {
         return duration;

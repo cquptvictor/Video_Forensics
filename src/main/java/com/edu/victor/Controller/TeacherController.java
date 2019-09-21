@@ -4,7 +4,7 @@ import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.TeacherService;
 import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Teacher;
-import com.edu.victor.utils.AvatarUpload;
+import com.edu.victor.utils.ImageUploadUtils;
 import com.edu.victor.utils.JWT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,7 +56,7 @@ public class TeacherController {
     @ResponseBody
     public ResponseData updateAvatar(MultipartFile avatar,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
-        String path = AvatarUpload.save(avatar,String.valueOf(teacher.getId()));
+        String path = ImageUploadUtils.saveImage(avatar,String.valueOf(teacher.getId()),"avatar");
         teacher.setAvatar(path);
         ResponseData responseData = new ResponseData();
         if(loginService.updateInfo(teacher))

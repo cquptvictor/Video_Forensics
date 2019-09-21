@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.StuManagementDao">
+
+    <resultMap id="PageMap" type="Page">
+        <collection property="content" ofType="Student" autoMapping="true">
+        </collection>
+    </resultMap>
+
+    <insert id="addStu" >
+        insert into stu (username,password) values(#{username},#{username});
+    </insert>
+    <update id="updateStu" parameterType="Student">
+        update stu
+        <set>
+            <if test="name != null">
+                name = #{name}
+            </if>
+            <if test="phone != null">
+                ,phone = #{phone}
+            </if>
+            <if test="classNum != null">
+                ,class_num = #{classNum}
+            </if>
+            <if test="birth != null">
+                ,birth = #{birth}
+            </if>
+            <if test="password != null">
+                ,password = #{password}
+            </if>
+            <if test="username != null">
+                ,username = #{username}
+            </if>
+            <if test="email != null">
+                ,email = #{email}
+            </if>
+            <if test="sexual != null">
+                ,sexual = #{sexual}
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+    <select id="searchStuByPage"  resultMap="PageMap">
+        select * from stu
+        <where>
+            <if test="filter.classNum != null">
+                class_num = #{filter.classNum}
+            </if>
+            <if test="filter.stuNum != null">
+                and username = #{filter.stuNum}
+            </if>
+            <if test="filter.stuName != null">
+                and name like "%${filter.stuName}%"
+            </if>
+        </where>
+    </select>
+    <insert id="batchImport" parameterType="Student">
+        insert into stu(username,password,name,sexual) values(#{username},#{password},#{name},#{sexual});
+    </insert>
+
+
+</mapper>

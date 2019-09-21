@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.NewsDao">
+    <resultMap id="PageMap" type="Page">
+        <collection property="content" ofType="News" autoMapping="true">
+        </collection>
+    </resultMap>
+    <insert id="addNews" parameterType="News">
+        insert into news (title,content,publisher_id,publisher_name)value (#{title},#{content},#{publisherId},#{publisherName});
+    </insert>
+    <delete id="deleteNews">
+        delete from news where id = #{id};
+    </delete>
+    <update id="updateNews" parameterType="News">
+        update news <set>
+        <if test="content != null">
+            content = #{content}
+        </if>
+        <if test="title != null">
+            ,title = #{title}
+        </if>
+    </set>where id = #{id};
+    </update>
+    <select id="searchNewsByPage" parameterType="Page" resultMap="PageMap">
+        select id,title,publisher_id,publisher_name,publish_time from news
+    </select>
+    <select id="teacherInfo" parameterType="Teacher" resultType="Teacher">
+        select email,name,id from teacher where id = #{id};
+    </select>
+    <select id="getSpecificNews" resultType="News">
+        select *  FROM news where id = #{id}
+    </select>
+</mapper>
