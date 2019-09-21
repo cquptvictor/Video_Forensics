@@ -71,7 +71,7 @@ public class StuManagementController {
         List<Student> list = ExcelUtils.excelToStudent(excel);
         int duplicateNum = stuManagementService.batchImport(list);
         ResponseData responseData = new ResponseData(200);
-        String message = String.format("一共导入%d个，失败%d个",list.size(),duplicateNum);
+        String message = String.format("一共导入%d个，已存在%d个",list.size(),duplicateNum);
         responseData.setMessage(message);
         return responseData;
     }
