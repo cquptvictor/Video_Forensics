@@ -69,6 +69,11 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
 
     @Override
+    public String searchCoursewareUrl(int id) {
+        return courseDao.getCoursewareUrl(id);
+    }
+
+    @Override
     public String searchSection(int id) {
         return courseDao.getSectionUrl(id);
     }
@@ -78,10 +83,19 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public List<String> searchSectionByChapter(int id) {
         return courseDao.getSectionUrlByChapter(id);
     }
+
+    @Override
+    public List<String> searchSectionByCourse(int course_id) {
+        return courseDao.getSectionUrlByCourse(course_id);
+    }
+
     @Override
     public Boolean deleteCourse(int id,int tea_id) {
         return courseDao.deleteCourse(id,tea_id);
     }
 
-
+    @Override
+    public Boolean deleteCourseware(int id, int tea_id) {
+        return courseDao.deleteCourseware(id,tea_id);
+    }
 }

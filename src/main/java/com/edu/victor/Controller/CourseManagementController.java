@@ -123,9 +123,11 @@ public class CourseManagementController {
     }*/
     @RequestMapping(value = "/uploadCourseware",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData uploadCorseware(Courseware courseware) throws UnsupportedFileTypeException {
+    public ResponseData uploadCorseware(Courseware courseware,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
         String path = UploadUtils.saveImage(courseware.getFile(),courseware.getSuperior_id()+"","courseware");
         courseware.setUrl(path);
+        courseware.setTea_id(teacher.getId());
         ResponseData responseData = new ResponseData();
         if(courseManagementService.addCourseware(courseware))
             responseData.setCode(200);
@@ -170,11 +172,25 @@ public class CourseManagementController {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
         int tea_id = teacher.getId();
         ResponseData responseData = new ResponseData();
-        List<String> urls = courseManagementService.searchSectionByChapter(course_id);
+        List<String> urls = courseManagementService.searchSectionByCourse(course_id);
 
         if(courseManagementService.deleteCourse(course_id,tea_id)) {
             responseData.setCode(200);
             UploadUtils.deleteFile(urls,"video");
+        }else
+            responseData.setCode(0);
+        return responseData;
+    }
+    @RequestMapping(value = "/dCourseware/{courseware_id}")
+    @ResponseBody
+    public ResponseData deleteCourseware(@PathVariable int courseware_id, HttpServletRequest httpServletRequest ){
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        int tea_id = teacher.getId();
+        ResponseData responseData = new ResponseData();
+        String url = courseManagementService.searchCoursewareUrl(courseware_id);
+        if(courseManagementService.deleteCourseware(courseware_id,tea_id)) {
+            responseData.setCode(200);
+            UploadUtils.deleteFile(url,"courseware");
         }else
             responseData.setCode(0);
         return responseData;

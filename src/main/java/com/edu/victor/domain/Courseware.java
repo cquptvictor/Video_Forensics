@@ -12,10 +12,19 @@ public class Courseware {
     private MultipartFile file;
     private String url;
     private String title;
+    private int tea_id;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date time;
     public String getUrl() {
         return url;
+    }
+
+    public int getTea_id() {
+        return tea_id;
+    }
+
+    public void setTea_id(int tea_id) {
+        this.tea_id = tea_id;
     }
 
     public void setUrl(String url) {
