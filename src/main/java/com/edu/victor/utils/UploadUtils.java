@@ -9,18 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 处理头像的文件上传*/
-public class ImageUploadUtils {
+ * 处理video、avatar、courseImage、courseware的上传*/
+public class UploadUtils {
     private static String avatarBaseUrl = "E:\\netClass\\avatar\\";
     private static String courseImageBaseUrl = "E:\\netClass\\course\\";
     private static String courseVideoBaseUrl = "E:\\netClass\\video\\";
-    private static List<String> suffixes = new ArrayList<>();
+    private static String coursewareBaseUrl = "E:\\netClass\\courseware\\";
+    private static List<String> imageSuffixes = new ArrayList<>();
     private static List<String> videoSuffixes = new ArrayList<>();
-
+    private static List<String> coursewareSuffixes = new ArrayList<>();
+    /**添加类型限制*/
     static {
-        suffixes.add("jpg");
-        suffixes.add("png");
+        imageSuffixes.add("jpg");
+        imageSuffixes.add("png");
         videoSuffixes.add("mp4");
+        coursewareSuffixes.add("pptx");
     }
     public static String saveImage(MultipartFile multipartFile,String id,String type) throws UnsupportedFileTypeException {
         /**判断文件类型是否符合规定*/
@@ -29,8 +32,11 @@ public class ImageUploadUtils {
         if(type.equals("video")){
             if(!videoSuffixes.contains(suffix))
                 throw new UnsupportedFileTypeException();
-        }else {
-            if (!suffixes.contains(suffix))
+        }else if(type.equals("courseware")){
+            if (!coursewareSuffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+        }else{
+            if (!imageSuffixes.contains(suffix))
                 throw new UnsupportedFileTypeException();
         }
         //获取子路径
@@ -42,10 +48,12 @@ public class ImageUploadUtils {
         String catalog = null;
         if(type.equals("avatar"))
             catalog = avatarBaseUrl + path;
-        else if(type.equals(courseImageBaseUrl))
+        else if(type.equals("courseImage"))
             catalog = courseImageBaseUrl + path;
-        else
+        else if(type.equals("video"))
             catalog = courseVideoBaseUrl + path;
+        else
+            catalog = coursewareBaseUrl + path;
         File catalogFile = new File(catalog);
         if(!catalogFile.getParentFile().exists()){
             catalogFile.mkdirs();
@@ -58,9 +66,6 @@ public class ImageUploadUtils {
 
         return path;
     }
-    public static void main(String[] args){
-        File file = new File("E:\\avatar\\5\\128\\1569048950502.jpg");
-        file.delete();
-    }
+
 
 }

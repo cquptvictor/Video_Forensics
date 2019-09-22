@@ -4,7 +4,7 @@ import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.CourseManagementService;
 import com.edu.victor.domain.*;
-import com.edu.victor.utils.ImageUploadUtils;
+import com.edu.victor.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +26,7 @@ public class CourseManagementController {
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
         if(teacher.getEmail() == null || teacher.getName() == null)
             throw new IncompleteInformationException();
-        String path = ImageUploadUtils.saveImage(course.getPic(),teacher.getId()+"","course");
+        String path = UploadUtils.saveImage(course.getPic(),teacher.getId()+"","course");
         course.setPicUrl(path);
         course.setTea_id(teacher.getId());
         course.setTea_name(teacher.getName());
@@ -51,7 +51,7 @@ public class CourseManagementController {
     @ResponseBody
     public ResponseData addSection(Section section) throws UnsupportedFileTypeException {
         ResponseData responseData = new ResponseData();
-        String path = ImageUploadUtils.saveImage(section.getVideo(),section.getSuperior_id()+"","video");
+        String path = UploadUtils.saveImage(section.getVideo(),section.getSuperior_id()+"","video");
         section.setUrl(path);
         if(courseManagementService.addSection(section))
             responseData.setCode(200);
@@ -72,7 +72,14 @@ public class CourseManagementController {
             responseData.setCode(0);
         return responseData;
     }
-    @RequestMapping(value = "/chapter/{course_id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/courseInfo",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseData getCourseInfo(int id){
+        ResponseData responseData = new ResponseData(200);
+        responseData.setData(courseManagementService.getCourseInfo(id));
+        return responseData;
+    }
+    /*@RequestMapping(value = "/chapter/{course_id}",method = RequestMethod.POST)
     @ResponseBody
     public ResponseData getChapter(@PathVariable int course_id){
         ResponseData responseData = new ResponseData();
@@ -98,4 +105,22 @@ public class CourseManagementController {
         }
         return responseData;
     }
+    @RequestMapping(value = "/uploadCourseware",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseData uploadCorseware(Courseware courseware) throws UnsupportedFileTypeException {
+        String path = UploadUtils.saveImage(courseware.getFile(),courseware.getSuperior_id()+"","courseware");
+        courseware.setUrl(path);
+        ResponseData responseData = new ResponseData();
+        if(courseManagementService.addCourseware(courseware))
+            responseData.setCode(200);
+        else
+            responseData.setCode(0);
+        return responseData;
+    }
+    @RequestMapping(value = "/dSection",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseData deleteSection(int id){
+
+    }*/
+
 }

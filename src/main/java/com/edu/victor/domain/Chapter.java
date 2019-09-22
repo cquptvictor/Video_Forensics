@@ -1,9 +1,13 @@
 package com.edu.victor.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Chapter {
     private int id;
+    @JsonIgnore
     private int superior_id;
     private String title;
+    @JsonIgnore
     private int weights;
 
     public int getSuperior_id() {

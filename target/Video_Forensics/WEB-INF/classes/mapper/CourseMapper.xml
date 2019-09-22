@@ -4,6 +4,21 @@
 
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.CourseDao">
+    <resultMap id="ChapterMap" type="SectionDto">
+        <collection property="SectionDto" column="id" select="getSectionByStep" ofType="Section"/>
+    </resultMap>
+    <resultMap id="CourseMap" type="CourseDto">
+        <collection property="chapterDto" column="id" resultMap="SectionMap" select="getChapterByStep"/>
+    </resultMap>
+    <select id="getTotalCourseInfo" resultMap="CourseMap">
+        select title,tea_id from course where id = #{id};
+    </select>
+    <select id="getChapterByStep" resultMap="ChapterMap">
+        select id,title,superior_id from course_chapter wherer id = #{id};
+    </select>
+    <select id="getSectionByStep" resultType="Section">
+        select id,title,superior_id,url from course_section where id = #{id};
+    </select>
     <insert id="addCourse" parameterType="Course">
         insert into course(tea_id,tea_name,title,description,pic)value (#{tea_id},#{tea_name},#{title},#{description},#{picUrl});
     </insert>
@@ -12,6 +27,9 @@
     </insert>
     <insert id="addSection" parameterType="Section">
         insert into course_section(title,weights,superior_id,url)value (#{title},#{weights},#{superior_id},#{url});
+    </insert>
+    <insert id="addCourseware" parameterType="Courseware">
+      insert into courseware(superior_id,title,url)value (#{superior_id},#{title},#{url});
     </insert>
     <select id="searchCourses" resultType="Course">
         select * from course where tea_id = #{id};
@@ -22,4 +40,14 @@
     <select id="searchSection" resultType="Section">
         select * from course_section where superior_id = #{id} order by weights;
     </select>
+    <delete id="deleteCurse">
+        delete from course where id = #{id};
+    </delete>
+    <delete id="deleteChapter">
+        delete from course_chapter where id = #{id};
+    </delete>
+    <delete id="deleteSection">
+        delete from course_section where id = #{id}
+    </delete>
+
 </mapper>

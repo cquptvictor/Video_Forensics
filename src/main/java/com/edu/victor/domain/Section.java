@@ -1,15 +1,18 @@
 package com.edu.victor.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Section {
     private int id;
+    @JsonIgnore
     private int weights;
+    @JsonIgnore
     private int superior_id;
     private String title;
     private String url;
+    @JsonIgnore
     private MultipartFile video;
-    private String duration;
 
     public MultipartFile getVideo() {
         return video;
@@ -17,14 +20,6 @@ public class Section {
 
     public void setVideo(MultipartFile video) {
         this.video = video;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
     }
 
     public int getSuperior_id() {
