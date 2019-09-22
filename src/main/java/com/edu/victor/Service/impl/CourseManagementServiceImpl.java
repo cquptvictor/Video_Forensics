@@ -48,4 +48,15 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public List<Course> searchCourses(int id) {
         return courseDao.searchCourses(id);
     }
+
+    @Override
+    public List<Chapter> searchChapter(int id) {
+        return courseDao.searchChapter(id);
+
+    }
+
+    @Override
+    public List<Section> searchSection(int id) {
+        return courseDao.searchSection(id);
+    }
 }

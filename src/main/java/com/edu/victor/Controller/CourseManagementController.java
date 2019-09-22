@@ -7,6 +7,7 @@ import com.edu.victor.domain.*;
 import com.edu.victor.utils.ImageUploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -69,6 +70,32 @@ public class CourseManagementController {
             responseData.setData(list);
         }else
             responseData.setCode(0);
+        return responseData;
+    }
+    @RequestMapping(value = "/chapter/{course_id}",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseData getChapter(@PathVariable int course_id){
+        ResponseData responseData = new ResponseData();
+        List<Chapter> list = courseManagementService.searchChapter(course_id);
+        if(list != null) {
+            responseData.setCode(200);
+            responseData.setData(list);
+        }else{
+            responseData.setCode(0);
+        }
+        return responseData;
+    }
+    @RequestMapping(value = "/section/{chapter_id}",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseData getSection(@PathVariable int chapter_id){
+        ResponseData responseData = new ResponseData();
+        List<Section> list = courseManagementService.searchSection(chapter_id);
+        if(list != null) {
+            responseData.setCode(200);
+            responseData.setData(list);
+        }else{
+            responseData.setCode(0);
+        }
         return responseData;
     }
 }

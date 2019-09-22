@@ -10,6 +10,17 @@ public class ResponseData<T> {
     public ResponseData(int code){
         this.code = code;
     }
+    public ResponseData(int code, T data){
+        this.code = code;
+        this.data = data;
+    }
+
+    public ResponseData(int code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
     public int getCode() {
         return code;
     }

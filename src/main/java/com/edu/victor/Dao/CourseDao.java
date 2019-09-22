@@ -11,4 +11,6 @@ public interface CourseDao {
     Boolean addChapter(Chapter chapter);
     Boolean addSection(Section section);
     List<Course> searchCourses(Integer id);
+    List<Chapter> searchChapter(Integer id);
+    List<Section> searchSection(Integer id);
 }

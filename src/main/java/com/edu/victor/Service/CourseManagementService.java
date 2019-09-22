@@ -14,6 +14,8 @@ public interface CourseManagementService {
     Boolean deleteChapter(int id);
     Boolean deleteSection(int id);
     List<Course> searchCourses(int id);
+    List<Chapter> searchChapter(int id);
+    List<Section> searchSection(int id);
 
 
 }

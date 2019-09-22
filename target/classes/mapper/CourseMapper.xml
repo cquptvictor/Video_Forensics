@@ -16,4 +16,10 @@
     <select id="searchCourses" resultType="Course">
         select * from course where tea_id = #{id};
     </select>
+    <select id="searchChapter" resultType="Chapter">
+        select * from course_chapter where superior_id = #{id} order by weights;
+    </select>
+    <select id="searchSection" resultType="Section">
+        select * from course_section where superior_id = #{id} order by weights;
+    </select>
 </mapper>
