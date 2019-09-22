@@ -10,13 +10,16 @@ public interface CourseManagementService {
     Boolean addChapter(Chapter chapter);
     Boolean addSection(Section section);
     Boolean addCourseware(Courseware courseware);
-    Boolean deleteCourse(int id);
-    Boolean deleteChapter(int id);
-    Boolean deleteSection(int id);
-
     List<Course> searchCourses(int id);
+    List<Courseware> searchCoursewares(int id);
   /*  List<Chapter> searchChapter(int id);
     List<Section> searchSection(int id);
 */
+    String searchSection(int id);
+    List<String> searchSectionByChapter(int id );
     CourseDto getCourseInfo(int id);
+    Boolean deleteSection(int section_id, int tea_id);
+    Boolean deleteChapter(int id,int tea_id);
+    Boolean deleteCourse(int id,int tea_id);
+
 }

@@ -1,8 +1,8 @@
 package com.edu.victor.domain;
 
+import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
-
 public class Course {
     private int id;
     private String title;

@@ -39,8 +39,12 @@ public class CourseManagementController {
     }
     @RequestMapping(value = "/aChapter",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData addChapter(Chapter chapter){
+    public ResponseData addChapter(Chapter chapter,HttpServletRequest httpServletRequest) throws IncompleteInformationException {
+        Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
+        if(teacher.getEmail() == null || teacher.getName() == null)
+            throw new IncompleteInformationException();
         ResponseData responseData = new ResponseData();
+        chapter.setTea_id(teacher.getId());
         if(courseManagementService.addChapter(chapter))
             responseData.setCode(200);
         else
@@ -49,10 +53,14 @@ public class CourseManagementController {
     }
     @RequestMapping(value = "/aSection",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData addSection(Section section) throws UnsupportedFileTypeException {
+    public ResponseData addSection(Section section,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IncompleteInformationException {
+        Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
+        if(teacher.getEmail() == null || teacher.getName() == null)
+            throw new IncompleteInformationException();
         ResponseData responseData = new ResponseData();
         String path = UploadUtils.saveImage(section.getVideo(),section.getSuperior_id()+"","video");
         section.setUrl(path);
+        section.setTea_id(teacher.getId());
         if(courseManagementService.addSection(section))
             responseData.setCode(200);
         else
@@ -72,11 +80,19 @@ public class CourseManagementController {
             responseData.setCode(0);
         return responseData;
     }
-    @RequestMapping(value = "/courseInfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/courseInfo/{id}",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData getCourseInfo(int id){
+    public ResponseData getCourseInfo(@PathVariable int id){
         ResponseData responseData = new ResponseData(200);
         responseData.setData(courseManagementService.getCourseInfo(id));
+        return responseData;
+    }
+
+    @RequestMapping(value = "/coursewares/{id}")
+    @ResponseBody
+    public ResponseData getCoursewares(@PathVariable int id){
+        ResponseData responseData = new ResponseData(20);
+        responseData.setData(courseManagementService.searchCoursewares(id));
         return responseData;
     }
     /*@RequestMapping(value = "/chapter/{course_id}",method = RequestMethod.POST)
@@ -104,7 +120,7 @@ public class CourseManagementController {
             responseData.setCode(0);
         }
         return responseData;
-    }
+    }*/
     @RequestMapping(value = "/uploadCourseware",method = RequestMethod.POST)
     @ResponseBody
     public ResponseData uploadCorseware(Courseware courseware) throws UnsupportedFileTypeException {
@@ -117,10 +133,50 @@ public class CourseManagementController {
             responseData.setCode(0);
         return responseData;
     }
-    @RequestMapping(value = "/dSection",method = RequestMethod.POST)
+/**
+ * 删除文件前要先查询出url*/
+    @RequestMapping("/dSection/{section_id}")
     @ResponseBody
-    public ResponseData deleteSection(int id){
+    public ResponseData deleteSection(@PathVariable int section_id, HttpServletRequest httpServletRequest ){
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        int tea_id = teacher.getId();
+        ResponseData responseData = new ResponseData();
+        String url = courseManagementService.searchSection(section_id);
+        if(courseManagementService.deleteSection(section_id,tea_id)) {
+            responseData.setCode(200);
+            UploadUtils.deleteFile(url,"video");
+        }else
+            responseData.setCode(0);
+        return responseData;
+    }
+    @RequestMapping(value = "/dChapter/{chapter_id}")
+    @ResponseBody
+    public ResponseData deleteChapter(@PathVariable int chapter_id, HttpServletRequest httpServletRequest ){
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        int tea_id = teacher.getId();
+        ResponseData responseData = new ResponseData();
+        List<String> urls = courseManagementService.searchSectionByChapter(chapter_id);
 
-    }*/
+        if(courseManagementService.deleteChapter(chapter_id,tea_id)) {
+            responseData.setCode(200);
+            UploadUtils.deleteFile(urls,"video");
+        }else
+            responseData.setCode(0);
+        return responseData;
+    }
+    @RequestMapping(value = "/dCourse/{course_id}")
+    @ResponseBody
+    public ResponseData deleteCourse(@PathVariable int course_id, HttpServletRequest httpServletRequest ){
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        int tea_id = teacher.getId();
+        ResponseData responseData = new ResponseData();
+        List<String> urls = courseManagementService.searchSectionByChapter(course_id);
 
+        if(courseManagementService.deleteCourse(course_id,tea_id)) {
+            responseData.setCode(200);
+            UploadUtils.deleteFile(urls,"video");
+        }else
+            responseData.setCode(0);
+        return responseData;
+    }
 }

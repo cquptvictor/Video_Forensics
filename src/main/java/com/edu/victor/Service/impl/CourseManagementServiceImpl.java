@@ -28,21 +28,6 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
 
     @Override
-    public Boolean deleteCourse(int id) {
-        return null;
-    }
-
-    @Override
-    public Boolean deleteChapter(int id) {
-        return null;
-    }
-
-    @Override
-    public Boolean deleteSection(int id) {
-        return null;
-    }
-
-    @Override
     public List<Course> searchCourses(int id) {
         return courseDao.searchCourses(id);
     }
@@ -67,4 +52,36 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public CourseDto getCourseInfo(int id) {
         return courseDao.getCourseInfo(id);
     }
+
+    @Override
+    public List<Courseware> searchCoursewares(int id) {
+        return courseDao.searchCourseware(id);
+    }
+    /**删除小节*/
+    @Override
+    public Boolean deleteSection(int section_id, int tea_id) {
+        return courseDao.deleteSection(section_id, tea_id);
+    }
+    /**删除章节*/
+    @Override
+    public Boolean deleteChapter(int id, int tea_id) {
+        return courseDao.deleteChapter(id,tea_id);
+    }
+
+    @Override
+    public String searchSection(int id) {
+        return courseDao.getSectionUrl(id);
+    }
+    /**
+     * 根据章节id查询出章节的下属Section的url集合*/
+    @Override
+    public List<String> searchSectionByChapter(int id) {
+        return courseDao.getSectionUrlByChapter(id);
+    }
+    @Override
+    public Boolean deleteCourse(int id,int tea_id) {
+        return courseDao.deleteCourse(id,tea_id);
+    }
+
+
 }

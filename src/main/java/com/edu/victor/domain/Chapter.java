@@ -1,7 +1,8 @@
 package com.edu.victor.domain;
 
+import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Chapter {
     private int id;
     @JsonIgnore
@@ -9,6 +10,16 @@ public class Chapter {
     private String title;
     @JsonIgnore
     private int weights;
+    @JsonIgnore
+    private int tea_id;
+
+    public int getTea_id() {
+        return tea_id;
+    }
+
+    public void setTea_id(int tea_id) {
+        this.tea_id = tea_id;
+    }
 
     public int getSuperior_id() {
         return superior_id;

@@ -67,5 +67,24 @@ public class UploadUtils {
         return path;
     }
 
-
+    public static void deleteFile(List<String> url,String type){
+        String base = null;
+        if(type.equals("video")){
+            base = courseVideoBaseUrl ;
+        }else
+            base = coursewareBaseUrl ;
+        for(String each:url) {
+            File file = new File(base,each);
+            file.delete();
+        }
+    }
+    public static void deleteFile(String url,String type){
+        String base = null;
+        if(type.equals("video")){
+            base = courseVideoBaseUrl ;
+        }else
+            base = coursewareBaseUrl ;
+            File file = new File(base,url);
+            file.delete();
+    }
 }

@@ -1,8 +1,10 @@
 package com.edu.victor.domain;
 
+import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.sql.Date;
 import java.util.List;
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Notice {
     private int id;
     private String tea_id;

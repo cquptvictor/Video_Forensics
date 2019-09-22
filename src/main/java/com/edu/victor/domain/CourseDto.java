@@ -1,9 +1,15 @@
 package com.edu.victor.domain;
 
+
 import java.util.List;
+public class CourseDto{
+   private List<ChapterDto> chapterDtoList;
 
-public class CourseDto extends Course{
+    public List<ChapterDto> getChapterDtoList() {
+        return chapterDtoList;
+    }
 
-    List<ChapterDto> chapter;
-
+    public void setChapterDtoList(List<ChapterDto> chapterDtoList) {
+        this.chapterDtoList = chapterDtoList;
+    }
 }
