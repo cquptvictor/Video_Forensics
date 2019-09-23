@@ -12,6 +12,9 @@ import com.edu.victor.domain.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     @Autowired
@@ -69,7 +72,13 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData searchNews(Page<News> page) {
+    public ResponseData searchNews(int tea_id, int currentPage) {
+        Page<News> page = new Page<>();
+        page.setCurrentPage(currentPage);
+        Map<String,Object> filter = new HashMap<>();
+        filter.put("tea_id",tea_id);
+        page.setFilter(filter);
+
         Page<News> page2 = newsDao.searchNewsByPage(page);
         page.setContent(page2.getContent());
         ResponseData responseData = new ResponseData(200);

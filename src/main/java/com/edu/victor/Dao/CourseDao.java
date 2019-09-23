@@ -22,8 +22,7 @@ public interface CourseDao {
    Boolean deleteCourseware(int courseware_id,int tea_id);
 
    String getCoursewareUrl(int id);
-   String getCourseImgageUrl(int id);
-   String getSectionUrl(int id);
+   String getCourseImageUrl(int id);
    List<String> getCoursewareUrlByCourse(int id);
    List<String> getSectionUrlByChapter(int chapter_id);
    List<String> getSectionUrlByCourse(int course_id);

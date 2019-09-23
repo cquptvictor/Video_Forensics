@@ -23,7 +23,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         /**验证用户信息是否完整*/
         teacherService.isCompleted(teacher);
         String path = UploadUtils.saveImage(course.getPic(),teacher.getId()+"","courseImage");
-        course.setPicUrl(path);
+        course.setUrl(path);
         course.setTea_id(teacher.getId());
         course.setTea_name(teacher.getName());
         ResponseData responseData = new ResponseData();
@@ -114,7 +114,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Override
     public ResponseData deleteSection(int section_id, int tea_id) {
         ResponseData responseData = new ResponseData();
-        String url = courseDao.getSectionUrl(section_id);
+        String url = courseDao.getCourseImageUrl(section_id);
         if(courseDao.deleteSection(section_id,tea_id)) {
             responseData.setCode(200);
             UploadUtils.deleteFile(url,"video");
@@ -138,7 +138,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Override
     public ResponseData deleteCourse(int id,int tea_id) {
         ResponseData responseData = new ResponseData();
-        String imageUrl = courseDao.getCourseImgageUrl(id);
+        String imageUrl = courseDao.getCourseImageUrl(id);
         List<String> sectionUrls = courseDao.getSectionUrlByChapter(id);
         List<String> coursewareUrls= courseDao.getCoursewareUrlByCourse(id);
 

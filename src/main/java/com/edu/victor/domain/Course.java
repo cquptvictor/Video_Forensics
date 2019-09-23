@@ -8,16 +8,16 @@ public class Course {
     private String description;
     private int tea_id;
     private String tea_name;
-    private String picUrl;
+    private String url;
     @JsonIgnore
     private MultipartFile pic;
 
-    public String getPicUrl() {
-        return picUrl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public MultipartFile getPic() {

@@ -11,6 +11,6 @@ public interface NewsAndNoticeService {
      ResponseData addNews(News news, Teacher teacher) throws IncompleteInformationException;
      ResponseData deleteNews(int id, int publisher_id,int tea_id) throws NotAuthorizedException;
      ResponseData updateNews(News news,Teacher teacher) throws NotAuthorizedException;
-     ResponseData searchNews(Page<News> page);
+     ResponseData searchNews(int tea_id,int currentPage);
      ResponseData getSpecificNews(int id);
 }
