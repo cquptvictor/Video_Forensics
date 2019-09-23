@@ -186,8 +186,46 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         return courseDao.getSectionUrlByCourse(course_id);
     }
 */
+    //更新操作
 
+    /**查询出图片路径，替换图片，然后正常更新*/
+    @Override
+    public ResponseData updateCourse(Course course) {
+        if(courseDao.updateCourseInfo(course))
+        {
+            String url = courseDao.getCourseImageUrl(course.getId());
+            //提取文件名
+            String filePath = url.split(".",1)[0];
+            UploadUtils.updateCourseImage(course.getPic(),filePath);
+        }
+        ResponseData responseData = new ResponseData();
+        if(courseDao.updateCourseInfo(course))
+            responseData.setCode(200);
+        else
+            responseData.setCode(0);
+        return responseData;
+    }
 
+    @Override
+    public ResponseData updateChapter(Chapter chapter) {
+        ResponseData responseData = new ResponseData();
+        if(courseDao.updateChapterInfo(chapter)){
+            responseData.setCode(200);
+        }else {
+            responseData.setCode(0);
+        }
+        return responseData;
+    }
+
+    @Override
+    public ResponseData updateSection(Section section) {
+        ResponseData responseData = new ResponseData();
+        if(courseDao.updateSectionInfo(section))
+            responseData.setCode(200);
+        else
+            responseData.setCode(0);
+        return responseData;
+    }
 }
 
 

@@ -58,11 +58,11 @@ public class UploadUtils {
         {
             path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
             catalog = courseVideoBaseUrl +  path;
-        }
-        else {
+        }else if(type.equals("courseware")){
             path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
             catalog = coursewareBaseUrl + path;
         }
+
 
         File catalogFile = new File(catalog);
         if(!catalogFile.getParentFile().exists()){
@@ -76,7 +76,14 @@ public class UploadUtils {
 
         return path;
     }
-
+    public static void updateCourseImage(MultipartFile multipartFile,String url){
+        File catalogFile = new File(courseImageBaseUrl + url);
+        try {
+            multipartFile.transferTo(catalogFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public static void deleteFile(List<String> url,String type){
         String base = null;
         if(type.equals("video")){

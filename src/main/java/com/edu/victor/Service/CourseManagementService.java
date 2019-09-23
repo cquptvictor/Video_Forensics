@@ -25,5 +25,8 @@ public interface CourseManagementService {
     ResponseData deleteChapter(int id,int tea_id);
     ResponseData deleteCourse(int id,int tea_id);
     ResponseData deleteCourseware(int id, int tea_id);
+    ResponseData updateCourse(Course course);
+    ResponseData updateChapter(Chapter chapter);
+    ResponseData updateSection(Section section);
 
 }

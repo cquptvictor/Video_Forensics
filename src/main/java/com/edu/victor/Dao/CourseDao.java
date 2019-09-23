@@ -26,4 +26,9 @@ public interface CourseDao {
    List<String> getCoursewareUrlByCourse(int id);
    List<String> getSectionUrlByChapter(int chapter_id);
    List<String> getSectionUrlByCourse(int course_id);
+
+   Boolean updateCourseInfo(Course course);
+   Boolean updateChapterInfo(Chapter chapter);
+   Boolean updateSectionInfo(Section section);
+
 }

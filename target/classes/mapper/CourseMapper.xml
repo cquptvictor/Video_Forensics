@@ -83,5 +83,46 @@
     <delete id="deleteCourseware">
         delete from courseware where id = #{0} and tea_id = #{1};
     </delete>
-
+    <!--课程信息更改-->
+    <update id="updateCourseInfo" >
+        update course
+        <set>
+        <if test="title">
+            title = #{title},
+        </if>
+        <if test="description">
+            description = #{description}
+        </if>
+    </set>
+      where id = #{id} and tea_id = #{tea_id};
+    </update>
+    <!--章节信息的更改-->
+    <update id="updateChapterInfo">
+        update course_chapter
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="weights != null">
+                weights = #{weights}
+            </if>
+        </set>
+        where id = #{id} and tea_id = #{tea_id};
+    </update>
+    <!--小节信息更改-->
+    <update id="updateSectionInfo">
+        update course_section
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="weights != null">
+                weights = #{weights},
+            </if>
+            <if test="superior_id"/>
+              superior_id = #{superior_id}
+        </set>
+        where id = #{id} and tea_id = #{tea_id};
+    </update>
 </mapper>
+

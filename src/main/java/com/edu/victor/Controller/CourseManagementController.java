@@ -126,4 +126,30 @@ public class CourseManagementController {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
         return courseManagementService.deleteCourseware(courseware_id,teacher.getId());
     }
+    /**更改课程名、描述和图片*/
+    @RequestMapping(value = "/uCourse")
+    @ResponseBody
+    public ResponseData updateCourse(Course course,HttpServletRequest httpServletRequest){
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        course.setTea_id(teacher.getId());
+        return courseManagementService.updateCourse(course);
+    }
+    /**更改章节名，和权重*/
+    @RequestMapping(value = "/uChapter")
+    @ResponseBody
+    public ResponseData updateChapter(Chapter chapter,HttpServletRequest httpServletRequest){
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        chapter.setTea_id(teacher.getId());
+        return courseManagementService.updateChapter(chapter);
+    }
+
+    /**更改小节名，权重，视频*/
+    @RequestMapping(value = "/uSection")
+    @ResponseBody
+    public ResponseData updateSection(Section section,HttpServletRequest httpServletRequest){
+        Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
+        section.setTea_id(teacher.getId());
+        return courseManagementService.updateSection(section);
+    }
+
 }
