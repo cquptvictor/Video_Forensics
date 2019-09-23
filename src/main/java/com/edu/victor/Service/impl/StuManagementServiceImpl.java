@@ -1,36 +1,59 @@
 package com.edu.victor.Service.impl;
 
 import com.edu.victor.Dao.StuManagementDao;
+import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.Page;
+import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Student;
+import com.edu.victor.utils.ExcelUtils;
+import com.edu.victor.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class StuManagementServiceImpl implements StuManagementService {
     @Autowired
     StuManagementDao stuManagementDao;
     @Override
-    public Boolean addStu(String username) {
-        return stuManagementDao.addStu(username);
+    public ResponseData addStu(String username)
+    {
+        ResponseData responseData = new ResponseData();
+        if(stuManagementDao.addStu(username))
+        {
+            responseData.setCode(200);
+        }else
+            responseData.setCode(0);
+        return responseData;
     }
 
     @Override
-    public Boolean updateStu(Student student) {
-        return stuManagementDao.updateStu(student);
+    public ResponseData updateStu(Student student) {
+        ResponseData responseData = new ResponseData();
+        if(stuManagementDao.updateStu(student))
+            responseData.setCode(200);
+        else
+            responseData.setCode(0);
+        return responseData;
     }
 
 
 
     @Override
-    public Page<Student> searchStu(Page<Student> page) {
+    public ResponseData searchStu(Map map,int currentPaage) {
+        ResponseData responseData = new ResponseData();
+        Page<Student> page = new Page<>();
+        page.setCurrentPage(currentPaage);
+        page.setFilter(map);
         Page<Student> page2 = stuManagementDao.searchStuByPage(page);
         page.setContent(page2.getContent());
-        return page;
+        responseData.setData(page);
+        return responseData;
     }
 
    /* @Override
@@ -45,7 +68,9 @@ public class StuManagementServiceImpl implements StuManagementService {
     }*/
    /**捕获已经存在的账号重复导入的错误*/
     @Override
-    public int batchImport(List<Student> list) {
+    public ResponseData batchImport(MultipartFile excel) throws StuNumNotFound {
+
+        List<Student> list = ExcelUtils.excelToStudent(excel);
         int duplicateNum = 0;
         for(Student student : list){
             try{
@@ -54,7 +79,10 @@ public class StuManagementServiceImpl implements StuManagementService {
                 duplicateNum++;
             }
         }
-        return duplicateNum;
+        ResponseData responseData = new ResponseData(200);
+        String message = String.format("一共导入%d个，已存在%d个",list.size(),duplicateNum);
+        responseData.setMessage(message);
+        return responseData;
     }
 
 }

@@ -1,33 +1,74 @@
 package com.edu.victor.Service.impl;
 
-import com.edu.victor.Dao.LoginDao;
+import com.edu.victor.Dao.TeacherDao;
+import com.edu.victor.Exception.IncompleteInformationException;
+import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.TeacherService;
+import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Teacher;
+import com.edu.victor.utils.JWT;
+import com.edu.victor.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
-    LoginDao loginDao;
+    TeacherDao teacherDao;
     @Override
-    public Boolean login(Teacher teacher) {
-        Teacher teacher1 = loginDao.teacherLogin(teacher);
-        if(teacher1.getId() == -1) {
-            return false;
+    public ResponseData login(Teacher teacher) {
+        ResponseData responseData = new ResponseData();
+        Teacher teacher1 = teacherDao.teacherLogin(teacher);
+        if(teacher1.getId() != -1){
+            responseData.setCode(200);
+            responseData.setMessage("login Successful");
+            Map<String,String> map = new HashMap();
+            map.put("token", JWT.sign(teacher1,120000));
+            responseData.setData(map);
         }else{
-            teacher.setId(teacher1.getId());
-            teacher.setEmail(teacher1.getEmail());
-            teacher.setName(teacher1.getName());
-            teacher.setAvatar(teacher1.getAvatar());
-            teacher.setUsername(null);
-            return true;
+            responseData.setCode(0);
+            responseData.setMessage("login Failed");
         }
+        return responseData;
     }
 
     @Override
-    public Boolean updateInfo(Teacher teacher) {
-        return loginDao.updateInfo(teacher);
+    public ResponseData updateInfo(Teacher teacher) throws UnsupportedFileTypeException {
+        ResponseData responseData = new ResponseData();
+        String path = null;
+        if(teacher.getAvatarFile() != null)
+             path = UploadUtils.saveImage(teacher.getAvatarFile(),String.valueOf(teacher.getId()),"avatar");
+        teacher.setAvatar(path);
+        if(teacherDao.updateInfo(teacher))
+            responseData.setCode(200);
+        else
+            responseData.setCode(0);
+        return responseData;
+    }
+
+   /* @Override
+    public ResponseData updateAvatar(Teacher teacher) throws UnsupportedFileTypeException {
+        ResponseData responseData = new ResponseData();
+        String path = UploadUtils.saveImage(teacher.getAvatarFile(),String.valueOf(teacher.getId()),"avatar");
+        teacher.setAvatar(path);
+        if(loginDao.updateInfo(teacher))
+            responseData.setCode(200);
+        else
+            responseData.setCode(0);
+        return responseData;
+    }*/
+    /**验证用户的信息是不是完整的*/
+    @Override
+    public Teacher isCompleted(Teacher teacher) throws IncompleteInformationException {
+        if(teacher.getName() == null || teacher.getEmail() == null){
+            teacher = teacherDao.teacherInfo(teacher.getId());
+            if(teacher != null)
+                throw new IncompleteInformationException();
+        }
+        return teacher;
     }
 
 }

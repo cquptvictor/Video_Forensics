@@ -1,9 +1,13 @@
 package com.edu.victor.Service.impl;
 
 import com.edu.victor.Dao.NewsDao;
+import com.edu.victor.Exception.IncompleteInformationException;
+import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Service.NewsAndNoticeService;
+import com.edu.victor.Service.TeacherService;
 import com.edu.victor.domain.News;
 import com.edu.victor.domain.Page;
+import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,19 +16,48 @@ import org.springframework.stereotype.Service;
 public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     @Autowired
     NewsDao newsDao;
+    @Autowired
+    TeacherService teacherService;
     @Override
-    public Boolean addNews(News news) {
-        return newsDao.addNews(news);
+    public ResponseData addNews(News news, Teacher teacher) throws IncompleteInformationException {
+        /**验证用户信息是否完整*/
+        teacher = teacherService.isCompleted(teacher);
+        news.setPublisherId(teacher.getId());
+        news.setPublisherName(teacher.getName());
+        ResponseData responseData = new ResponseData();
+        if(newsDao.addNews(news))
+        {
+            responseData.setCode(200);
+        }else
+            responseData.setCode(0);
+        return responseData;
     }
 
     @Override
-    public Boolean deleteNews(int id) {
-        return newsDao.deleteNews(id);
+    public ResponseData deleteNews(int id,int publisher_id,int tea_id) throws NotAuthorizedException {
+        /**不是发布人，没有删除权限*/
+        if(publisher_id != tea_id)
+            throw new NotAuthorizedException();
+        ResponseData responseData = new ResponseData();
+        if(newsDao.deleteNews(id)){
+            responseData.setCode(200);
+        }else
+            responseData.setCode(0);
+        return responseData;
     }
 
     @Override
-    public Boolean updateNews(News news) {
-        return newsDao.updateNews(news);
+    public ResponseData updateNews(News news,Teacher teacher) throws NotAuthorizedException {
+        /**不是发布人，没有更新权限*/
+        if(teacher.getId() != news.getPublisherId()){
+            throw  new NotAuthorizedException();
+        }
+        ResponseData responseData = new ResponseData();
+        if(newsDao.updateNews(news))
+            responseData.setCode(200);
+        else
+            responseData.setCode(0);
+        return responseData;
     }
 
     public NewsDao getNewsDao() {
@@ -36,24 +69,18 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public Page<News> searchNews(Page<News> page) {
+    public ResponseData searchNews(Page<News> page) {
         Page<News> page2 = newsDao.searchNewsByPage(page);
         page.setContent(page2.getContent());
-        return page;
-    }
-    @Override
-    public Boolean teacherInfo(Teacher teacher){
-        Teacher teacher1 = newsDao.teacherInfo(teacher.getId());
-        if(teacher1.getName() == null || teacher1.getEmail() == null){
-            return false;
-        }
-        teacher.setName(teacher1.getName());
-        teacher.setEmail(teacher1.getEmail());
-        return true;
+        ResponseData responseData = new ResponseData(200);
+        responseData.setData(page);
+        return responseData;
     }
 
     @Override
-    public News getSpecificNews(int id) {
-        return newsDao.getSpecificNews(id);
+    public ResponseData getSpecificNews(int id) {
+        ResponseData responseData = new ResponseData();
+        responseData.setData(newsDao.getSpecificNews(id));
+        return responseData;
     }
 }

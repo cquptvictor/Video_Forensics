@@ -64,7 +64,7 @@ public class ExcelUtils {
             if(stuNum == -1){
                 throw new StuNumNotFound();
             }
-            for(int i = 1; i < totalRows; i++){
+            for(int i = 1; i <= totalRows; i++){
                 Student student = new Student();
                 hssfRow = sheet.getRow(i);
                 student.setUsername(hssfRow.getCell(stuNum).getStringCellValue());

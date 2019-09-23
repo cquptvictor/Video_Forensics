@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,17 +44,26 @@ public class UploadUtils {
         int dir1 = id.hashCode()&0xf;
         int dir2 = id.hashCode()&0xf0;
 
-        String path = dir1+File.separator+dir2+File.separator+id+"_teacher."+suffix;
-        //创建目录
+        String path = null;
+        /**头像是可以覆盖的，课程图片、视频、课件要避免覆盖*/
         String catalog = null;
-        if(type.equals("avatar"))
+        if(type.equals("avatar")) {
+            path = dir1 + File.separator + dir2 + File.separator + id + "_teacher." + suffix;
             catalog = avatarBaseUrl + path;
-        else if(type.equals("courseImage"))
+        }else if(type.equals("courseImage")) {
+            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
             catalog = courseImageBaseUrl + path;
+        }
         else if(type.equals("video"))
-            catalog = courseVideoBaseUrl + path;
-        else
+        {
+            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
+            catalog = courseVideoBaseUrl +  path;
+        }
+        else {
+            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
             catalog = coursewareBaseUrl + path;
+        }
+
         File catalogFile = new File(catalog);
         if(!catalogFile.getParentFile().exists()){
             catalogFile.mkdirs();

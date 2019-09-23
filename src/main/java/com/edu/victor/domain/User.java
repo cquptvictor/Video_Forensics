@@ -1,6 +1,7 @@
 package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.web.multipart.MultipartFile;
 
 public class User {
     private int id;
@@ -10,6 +11,15 @@ public class User {
     private String password;
 
     private String avatar;
+    private MultipartFile avatarFile;
+
+    public MultipartFile getAvatarFile() {
+        return avatarFile;
+    }
+
+    public void setAvatarFile(MultipartFile avatarFile) {
+        this.avatarFile = avatarFile;
+    }
 
     public String getAvatar() {
         return avatar;

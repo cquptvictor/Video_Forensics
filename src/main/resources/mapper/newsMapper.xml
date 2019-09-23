@@ -27,9 +27,7 @@
     <select id="searchNewsByPage" parameterType="Page" resultMap="PageMap">
         select id,title,publisher_id,publisher_name,publish_time from news
     </select>
-    <select id="teacherInfo" parameterType="Teacher" resultType="Teacher">
-        select email,name,id from teacher where id = #{id};
-    </select>
+
     <select id="getSpecificNews" resultType="News">
         select *  FROM news where id = #{id}
     </select>
