@@ -1,15 +1,15 @@
 package com.edu.victor.domain;
 
-import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Homework {
     private int id;
-    private int ce_id;
+    private int course_id;
     private String title;
     private String content;
     private String category;
+    private int[] toUser;
+    private int publisherId;
     private Date start_time;
     private Date end_time;
     private Date publish_time;
@@ -22,12 +22,29 @@ public class Homework {
         this.id = id;
     }
 
-    public int getCe_id() {
-        return ce_id;
+    public int getCourse_id() {
+        return course_id;
     }
 
-    public void setCe_id(int ce_id) {
-        this.ce_id = ce_id;
+    public void setCourse_id(int course_id) {
+        this.course_id = course_id;
+    }
+
+
+    public int[] getToUser() {
+        return toUser;
+    }
+
+    public void setToUser(int[] toUser) {
+        this.toUser = toUser;
+    }
+
+    public int getPublisherId() {
+        return publisherId;
+    }
+
+    public void setPublisherId(int publisherId) {
+        this.publisherId = publisherId;
     }
 
     public String getTitle() {
