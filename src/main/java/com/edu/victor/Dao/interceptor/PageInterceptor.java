@@ -13,6 +13,8 @@ import org.apache.ibatis.reflection.SystemMetaObject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 @Intercepts(value = {@Signature(type=StatementHandler.class,method="prepare",args={Connection.class})})
@@ -68,5 +70,10 @@ public class PageInterceptor implements Interceptor {
     public void setProperties(Properties arg0) {
 
     }
-
+    public static void main(String[] args){
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat= new SimpleDateFormat("yyyy-MM-dd");
+       System.out.println(simpleDateFormat.format(date.getTime()));
+       System.out.println(date.getTime());
+    }
 }

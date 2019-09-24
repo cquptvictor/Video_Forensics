@@ -3,6 +3,7 @@ package com.edu.victor.Controller;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.CourseManagementService;
+import com.edu.victor.Service.HWService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 public class CourseManagementController {
     @Autowired
     CourseManagementService courseManagementService;
+
     /**添加课程*/
     @RequestMapping(value = "/aCourse")
     @ResponseBody

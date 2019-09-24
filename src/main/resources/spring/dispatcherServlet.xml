@@ -10,7 +10,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
     <!-- 开启注解映射的支持 -->
     <!--配置了conversion0-service自定义转换器才有效-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
     <!-- 允许对静态资源文件的访问 -->
     <mvc:default-servlet-handler/>
     <mvc:interceptors>
@@ -19,6 +19,11 @@
             <mvc:exclude-mapping path="/admin/login"/>
             <bean class="com.edu.victor.Interceptor.loginRequired"/>
         </mvc:interceptor>
+     <!--   <mvc:interceptor>
+            <mvc:mapping path="/a*"/>
+            <mvc:mapping path="/p*"/>
+            <bean class="com.edu.victor.Interceptor.checkInfoInterceptor"/>
+        </mvc:interceptor>-->
     </mvc:interceptors>
 
     <!-- 配置视图解析器 -->
@@ -28,6 +33,15 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--装配自定义类型转换器-->
+    <bean id="conversionService"
+          class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.edu.victor.Conveter.StringToDate" />
+            </set>
+        </property>
+    </bean>
     <!--装配自定义类型转换器-->
 
     <!-- 自动扫描的包名 -->

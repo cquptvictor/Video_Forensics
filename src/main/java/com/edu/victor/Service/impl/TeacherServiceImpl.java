@@ -65,7 +65,7 @@ public class TeacherServiceImpl implements TeacherService {
     public Teacher isCompleted(Teacher teacher) throws IncompleteInformationException {
         if(teacher.getName() == null || teacher.getEmail() == null){
             teacher = teacherDao.teacherInfo(teacher.getId());
-            if(teacher != null)
+            if(teacher.getName() == null || teacher.getEmail() == null)
                 throw new IncompleteInformationException();
         }
         return teacher;
