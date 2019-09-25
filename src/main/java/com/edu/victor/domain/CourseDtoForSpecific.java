@@ -2,7 +2,7 @@ package com.edu.victor.domain;
 
 
 import java.util.List;
-public class CourseDto{
+public class CourseDtoForSpecific {
     private List<ChapterDto> chapterDtoList;
     private int id;
 

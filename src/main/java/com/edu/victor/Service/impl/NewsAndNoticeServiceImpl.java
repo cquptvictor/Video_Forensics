@@ -26,7 +26,6 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
         /**验证用户信息是否完整*/
         teacher = teacherService.isCompleted(teacher);
         news.setPublisherId(teacher.getId());
-        news.setPublisherName(teacher.getName());
         ResponseData responseData = new ResponseData();
         if(newsDao.addNews(news))
         {

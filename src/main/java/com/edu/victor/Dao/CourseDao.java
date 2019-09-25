@@ -14,7 +14,7 @@ public interface CourseDao {
     Page<Courseware> searchCoursewareByPage(Page page);
     /*List<Chapter> searchChapter(Integer id);
     List<Section> searchSection(Integer id);*/
-   CourseDto getCourseInfo(int id);
+   CourseDtoForSpecific getCourseInfo(int id);
 
    Boolean deleteSection(int section_id, int tea_id);
    Boolean deleteChapter(int chapter_id, int tea_id);

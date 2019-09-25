@@ -9,7 +9,7 @@
         <id column="chapter_id" property="id"/>
         <collection property="sectionList" column="chapter_id" select="getSectionByStep" ofType="Section"/>
     </resultMap>
-    <resultMap id="CourseMap" type="CourseDto">
+    <resultMap id="CourseMap" type="CourseDtoForSpecific">
         <id column="course_id" property="id"/>
         <collection property="chapterDtoList" column="course_id" ofType="ChapterDto" select="getChapterByStep"/>
     </resultMap>
@@ -17,7 +17,7 @@
         <collection property="pageData" ofType="Courseware" autoMapping="true"/>
     </resultMap>
     <resultMap id="PageCourse" type="Page">
-        <collection property="pageData" ofType="Course" autoMapping="true"/>
+        <collection property="pageData" ofType="CourseDtoForSimple" autoMapping="true"/>
     </resultMap>
     <select id="getCourseInfo" resultMap="CourseMap">
         select id as course_id from course where id = #{id};
@@ -35,19 +35,19 @@
         select id,time,url,title from courseware where superior_id = #{filter.id}
     </select>
     <select id="searchCoursesByPage" resultMap="PageCourse">
-      select id,tea_name,title,url from course where tea_id = #{filter.id}
+      select course.id as id,teacher.name as teaName,title,url from course join teacher on course.tea_id = teacher.id where tea_id = #{filter.id}
     </select>
     <insert id="addCourse" parameterType="Course">
-        insert into course(tea_id,tea_name,title,description,pic)value (#{tea_id},#{tea_name},#{title},#{description},#{url});
+        insert into course(tea_id,title,description,url)value (#{teaId},#{title},#{description},#{url});
     </insert>
     <insert id="addChapter" parameterType="Chapter">
-        insert into course_chapter(title,weights,superior_id,tea_id)value (#{title},#{weights},#{superior_id},#{tea_id});
+        insert into course_chapter(title,weights,superior_id,tea_id)value (#{title},#{weights},#{superior_id},#{teaId});
     </insert>
     <insert id="addSection" parameterType="Section">
-        insert into course_section(title,weights,superior_id,url,tea_id)value (#{title},#{weights},#{superior_id},#{url},#{tea_id});
+        insert into course_section(title,weights,superior_id,url,tea_id)value (#{title},#{weights},#{superior_id},#{url},#{teaId});
     </insert>
     <insert id="addCourseware" parameterType="Courseware">
-      insert into courseware(superior_id,title,url,tea_id)value (#{superior_id},#{title},#{url},#{tea_id});
+      insert into courseware(superior_id,title,url,tea_id)value (#{superior_id},#{title},#{url},#{teaId});
     </insert>
 
    <!-- <select id="searchChapter" resultType="Chapter">
@@ -99,7 +99,7 @@
             description = #{description}
         </if>
     </set>
-      where id = #{id} and tea_id = #{tea_id};
+      where id = #{id} and tea_id = #{teaId};
     </update>
     <!--章节信息的更改-->
     <update id="updateChapterInfo">
@@ -112,7 +112,7 @@
                 weights = #{weights}
             </if>
         </set>
-        where id = #{id} and tea_id = #{tea_id};
+        where id = #{id} and tea_id = #{teaId};
     </update>
     <!--小节信息更改-->
     <update id="updateSectionInfo">
@@ -127,7 +127,7 @@
             <if test="superior_id"/>
               superior_id = #{superior_id}
         </set>
-        where id = #{id} and tea_id = #{tea_id};
+        where id = #{id} and tea_id = #{teaId};
     </update>
 </mapper>
 

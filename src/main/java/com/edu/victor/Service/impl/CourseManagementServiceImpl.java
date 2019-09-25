@@ -25,7 +25,6 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         String path = UploadUtils.saveImage(course.getPic(),teacher.getId()+"","courseImage");
         course.setUrl(path);
         course.setTeaId(teacher.getId());
-        course.setTeaName(teacher.getName());
         ResponseData responseData = new ResponseData();
         if(courseDao.addCourse(course))
             responseData.setCode(200);
