@@ -12,23 +12,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping(method = RequestMethod.POST)
 public class NewsAndNoticeController {
     @Autowired
     NewsAndNoticeService newsAndNoticeService;
     /**新闻添加*/
-    @RequestMapping(value = "/aNews",method = RequestMethod.POST)
+    @RequestMapping(value = "/aNews")
     @ResponseBody
     public ResponseData addNews(News news, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
         Teacher teacher =(Teacher)httpServletRequest.getAttribute("Teacher");
         return newsAndNoticeService.addNews(news,teacher);
     }
     /**新闻删除*/
-    @RequestMapping(value = "/dNews",method = RequestMethod.POST)
+    @RequestMapping(value = "/dNews")
     @ResponseBody
     public ResponseData deleteNews(Integer id, Integer publisher_id, HttpServletRequest httpServletRequest) throws NotAuthorizedException {
         Teacher teacher =(Teacher) httpServletRequest.getAttribute("Teacher");
@@ -36,7 +34,7 @@ public class NewsAndNoticeController {
         return newsAndNoticeService.deleteNews(id,publisher_id,teacher.getId());
     }
     /**新闻修改*/
-    @RequestMapping(value = "/uNews",method = RequestMethod.POST)
+    @RequestMapping(value = "/uNews")
     @ResponseBody
     public ResponseData updateNews(News news,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
@@ -44,16 +42,11 @@ public class NewsAndNoticeController {
     }
 
     /**新闻查看*/
-    @RequestMapping(value = "/sNews",method = RequestMethod.POST)
+    @RequestMapping(value = "/news")
     @ResponseBody
-    public ResponseData searchNews(@RequestParam("page") int currentPage,HttpServletRequest httpServletRequest){
+    public ResponseData searchNews(Page page,HttpServletRequest httpServletRequest){
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
-        Page<News> page = new Page<>();
-        Map map = new HashMap();
-        map.put("tea_id",teacher.getId());
-        page.setFilter(map);
-        page.setCurrentPage(currentPage);
-        return newsAndNoticeService.searchNews(teacher.getId(),currentPage);
+        return newsAndNoticeService.searchNews(page,teacher);
     }
     @RequestMapping(value="/news/{news_id}",method = RequestMethod.POST)
     @ResponseBody

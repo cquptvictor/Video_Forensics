@@ -45,11 +45,8 @@ public class StuManagementServiceImpl implements StuManagementService {
 
 
     @Override
-    public ResponseData searchStu(Map map,int currentPaage) {
-        ResponseData responseData = new ResponseData();
-        Page<Student> page = new Page<>();
-        page.setCurrentPage(currentPaage);
-        page.setFilter(map);
+    public ResponseData searchStu(Page page) {
+        ResponseData responseData = new ResponseData(200);
         Page<Student> page2 = stuManagementDao.searchStuByPage(page);
         page.setPageData(page2.getPageData());
         responseData.setData(page);

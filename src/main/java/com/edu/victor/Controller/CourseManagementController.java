@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value = "/admin",method = RequestMethod.POST)
+@RequestMapping(method = RequestMethod.POST)
 public class CourseManagementController {
     @Autowired
     CourseManagementService courseManagementService;

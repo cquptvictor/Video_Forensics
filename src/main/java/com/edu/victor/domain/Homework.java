@@ -1,21 +1,34 @@
 package com.edu.victor.domain;
 
 
-import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties({"course_id","toUser"})
 public class Homework {
     private int id;
-    private int course_id;
+    private int courseId;
     private String title;
     private String content;
     private String category;
     private int[] toUser;
+    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date startTime;
+    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date endTime;
+    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+    private Date time;
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
     public int getId() {
         return id;
@@ -25,12 +38,12 @@ public class Homework {
         this.id = id;
     }
 
-    public int getCourse_id() {
-        return course_id;
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
     public String getTitle() {

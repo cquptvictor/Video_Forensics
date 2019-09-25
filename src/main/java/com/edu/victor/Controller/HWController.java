@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-@RequestMapping(value = "/admin",method = RequestMethod.POST)
+@RequestMapping(method = RequestMethod.POST)
 @Controller
 public class HWController {
     @Autowired
@@ -30,7 +30,7 @@ public class HWController {
     @ResponseBody
     public ResponseData getHW(Homework homework,Page page){
         Map map = new HashMap<>();
-        map.put("id",homework.getCourse_id());
+        map.put("id",homework.getCourseId());
         map.put("category",homework.getCategory());
         page.setFilter(map);
         return hwService.getHwList(page);

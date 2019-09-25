@@ -13,6 +13,12 @@
         <id column="course_id" property="id"/>
         <collection property="chapterDtoList" column="course_id" ofType="ChapterDto" select="getChapterByStep"/>
     </resultMap>
+    <resultMap id="PageCourseware" type="Page">
+        <collection property="pageData" ofType="Courseware" autoMapping="true"/>
+    </resultMap>
+    <resultMap id="PageCourse" type="Page">
+        <collection property="pageData" ofType="Course" autoMapping="true"/>
+    </resultMap>
     <select id="getCourseInfo" resultMap="CourseMap">
         select id as course_id from course where id = #{id};
     </select>
@@ -22,13 +28,14 @@
     <select id="getSectionByStep" resultType="Section">
         select id,title,superior_id,url from course_section where superior_id = #{id};
     </select>
-    <select id="getCoursewareByCourse" resultType="String">
-        select url from coureseware where superior_id = #{id};
+
+
+
+    <select id="searchCoursewareByPage" resultMap="PageCourseware">
+        select id,time,url,title from courseware where superior_id = #{filter.id}
     </select>
-
-
-    <select id="searchCourseware" resultType="Courseware">
-        select * from courseware where superior_id = #{id};
+    <select id="searchCoursesByPage" resultMap="PageCourse">
+      select id,tea_name,title,url from course where tea_id = #{filter.id}
     </select>
     <insert id="addCourse" parameterType="Course">
         insert into course(tea_id,tea_name,title,description,pic)value (#{tea_id},#{tea_name},#{title},#{description},#{url});
@@ -43,9 +50,6 @@
       insert into courseware(superior_id,title,url,tea_id)value (#{superior_id},#{title},#{url},#{tea_id});
     </insert>
 
-    <select id="searchCourses" resultType="Course">
-        select * from course where tea_id = #{id};
-    </select>
    <!-- <select id="searchChapter" resultType="Chapter">
         select * from course_chapter where superior_id = #{id} order by weights;
     </select>
@@ -58,9 +62,7 @@
     <select id="getCoursewareUrl" resultType="String">
         select url from courseware where id = #{id};
     </select>
-    <select id="getCoursewareUrlByCourse" resultType="String">
-        select url from courseware where superior_id = #{id};
-    </select>
+
     <select id="getSectionUrl" resultType="String">
         select url from course_section where id = #{id};
     </select>
@@ -70,6 +72,9 @@
     <select id="getSectionUrlByCourse" resultType="String">
     select url from course_section where superior_id in  (SELECT id from course_chapter where superior_id = #{id});
 
+    </select>
+    <select id="getCoursewareUrlByCourse" resultType="String">
+        select url from coureseware where superior_id = #{id};
     </select>
     <delete id="deleteCourse">
         delete from course where id = #{0} and tea_id = #{1};

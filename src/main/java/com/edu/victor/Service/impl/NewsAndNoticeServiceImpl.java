@@ -72,13 +72,10 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData searchNews(int tea_id, int currentPage) {
-        Page<News> page = new Page<>();
-        page.setCurrentPage(currentPage);
+    public ResponseData searchNews(Page page, Teacher teacher) {
         Map<String,Object> filter = new HashMap<>();
-        filter.put("tea_id",tea_id);
+        filter.put("tea_id",teacher.getId());
         page.setFilter(filter);
-
         Page<News> page2 = newsDao.searchNewsByPage(page);
         page.setPageData(page2.getPageData());
         ResponseData responseData = new ResponseData(200);

@@ -1,6 +1,8 @@
 package com.edu.victor.domain;
 
-import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -10,6 +12,7 @@ public class News {
     private String content;
     private int publisherId;
     private String publisherName;
+    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date publishTime;
 
     public String getTitle() {

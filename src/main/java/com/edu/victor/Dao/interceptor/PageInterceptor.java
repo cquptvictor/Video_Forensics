@@ -53,7 +53,7 @@ public class PageInterceptor implements Interceptor {
             if(page.getCurrentPage() <= 0){
                 page.setCurrentPage(1);
             }
-            String pageSql = sql + " limit " + (page.getCurrentPage() - 1) * page.getPageNumber() + "," + page.getPageNumber();
+            String pageSql = sql + " limit " + (page.getCurrentPage() - 1) * page.getPageNum() + "," + page.getPageNum();
             //更新sql
             metaObject.setValue("delegate.boundSql.sql", pageSql);
         }

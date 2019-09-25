@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**学生管理，增删改查和批量导入*/
-@RequestMapping(value = "/admin",method = RequestMethod.POST)
+@RequestMapping(method = RequestMethod.POST)
 @Controller
 public class StuManagementController {
     @Autowired
@@ -34,14 +34,15 @@ public class StuManagementController {
         return stuManagementService.updateStu(student);
     }
 
-    @RequestMapping(value = "/sStu")
+    @RequestMapping(value = "/stu")
     @ResponseBody
-    public ResponseData searchStu(String classNum, String stuNum, String name, @RequestParam("page") Integer currentPage){
+    public ResponseData searchStu(String classNum, String stuNum, String name,Page page){
         Map<String,Object> map = new HashMap<>();
         map.put("classNum",classNum);
         map.put("username",stuNum);
         map.put("name",name);
-        return stuManagementService.searchStu(map,currentPage);
+        page.setFilter(map);
+        return stuManagementService.searchStu(page);
     }
     @RequestMapping(value = "/dStu")
     @ResponseBody

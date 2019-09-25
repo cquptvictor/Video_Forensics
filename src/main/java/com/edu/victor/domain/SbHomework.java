@@ -1,13 +1,15 @@
 package com.edu.victor.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SbHomework {
     private int id;
-    private int hwId;
+    private Integer hwId;
     private String content;
     private double score;
     private String status;
    // private Student student;
-
     public int getId() {
         return id;
     }
@@ -16,14 +18,13 @@ public class SbHomework {
         this.id = id;
     }
 
-    public int getHwId() {
+    public Integer getHwId() {
         return hwId;
     }
 
-    public void setHwId(int hwId) {
+    public void setHwId(Integer hwId) {
         this.hwId = hwId;
     }
-
 
     public String getContent() {
         return content;

@@ -5,7 +5,7 @@
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.HWDao">
     <resultMap id="PageMapHw" type="Page">
-        <collection property="pageData" ofType="HomeworkDto" autoMapping="true">
+        <collection property="pageData" ofType="Homework" autoMapping="true">
         </collection>
     </resultMap>
     <resultMap id="PageMapSb" type="Page">
@@ -14,12 +14,12 @@
     </resultMap>
     <!--mapper返回的任然是受影响的行数，主键返回在实体的对应属性中-->
     <insert id="publishHW" useGeneratedKeys="true" keyProperty="id" parameterType="Homework">
-        insert into homework(course_id,title,content,category,start_time,end_time)value (#{course_id},#{title},#{content},#{category},#{start_time},#{end_time});
+        insert into homework(course_id,title,content,category,start_time,end_time)value (#{courseId},#{title},#{content},#{category},#{start_time},#{end_time});
     </insert>
     <select id="getHwByCourseByPage" parameterType="Page" resultMap="PageMapHw">
         select id,title,category,start_time,end_time,time from homework where course_id = #{filter.id} and category = #{filter.category} order by time
     </select>
-    <select id="getSpecificHomework" resultType="HomeWorkDto">
+    <select id="getSpecificHomework" resultType="HomeWork">
         select * from homework where id = #{id}
     </select>
     <select id="getSubmitedByPage" parameterType="Page" resultMap="PageMapSb">

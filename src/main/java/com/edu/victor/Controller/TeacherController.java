@@ -4,8 +4,6 @@ import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.TeacherService;
 import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Teacher;
-import com.edu.victor.utils.UploadUtils;
-import com.edu.victor.utils.JWT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
-@RequestMapping(value = "/admin",method = RequestMethod.POST)
+@RequestMapping(method = RequestMethod.POST)
 @Controller
 public class TeacherController {
     @Autowired

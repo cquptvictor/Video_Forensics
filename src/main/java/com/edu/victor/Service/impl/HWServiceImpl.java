@@ -60,7 +60,7 @@ public class HWServiceImpl implements HWService {
 
     @Override
     public ResponseData getSpecificPage(int id) {
-        ResponseData responseData = new ResponseData();
+        ResponseData responseData = new ResponseData(200);
         responseData.setData(hwDao.getSpecificHomework(id));
         return responseData;
     }

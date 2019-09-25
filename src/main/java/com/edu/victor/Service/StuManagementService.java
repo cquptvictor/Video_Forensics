@@ -12,6 +12,6 @@ import java.util.Map;
 public interface StuManagementService {
     ResponseData addStu(String username);
     ResponseData updateStu(Student student);
-    ResponseData searchStu(Map<String,Object> map, int page);
+    ResponseData searchStu(Page page);
     ResponseData batchImport(MultipartFile excel) throws StuNumNotFound;
 }

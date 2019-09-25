@@ -7,14 +7,15 @@ import java.util.Map;
 
 @JsonIgnoreProperties({"pageNumber","filter"})
 public class Page<T> {
-    // 总条数
-    private int totalNumber;
+
     // 当前页数
     private int currentPage;
     // 总页数
     private int totalPage;
     // 每页显示条数
-    private int pageNumber = 8;
+    private int pageNum;
+    // 总条数
+    private int totalNumber;
     //数据存放
     private List<T> pageData;
     //过滤条件
@@ -33,8 +34,7 @@ public class Page<T> {
     }
 
     public void setTotalNumber(int totalNumber) {
-
-        int totalPage = totalNumber % pageNumber != 0 ? totalNumber/pageNumber+1 : totalNumber/pageNumber;
+        int totalPage = totalNumber % pageNum != 0 ? totalNumber/pageNum+1 : totalNumber/pageNum;
         this.setTotalPage(totalPage);
         this.totalNumber = totalNumber;
     }
@@ -55,12 +55,12 @@ public class Page<T> {
         this.totalPage = totalPage;
     }
 
-    public int getPageNumber() {
-        return pageNumber;
+    public int getPageNum() {
+        return pageNum;
     }
 
-    public void setPageNumber(int pageNumber) {
-        this.pageNumber = pageNumber;
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
     }
 
     public List<T> getPageData() {
