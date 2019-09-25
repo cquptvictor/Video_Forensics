@@ -10,8 +10,8 @@ public interface CourseDao {
     Boolean addSection(Section section);
     Boolean addCourseware(Courseware courseware);
 
-    List<Course> searchCourses(Integer id);
-    List<Courseware> searchCourseware(Integer id);
+    Page<Course> searchCoursesByPage(Page page);
+    Page<Courseware> searchCoursewareByPage(Page page);
     /*List<Chapter> searchChapter(Integer id);
     List<Section> searchSection(Integer id);*/
    CourseDto getCourseInfo(int id);

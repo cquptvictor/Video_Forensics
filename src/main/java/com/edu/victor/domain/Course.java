@@ -6,8 +6,8 @@ public class Course {
     private int id;
     private String title;
     private String description;
-    private int tea_id;
-    private String tea_name;
+    private int teaId;
+    private String teaName;
     private String url;
     @JsonIgnore
     private MultipartFile pic;
@@ -26,14 +26,6 @@ public class Course {
 
     public void setPic(MultipartFile pic) {
         this.pic = pic;
-    }
-
-    public String getTea_name() {
-        return tea_name;
-    }
-
-    public void setTea_name(String tea_name) {
-        this.tea_name = tea_name;
     }
 
     public int getId() {
@@ -60,11 +52,19 @@ public class Course {
         this.description = description;
     }
 
-    public int getTea_id() {
-        return tea_id;
+    public int getTeaId() {
+        return teaId;
     }
 
-    public void setTea_id(int tea_id) {
-        this.tea_id = tea_id;
+    public void setTeaId(int teaId) {
+        this.teaId = teaId;
+    }
+
+    public String getTeaName() {
+        return teaName;
+    }
+
+    public void setTeaName(String teaName) {
+        this.teaName = teaName;
     }
 }

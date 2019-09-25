@@ -4,7 +4,6 @@ import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.domain.*;
 
-import java.util.List;
 
 
 public interface CourseManagementService {
@@ -12,8 +11,8 @@ public interface CourseManagementService {
     ResponseData addChapter(Chapter chapter, Teacher teacher) throws IncompleteInformationException;
     ResponseData addSection(Section section,Teacher teacher) throws UnsupportedFileTypeException, IncompleteInformationException;
     ResponseData addCourseware(Courseware courseware, Teacher teacher) throws UnsupportedFileTypeException;
-    ResponseData searchCourses(int id);
-    ResponseData searchCoursewares(int id);
+    ResponseData searchCourses(Page page);
+    ResponseData searchCoursewares(Page page);
   /*  List<Chapter> searchChapter(int id);
     List<Section> searchSection(int id);
     String searchCoursewareUrl(int id);

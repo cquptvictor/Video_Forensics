@@ -80,7 +80,7 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
         page.setFilter(filter);
 
         Page<News> page2 = newsDao.searchNewsByPage(page);
-        page.setContent(page2.getContent());
+        page.setPageData(page2.getPageData());
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);
         return responseData;
@@ -92,4 +92,5 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
         responseData.setData(newsDao.getSpecificNews(id));
         return responseData;
     }
+
 }

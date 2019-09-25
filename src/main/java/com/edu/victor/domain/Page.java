@@ -16,7 +16,7 @@ public class Page<T> {
     // 每页显示条数
     private int pageNumber = 8;
     //数据存放
-    private List<T> content;
+    private List<T> pageData;
     //过滤条件
     private Map<String,Object> filter;
 
@@ -63,11 +63,11 @@ public class Page<T> {
         this.pageNumber = pageNumber;
     }
 
-    public List<T> getContent() {
-        return content;
+    public List<T> getPageData() {
+        return pageData;
     }
 
-    public void setContent(List<T> content) {
-        this.content = content;
+    public void setPageData(List<T> pageData) {
+        this.pageData = pageData;
     }
 }

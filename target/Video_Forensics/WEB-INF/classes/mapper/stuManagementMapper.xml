@@ -6,7 +6,7 @@
 <mapper namespace="com.edu.victor.Dao.StuManagementDao">
 
     <resultMap id="PageMap" type="Page">
-        <collection property="content" ofType="Student" autoMapping="true">
+        <collection property="pageData" ofType="Student" autoMapping="true">
         </collection>
     </resultMap>
 

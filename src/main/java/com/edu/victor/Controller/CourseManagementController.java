@@ -3,16 +3,14 @@ package com.edu.victor.Controller;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.CourseManagementService;
-import com.edu.victor.Service.HWService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/admin",method = RequestMethod.POST)
@@ -45,9 +43,12 @@ public class CourseManagementController {
     /**查看课程列表*/
     @RequestMapping(value = "/courses")
     @ResponseBody
-    public ResponseData searchCourses(HttpServletRequest httpServletRequest){
+    public ResponseData searchCourses(HttpServletRequest httpServletRequest,Page page){
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
-        return courseManagementService.searchCourses(teacher.getId());
+        Map map = new HashMap();
+        map.put("id",teacher.getId());
+        page.setFilter(map);
+        return courseManagementService.searchCourses(page);
     }
     /**查看某一课程的章节和小节*/
     @RequestMapping(value = "/courseInfo/{id}")
@@ -56,10 +57,13 @@ public class CourseManagementController {
         return courseManagementService.getCourseInfo(id);
     }
     /**查看某一课程下的课件*/
-    @RequestMapping(value = "/coursewares/{course_id}")
+    @RequestMapping(value = "/coursewares")
     @ResponseBody
-    public ResponseData getCoursewares(@PathVariable("course_id") int id){
-        return courseManagementService.searchCoursewares(id);
+    public ResponseData getCoursewares(@RequestParam("id") int id, Page page){
+        Map map = new HashMap();
+        map.put("id",id);
+        page.setFilter(map);
+        return courseManagementService.searchCoursewares(page);
     }
     /*@RequestMapping(value = "/chapter/{course_id}",method = RequestMethod.POST)
     @ResponseBody
@@ -133,7 +137,7 @@ public class CourseManagementController {
     @ResponseBody
     public ResponseData updateCourse(Course course,HttpServletRequest httpServletRequest){
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
-        course.setTea_id(teacher.getId());
+        course.setTeaId(teacher.getId());
         return courseManagementService.updateCourse(course);
     }
     /**更改章节名，和权重*/

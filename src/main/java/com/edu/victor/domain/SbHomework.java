@@ -1,12 +1,12 @@
 package com.edu.victor.domain;
 
-public class SubmitHomework {
+public class SbHomework {
     private int id;
-    private int hw_id;
+    private int hwId;
     private String content;
     private double score;
     private String status;
-    private String stu_id;
+   // private Student student;
 
     public int getId() {
         return id;
@@ -16,13 +16,14 @@ public class SubmitHomework {
         this.id = id;
     }
 
-    public int getHw_id() {
-        return hw_id;
+    public int getHwId() {
+        return hwId;
     }
 
-    public void setHw_id(int hw_id) {
-        this.hw_id = hw_id;
+    public void setHwId(int hwId) {
+        this.hwId = hwId;
     }
+
 
     public String getContent() {
         return content;
@@ -48,11 +49,5 @@ public class SubmitHomework {
         this.status = status;
     }
 
-    public String getStu_id() {
-        return stu_id;
-    }
 
-    public void setStu_id(String stu_id) {
-        this.stu_id = stu_id;
-    }
 }

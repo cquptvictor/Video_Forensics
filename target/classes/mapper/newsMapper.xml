@@ -5,7 +5,7 @@
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.NewsDao">
     <resultMap id="PageMap" type="Page">
-        <collection property="content" ofType="News" autoMapping="true">
+        <collection property="pageData" ofType="News" autoMapping="true">
         </collection>
     </resultMap>
     <insert id="addNews" parameterType="News">

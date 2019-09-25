@@ -24,8 +24,8 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         teacherService.isCompleted(teacher);
         String path = UploadUtils.saveImage(course.getPic(),teacher.getId()+"","courseImage");
         course.setUrl(path);
-        course.setTea_id(teacher.getId());
-        course.setTea_name(teacher.getName());
+        course.setTeaId(teacher.getId());
+        course.setTeaName(teacher.getName());
         ResponseData responseData = new ResponseData();
         if(courseDao.addCourse(course))
             responseData.setCode(200);
@@ -57,18 +57,6 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         if(courseDao.addSection(section))
             responseData.setCode(200);
         else
-            responseData.setCode(0);
-        return responseData;
-    }
-
-    @Override
-    public ResponseData searchCourses(int id) {
-        List<Course> list = courseDao.searchCourses(id);
-        ResponseData responseData = new ResponseData();
-        if(list != null) {
-            responseData.setCode(200);
-            responseData.setData(list);
-        }else
             responseData.setCode(0);
         return responseData;
     }
@@ -105,9 +93,20 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
 
     @Override
-    public ResponseData searchCoursewares(int id) {
+    public ResponseData searchCoursewares(Page page) {
         ResponseData responseData = new ResponseData(20);
-        responseData.setData(courseDao.searchCourseware(id));
+        Page page1 = courseDao.searchCoursewareByPage(page);
+        page.setPageData(page1.getPageData());
+        responseData.setData(page);
+        return responseData;
+    }
+
+    @Override
+    public ResponseData searchCourses(Page page) {
+        Page page1 = courseDao.searchCoursesByPage(page);
+        page.setPageData(page1.getPageData());
+        ResponseData responseData = new ResponseData(200);
+        responseData.setData(page);
         return responseData;
     }
     /**删除小节*/

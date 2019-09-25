@@ -51,7 +51,7 @@ public class StuManagementServiceImpl implements StuManagementService {
         page.setCurrentPage(currentPaage);
         page.setFilter(map);
         Page<Student> page2 = stuManagementDao.searchStuByPage(page);
-        page.setContent(page2.getContent());
+        page.setPageData(page2.getPageData());
         responseData.setData(page);
         return responseData;
     }

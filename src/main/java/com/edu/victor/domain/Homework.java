@@ -1,7 +1,12 @@
 package com.edu.victor.domain;
 
 
+import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties({"course_id","toUser"})
 public class Homework {
     private int id;
     private int course_id;
@@ -9,10 +14,8 @@ public class Homework {
     private String content;
     private String category;
     private int[] toUser;
-    private int publisherId;
-    private Date start_time;
-    private Date end_time;
-    private Date publish_time;
+    private Date startTime;
+    private Date endTime;
 
     public int getId() {
         return id;
@@ -28,23 +31,6 @@ public class Homework {
 
     public void setCourse_id(int course_id) {
         this.course_id = course_id;
-    }
-
-
-    public int[] getToUser() {
-        return toUser;
-    }
-
-    public void setToUser(int[] toUser) {
-        this.toUser = toUser;
-    }
-
-    public int getPublisherId() {
-        return publisherId;
-    }
-
-    public void setPublisherId(int publisherId) {
-        this.publisherId = publisherId;
     }
 
     public String getTitle() {
@@ -71,27 +57,27 @@ public class Homework {
         this.category = category;
     }
 
-    public Date getStart_time() {
-        return start_time;
+    public int[] getToUser() {
+        return toUser;
     }
 
-    public void setStart_time(Date start_time) {
-        this.start_time = start_time;
+    public void setToUser(int[] toUser) {
+        this.toUser = toUser;
     }
 
-    public Date getEnd_time() {
-        return end_time;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setEnd_time(Date end_time) {
-        this.end_time = end_time;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
-    public Date getPublish_time() {
-        return publish_time;
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setPublish_time(Date publish_time) {
-        this.publish_time = publish_time;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 }

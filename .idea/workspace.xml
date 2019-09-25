@@ -7,32 +7,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9c9ca01-48ce-4869-9cf4-5e6ec68a60b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Conveter/StringToDate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/checkInfoInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/HomeworkDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Judge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SbHomeworkDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/HWDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/HWDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/interceptor/PageInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/interceptor/PageInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/loginRequired.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/loginRequired.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/CourseManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/CourseManagementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/TeacherServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/TeacherServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SubmitHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SbHomework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/newsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/newsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/stuManagementMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/stuManagementMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/spring/dispatcherServlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/dispatcherServlet.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Controller/CourseManagementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Controller/CourseManagementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Interceptor/loginRequired.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Interceptor/loginRequired.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/TeacherServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Dao/interceptor/PageInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Dao/interceptor/PageInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/StuManagementServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/StuManagementServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Homework.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Homework.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/spring/applicationContext-redis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/spring/applicationContext-redis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/SubmitHomework.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/newsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/newsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/stuManagementMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/stuManagementMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/spring/dispatcherServlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/spring/dispatcherServlet.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Controller/CourseManagementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Controller/CourseManagementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Dao/interceptor/PageInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Dao/interceptor/PageInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Interceptor/loginRequired.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Interceptor/loginRequired.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/TeacherServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/StuManagementServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/StuManagementServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Homework.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Homework.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext-redis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/applicationContext-redis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/SubmitHomework.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/newsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/newsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/stuManagementMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/stuManagementMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/spring/dispatcherServlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/dispatcherServlet.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -46,72 +63,29 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="16" />
-              <folding>
-                <element signature="e#401#402#0" expanded="true" />
-                <element signature="e#462#463#0" expanded="true" />
-                <element signature="e#527#528#0" expanded="true" />
-                <element signature="e#616#617#0" expanded="true" />
-                <element signature="e#678#679#0" expanded="true" />
-                <element signature="e#757#758#0" expanded="true" />
-                <element signature="e#826#827#0" expanded="true" />
-                <element signature="e#923#924#0" expanded="true" />
-                <element signature="e#983#984#0" expanded="true" />
-                <element signature="e#1059#1060#0" expanded="true" />
-                <element signature="e#1123#1124#0" expanded="true" />
-                <element signature="e#1207#1208#0" expanded="true" />
-                <element signature="e#1242#1243#0" expanded="true" />
-                <element signature="e#1273#1274#0" expanded="true" />
-                <element signature="e#1361#1362#0" expanded="true" />
-                <element signature="e#1429#1430#0" expanded="true" />
-                <element signature="e#1523#1524#0" expanded="true" />
-                <element signature="e#1587#1588#0" expanded="true" />
-                <element signature="e#1673#1674#0" expanded="true" />
-                <element signature="e#1745#1746#0" expanded="true" />
-                <element signature="e#1847#1848#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Conveter/StringToDate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-123">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/interceptor/PageInterceptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="76" column="41" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+            <state relative-caret-position="1064">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1538#1539#0" expanded="true" />
+                <element signature="e#1589#1590#0" expanded="true" />
+                <element signature="e#2026#2027#0" expanded="true" />
+                <element signature="e#2050#2051#0" expanded="true" />
+                <element signature="e#2218#2219#0" expanded="true" />
+                <element signature="e#2244#2245#0" expanded="true" />
+                <element signature="e#2280#2281#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="26" column="44" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="44" />
+            <state relative-caret-position="1908">
+              <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,26 +96,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+            <state relative-caret-position="1035">
+              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#662#663#0" expanded="true" />
-                <element signature="e#703#704#0" expanded="true" />
-                <element signature="e#739#740#0" expanded="true" />
+                <element signature="e#857#858#0" expanded="true" />
+                <element signature="e#912#913#0" expanded="true" />
+                <element signature="e#958#959#0" expanded="true" />
+                <element signature="e#992#993#0" expanded="true" />
+                <element signature="e#1021#1022#0" expanded="true" />
+                <element signature="e#1066#1067#0" expanded="true" />
+                <element signature="e#1102#1103#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/UploadUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="134">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -149,26 +133,64 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5090">
-              <caret line="124" column="48" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
+            <state relative-caret-position="-72">
+              <caret line="16" column="77" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/HWDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/NewsAndNoticeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="225">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/HomeworkDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+            <state relative-caret-position="180">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Course.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1935">
+              <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#392#393#0" expanded="true" />
+                <element signature="e#418#419#0" expanded="true" />
+                <element signature="e#456#457#0" expanded="true" />
+                <element signature="e#486#487#0" expanded="true" />
+                <element signature="e#1071#1072#0" expanded="true" />
+                <element signature="e#1099#1100#0" expanded="true" />
+                <element signature="e#1138#1139#0" expanded="true" />
+                <element signature="e#1172#1173#0" expanded="true" />
+                <element signature="e#1236#1237#0" expanded="true" />
+                <element signature="e#1282#1283#0" expanded="true" />
+                <element signature="e#1320#1321#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -197,11 +219,19 @@
       <find>jackson-annotations-</find>
       <find>getSectionUrl</find>
       <find>CourseImgageUrl</find>
-      <find>getCoursewareUrlByCourse</find>
       <find>getCoursewareUrl</find>
       <find>weig</find>
       <find>isCompleted</find>
       <find>aop</find>
+      <find>courseware</find>
+      <find>coursewares</find>
+      <find>searchCourses</find>
+      <find>getCoursewareUrlByCourse</find>
+      <find>ByPage</find>
+      <find>sear</find>
+      <find>searchCourseware</find>
+      <find>PageCourse</find>
+      <find>course</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -210,57 +240,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/AvatarUploadUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/CourseImageUploadUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ImageUploadUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/deleteFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/courseDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/StuSearch.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Notice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ResponseData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ChapterDto.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Section.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Chapter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/TeacherController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/StuManagementService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/StuManagementController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/stuManagementMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ExcelUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/NewsDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/TeacherDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/TeacherService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/newsMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/NewsAndNoticeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/NewsAndNoticeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Course.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDto.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/CourseManagementService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/QandAController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/TimeLimitInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/checkInfoInterceptor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/TeacherServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/UploadUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/loginRequired.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/conveter/StringToDate.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/dispatcherServlet.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/interceptor/PageInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/HomeworkDto.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/dispatcherServlet.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SubmitHomework.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Page.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/newsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/stuManagementMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SbHomework.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/HWDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/interceptor/PageInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Judge.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/CourseManagementService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Course.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java" />
       </list>
     </option>
   </component>
@@ -279,9 +309,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1750" />
+    <option name="x" value="750" />
+    <option name="y" value="145" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -293,6 +323,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -400,6 +431,17 @@
               <item name="edu" type="462c0819:PsiDirectoryNode" />
               <item name="victor" type="462c0819:PsiDirectoryNode" />
               <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Video_Forensics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Video_Forensics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="edu" type="462c0819:PsiDirectoryNode" />
+              <item name="victor" type="462c0819:PsiDirectoryNode" />
+              <item name="Interceptor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Video_Forensics" type="b2602c69:ProjectViewProjectNode" />
@@ -604,13 +646,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569311572989" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569383320650" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -802,10 +843,10 @@
     <list>
       <item itemvalue="Application.JWT" />
       <item itemvalue="Application.QandAController" />
+      <item itemvalue="Application.PageInterceptor" />
       <item itemvalue="JUnit.junitTest" />
       <item itemvalue="JUnit.junitTest.testGet" />
       <item itemvalue="Tomcat Server.Tomcat 7.0.65" />
-      <item itemvalue="Application.PageInterceptor" />
     </list>
     <recent_temporary>
       <list>
@@ -839,7 +880,8 @@
       <workItem from="1569119063735" duration="19011000" />
       <workItem from="1569151846133" duration="9873000" />
       <workItem from="1569196688498" duration="30973000" />
-      <workItem from="1569288140001" duration="9712000" />
+      <workItem from="1569288140001" duration="21993000" />
+      <workItem from="1569372505599" duration="10860000" />
     </task>
     <task id="LOCAL-00001" summary="初步创建了bean和properties文件">
       <created>1568810061802</created>
@@ -974,7 +1016,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569247673108</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="初步完成作业发布">
+      <created>1569311610392</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1569311610392</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1007,7 +1056,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168691000" />
+    <option name="totallyTimeSpent" value="191832000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1020,8 +1069,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28954422" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2935657" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1031,15 +1081,15 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.063739374" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49597856" visible="true" weight="0.388102" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" weight="0.21954674" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49597856" visible="true" weight="0.54532576" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" weight="0.28895184" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50402147" side_tool="true" weight="0.8753541" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.25212464" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32577905" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.11473088" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="JProfiler" order="13" />
@@ -1057,43 +1107,6 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27010724" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731904" visible="true" weight="0.21388102" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49865952" weight="0.04249292" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50268096" side_tool="true" weight="0.67280453" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.33994335" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.4305949" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="JProfiler" order="13" />
-      <window_info anchor="bottom" id="Database Changes" order="14" />
-      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49865952" weight="0.7266289" />
-      <window_info anchor="bottom" id="Application Servers" order="16" weight="0.3286119" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1159,7 +1172,8 @@
     <MESSAGE value="课程的更改完成" />
     <MESSAGE value="搭好了课程管理模块的框架" />
     <MESSAGE value="初步完成作业发布" />
-    <option name="LAST_COMMIT_MESSAGE" value="初步完成作业发布" />
+    <MESSAGE value="要加快开发进度了" />
+    <option name="LAST_COMMIT_MESSAGE" value="要加快开发进度了" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1226,19 +1240,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java</url>
-          <line>55</line>
+          <line>56</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java</url>
-          <line>66</line>
+          <line>67</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java</url>
-          <line>102</line>
+          <line>106</line>
           <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
@@ -1267,20 +1281,26 @@
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/loginRequired.java</url>
-          <line>18</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/interceptor/PageInterceptor.java</url>
+          <line>26</line>
           <properties />
-          <option name="timeStamp" value="41" />
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/JWT.java</url>
-          <line>34</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java</url>
+          <line>70</line>
           <properties />
-          <option name="timeStamp" value="42" />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java</url>
-          <line>100</line>
+          <line>88</line>
           <properties class="com.edu.victor.Service.impl.CourseManagementServiceImpl" method="getCourseInfo">
             <option name="EMULATED" value="true" />
           </properties>
@@ -1298,120 +1318,66 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/newsMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="27" column="111" selection-start-line="27" selection-start-column="111" selection-end-line="27" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/News.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="10" column="19" selection-start-line="10" selection-end-line="11" />
+        <state relative-caret-position="45">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Chapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#496#497#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ChapterDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding>
-            <element signature="e#168#169#0" expanded="true" />
-            <element signature="e#193#194#0" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#456#457#0" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ExcelUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Notice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/QandAController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Teacher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="216">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/TimeLimitInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/StuSearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="216">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/StuManagementService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/StuClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        <state relative-caret-position="90">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/TeacherService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Section.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/NewsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1422,117 +1388,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/TeacherServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="67" column="71" selection-start-line="67" selection-start-column="71" selection-end-line="67" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/ApplicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-106">
-          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-dao.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-utils.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sh.exe.stackdump">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-332">
-          <caret line="66" column="19" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/NewsAndNoticeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/CourseManagementService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="162" column="13" lean-forward="true" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/UploadUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="103" column="43" selection-start-line="103" selection-start-column="43" selection-end-line="103" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.3.RELEASE/spring-webmvc-4.2.3.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="415" selection-start-line="415" selection-end-line="415" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.3.RELEASE/spring-webmvc-4.2.3.RELEASE.jar!/org/springframework/web/servlet/HandlerExecutionChain.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/JWT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="48" column="35" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/checkInfoInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
+        <state relative-caret-position="434">
           <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1542,163 +1400,162 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/loginRequired.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+        <state relative-caret-position="247">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/spring/applicationContext-service.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/JWT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="112">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/spring/dispatcherServlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/GlobalException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/TeacherController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/StuManagementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/NewsAndNoticeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2423#2424#0" expanded="true" />
-            <element signature="e#2487#2488#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/message.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SbHomeworkDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/dispatcherServlet.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+        <state relative-caret-position="-135" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ResponseData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
+        <state relative-caret-position="302">
+          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar!/org/apache/ibatis/plugin/Plugin.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="96">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar!/org/apache/ibatis/executor/SimpleExecutor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        <state relative-caret-position="96">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar!/org/apache/ibatis/executor/BaseExecutor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5090">
-          <caret line="124" column="48" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
+        <state relative-caret-position="79">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/HWDao.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar!/org/apache/ibatis/executor/CachingExecutor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="79">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar!/org/apache/ibatis/session/defaults/DefaultSqlSession.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="16" />
+        <state relative-caret-position="79">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/1.2.3/mybatis-spring-1.2.3.jar!/org/mybatis/spring/SqlSessionTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar!/org/apache/ibatis/binding/MapperMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar!/org/apache/ibatis/binding/MapperProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.3.RELEASE/spring-web-4.2.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Page.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1964">
+          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
           <folding>
-            <element signature="e#401#402#0" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-            <element signature="e#527#528#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-            <element signature="e#923#924#0" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1123#1124#0" expanded="true" />
-            <element signature="e#1207#1208#0" expanded="true" />
-            <element signature="e#1242#1243#0" expanded="true" />
-            <element signature="e#1273#1274#0" expanded="true" />
-            <element signature="e#1361#1362#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#1523#1524#0" expanded="true" />
-            <element signature="e#1587#1588#0" expanded="true" />
-            <element signature="e#1673#1674#0" expanded="true" />
-            <element signature="e#1745#1746#0" expanded="true" />
-            <element signature="e#1847#1848#0" expanded="true" />
+            <element signature="e#1492#1493#0" expanded="true" />
+            <element signature="e#1541#1542#0" expanded="true" />
+            <element signature="e#1581#1582#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/stuManagementMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        <state relative-caret-position="90">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/newsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-532">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SbHomework.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#377#378#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#793#794#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/NewsAndNoticeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1707,48 +1564,213 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="26" column="44" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="44" />
+        <state relative-caret-position="407">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Conveter/StringToDate.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="218">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/HWDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Judge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding>
+            <element signature="e#123#124#0" expanded="true" />
+            <element signature="e#148#149#0" expanded="true" />
+            <element signature="e#181#182#0" expanded="true" />
+            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/interceptor/PageInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="76" column="41" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#703#704#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="158">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="282">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2957#2958#0" expanded="true" />
+            <element signature="e#2984#2985#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/CourseManagementService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="16" column="77" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1935">
+          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1138#1139#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1236#1237#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+            <element signature="e#1320#1321#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1908">
+          <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1064">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1538#1539#0" expanded="true" />
+            <element signature="e#1589#1590#0" expanded="true" />
+            <element signature="e#2026#2027#0" expanded="true" />
+            <element signature="e#2050#2051#0" expanded="true" />
+            <element signature="e#2218#2219#0" expanded="true" />
+            <element signature="e#2244#2245#0" expanded="true" />
+            <element signature="e#2280#2281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/NewsAndNoticeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/HomeworkDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#857#858#0" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#958#959#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+            <element signature="e#1021#1022#0" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/UploadUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
