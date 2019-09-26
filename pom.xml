@@ -177,7 +177,7 @@
     </dependency>
 
     <!-- use hibernate-validator to validate entity before enter controller -->
-    <dependency>
+    <!--<dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>6.0.13.Final</version>
@@ -186,7 +186,7 @@
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
       <version>2.0.1.Final</version>
-    </dependency>
+    </dependency>-->
 
     <!--引入JWT依赖,由于是基于Java，所以需要的是java-jwt-->
     <dependency>

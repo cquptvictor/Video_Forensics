@@ -21,7 +21,6 @@ public class HWController {
     @ResponseBody
     public ResponseData publishHW(Homework homework,HttpServletRequest httpServletRequest) throws IncompleteInformationException {
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
-
         return hwService.publishHW(homework,teacher);
     }
 

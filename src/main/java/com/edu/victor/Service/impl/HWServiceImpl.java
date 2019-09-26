@@ -1,5 +1,6 @@
 package com.edu.victor.Service.impl;
 
+import com.edu.victor.Dao.CourseDao;
 import com.edu.victor.Dao.HWDao;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Service.HWService;
@@ -21,6 +22,8 @@ public class HWServiceImpl implements HWService {
     RedisTemplate<String,Object> redisTemplate;
     @Autowired
     TeacherService teacherService;
+    @Autowired
+    CourseDao courseDao;
     /**hw_id_start : value
      * hw_id_end : value*/
     @Override
@@ -39,12 +42,13 @@ public class HWServiceImpl implements HWService {
         /**添加时间限制和发送消息*/
         redisTemplate.opsForValue().set(startKey,String.valueOf(homework.getStartTime().getTime()));
         redisTemplate.opsForValue().set(endKey,String.valueOf(homework.getEndTime().getTime()));
-        sendNotice(homework.getToUser(),String.valueOf(homework.getId()));
+        List<Integer> students = courseDao.getStuByCourse(homework.getCourseId());
+        sendNotice(students,String.valueOf(homework.getId()));
         return  responseData;
     }
     /**把要发送的通知添加到redis
      *stu_id list*/
-    private void sendNotice(int[] toUser,String noticeId) {
+    private void sendNotice(List<Integer>toUser,String noticeId) {
         for (int id : toUser) {
             redisTemplate.opsForList().leftPush("stu_"+ id,noticeId);
         }

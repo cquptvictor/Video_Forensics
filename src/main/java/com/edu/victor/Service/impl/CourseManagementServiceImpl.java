@@ -75,7 +75,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData addCourseware(Courseware courseware, Teacher teacher) throws UnsupportedFileTypeException {
         String path = UploadUtils.saveImage(courseware.getFile(),courseware.getSuperior_id()+"","courseware");
         courseware.setUrl(path);
-        courseware.setTea_id(teacher.getId());
+        courseware.setTeaId(teacher.getId());
         ResponseData responseData = new ResponseData();
         if(courseDao.addCourseware(courseware))
             responseData.setCode(200);
@@ -96,6 +96,15 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         ResponseData responseData = new ResponseData(20);
         Page page1 = courseDao.searchCoursewareByPage(page);
         page.setPageData(page1.getPageData());
+        responseData.setData(page);
+        return responseData;
+    }
+
+    @Override
+    public ResponseData searchStuLearningProgress(Page page) {
+        Page page1 = courseDao.getStuLearningProgressByPage(page);
+        page.setPageData(page1.getPageData());
+        ResponseData responseData = new ResponseData(200);
         responseData.setData(page);
         return responseData;
     }

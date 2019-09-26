@@ -13,7 +13,7 @@ public class Courseware {
     private MultipartFile file;
     private String url;
     private String title;
-    private Integer tea_id = null;
+    private Integer teaId = null;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")    private Date time;
     public String getUrl() {
         return url;
@@ -40,12 +40,12 @@ public class Courseware {
         this.superior_id = superior_id;
     }
 
-    public Integer getTea_id() {
-        return tea_id;
+    public Integer getTeaId() {
+        return teaId;
     }
 
-    public void setTea_id(Integer tea_id) {
-        this.tea_id = tea_id;
+    public void setTeaId(Integer teaId) {
+        this.teaId = teaId;
     }
 
     public MultipartFile getFile() {

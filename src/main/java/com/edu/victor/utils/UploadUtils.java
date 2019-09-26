@@ -1,6 +1,8 @@
 package com.edu.victor.utils;
 
 import com.edu.victor.Exception.UnsupportedFileTypeException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -12,10 +14,15 @@ import java.util.List;
 /**
  * 处理video、avatar、courseImage、courseware的上传*/
 public class UploadUtils {
-    private static String avatarBaseUrl = "E:\\netClass\\avatar\\";
+    /*private static String avatarBaseUrl = "E:\\netClass\\avatar\\";
     private static String courseImageBaseUrl = "E:\\netClass\\course\\";
     private static String courseVideoBaseUrl = "E:\\netClass\\video\\";
     private static String coursewareBaseUrl = "E:\\netClass\\courseware\\";
+    */
+    private static String avatarBaseUrl = "/root/netClass/avatar/";
+    private static String courseImageBaseUrl = "/root/netClass/course/";
+    private static String courseVideoBaseUrl = "/root/netClass/video/";
+    private static String coursewareBaseUrl = "/root/netClass/courseware/";
     private static List<String> imageSuffixes = new ArrayList<>();
     private static List<String> videoSuffixes = new ArrayList<>();
     private static List<String> coursewareSuffixes = new ArrayList<>();

@@ -13,6 +13,7 @@ public interface CourseManagementService {
     ResponseData addCourseware(Courseware courseware, Teacher teacher) throws UnsupportedFileTypeException;
     ResponseData searchCourses(Page page);
     ResponseData searchCoursewares(Page page);
+    ResponseData searchStuLearningProgress(Page page);
   /*  List<Chapter> searchChapter(int id);
     List<Section> searchSection(int id);
     String searchCoursewareUrl(int id);

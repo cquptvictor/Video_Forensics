@@ -14,7 +14,6 @@ public class Homework {
     private String title;
     private String content;
     private String category;
-    private int[] toUser;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date startTime;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
@@ -70,13 +69,6 @@ public class Homework {
         this.category = category;
     }
 
-    public int[] getToUser() {
-        return toUser;
-    }
-
-    public void setToUser(int[] toUser) {
-        this.toUser = toUser;
-    }
 
     public Date getStartTime() {
         return startTime;

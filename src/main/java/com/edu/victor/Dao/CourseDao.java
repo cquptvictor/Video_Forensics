@@ -12,9 +12,10 @@ public interface CourseDao {
 
     Page<Course> searchCoursesByPage(Page page);
     Page<Courseware> searchCoursewareByPage(Page page);
+    Page<LearningProgress> getStuLearningProgressByPage(Page page);
     /*List<Chapter> searchChapter(Integer id);
     List<Section> searchSection(Integer id);*/
-   CourseDtoForSpecific getCourseInfo(int id);
+    CourseDtoForSpecific getCourseInfo(int id);
 
    Boolean deleteSection(int section_id, int tea_id);
    Boolean deleteChapter(int chapter_id, int tea_id);
@@ -26,7 +27,7 @@ public interface CourseDao {
    List<String> getCoursewareUrlByCourse(int id);
    List<String> getSectionUrlByChapter(int chapter_id);
    List<String> getSectionUrlByCourse(int course_id);
-
+   List<Integer> getStuByCourse(int course_id);
    Boolean updateCourseInfo(Course course);
    Boolean updateChapterInfo(Chapter chapter);
    Boolean updateSectionInfo(Section section);
