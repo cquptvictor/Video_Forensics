@@ -1,17 +1,17 @@
 package com.edu.victor.Controller;
 
 import com.edu.victor.Exception.IncompleteInformationException;
+import com.edu.victor.Exception.InvalidArgumentsException;
 import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Service.NewsAndNoticeService;
-import com.edu.victor.domain.News;
-import com.edu.victor.domain.Page;
-import com.edu.victor.domain.ResponseData;
-import com.edu.victor.domain.Teacher;
+import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping(method = RequestMethod.POST)
@@ -52,5 +52,27 @@ public class NewsAndNoticeController {
     @ResponseBody
     public ResponseData specificNews(@PathVariable("news_id") Integer news_id){
         return newsAndNoticeService.getSpecificNews(news_id);
+    }
+    /**通知开发*/
+    @RequestMapping(value = "/pNotice")
+    @ResponseBody
+    public ResponseData publishNotice(Notice notice,HttpServletRequest httpServletRequest){
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        return newsAndNoticeService.addNotice(notice,teacher);
+    }
+    @RequestMapping(value = "/dNotice")
+    @ResponseBody
+    public ResponseData deleteNotice(int id){
+        return newsAndNoticeService.deleteNotice(id);
+    }
+    @RequestMapping(value = "/notices")
+    @ResponseBody
+    public ResponseData searchNews(Page page,int courseId, HttpServletRequest httpServletRequest) throws InvalidArgumentsException {
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Map map = new HashMap<>();
+        map.put("courseId",courseId);
+        page.setFilter(map);
+        return newsAndNoticeService.searchNotice(page);
+
     }
 }

@@ -31,4 +31,5 @@
     <select id="getSpecificNews" resultType="News">
         select *  FROM news where id = #{id}
     </select>
+
 </mapper>

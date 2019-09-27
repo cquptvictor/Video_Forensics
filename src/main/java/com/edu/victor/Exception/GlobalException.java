@@ -45,4 +45,13 @@ public class GlobalException {
         responseData.setMessage("You need to upload correct file type");
         return responseData;
     }
+    /**参数不合法*/
+    @ExceptionHandler(InvalidArgumentsException.class)
+    @ResponseBody
+    public ResponseData invalidArguments(){
+        ResponseData responseData = new ResponseData();
+        responseData.setCode(0);
+        responseData.setMessage("Please enter a valid argument");
+        return responseData;
+    }
 }

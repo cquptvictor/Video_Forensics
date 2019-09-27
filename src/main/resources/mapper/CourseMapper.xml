@@ -19,10 +19,7 @@
     <resultMap id="PageCourse" type="Page">
         <collection property="pageData" ofType="CourseDtoForSimple" autoMapping="true"/>
     </resultMap>
-    <resultMap id="LearningProgressMap" type="LearningProgress">
-        <id column="id" property="id"/>
-        <result property="learningProgress" column="learning_progress"/>
-        <result property="graduated" column="graduated"/>
+    <resultMap id="LearningProgressMap" type="LearningProgress" autoMapping="true">
         <association property="student" javaType="Student" autoMapping="true">
 
         </association>
@@ -87,8 +84,8 @@
     <select id="getCoursewareUrlByCourse" resultType="String">
         select url from coureseware where superior_id = #{id};
     </select>
-    <select id="getStuByCourse">
-        select stu_id from stu_course where id = #{stu_id}
+    <select id="getStuByCourse" resultType="Integer">
+        select stu_id from stu_course where course_id = #{Id}
     </select>
     <select id="getStuLearningProgressByPage" resultMap="PageLearningProgress">
         select name,username,phone,stu_course.id as id,course_id,learning_progress,graduated from stu join stu_course on stu.id =stu_course.stu_id

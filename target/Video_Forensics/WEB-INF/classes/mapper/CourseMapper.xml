@@ -19,6 +19,14 @@
     <resultMap id="PageCourse" type="Page">
         <collection property="pageData" ofType="CourseDtoForSimple" autoMapping="true"/>
     </resultMap>
+    <resultMap id="LearningProgressMap" type="LearningProgress" autoMapping="true">
+        <association property="student" javaType="Student" autoMapping="true">
+
+        </association>
+    </resultMap>
+    <resultMap id="PageLearningProgress" type="Page" autoMapping="true">
+        <collection property="pageData" resultMap="LearningProgressMap" autoMapping="true"/>
+    </resultMap>
     <select id="getCourseInfo" resultMap="CourseMap">
         select id as course_id from course where id = #{id};
     </select>
@@ -75,6 +83,25 @@
     </select>
     <select id="getCoursewareUrlByCourse" resultType="String">
         select url from coureseware where superior_id = #{id};
+    </select>
+    <select id="getStuByCourse" resultType="Integer">
+        select stu_id from stu_course where course_id = #{Id}
+    </select>
+    <select id="getStuLearningProgressByPage" resultMap="PageLearningProgress">
+        select name,username,phone,stu_course.id as id,course_id,learning_progress,graduated from stu join stu_course on stu.id =stu_course.stu_id
+         <where>
+        course_id = #{filter.course_id}
+        <if test="filter.classNum != null">
+          and  stu.class_num = #{filter.classNum}
+        </if>
+         <if test="filter.stuNum != null">
+             and stu.username = #{filter.stuNum}
+         </if>
+         <if test="filter.stuName != null">
+             and name like "%${filter.stuName}%"
+         </if>
+    </where>
+
     </select>
     <delete id="deleteCourse">
         delete from course where id = #{0} and tea_id = #{1};

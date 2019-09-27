@@ -2,17 +2,19 @@ package com.edu.victor.Service.impl;
 
 import com.edu.victor.Dao.CourseDao;
 import com.edu.victor.Dao.HWDao;
+import com.edu.victor.Dao.MessageDao;
+import com.edu.victor.Dao.TeacherDao;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Service.HWService;
 import com.edu.victor.Service.TeacherService;
 import com.edu.victor.domain.*;
+import com.edu.victor.utils.MessageCreateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class HWServiceImpl implements HWService {
@@ -24,34 +26,39 @@ public class HWServiceImpl implements HWService {
     TeacherService teacherService;
     @Autowired
     CourseDao courseDao;
+    @Autowired
+    TeacherDao teacherDao;
+    @Autowired
+    MessageDao messageDao;
     /**hw_id_start : value
      * hw_id_end : value*/
+    @Transactional
     @Override
     public ResponseData publishHW(Homework homework, Teacher teacher) throws IncompleteInformationException {
         teacherService.isCompleted(teacher);
         ResponseData responseData = new ResponseData(200);
+        //添加到作业表
         if(!hwDao.publishHW(homework))
         {
             responseData.setCode(0);
             return responseData;
         }
         int id = homework.getId();
+        //查出老师名字，创建message，添加到messag表
+        teacher = teacherDao.teacherInfo(teacher.getId());
+        Message message = MessageCreateUtils.createHwMessage(homework,teacher.getName());
+        messageDao.addMessage(message);
+        //查询课程下的学生id，存入通知-学生表
+        List<Integer> students = courseDao.getStuByCourse(homework.getCourseId());
+        List<MsgUser> list = MessageCreateUtils.createMsgUser(message.getId(),students);
+        messageDao.addMsgUser(list);
         /**构造redis中的key*/
         String startKey = String.format("hw_%d_start",id);
         String endKey = String.format("hw_%d_end",id);
         /**添加时间限制和发送消息*/
         redisTemplate.opsForValue().set(startKey,String.valueOf(homework.getStartTime().getTime()));
         redisTemplate.opsForValue().set(endKey,String.valueOf(homework.getEndTime().getTime()));
-        List<Integer> students = courseDao.getStuByCourse(homework.getCourseId());
-        sendNotice(students,String.valueOf(homework.getId()));
         return  responseData;
-    }
-    /**把要发送的通知添加到redis
-     *stu_id list*/
-    private void sendNotice(List<Integer>toUser,String noticeId) {
-        for (int id : toUser) {
-            redisTemplate.opsForList().leftPush("stu_"+ id,noticeId);
-        }
     }
 
     @Override

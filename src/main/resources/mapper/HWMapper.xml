@@ -14,8 +14,9 @@
     </resultMap>
     <!--mapper返回的任然是受影响的行数，主键返回在实体的对应属性中-->
     <insert id="publishHW" useGeneratedKeys="true" keyProperty="id" parameterType="Homework">
-        insert into homework(course_id,title,content,category,start_time,end_time)value (#{courseId},#{title},#{content},#{category},#{start_time},#{end_time});
+        insert into homework(course_id,title,content,category,start_time,end_time)value (#{courseId},#{title},#{content},#{category},#{startTime},#{endTime});
     </insert>
+
     <select id="getHwByCourseByPage" parameterType="Page" resultMap="PageMapHw">
         select id,title,category,start_time,end_time,time from homework where course_id = #{filter.id} and category = #{filter.category} order by time
     </select>
