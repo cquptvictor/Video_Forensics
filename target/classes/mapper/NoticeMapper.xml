@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.NoticeDao">
+    <resultMap id="PageNotice" type="Page">
+        <collection property="pageData" ofType="Notice" autoMapping="true"/>
+    </resultMap>
+
+    <select id="searchNoticeByPage" resultMap="PageNotice">
+        select id,title,time from notice where course_id = #{filter.courseId}
+    </select>
+
+    <insert id="addNotice" useGeneratedKeys="true" keyProperty="id" parameterType="Notice">
+        insert into notice(course_id,content,title)value(#{courseId},#{content},#{title})
+    </insert>
+    <delete id="deleteNotice">
+        delete from notice where id = #{id}
+    </delete>
+
+    <select id="getNotice" resultType="Notice">
+        select * from notice where id = #{id}
+    </select>
+
+</mapper>

@@ -35,6 +35,7 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
         /**验证用户信息是否完整*/
         teacher = teacherService.isCompleted(teacher);
         news.setPublisherId(teacher.getId());
+        news.setPublisherName(teacher.getName());
         ResponseData responseData = new ResponseData();
         if(newsDao.addNews(news))
         {
@@ -45,12 +46,12 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData deleteNews(int id,int publisher_id,int tea_id) throws NotAuthorizedException {
+    public ResponseData deleteNews(News news,int tea_id) throws NotAuthorizedException {
         /**不是发布人，没有删除权限*/
-        if(publisher_id != tea_id)
+        if(news.getPublisherId() != tea_id)
             throw new NotAuthorizedException();
         ResponseData responseData = new ResponseData();
-        if(newsDao.deleteNews(id)){
+        if(newsDao.deleteNews(news.getId())){
             responseData.setCode(200);
         }else
             responseData.setCode(0);
@@ -93,8 +94,11 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
 
     @Override
     public ResponseData getSpecificNews(int id) {
-        ResponseData responseData = new ResponseData();
-        responseData.setData(newsDao.getSpecificNews(id));
+        ResponseData responseData = new ResponseData(200);
+        News news = newsDao.getSpecificNews(id);
+        if(news == null)
+            responseData.setCode(0);
+        responseData.setData(news);
         return responseData;
     }
 

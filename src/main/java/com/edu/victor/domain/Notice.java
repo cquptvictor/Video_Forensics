@@ -1,7 +1,7 @@
 package com.edu.victor.domain;
 
-import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 /**通知的数据库映射*/
 import java.sql.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)

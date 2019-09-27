@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.HWDao">
+    <resultMap id="PageMapHw" type="Page">
+        <collection property="pageData" ofType="Homework" autoMapping="true">
+        </collection>
+    </resultMap>
+    <resultMap id="PageMapSb" type="Page">
+        <collection property="pageData" ofType="SbHomework" autoMapping="true">
+        </collection>
+    </resultMap>
+    <!--mapper返回的任然是受影响的行数，主键返回在实体的对应属性中-->
+    <insert id="publishHW" useGeneratedKeys="true" keyProperty="id" parameterType="Homework">
+        insert into homework(course_id,title,content,category,start_time,end_time)value (#{courseId},#{title},#{content},#{category},#{startTime},#{endTime});
+    </insert>
+
+    <select id="getHwByCourseByPage" parameterType="Page" resultMap="PageMapHw">
+        select id,title,category,start_time,end_time,time from homework where course_id = #{filter.id} and category = #{filter.category} order by time
+    </select>
+    <select id="getSpecificHomework" resultType="HomeWork">
+        select * from homework where id = #{id}
+    </select>
+    <select id="getSubmitedByPage" parameterType="Page" resultMap="PageMapSb">
+        select id,content,score,status from hw_submit where hw_id = #{filter.hw_id}
+    </select>
+    <update id="updateHw" parameterType="Homework">
+        update homework <set>
+        <if test="title != null">
+            title = #{title},
+        </if>
+        <if test="content != null">
+            content = #{content}
+        </if>
+    </set>
+    where id = #{id}
+    </update>
+    <update id="judgeHw" parameterType="judge">
+        update hw_submit set score = #{score} where id = #{id};
+    </update>
+    <delete id="deleteHw">
+        delete from homework where id = #{id};
+    </delete>
+</mapper>

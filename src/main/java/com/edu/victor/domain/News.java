@@ -13,7 +13,7 @@ public class News {
     private int publisherId;
     private String publisherName;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
-    private Date publishTime;
+    private Date time;
 
     public String getTitle() {
         return title;
@@ -55,11 +55,11 @@ public class News {
             this.publisherName = publisherName;
     }
 
-    public Date getPublishTime() {
-        return publishTime;
+    public Date getTime() {
+        return time;
     }
 
-    public void setPublishTime(Date publishTime) {
-        this.publishTime = publishTime;
+    public void setTime(Date time) {
+        this.time = time;
     }
 }

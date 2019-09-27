@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 public interface NewsAndNoticeService {
      ResponseData addNews(News news, Teacher teacher) throws IncompleteInformationException;
-     ResponseData deleteNews(int id, int publisher_id,int tea_id) throws NotAuthorizedException;
+     ResponseData deleteNews(News news,int tea_id) throws NotAuthorizedException;
      ResponseData updateNews(News news,Teacher teacher) throws NotAuthorizedException;
      ResponseData searchNews(Page page,Teacher teacher);
      ResponseData getSpecificNews(int id);
