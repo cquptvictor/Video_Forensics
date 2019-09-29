@@ -1,6 +1,5 @@
 package com.edu.victor.domain;
 
-import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
 
 public class ResponseData<T> {
     private int code;

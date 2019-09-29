@@ -9,11 +9,11 @@ import java.util.Map;
 public class Page<T> {
 
     // 当前页数
-    private int currentPage;
+    private int currentPage = 1;
     // 总页数
     private int totalPage;
     // 每页显示条数
-    private int pageNum;
+    private int pageNum = 4;
     // 总条数
     private int totalNumber;
     //数据存放

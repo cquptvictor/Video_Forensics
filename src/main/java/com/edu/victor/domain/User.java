@@ -5,13 +5,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class User {
     private int id;
-
     private String username;
     @JsonIgnore
     private String password;
 
     private String avatar;
     private MultipartFile avatarFile;
+
 
     public MultipartFile getAvatarFile() {
         return avatarFile;
