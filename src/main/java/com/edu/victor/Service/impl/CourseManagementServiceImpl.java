@@ -198,12 +198,13 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     /**查询出图片路径，替换图片，然后正常更新*/
     @Override
     public ResponseData updateCourse(Course course) {
-        if(courseDao.updateCourseInfo(course))
-        {
-            String url = courseDao.getCourseImageUrl(course.getId());
-            //提取文件名
-            //String filePath = url.split(".",1)[0];
-            UploadUtils.updateCourseImage(course.getPic(),url);
+        if(courseDao.updateCourseInfo(course)) {
+            if (course.getPic() != null) {
+                String url = courseDao.getCourseImageUrl(course.getId());
+                //提取文件名
+                //String filePath = url.split(".",1)[0];
+                UploadUtils.updateCourseImage(course.getPic(), url);
+            }
         }
         ResponseData responseData = new ResponseData();
         if(courseDao.updateCourseInfo(course))
