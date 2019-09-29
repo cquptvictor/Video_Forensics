@@ -202,8 +202,8 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         {
             String url = courseDao.getCourseImageUrl(course.getId());
             //提取文件名
-            String filePath = url.split(".",1)[0];
-            UploadUtils.updateCourseImage(course.getPic(),filePath);
+            //String filePath = url.split(".",1)[0];
+            UploadUtils.updateCourseImage(course.getPic(),url);
         }
         ResponseData responseData = new ResponseData();
         if(courseDao.updateCourseInfo(course))

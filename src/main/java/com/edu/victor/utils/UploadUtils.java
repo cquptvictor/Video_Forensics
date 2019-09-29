@@ -18,7 +18,7 @@ public class UploadUtils {
     private static String courseImageBaseUrl = "E:\\netClass\\course\\";
     private static String courseVideoBaseUrl = "E:\\netClass\\video\\";
     private static String coursewareBaseUrl = "E:\\netClass\\courseware\\";
-    */
+*/
     private static String avatarBaseUrl = "/root/netClass/avatar/";
     private static String courseImageBaseUrl = "/root/netClass/course/";
     private static String courseVideoBaseUrl = "/root/netClass/video/";
