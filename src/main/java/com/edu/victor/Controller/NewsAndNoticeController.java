@@ -68,10 +68,14 @@ public class NewsAndNoticeController {
     @RequestMapping(value = "/notices")
     @ResponseBody
     public ResponseData searchNews(Page page,int courseId, HttpServletRequest httpServletRequest) throws InvalidArgumentsException {
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
         Map map = new HashMap<>();
         map.put("courseId",courseId);
         page.setFilter(map);
         return newsAndNoticeService.searchNotice(page);
+    }
+    @RequestMapping("/notice/{notice_id}")
+    @ResponseBody
+    public ResponseData getSpecificNotice(@PathVariable("notice_id") int id){
+        return newsAndNoticeService.getSpecificNotice(id);
     }
 }

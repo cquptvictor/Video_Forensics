@@ -6,6 +6,7 @@ import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.Page;
 import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Student;
+import com.edu.victor.domain.stuDto;
 import com.edu.victor.utils.ExcelUtils;
 import com.edu.victor.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class StuManagementServiceImpl implements StuManagementService {
     @Override
     public ResponseData searchStu(Page page) {
         ResponseData responseData = new ResponseData(200);
-        Page<Student> page2 = stuManagementDao.searchStuByPage(page);
+        Page<stuDto> page2 = stuManagementDao.searchStuByPage(page);
         page.setPageData(page2.getPageData());
         responseData.setData(page);
         return responseData;

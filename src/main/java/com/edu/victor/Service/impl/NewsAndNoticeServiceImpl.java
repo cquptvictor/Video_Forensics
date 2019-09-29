@@ -146,4 +146,12 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
         return responseData;
 
     }
+
+    @Override
+    public ResponseData getSpecificNotice(int id) {
+        Notice notice = noticeDao.getNotice(id);
+        ResponseData responseData = new ResponseData(200);
+        responseData.setData(notice);
+        return responseData;
+    }
 }

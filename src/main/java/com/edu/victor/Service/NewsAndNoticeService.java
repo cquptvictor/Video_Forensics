@@ -18,4 +18,5 @@ public interface NewsAndNoticeService {
      ResponseData addNotice(Notice notice,Teacher teacher);
      ResponseData deleteNotice(int id);
      ResponseData searchNotice(Page page) throws InvalidArgumentsException;
+     ResponseData getSpecificNotice(int id);
 }

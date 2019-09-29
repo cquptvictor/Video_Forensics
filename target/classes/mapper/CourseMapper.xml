@@ -82,7 +82,7 @@
 
     </select>
     <select id="getCoursewareUrlByCourse" resultType="String">
-        select url from coureseware where superior_id = #{id};
+        select url from courseware where superior_id = #{id};
     </select>
     <select id="getStuByCourse" resultType="Integer">
         select stu_id from stu_course where course_id = #{Id}

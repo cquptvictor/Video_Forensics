@@ -2,9 +2,17 @@ package com.edu.victor.utils;
 
 import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.JWTVerifyException;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SignatureException;
 import java.util.HashMap;
 import java.util.Map;
 @Component
@@ -31,12 +39,12 @@ public class JWT {
     }
 
     //解密，传入一个加密后的token字符串和解密后的类型
-    public static<T> T unsign(String jwt, Class<T> classT) {
+    public static<T> T unsign(String jwt, Class<T> classT) throws JsonMappingException {
         final JWTVerifier verifier = new JWTVerifier(SECRET);
         try {
-            final Map<String,Object> claims= verifier.verify(jwt);
+            final Map<String, Object> claims = verifier.verify(jwt);
             if (claims.containsKey(EXP) && claims.containsKey(PAYLOAD)) {
-                long exp = (Long)claims.get(EXP);
+                long exp = (Long) claims.get(EXP);
                 long currentTimeMillis = System.currentTimeMillis();
                 /*方便测试，先不判断时间
                 if (exp > currentTimeMillis) {
@@ -44,14 +52,21 @@ public class JWT {
                     ObjectMapper objectMapper = new ObjectMapper();
                     return objectMapper.readValue(json, classT);
                 }*/
-                String json = (String)claims.get(PAYLOAD);
+                String json = (String) claims.get(PAYLOAD);
                 ObjectMapper objectMapper = new ObjectMapper();
+                //objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
                 return objectMapper.readValue(json, classT);
             }
+        }catch (SignatureException | NoSuchAlgorithmException | InvalidKeyException | JWTVerifyException e ) {
             return null;
-        } catch (Exception e) {
-            return null;
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            throw e;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
 }
