@@ -8,7 +8,7 @@ public interface CourseDao {
     Boolean addCourse(Course course);
     Boolean addChapter(Chapter chapter);
     Boolean addSection(Section section);
-    Boolean addCourseware(Courseware courseware);
+    Boolean addCourseware(List<Courseware> courseware);
 
     Page<Course> searchCoursesByPage(Page page);
     Page<Courseware> searchCoursewareByPage(Page page);

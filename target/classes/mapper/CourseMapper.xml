@@ -43,19 +43,22 @@
         select id,time,url,title from courseware where superior_id = #{filter.id}
     </select>
     <select id="searchCoursesByPage" resultMap="PageCourse">
-      select course.id as id,teacher.name as teaName,title,url from course join teacher on course.tea_id = teacher.id where tea_id = #{filter.id}
+      select course.id as id,teacher.name as teaName,title,url,description from course join teacher on course.tea_id = teacher.id where tea_id = #{filter.id}
     </select>
     <insert id="addCourse" parameterType="Course">
         insert into course(tea_id,title,description,url)value (#{teaId},#{title},#{description},#{url});
     </insert>
     <insert id="addChapter" parameterType="Chapter">
-        insert into course_chapter(title,weights,superior_id,tea_id)value (#{title},#{weights},#{superior_id},#{teaId});
+        insert into course_chapter(title,weights,superior_id,tea_id)value (#{title},#{weights},#{superiorId},#{teaId});
     </insert>
     <insert id="addSection" parameterType="Section">
-        insert into course_section(title,weights,superior_id,url,tea_id)value (#{title},#{weights},#{superior_id},#{url},#{teaId});
+        insert into course_section(title,weights,superior_id,url,tea_id)value (#{title},#{weights},#{superiorId},#{url},#{teaId});
     </insert>
     <insert id="addCourseware" parameterType="Courseware">
-      insert into courseware(superior_id,title,url,tea_id)value (#{superior_id},#{title},#{url},#{teaId});
+      insert into courseware(superior_id,title,url,tea_id)value
+        <foreach collection="list" item="item" index="index" separator="," >
+            (#{item.superiorId},#{item.title},#{item.url},#{item.teaId})
+        </foreach>
     </insert>
 
    <!-- <select id="searchChapter" resultType="Chapter">
@@ -152,7 +155,7 @@
                 weights = #{weights},
             </if>
             <if test="superior_id"/>
-              superior_id = #{superior_id}
+              superior_id = #{superiorId}
         </set>
         where id = #{id} and tea_id = #{teaId};
     </update>

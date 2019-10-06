@@ -1,6 +1,7 @@
 package com.edu.victor.Controller;
 
 import com.edu.victor.Exception.IncompleteInformationException;
+import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Service.HWService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,8 +60,12 @@ public class HWController {
     /**删除发布的作业*/
     @RequestMapping(value = "/dHomework")
     @ResponseBody
-    public ResponseData deleteHw(int id){
-        return null;
+    public ResponseData deleteHw(int id,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Map<String,Integer> map = new HashMap();
+        map.put("hwId",id);
+        map.put("teaId",teacher.getId());
+        return hwService.deleteHw(map);
     }
     /**评分*/
     @RequestMapping(value = "/judge")

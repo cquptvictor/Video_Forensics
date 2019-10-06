@@ -9,12 +9,13 @@ import java.util.Date;
 public class Courseware {
     private int id;
 
-    private Integer superior_id = null;
+    private Integer superiorId = null;
     private MultipartFile file;
     private String url;
     private String title;
     private Integer teaId = null;
-    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")    private Date time;
+    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+    private Date time;
     public String getUrl() {
         return url;
     }
@@ -32,12 +33,12 @@ public class Courseware {
         this.id = id;
     }
 
-    public Integer getSuperior_id() {
-        return superior_id;
+    public Integer getSuperiorId() {
+        return superiorId;
     }
 
-    public void setSuperior_id(Integer superior_id) {
-        this.superior_id = superior_id;
+    public void setSuperiorId(Integer superiorId) {
+        this.superiorId = superiorId;
     }
 
     public Integer getTeaId() {

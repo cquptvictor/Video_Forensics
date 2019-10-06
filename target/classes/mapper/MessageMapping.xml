@@ -8,8 +8,7 @@
         insert into message(content_id,content,category,name,time)value(#{contentId},#{content},#{category},#{name},#{time});
     </insert>
     <insert id="addMsgUser" parameterType="Message">
-        insert into msg_stu(msg_id,stu_id)value
-        <foreach collection="list" item="item" index="index" separator="," >
+        insert into msg_stu(msg_id,stu_id)value<foreach collection="list" item="item" index="index" separator="," >
             (#{item.msgId},#{item.stuId})
         </foreach>
     </insert>

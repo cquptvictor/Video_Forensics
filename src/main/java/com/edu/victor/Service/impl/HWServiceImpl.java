@@ -5,16 +5,19 @@ import com.edu.victor.Dao.HWDao;
 import com.edu.victor.Dao.MessageDao;
 import com.edu.victor.Dao.TeacherDao;
 import com.edu.victor.Exception.IncompleteInformationException;
+import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Service.HWService;
 import com.edu.victor.Service.TeacherService;
 import com.edu.victor.domain.*;
 import com.edu.victor.utils.MessageCreateUtils;
+import com.edu.victor.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class HWServiceImpl implements HWService {
@@ -51,6 +54,7 @@ public class HWServiceImpl implements HWService {
         //查询课程下的学生id，存入通知-学生表
         List<Integer> students = courseDao.getStuByCourse(homework.getCourseId());
         List<MsgUser> list = MessageCreateUtils.createMsgUser(message.getId(),students);
+        if(list != null && list.size() != 0)
         messageDao.addMsgUser(list);
         /**构造redis中的key*/
         String startKey = String.format("hw_%d_start",id);
@@ -64,7 +68,8 @@ public class HWServiceImpl implements HWService {
     @Override
     public ResponseData getHwList(Page page) {
         ResponseData responseData = new ResponseData(200);
-        page.setPageData(hwDao.getHwByCourseByPage(page).getPageData());
+        Page page1 = hwDao.getHwByCourseByPage(page);
+        page.setPageData(page1 != null ? page1.getPageData() : null);
         responseData.setData(page);
         return responseData;
     }
@@ -95,11 +100,20 @@ public class HWServiceImpl implements HWService {
     }
     /**1.检查用户是否有权限删除
      * 2.查询关联的提交作业的附件url
-     * 3.删除关联的提交作业
-     * 4.删除提交的文件*/
+     * 3.删除关联的提交作业(数据库记录和文件)
+     * 4.删除作业（数据库记录和文件）*/
+    @Transactional
     @Override
-    public ResponseData deleteHw(Homework homework) {
-        return null;
+    public ResponseData deleteHw(Map<String,Integer> map) throws NotAuthorizedException {
+        /**权限校验*/
+        if(hwDao.isPermitted(map) == 0)
+            throw new NotAuthorizedException();
+        /**删除学生提交的文件*/
+        List<String> hwList = hwDao.getSubmittedHwByHw(map.get("hwId"));
+        //UploadUtils.deleteFile(hwList,"homework");
+        /**删除作业和提交作业的数据库记录*/
+        hwDao.deleteHw(map.get("hwId"));
+        return new ResponseData(200);
     }
 
     @Override

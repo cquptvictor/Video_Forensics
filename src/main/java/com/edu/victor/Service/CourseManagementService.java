@@ -10,9 +10,10 @@ public interface CourseManagementService {
     ResponseData addCourse(Course course, Teacher teacher) throws IncompleteInformationException, UnsupportedFileTypeException;
     ResponseData addChapter(Chapter chapter, Teacher teacher) throws IncompleteInformationException;
     ResponseData addSection(Section section,Teacher teacher) throws UnsupportedFileTypeException, IncompleteInformationException;
-    ResponseData addCourseware(Courseware courseware, Teacher teacher) throws UnsupportedFileTypeException;
+    ResponseData addCourseware(UploadCourseware courseware, Teacher teacher) throws UnsupportedFileTypeException;
     ResponseData searchCourses(Page page);
     ResponseData searchCoursewares(Page page);
+
     ResponseData searchStuLearningProgress(Page page);
   /*  List<Chapter> searchChapter(int id);
     List<Section> searchSection(int id);

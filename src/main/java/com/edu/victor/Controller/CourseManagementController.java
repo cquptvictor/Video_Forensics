@@ -95,7 +95,7 @@ public class CourseManagementController {
     /**课件上传*/
     @RequestMapping(value = "/uploadCourseware",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData uploadCorseware(Courseware courseware,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+    public ResponseData uploadCorseware(UploadCourseware courseware,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
         return courseManagementService.addCourseware(courseware,teacher);
     }
@@ -145,7 +145,7 @@ public class CourseManagementController {
     @ResponseBody
     public ResponseData updateChapter(Chapter chapter,HttpServletRequest httpServletRequest){
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
-        chapter.setTea_id(teacher.getId());
+        chapter.setTeaId(teacher.getId());
         return courseManagementService.updateChapter(chapter);
     }
 

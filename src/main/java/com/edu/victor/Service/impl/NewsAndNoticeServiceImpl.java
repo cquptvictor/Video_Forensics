@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -118,7 +119,8 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
         messageDao.addMessage(message);
         List<Integer> students = courseDao.getStuByCourse(notice.getCourseId());
         List<MsgUser> msgUser = MessageCreateUtils.createMsgUser(message.getId(),students);
-        messageDao.addMsgUser(msgUser);
+        if(msgUser != null && msgUser.size() != 0)
+            messageDao.addMsgUser(msgUser);
         ResponseData responseData = new ResponseData(200);
         return  responseData;
     }
@@ -153,5 +155,9 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
         ResponseData responseData = new ResponseData(200);
         responseData.setData(notice);
         return responseData;
+    }
+    public static void main(String[] args){
+        String s = "catsdogand";
+        System.out.println(Arrays.toString(s.split(".")));
     }
 }

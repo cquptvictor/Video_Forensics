@@ -37,7 +37,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData addChapter(Chapter chapter, Teacher teacher) throws IncompleteInformationException {
         teacher = teacherService.isCompleted(teacher);
         ResponseData responseData = new ResponseData();
-        chapter.setTea_id(teacher.getId());
+        chapter.setTeaId(teacher.getId());
         if(courseDao.addChapter(chapter))
             responseData.setCode(200);
         else
@@ -72,12 +72,12 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
 */
     @Override
-    public ResponseData addCourseware(Courseware courseware, Teacher teacher) throws UnsupportedFileTypeException {
-        String path = UploadUtils.saveImage(courseware.getFile(),courseware.getSuperior_id()+"","courseware");
-        courseware.setUrl(path);
-        courseware.setTeaId(teacher.getId());
+    public ResponseData addCourseware(UploadCourseware courseware, Teacher teacher) throws UnsupportedFileTypeException {
+
+        List<Courseware> coursewares = UploadUtils.multiSaveCourseware(courseware.getMultipartFile(),String.valueOf(courseware.getSuperiorId()),teacher.getId(),courseware.getSuperiorId());
         ResponseData responseData = new ResponseData();
-        if(courseDao.addCourseware(courseware))
+
+        if(courseDao.addCourseware(coursewares))
             responseData.setCode(200);
         else
             responseData.setCode(0);
@@ -93,9 +93,9 @@ public class CourseManagementServiceImpl implements CourseManagementService {
 
     @Override
     public ResponseData searchCoursewares(Page page) {
-        ResponseData responseData = new ResponseData(20);
+        ResponseData<Page> responseData = new ResponseData(200);
         Page page1 = courseDao.searchCoursewareByPage(page);
-        page.setPageData(page1.getPageData());
+        page.setPageData(page1 != null ? page1.getPageData() : null);
         responseData.setData(page);
         return responseData;
     }
@@ -103,7 +103,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Override
     public ResponseData searchStuLearningProgress(Page page) {
         Page page1 = courseDao.getStuLearningProgressByPage(page);
-        page.setPageData(page1.getPageData());
+        page.setPageData(page1 != null ? page1.getPageData() : null);
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);
         return responseData;

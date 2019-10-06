@@ -6,27 +6,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Chapter {
     private int id;
     @JsonIgnore
-    private int superior_id;
+    private int superiorId;
     private String title;
     @JsonIgnore
     private int weights;
     @JsonIgnore
-    private int tea_id;
+    private int teaId;
 
-    public int getTea_id() {
-        return tea_id;
+    public int getTeaId() {
+        return teaId;
     }
 
-    public void setTea_id(int tea_id) {
-        this.tea_id = tea_id;
+    public void setTeaId(int teaId) {
+        this.teaId = teaId;
     }
 
-    public int getSuperior_id() {
-        return superior_id;
+    public int getSuperiorId() {
+        return superiorId;
     }
 
-    public void setSuperior_id(int superior_id) {
-        this.superior_id = superior_id;
+    public void setSuperiorId(int superiorId) {
+        this.superiorId = superiorId;
     }
 
     public int getId() {
