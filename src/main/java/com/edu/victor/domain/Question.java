@@ -6,14 +6,21 @@ import java.util.Date;
 
 public class Question {
     private int id;
-    private int qsrId;
     private int courseId;
-    private String qsrName;
     private String title;
     private String content;
     private char isTeacher;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date time;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Date getTime() {
         return time;
@@ -39,13 +46,6 @@ public class Question {
         this.id = id;
     }
 
-    public int getQsrId() {
-        return qsrId;
-    }
-
-    public void setQsrId(int qsrId) {
-        this.qsrId = qsrId;
-    }
 
     public int getCourseId() {
         return courseId;
@@ -55,13 +55,6 @@ public class Question {
         this.courseId = courseId;
     }
 
-    public String getQsrName() {
-        return qsrName;
-    }
-
-    public void setQsrName(String qsrName) {
-        this.qsrName = qsrName;
-    }
 
     public String getTitle() {
         return title;

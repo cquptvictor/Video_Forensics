@@ -47,9 +47,9 @@ public class StuManagementServiceImpl implements StuManagementService {
 
     @Override
     public ResponseData searchStu(Page page) {
-        ResponseData responseData = new ResponseData(200);
+        ResponseData<Page> responseData = new ResponseData(200);
         Page<stuDto> page2 = stuManagementDao.searchStuByPage(page);
-        page.setPageData(page2.getPageData());
+        page.setPageData(page2 != null ? page2.getPageData():null);
         responseData.setData(page);
         return responseData;
     }

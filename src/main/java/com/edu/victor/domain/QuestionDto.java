@@ -2,10 +2,19 @@ package com.edu.victor.domain;
 /**问答区的帖子列表展示*/
 public class QuestionDto {
     private int id;
-    private int qsrId;
-    private String qsrName;
+    private User user;
     private String title;
-    private char isTeacher;
+    private String isTeacher;
+    private Integer commentNum;
+
+
+    public Integer getCommentNum() {
+        return commentNum;
+    }
+
+    public void setCommentNum(Integer commentNum) {
+        this.commentNum = commentNum;
+    }
 
     public int getId() {
         return id;
@@ -15,20 +24,12 @@ public class QuestionDto {
         this.id = id;
     }
 
-    public int getQsrId() {
-        return qsrId;
+    public User getUser() {
+        return user;
     }
 
-    public void setQsrId(int qsrId) {
-        this.qsrId = qsrId;
-    }
-
-    public String getQsrName() {
-        return qsrName;
-    }
-
-    public void setQsrName(String qsrName) {
-        this.qsrName = qsrName;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitle() {
@@ -39,11 +40,11 @@ public class QuestionDto {
         this.title = title;
     }
 
-    public char getIsTeacher() {
+    public String getIsTeacher() {
         return isTeacher;
     }
 
-    public void setIsTeacher(char isTeacher) {
+    public void setIsTeacher(String isTeacher) {
         this.isTeacher = isTeacher;
     }
 }

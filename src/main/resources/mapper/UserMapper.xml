@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- namespace属性是名称空间，必须唯一 -->
-<mapper namespace="com.edu.victor.Dao.TeacherDao">
+<mapper namespace="com.edu.victor.Dao.UserDao">
     <select id="teacherLogin" parameterType="Teacher" resultType="Teacher">
       select IFNULL(MAX(id),-1) as id,name,email,avatar from teacher where username = #{username} and password = #{password};
     </select>
@@ -25,7 +25,14 @@
         </set>
         where id = #{id}
     </update>
-    <select id="teacherInfo" parameterType="Teacher" resultType="Teacher">
-        select email,name,id from teacher where id = #{id};
+    <select id="teacherInfo" resultType="Teacher">
+        select email,name,id,avatar,username from teacher where id = #{id};
     </select>
+    <update id="updateTeaAvatar">
+        update teacher set avatar = #{avatar} where id =#{id}
+    </update>
+    <update id="updateStuAvatar">
+        update stu set avatar = #{avatar} where id = #{id}
+    </update>
+
 </mapper>

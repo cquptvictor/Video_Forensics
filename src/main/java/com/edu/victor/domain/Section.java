@@ -9,36 +9,36 @@ public class Section {
     @JsonIgnore
     private int weights;
     @JsonIgnore
-    private int superior_id;
+    private int superiorId;
     private String title;
     private String url;
     @JsonIgnore
-    private int tea_id;
+    private int teaId;
     @JsonIgnore
-    private MultipartFile video;
+    private MultipartFile file;
 
-    public int getTea_id() {
-        return tea_id;
+    public MultipartFile getFile() {
+        return file;
     }
 
-    public void setTea_id(int tea_id) {
-        this.tea_id = tea_id;
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
 
-    public MultipartFile getVideo() {
-        return video;
+    public int getSuperiorId() {
+        return superiorId;
     }
 
-    public void setVideo(MultipartFile video) {
-        this.video = video;
+    public void setSuperiorId(int superiorId) {
+        this.superiorId = superiorId;
     }
 
-    public int getSuperior_id() {
-        return superior_id;
+    public int getTeaId() {
+        return teaId;
     }
 
-    public void setSuperior_id(int superior_id) {
-        this.superior_id = superior_id;
+    public void setTeaId(int teaId) {
+        this.teaId = teaId;
     }
 
     public int getId() {

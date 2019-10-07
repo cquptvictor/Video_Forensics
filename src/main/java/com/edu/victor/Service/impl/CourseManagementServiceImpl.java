@@ -4,11 +4,12 @@ import com.edu.victor.Dao.CourseDao;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.CourseManagementService;
-import com.edu.victor.Service.TeacherService;
+import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
 import com.edu.victor.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Autowired
     CourseDao courseDao;
     @Autowired
-    TeacherService teacherService;
+    UserService teacherService;
     @Override
     public ResponseData addCourse(Course course, Teacher teacher) throws IncompleteInformationException, UnsupportedFileTypeException {
         /**验证用户信息是否完整*/
@@ -50,9 +51,9 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData addSection(Section section, Teacher teacher) throws UnsupportedFileTypeException, IncompleteInformationException {
         teacher = teacherService.isCompleted(teacher);
         ResponseData responseData = new ResponseData();
-        String path = UploadUtils.saveImage(section.getVideo(),section.getSuperior_id()+"","video");
+        String path = UploadUtils.saveImage(section.getFile(),section.getSuperiorId()+"","video");
         section.setUrl(path);
-        section.setTea_id(teacher.getId());
+        section.setTeaId(teacher.getId());
         if(courseDao.addSection(section))
             responseData.setCode(200);
         else
@@ -119,6 +120,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
     /**删除小节*/
     @Override
+    @Transactional
     public ResponseData deleteSection(int section_id, int tea_id) {
         ResponseData responseData = new ResponseData();
         String url = courseDao.getCourseImageUrl(section_id);

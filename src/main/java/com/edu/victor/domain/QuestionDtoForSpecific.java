@@ -3,7 +3,7 @@ package com.edu.victor.domain;
 import java.util.List;
 
 public class QuestionDtoForSpecific extends Question{
-    List<Answer> answerList;
+    private List<Answer> answerList;
 
     public List<Answer> getAnswerList() {
         return answerList;

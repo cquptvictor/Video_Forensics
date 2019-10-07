@@ -5,7 +5,7 @@ import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.InvalidArgumentsException;
 import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Service.NewsAndNoticeService;
-import com.edu.victor.Service.TeacherService;
+import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
 import com.edu.victor.utils.MessageCreateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +22,11 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     @Autowired
     NewsDao newsDao;
     @Autowired
-    TeacherService teacherService;
+    UserService teacherService;
     @Autowired
     NoticeDao noticeDao;
     @Autowired
-    TeacherDao teacherDao;
+    UserDao teacherDao;
     @Autowired
     MessageDao messageDao;
     @Autowired

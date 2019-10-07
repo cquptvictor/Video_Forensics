@@ -2,22 +2,13 @@ package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Student extends User {
-    private String name;
     private String birth;
     private String email;
     private String phone;
     private String sexual;
     private String classNum;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getClassNum() {
         return classNum;

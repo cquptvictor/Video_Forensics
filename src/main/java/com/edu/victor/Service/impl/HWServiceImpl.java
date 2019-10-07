@@ -3,14 +3,13 @@ package com.edu.victor.Service.impl;
 import com.edu.victor.Dao.CourseDao;
 import com.edu.victor.Dao.HWDao;
 import com.edu.victor.Dao.MessageDao;
-import com.edu.victor.Dao.TeacherDao;
+import com.edu.victor.Dao.UserDao;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Service.HWService;
-import com.edu.victor.Service.TeacherService;
+import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
 import com.edu.victor.utils.MessageCreateUtils;
-import com.edu.victor.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -26,11 +25,11 @@ public class HWServiceImpl implements HWService {
     @Autowired
     RedisTemplate<String,Object> redisTemplate;
     @Autowired
-    TeacherService teacherService;
+    UserService teacherService;
     @Autowired
     CourseDao courseDao;
     @Autowired
-    TeacherDao teacherDao;
+    UserDao teacherDao;
     @Autowired
     MessageDao messageDao;
     /**hw_id_start : value

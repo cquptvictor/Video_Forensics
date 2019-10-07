@@ -36,11 +36,11 @@ public class StuManagementController {
 
     @RequestMapping(value = "/stu")
     @ResponseBody
-    public ResponseData searchStu(String classNum, String stuNum, String name,Page page){
+    public ResponseData searchStu(String classNum, String stuNum, String stuName,Page page){
         Map<String,Object> map = new HashMap<>();
         map.put("classNum",classNum);
-        map.put("username",stuNum);
-        map.put("name",name);
+        map.put("stuNum",stuNum);
+        map.put("stuName",stuName);
         page.setFilter(map);
         return stuManagementService.searchStu(page);
     }
@@ -51,8 +51,8 @@ public class StuManagementController {
     }
     @RequestMapping(value = "/batchImport",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData batchImport(MultipartFile excel) throws StuNumNotFound {
-        return stuManagementService.batchImport(excel);
+    public ResponseData batchImport(MultipartFile file) throws StuNumNotFound {
+        return stuManagementService.batchImport(file);
     }
 
 }

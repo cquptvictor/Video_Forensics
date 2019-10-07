@@ -114,8 +114,8 @@ public class CourseManagementController {
     @ResponseBody
     public ResponseData deleteChapter(@PathVariable int chapter_id, HttpServletRequest httpServletRequest ){
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
-        int tea_id = teacher.getId();
-        return courseManagementService.deleteChapter(chapter_id,tea_id);
+        int teaId = teacher.getId();
+        return courseManagementService.deleteChapter(chapter_id,teaId);
     }
     /**删除课程及课程下的内容，课件、视频、课程文件*/
     @RequestMapping(value = "/dCourse/{course_id}")
@@ -154,7 +154,7 @@ public class CourseManagementController {
     @ResponseBody
     public ResponseData updateSection(Section section,HttpServletRequest httpServletRequest){
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
-        section.setTea_id(teacher.getId());
+        section.setTeaId(teacher.getId());
         return courseManagementService.updateSection(section);
     }
     @RequestMapping(value = "/progress")

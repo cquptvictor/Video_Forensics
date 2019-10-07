@@ -8,6 +8,7 @@
     <resultMap id="ChapterMap" type="ChapterDto">
         <id column="chapter_id" property="id"/>
         <collection property="sectionList" column="chapter_id" select="getSectionByStep" ofType="Section"/>
+
     </resultMap>
     <resultMap id="CourseMap" type="CourseDtoForSpecific">
         <id column="course_id" property="id"/>
@@ -68,7 +69,7 @@
         select * from course_section where superior_id = #{id} order by weights;
     </select>-->
     <select id="getCourseImageUrl" resultType="String">
-        select url from course where id = #{id};
+        select url from course_section where id = #{id};
     </select>
     <select id="getCoursewareUrl" resultType="String">
         select url from courseware where id = #{id};

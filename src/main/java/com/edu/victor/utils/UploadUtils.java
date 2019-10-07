@@ -20,8 +20,8 @@ public class UploadUtils {
     private static String courseImageBaseUrl = "E:\\netClass\\course\\";
     private static String courseVideoBaseUrl = "E:\\netClass\\video\\";
     private static String coursewareBaseUrl = "E:\\netClass\\courseware\\";
-
-  /*  private static String avatarBaseUrl = "/root/netClass/avatar/";
+    private static String defaultAvatar = "default.jpg";
+    /*private static String avatarBaseUrl = "/root/netClass/avatar/";
     private static String courseImageBaseUrl = "/root/netClass/course/";
     private static String courseVideoBaseUrl = "/root/netClass/video/";
     private static String coursewareBaseUrl = "/root/netClass/courseware/";*/
@@ -35,6 +35,33 @@ public class UploadUtils {
         videoSuffixes.add("mp4");
         coursewareSuffixes.add("pptx");
         coursewareSuffixes.add("ppt");
+    }
+    public static String updateAvatar(MultipartFile multipartFile, String url) throws IOException, UnsupportedFileTypeException {
+        /**更新头像，直接替换；第一次上传还要创建文件*/
+        if(!url.equals(defaultAvatar)){
+            File file = new File(avatarBaseUrl+url);
+            multipartFile.transferTo(file);
+            return url;
+        }else{
+            String fileName = multipartFile.getOriginalFilename();
+            String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+            if (!imageSuffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+            int dir1 = fileName.hashCode()&0xf;
+            int dir2 = fileName.hashCode()&0xf0;
+            String path = dir1 + File.separator + dir2 + File.separator + new Date().getTime()  + "." + suffix;
+            String catalog = avatarBaseUrl + path;
+            File catalogFile = new File(catalog);
+            if(!catalogFile.getParentFile().exists()){
+                catalogFile.mkdirs();
+            }
+            try {
+                multipartFile.transferTo(catalogFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return path;
+        }
     }
     public static List<Courseware> multiSaveCourseware(MultipartFile[] multipartFiles,String id,int teaId,int superiorId) throws UnsupportedFileTypeException {
         List<Courseware> coursewares = new ArrayList<>();
@@ -89,10 +116,7 @@ public class UploadUtils {
         String path = null;
         /**头像是可以覆盖的，课程图片、视频、课件要避免覆盖*/
         String catalog = null;
-        if(type.equals("avatar")) {
-            path = dir1 + File.separator + dir2 + File.separator + id + "_teacher." + suffix;
-            catalog = avatarBaseUrl + path;
-        }else if(type.equals("courseImage")) {
+        if(type.equals("courseImage")) {
             path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
             catalog = courseImageBaseUrl + path;
         }

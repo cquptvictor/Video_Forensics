@@ -1,7 +1,6 @@
 package com.edu.victor.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class stuDto{
         private int id;
@@ -9,6 +8,15 @@ public class stuDto{
         private String name;
         private String phone;
         private String sexual;
+        private String classNum;
+
+    public String getClassNum() {
+        return classNum;
+    }
+
+    public void setClassNum(String classNum) {
+        this.classNum = classNum;
+    }
 
     public int getId() {
         return id;
