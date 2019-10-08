@@ -22,7 +22,7 @@
         insert into question(title,content,qsr_id,qsr_name,course_id,is_teacher)value(#{title},#{content},#{qsrId},#{qsrName},#{courseId},#{isTeacher});
     </insert>
     <insert id="addReply" parameterType="Answer">
-        insert into answer(content,asr_id,asr_name,qs_id,superior_id,is_teacher)value(#{content},#{asrId},#{asrName},#{qsrId},#{superiorId},#{isTeacher})
+        insert into answer(content,qs_id,asr_id,superior_id,is_teacher)value(#{content},#{qsId},#{asrId},#{superiorId},#{isTeacher})
     </insert>
     <select id="getQuestionByPage"  resultMap="PageQuestion">
         select id,id as qid,title,qsr_id,is_teacher,is_teacher as isTeacher,time from question where course_id = #{filter.courseId}
@@ -43,5 +43,10 @@
     <select id="getAnswerByQuestion" resultMap="AnswerMap">
         select id,superior_id,content,asr_id,is_teacher,is_teacher as isTeacher,time from answer where qs_id = #{qid};
     </select>
-
+    <select id="getTargetIdByQsId" resultType="User">
+        select is_teacher,qsr_id as id from question where id = #{id};
+    </select>
+    <select id="getTargetIdByRpId" resultType="User">
+        select asr_id as id, is_teacher from answer wehre id = #{id};
+    </select>
 </mapper>

@@ -20,21 +20,27 @@ public class MessageCreateUtils {
     public static Message createNtMessage(Notice notice,String name){
            Message message = new Message();
            message.setTime(new Date());
-           System.out.println(new Date());
            message.setContent(notice.getTitle());
            message.setCategory("nt");
            message.setContentId(notice.getId());
            message.setName(name);
            return message;
     }
-    public Message createRyMessage(){
-        return null;
+    public static Message createRyMessage(Answer answer,String name){
+        Message message = new Message();
+        message.setTime(new Date());
+        int length = answer.getContent().length();
+        message.setContent(length <= 10 ? answer.getContent().substring(0,length) : answer.getContent().substring(0,10));
+        message.setCategory("rp");
+        message.setContentId(answer.getQsId());
+        message.setName(name);
+        return message;
     }
-    public static List<MsgUser> createMsgUser(int msgId, List<Integer> userId){
+    public static List<MsgUser> createMsgUser(int msgId, List<User> targetUsers){
         List<MsgUser> list = new ArrayList<>();
-        for(int id : userId){
-            MsgUser msgStu = new MsgUser(id,msgId);
-            list.add(msgStu);
+        for(User user : targetUsers){
+            MsgUser msgUser = new MsgUser(user.getId(),user.getIsTeacher(),msgId);
+            list.add(msgUser);
         }
         return list;
     }

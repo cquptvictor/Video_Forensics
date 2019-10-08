@@ -28,7 +28,7 @@ public class UserController {
         return userService.login(teacher);
     }
     /**更新老师信息*/
-    @RequestMapping(value = "/uTea")
+    @RequestMapping(value = "/uInfo/teacher")
     @ResponseBody
     public ResponseData updateTeacherInfo(Teacher teacher, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
         Teacher teacher1 = (Teacher) httpServletRequest.getAttribute("Teacher");
@@ -37,7 +37,7 @@ public class UserController {
 
     }
     /**更新学生信息*/
-    @RequestMapping(value = "/uStu")
+    @RequestMapping(value = "/uInfo/stu")
     @ResponseBody
     public ResponseData updateStudentInfo(Student student, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
         Student student1 = (Student)httpServletRequest.getAttribute("Student");

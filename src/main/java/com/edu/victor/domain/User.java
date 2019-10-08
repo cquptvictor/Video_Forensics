@@ -10,10 +10,18 @@ public class User {
     private String username;
     @JsonIgnore
     private String password;
-
+    private String isTeacher;
     private String avatar;
     @JsonIgnore
     private MultipartFile avatarFile;
+
+    public String getIsTeacher() {
+        return isTeacher;
+    }
+
+    public void setIsTeacher(String isTeacher) {
+        this.isTeacher = isTeacher;
+    }
 
     public String getName() {
         return name;

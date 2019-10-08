@@ -3,13 +3,13 @@ package com.edu.victor.domain;
 import java.util.List;
 
 public class QuestionDtoForSpecific extends Question{
-    private List<Answer> answerList;
+    private List<AnswerDto> answerList;
 
-    public List<Answer> getAnswerList() {
+    public List<AnswerDto> getAnswerList() {
         return answerList;
     }
 
-    public void setAnswerList(List<Answer> answerList) {
+    public void setAnswerList(List<AnswerDto> answerList) {
         this.answerList = answerList;
     }
 }

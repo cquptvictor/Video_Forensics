@@ -31,12 +31,14 @@ public class QAndAController {
         else
             return qAndAService.addQustion(question,(Student)httpServletRequest.getAttribute("Student"));
     }
-    @RequestMapping("/rQuestion")
+    /**回复*/
+    @RequestMapping("/reply")
     @ResponseBody
-    public ResponseData replyQuestion(Answer answer,HttpServletRequest httpServletRequest){
+    public ResponseData replyQuestion(Answer answer, HttpServletRequest httpServletRequest){
         User user = UserUtils.identifyUser(httpServletRequest);
         return qAndAService.relpy(answer,user);
     }
+    /**展示提问列表*/
     @RequestMapping("/questions/{course_id}")
     @ResponseBody
     public ResponseData getQuestions(@PathVariable("course_id") int id, Page page){
@@ -45,6 +47,7 @@ public class QAndAController {
         page.setFilter(map);
         return qAndAService.getQuestionList(page);
     }
+    /**进入具体的问题页面*/
     @RequestMapping("/question/{question_id}")
     @ResponseBody
     public ResponseData getSpecificQuestionPage(@PathVariable("question_id") int id){

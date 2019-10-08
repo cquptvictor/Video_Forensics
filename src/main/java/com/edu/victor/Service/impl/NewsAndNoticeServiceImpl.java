@@ -117,7 +117,7 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
             teacher = teacherDao.teacherInfo(teacher.getId());
         Message message = MessageCreateUtils.createNtMessage(notice,teacher.getName());
         messageDao.addMessage(message);
-        List<Integer> students = courseDao.getStuByCourse(notice.getCourseId());
+        List<User> students = courseDao.getStuByCourse(notice.getCourseId());
         List<MsgUser> msgUser = MessageCreateUtils.createMsgUser(message.getId(),students);
         if(msgUser != null && msgUser.size() != 0)
             messageDao.addMsgUser(msgUser);

@@ -4,29 +4,21 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class Answer {
+public class AnswerDto {
     private int id;
     private int superiorId;
-    private int qsId;
-    private int asrId;
     private String content;
+    private User respondent;
     private String isTeacher;
+    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date time;
 
-    public int getAsrId() {
-        return asrId;
+    public User getRespondent() {
+        return respondent;
     }
 
-    public void setAsrId(int asrId) {
-        this.asrId = asrId;
-    }
-
-    public int getQsId() {
-        return qsId;
-    }
-
-    public void setQsId(int qsId) {
-        this.qsId = qsId;
+    public void setRespondent(User respondent) {
+        this.respondent = respondent;
     }
 
     public int getId() {
@@ -52,6 +44,7 @@ public class Answer {
     public void setContent(String content) {
         this.content = content;
     }
+
 
     public String getIsTeacher() {
         return isTeacher;

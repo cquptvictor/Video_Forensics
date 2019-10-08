@@ -1,14 +1,32 @@
 package com.edu.victor.domain;
-
+/**消息发送给哪些用户*/
 public class MsgUser {
     private int id;
-    private int stuId;
+    private int targetId;
+    private String isTeacher;
     private int msgId;
     private int read;
 
-    public MsgUser(int stuId, int msgId) {
-        this.stuId = stuId;
+    public MsgUser(int targetId, String isTeacher, int msgId) {
+        this.targetId = targetId;
+        this.isTeacher = isTeacher;
         this.msgId = msgId;
+    }
+
+    public int getTargetId() {
+        return targetId;
+    }
+
+    public void setTargetId(int targetId) {
+        this.targetId = targetId;
+    }
+
+    public String getIsTeacher() {
+        return isTeacher;
+    }
+
+    public void setIsTeacher(String isTeacher) {
+        this.isTeacher = isTeacher;
     }
 
     public int getId() {
@@ -17,14 +35,6 @@ public class MsgUser {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getStuId() {
-        return stuId;
-    }
-
-    public void setStuId(int stuId) {
-        this.stuId = stuId;
     }
 
     public int getMsgId() {

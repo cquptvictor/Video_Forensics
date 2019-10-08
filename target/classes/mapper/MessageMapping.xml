@@ -8,8 +8,8 @@
         insert into message(content_id,content,category,name,time)value(#{contentId},#{content},#{category},#{name},#{time});
     </insert>
     <insert id="addMsgUser" parameterType="Message">
-        insert into msg_stu(msg_id,stu_id)value<foreach collection="list" item="item" index="index" separator="," >
-            (#{item.msgId},#{item.stuId})
+        insert into msg_user(msg_id,target_id,is_teacher)value<foreach collection="list" item="item" index="index" separator="," >
+            (#{item.msgId},#{item.targetId},#{item.isTeacher})
         </foreach>
     </insert>
     <delete id="deleteMessage">

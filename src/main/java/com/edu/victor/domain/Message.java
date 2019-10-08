@@ -4,11 +4,10 @@ import java.util.Date;
 //name + 发布了 + category:+ content + time
 public class Message {
     private int id;
-    private String name;
-    private int contentId;
-    private String content;
-    private int stuId;
-    private String category;
+    private String name;//发送者的名字
+    private int contentId;//发送的内容的id
+    private String content;//发送的内容
+    private String category;//hw,nt,rp
     private Date time;
 
     public int getId() {
@@ -43,13 +42,6 @@ public class Message {
         this.content = content;
     }
 
-    public int getStuId() {
-        return stuId;
-    }
-
-    public void setStuId(int stuId) {
-        this.stuId = stuId;
-    }
 
     public String getCategory() {
         return category;
