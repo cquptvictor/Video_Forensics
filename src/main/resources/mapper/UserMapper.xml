@@ -7,7 +7,7 @@
     <select id="teacherLogin" parameterType="Teacher" resultType="Teacher">
       select IFNULL(MAX(id),-1) as id,name,email,avatar from teacher where username = #{username} and password = #{password};
     </select>
-    <update id="updateInfo" parameterType="Teacher">
+    <update id="updateTeaInfo" parameterType="Teacher">
         update teacher
         <set>
             <if test="name != null">
@@ -21,6 +21,33 @@
             </if>
             <if test="avatar != null">
                 avatar = #{avatar}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <update id="updateStuInfo" parameterType="Student">
+        update stu
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar}
+            </if>
+            <if test="phone != null">
+                phone = #{phone}
+            </if>
+            <if test="birth != null">
+                birth = #{birth}
+            </if>
+            <if test="sexual != null">
+                sexual = #{sexual}
             </if>
         </set>
         where id = #{id}

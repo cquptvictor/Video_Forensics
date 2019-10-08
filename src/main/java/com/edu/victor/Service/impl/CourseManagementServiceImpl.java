@@ -23,7 +23,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData addCourse(Course course, Teacher teacher) throws IncompleteInformationException, UnsupportedFileTypeException {
         /**验证用户信息是否完整*/
         teacherService.isCompleted(teacher);
-        String path = UploadUtils.saveImage(course.getPic(),teacher.getId()+"","courseImage");
+        String path = UploadUtils.saveImage(course.getPic(),"courseImage");
         course.setUrl(path);
         course.setTeaId(teacher.getId());
         ResponseData responseData = new ResponseData();
@@ -51,7 +51,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData addSection(Section section, Teacher teacher) throws UnsupportedFileTypeException, IncompleteInformationException {
         teacher = teacherService.isCompleted(teacher);
         ResponseData responseData = new ResponseData();
-        String path = UploadUtils.saveImage(section.getFile(),section.getSuperiorId()+"","video");
+        String path = UploadUtils.saveImage(section.getFile(),"video");
         section.setUrl(path);
         section.setTeaId(teacher.getId());
         if(courseDao.addSection(section))
@@ -75,7 +75,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Override
     public ResponseData addCourseware(UploadCourseware courseware, Teacher teacher) throws UnsupportedFileTypeException {
 
-        List<Courseware> coursewares = UploadUtils.multiSaveCourseware(courseware.getMultipartFile(),String.valueOf(courseware.getSuperiorId()),teacher.getId(),courseware.getSuperiorId());
+        List<Courseware> coursewares = UploadUtils.multiSaveCourseware(courseware.getMultipartFile(),teacher.getId(),courseware.getSuperiorId());
         ResponseData responseData = new ResponseData();
 
         if(courseDao.addCourseware(coursewares))

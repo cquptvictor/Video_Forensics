@@ -40,20 +40,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseData updateInfo(Teacher teacher) throws UnsupportedFileTypeException {
+    public ResponseData updateTeaInfo(Teacher teacher) {
         ResponseData responseData = new ResponseData();
-        String path = null;
-        if(teacher.getAvatarFile() != null)
-             path = UploadUtils.saveImage(teacher.getAvatarFile(),String.valueOf(teacher.getId()),"avatar");
-        teacher.setAvatar(path);
-        if(userDao.updateInfo(teacher))
+        if(userDao.updateTeaInfo(teacher))
             responseData.setCode(200);
         else
             responseData.setCode(0);
         return responseData;
     }
 
-   /* @Override
+    @Override
+    public ResponseData updateStuInfo(Student student) {
+        ResponseData responseData = new ResponseData();
+        if(userDao.updateStuInfo(student))
+            responseData.setCode(200);
+        else
+            responseData.setCode(0);
+        return responseData;
+    }
+    /* @Override
     public ResponseData updateAvatar(Teacher teacher) throws UnsupportedFileTypeException {
         ResponseData responseData = new ResponseData();
         String path = UploadUtils.saveImage(teacher.getAvatarFile(),String.valueOf(teacher.getId()),"avatar");
@@ -64,7 +69,7 @@ public class UserServiceImpl implements UserService {
             responseData.setCode(0);
         return responseData;
     }*/
-    /**验证用户的信息是不是完整的*/
+    /**验证老师的信息是不是完整的*/
     @Override
     public Teacher isCompleted(Teacher teacher) throws IncompleteInformationException {
         if(teacher.getName() == null || teacher.getEmail() == null){
@@ -95,7 +100,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseData updateAvatar(MultipartFile multipartFile, User user, Boolean isTeacher) throws UnsupportedFileTypeException, IOException {
-            /**保证url是新的*/
+            /**先查询，保证信息是新的再更新*/
             if(isTeacher){
                 user = userDao.teacherInfo(user.getId());
             }else
@@ -114,7 +119,5 @@ public class UserServiceImpl implements UserService {
             }else
                 responseData.setCode(0);
             return responseData;
-
-                
-    }
+     }
 }

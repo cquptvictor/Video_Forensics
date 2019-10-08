@@ -27,16 +27,24 @@ public class UserController {
 
         return userService.login(teacher);
     }
-
-    @RequestMapping(value = "/uInfo")
+    /**更新老师信息*/
+    @RequestMapping(value = "/uTea")
     @ResponseBody
-    public ResponseData updateInfo(Teacher teacher, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+    public ResponseData updateTeacherInfo(Teacher teacher, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
         Teacher teacher1 = (Teacher) httpServletRequest.getAttribute("Teacher");
         teacher.setId(teacher1.getId());
-        return userService.updateInfo(teacher);
+        return userService.updateTeaInfo(teacher);
 
     }
-
+    /**更新学生信息*/
+    @RequestMapping(value = "/uStu")
+    @ResponseBody
+    public ResponseData updateStudentInfo(Student student, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+        Student student1 = (Student)httpServletRequest.getAttribute("Student");
+        student.setId(student1.getId());
+        return userService.updateStuInfo(student);
+    }
+    /**获取学生或老师的个人信息*/
     @RequestMapping(value = "/info")
     @ResponseBody
     public ResponseData getInfo(HttpServletRequest httpServletRequest) {
@@ -49,7 +57,7 @@ public class UserController {
         }
 
     }
-
+    /**更新学生或老师的头像*/
     @RequestMapping("/uAvatar")
     @ResponseBody
     public ResponseData updateAvatar(MultipartFile avatar, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IOException {

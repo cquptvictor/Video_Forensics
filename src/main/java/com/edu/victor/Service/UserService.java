@@ -13,7 +13,8 @@ import java.io.IOException;
 
 public interface UserService {
     ResponseData login(Teacher teacher);
-    ResponseData updateInfo(Teacher teacher) throws UnsupportedFileTypeException;
+    ResponseData updateTeaInfo(Teacher teacher);
+    ResponseData updateStuInfo(Student student);
     Teacher isCompleted(Teacher teacher) throws IncompleteInformationException;
     ResponseData getStuInfo(int id);
     ResponseData getTeaInfo(int id);

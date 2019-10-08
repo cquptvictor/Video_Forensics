@@ -36,6 +36,7 @@ public class UploadUtils {
         coursewareSuffixes.add("pptx");
         coursewareSuffixes.add("ppt");
     }
+    /**更新头像*/
     public static String updateAvatar(MultipartFile multipartFile, String url) throws IOException, UnsupportedFileTypeException {
         /**更新头像，直接替换；第一次上传还要创建文件*/
         if(!url.equals(defaultAvatar)){
@@ -63,7 +64,8 @@ public class UploadUtils {
             return path;
         }
     }
-    public static List<Courseware> multiSaveCourseware(MultipartFile[] multipartFiles,String id,int teaId,int superiorId) throws UnsupportedFileTypeException {
+    /**批量上传课件*/
+    public static List<Courseware> multiSaveCourseware(MultipartFile[] multipartFiles,int teaId,int superiorId) throws UnsupportedFileTypeException {
         List<Courseware> coursewares = new ArrayList<>();
         for(MultipartFile multipartFile : multipartFiles){
             Courseware courseware = new Courseware();
@@ -74,9 +76,9 @@ public class UploadUtils {
             if (!coursewareSuffixes.contains(suffix))
                 throw new UnsupportedFileTypeException();
             //获取子路径
-            int dir1 = id.hashCode()&0xf;
-            int dir2 = id.hashCode()&0xf0;
-            String path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
+            int dir1 = fileName.hashCode()&0xf;
+            int dir2 = fileName.hashCode()&0xf0;
+            String path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "." + suffix;
             String catalog = coursewareBaseUrl + path;
             File catalogFile = new File(catalog);
             if(!catalogFile.getParentFile().exists()){
@@ -95,7 +97,7 @@ public class UploadUtils {
         }
         return coursewares;
     }
-    public static String saveImage(MultipartFile multipartFile,String id,String type) throws UnsupportedFileTypeException {
+    public static String saveImage(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
         /**判断文件类型是否符合规定*/
         String fileName = multipartFile.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -110,19 +112,19 @@ public class UploadUtils {
                 throw new UnsupportedFileTypeException();
         }
         //获取子路径
-        int dir1 = id.hashCode()&0xf;
-        int dir2 = id.hashCode()&0xf0;
+        int dir1 = fileName.hashCode()&0xf;
+        int dir2 = fileName.hashCode()&0xf0;
 
         String path = null;
         /**头像是可以覆盖的，课程图片、视频、课件要避免覆盖*/
         String catalog = null;
         if(type.equals("courseImage")) {
-            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
+            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "." + suffix;
             catalog = courseImageBaseUrl + path;
         }
         else if(type.equals("video"))
         {
-            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
+            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + suffix;
             catalog = courseVideoBaseUrl +  path;
         }/*else if(type.equals("courseware")){
             path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
@@ -142,6 +144,7 @@ public class UploadUtils {
 
         return path;
     }
+    /**更新课程的展示图片*/
     public static void updateCourseImage(MultipartFile multipartFile,String url){
         File catalogFile = new File(courseImageBaseUrl + url);
         try {
@@ -162,7 +165,7 @@ public class UploadUtils {
             file.delete();
         }
     }
-    /**单个删除文件*/
+    /**单个删除课件和视频*/
     public static void deleteFile(String url,String type){
         String base = null;
         if(type.equals("video")){
