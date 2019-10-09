@@ -3,10 +3,13 @@ package com.edu.victor.utils;
 import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
+import com.auth0.jwt.internal.org.bouncycastle.math.ec.ScaleYPointMap;
+import com.edu.victor.domain.Student;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.Jwt;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -68,5 +71,15 @@ public class JWT {
         }
         return null;
     }
+  public static void main(String[] args){
+      Student student = new Student();
+      student.setId(1);
+      student.setName("张三");
+      student.setSexual("男");
+      student.setPassword("123");
+      student.setUsername("123");
+      student.setEmail("123");
+      System.out.println(JWT.sign(student,20));
+  }
 
 }

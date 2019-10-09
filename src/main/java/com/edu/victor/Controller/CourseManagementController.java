@@ -22,14 +22,14 @@ public class CourseManagementController {
     @RequestMapping(value = "/aCourse")
     @ResponseBody
     public ResponseData addCourse(Course course, HttpServletRequest httpServletRequest) throws IncompleteInformationException, UnsupportedFileTypeException {
-        Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         return courseManagementService.addCourse(course,teacher);
     }
     /**添加章节*/
     @RequestMapping(value = "/aChapter")
     @ResponseBody
     public ResponseData addChapter(Chapter chapter,HttpServletRequest httpServletRequest) throws IncompleteInformationException {
-        Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
 
         return courseManagementService.addChapter(chapter,teacher);
     }
@@ -37,14 +37,14 @@ public class CourseManagementController {
     @RequestMapping(value = "/aSection")
     @ResponseBody
     public ResponseData addSection(Section section,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IncompleteInformationException {
-        Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         return courseManagementService.addSection(section,teacher);
     }
     /**查看课程列表*/
     @RequestMapping(value = "/courses")
     @ResponseBody
     public ResponseData searchCourses(HttpServletRequest httpServletRequest,Page page){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         Map map = new HashMap();
         map.put("id",teacher.getId());
         page.setFilter(map);
@@ -96,7 +96,7 @@ public class CourseManagementController {
     @RequestMapping(value = "/uploadCourseware",method = RequestMethod.POST)
     @ResponseBody
     public ResponseData uploadCorseware(UploadCourseware courseware,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         return courseManagementService.addCourseware(courseware,teacher);
     }
 /**
@@ -104,7 +104,7 @@ public class CourseManagementController {
     @RequestMapping("/dSection/{section_id}")
     @ResponseBody
     public ResponseData deleteSection(@PathVariable int section_id, HttpServletRequest httpServletRequest ){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         int tea_id = teacher.getId();
         return courseManagementService.deleteSection(section_id,tea_id);
     }
@@ -113,7 +113,7 @@ public class CourseManagementController {
     @RequestMapping(value = "/dChapter/{chapter_id}")
     @ResponseBody
     public ResponseData deleteChapter(@PathVariable int chapter_id, HttpServletRequest httpServletRequest ){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         int teaId = teacher.getId();
         return courseManagementService.deleteChapter(chapter_id,teaId);
     }
@@ -121,7 +121,7 @@ public class CourseManagementController {
     @RequestMapping(value = "/dCourse/{course_id}")
     @ResponseBody
     public ResponseData deleteCourse(@PathVariable int course_id, HttpServletRequest httpServletRequest ){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         int tea_id = teacher.getId();
         return courseManagementService.deleteCourse(course_id,tea_id);
     }
@@ -129,14 +129,14 @@ public class CourseManagementController {
     @RequestMapping(value = "/dCourseware/{courseware_id}")
     @ResponseBody
     public ResponseData deleteCourseware(@PathVariable int courseware_id, HttpServletRequest httpServletRequest ){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         return courseManagementService.deleteCourseware(courseware_id,teacher.getId());
     }
     /**更改课程名、描述和图片*/
     @RequestMapping(value = "/uCourse")
     @ResponseBody
     public ResponseData updateCourse(Course course,HttpServletRequest httpServletRequest){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         course.setTeaId(teacher.getId());
         return courseManagementService.updateCourse(course);
     }
@@ -144,7 +144,7 @@ public class CourseManagementController {
     @RequestMapping(value = "/uChapter")
     @ResponseBody
     public ResponseData updateChapter(Chapter chapter,HttpServletRequest httpServletRequest){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         chapter.setTeaId(teacher.getId());
         return courseManagementService.updateChapter(chapter);
     }
@@ -153,7 +153,7 @@ public class CourseManagementController {
     @RequestMapping(value = "/uSection")
     @ResponseBody
     public ResponseData updateSection(Section section,HttpServletRequest httpServletRequest){
-        Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         section.setTeaId(teacher.getId());
         return courseManagementService.updateSection(section);
     }

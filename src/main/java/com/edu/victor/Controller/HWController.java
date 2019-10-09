@@ -21,7 +21,7 @@ public class HWController {
     @RequestMapping(value = "/pHomework")
     @ResponseBody
     public ResponseData publishHW(Homework homework,HttpServletRequest httpServletRequest) throws IncompleteInformationException {
-        Teacher teacher = (Teacher) httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         return hwService.publishHW(homework,teacher);
     }
 
@@ -61,7 +61,7 @@ public class HWController {
     @RequestMapping(value = "/dHomework")
     @ResponseBody
     public ResponseData deleteHw(int id,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         Map<String,Integer> map = new HashMap();
         map.put("hwId",id);
         map.put("teaId",teacher.getId());

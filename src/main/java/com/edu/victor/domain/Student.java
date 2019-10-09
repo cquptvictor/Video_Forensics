@@ -1,6 +1,5 @@
 package com.edu.victor.domain;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class Student extends User {
     private String birth;

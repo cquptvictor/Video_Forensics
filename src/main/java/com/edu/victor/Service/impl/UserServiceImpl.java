@@ -4,17 +4,16 @@ import com.edu.victor.Dao.UserDao;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.UserService;
-import com.edu.victor.domain.ResponseData;
-import com.edu.victor.domain.Student;
-import com.edu.victor.domain.Teacher;
-import com.edu.victor.domain.User;
+import com.edu.victor.domain.*;
 import com.edu.victor.utils.JWT;
 import com.edu.victor.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +21,8 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
     @Autowired
     UserDao userDao;
+    @Autowired
+    RedisTemplate<String,Object> redisTemplate;
     @Override
     public ResponseData login(Teacher teacher) {
         ResponseData responseData = new ResponseData();
@@ -36,6 +37,15 @@ public class UserServiceImpl implements UserService {
             responseData.setCode(0);
             responseData.setMessage("login Failed");
         }
+        return responseData;
+    }
+
+    @Override
+    public ResponseData logout(String token) {
+        Date date = new Date();
+        date.setTime(date.getTime()+1200000);
+        redisTemplate.opsForZSet().add("blackList",token,date.getTime());
+        ResponseData responseData = new ResponseData(200);
         return responseData;
     }
 
@@ -120,4 +130,13 @@ public class UserServiceImpl implements UserService {
                 responseData.setCode(0);
             return responseData;
      }
+
+    @Override
+    public ResponseData getMessages(Page page) {
+        ResponseData responseData = new ResponseData(200);
+        Page page1 = userDao.getUserMessagesByPage(page);
+        page.setPageData(page1 != null ? page1.getPageData():null);
+        responseData.setData(page);
+        return responseData;
+    }
 }

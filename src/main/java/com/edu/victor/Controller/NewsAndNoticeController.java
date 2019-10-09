@@ -22,14 +22,14 @@ public class NewsAndNoticeController {
     @RequestMapping(value = "/aNews")
     @ResponseBody
     public ResponseData addNews(News news, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
-        Teacher teacher =(Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher =(Teacher)httpServletRequest.getAttribute("User");
         return newsAndNoticeService.addNews(news,teacher);
     }
     /**新闻删除*/
     @RequestMapping(value = "/dNews")
     @ResponseBody
     public ResponseData deleteNews(News news, HttpServletRequest httpServletRequest) throws NotAuthorizedException {
-        Teacher teacher =(Teacher) httpServletRequest.getAttribute("Teacher");
+        Teacher teacher =(Teacher) httpServletRequest.getAttribute("User");
 
         return newsAndNoticeService.deleteNews(news,teacher.getId());
     }
@@ -37,7 +37,7 @@ public class NewsAndNoticeController {
     @RequestMapping(value = "/uNews")
     @ResponseBody
     public ResponseData updateNews(News news,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         return newsAndNoticeService.updateNews(news,teacher);
     }
 
@@ -45,7 +45,7 @@ public class NewsAndNoticeController {
     @RequestMapping(value = "/news")
     @ResponseBody
     public ResponseData searchNews(Page page,HttpServletRequest httpServletRequest){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         return newsAndNoticeService.searchNews(page,teacher);
     }
     @RequestMapping(value="/news/{news_id}",method = RequestMethod.POST)
@@ -57,7 +57,7 @@ public class NewsAndNoticeController {
     @RequestMapping(value = "/pNotice")
     @ResponseBody
     public ResponseData publishNotice(Notice notice,HttpServletRequest httpServletRequest){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("Teacher");
+        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         return newsAndNoticeService.addNotice(notice,teacher);
     }
     @RequestMapping(value = "/dNotice")

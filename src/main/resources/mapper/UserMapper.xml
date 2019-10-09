@@ -4,6 +4,9 @@
 
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.UserDao">
+    <resultMap id="MessagesMap" type="Page">
+        <collection property="pageData" ofType="Message" autoMapping="true"/>
+    </resultMap>
     <select id="teacherLogin" parameterType="Teacher" resultType="Teacher">
       select IFNULL(MAX(id),-1) as id,name,email,avatar from teacher where username = #{username} and password = #{password};
     </select>
@@ -54,6 +57,9 @@
     </update>
     <select id="teacherInfo" resultType="Teacher">
         select email,name,id,avatar,username from teacher where id = #{id};
+    </select>
+    <select id="getUserMessagesByPage" resultMap="MessagesMap">
+        select message.id,name,content_id,content,category,time from message join msg_user on msg_id = message.id where msg_user.is_teacher = #{filter.is_teacher} and msg_user.target_id = #{filter.targetId}
     </select>
     <update id="updateTeaAvatar">
         update teacher set avatar = #{avatar} where id =#{id}

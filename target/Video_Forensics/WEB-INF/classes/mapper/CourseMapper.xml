@@ -88,8 +88,8 @@
     <select id="getCoursewareUrlByCourse" resultType="String">
         select url from courseware where superior_id = #{id};
     </select>
-    <select id="getStuByCourse" resultType="Integer">
-        select stu_id from stu_course where course_id = #{Id}
+    <select id="getStuByCourse" resultType="User">
+        select stu_id as id from stu_course where course_id = #{Id}
     </select>
     <select id="getStuLearningProgressByPage" resultMap="PageLearningProgress">
         select name,username,phone,stu_course.id as id,course_id,learning_progress,graduated from stu join stu_course on stu.id =stu_course.stu_id

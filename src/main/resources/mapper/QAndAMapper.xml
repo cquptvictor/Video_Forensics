@@ -15,7 +15,7 @@
         <collection property="answerList" ofType="Answer"  column="qid" select="getAnswerByQuestion" autoMapping="true">
         </collection>
     </resultMap>
-    <resultMap id="AnswerMap" type="Answer" autoMapping="true">
+    <resultMap id="AnswerMap" type="AnswerDto" autoMapping="true">
         <association property="respondent"  select="getUser" column="{id = asr_id,isTeacher = isTeacher}" autoMapping="true"/>
     </resultMap>
     <insert id="addQuestion" parameterType="Question">

@@ -17,19 +17,26 @@ public class loginRequired implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         User user = null;
         String token = httpServletRequest.getParameter("token");
-        try {
+        try {/**Teacher必须在前*/
              user = JWT.unsign(token, Teacher.class);
-        }catch (JsonMappingException e){
+             user.setIsTeacher("1");
+        }catch (JsonMappingException | NullPointerException e){
             user = JWT.unsign(token,Student.class);
+            user.setIsTeacher("0");
         }
         /**转换为对应类型*/
-        if(user instanceof Teacher){
+        if(user == null) {
+            return false;
+        }else {
+            httpServletRequest.setAttribute("User", user);
+
+        }/* if(user instanceof Teacher){
             httpServletRequest.setAttribute("Teacher",user);
         }else if(user instanceof Student){
             httpServletRequest.setAttribute("Student",user);
         }else
             return false;
-
+*/
         return true;
     }
 

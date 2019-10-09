@@ -24,7 +24,7 @@ public class QAndAServiceImpl implements QAndAService {
     /**区分用户是学生还是老师*/
     @Override
     public ResponseData addQustion(Question question, User user) {
-        if(user instanceof Teacher){
+        if(user.getIsTeacher().equals("1")){
             question.setUser(user);
             question.setIsTeacher('1');
         }else{
