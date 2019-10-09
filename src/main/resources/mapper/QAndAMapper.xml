@@ -7,11 +7,11 @@
     <resultMap id="PageQuestion" type="Page">
         <collection property="pageData" ofType="QuestionDto" autoMapping="true">
             <association property="commentNum" select="getCommentNum" column="qid"/>
-            <association property="user"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
+            <association property="userDto"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
         </collection>
     </resultMap>
     <resultMap id="QuestionSpecificDto" type="QuestionDtoForSpecific">
-        <association property="user"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
+        <association property="userDto"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
         <collection property="answerList" ofType="Answer"  column="qid" select="getAnswerByQuestion" autoMapping="true">
         </collection>
     </resultMap>
@@ -19,7 +19,7 @@
         <association property="respondent"  select="getUser" column="{id = asr_id,isTeacher = isTeacher}" autoMapping="true"/>
     </resultMap>
     <insert id="addQuestion" parameterType="Question">
-        insert into question(title,content,qsr_id,qsr_name,course_id,is_teacher)value(#{title},#{content},#{qsrId},#{qsrName},#{courseId},#{isTeacher});
+        insert into question(title,content,qsr_id,course_id,is_teacher)value(#{title},#{content},#{qsrId},#{courseId},#{isTeacher});
     </insert>
     <insert id="addReply" parameterType="Answer">
         insert into answer(content,qs_id,asr_id,superior_id,is_teacher)value(#{content},#{qsId},#{asrId},#{superiorId},#{isTeacher})
@@ -27,7 +27,7 @@
     <select id="getQuestionByPage"  resultMap="PageQuestion">
         select id,id as qid,title,qsr_id,is_teacher,is_teacher as isTeacher,time from question where course_id = #{filter.courseId}
     </select>
-    <select id="getUser" resultType="User">
+    <select id="getUser" resultType="UserDto">
         select name,avatar from
         <if test="isTeacher == 1">teacher</if>
         <if test="isTeacher == 0">stu</if>
@@ -47,6 +47,6 @@
         select is_teacher,qsr_id as id from question where id = #{id};
     </select>
     <select id="getTargetIdByRpId" resultType="User">
-        select asr_id as id, is_teacher from answer wehre id = #{id};
+        select asr_id as id, is_teacher from answer where id = #{id};
     </select>
 </mapper>

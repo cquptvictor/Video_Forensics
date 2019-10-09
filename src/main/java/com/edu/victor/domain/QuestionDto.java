@@ -2,7 +2,7 @@ package com.edu.victor.domain;
 /**问答区的帖子列表展示*/
 public class QuestionDto {
     private int id;
-    private User user;
+    private UserDto userDto;
     private String title;
     private String isTeacher;
     private Integer commentNum;
@@ -24,12 +24,12 @@ public class QuestionDto {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public UserDto getUserDto() {
+        return userDto;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
     }
 
     public String getTitle() {

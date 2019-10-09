@@ -24,11 +24,10 @@ public class QAndAServiceImpl implements QAndAService {
     /**区分用户是学生还是老师*/
     @Override
     public ResponseData addQustion(Question question, User user) {
+        question.setQsrId(user.getId());
         if(user.getIsTeacher().equals("1")){
-            question.setUser(user);
             question.setIsTeacher('1');
         }else{
-            question.setUser(user);
             question.setIsTeacher('0');
         }
         ResponseData responseData = new ResponseData(200);
@@ -55,8 +54,8 @@ public class QAndAServiceImpl implements QAndAService {
             Map<String,Object> map = new HashMap<>();
             map.put("isTeacher",answer.getIsTeacher());
             map.put("id",user.getId());
-            user = qAndADao.getUser(map);
-            Message message = MessageCreateUtils.createRyMessage(answer,user.getName());
+            UserDto userDto = qAndADao.getUser(map);
+            Message message = MessageCreateUtils.createRyMessage(answer,userDto.getName());
             if(messageDao.addMessage(message)) {   /**创建并添加messageUser*/
                 int superiorId = answer.getSuperiorId();
                 User targetUser;

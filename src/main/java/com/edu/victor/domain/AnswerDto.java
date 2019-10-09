@@ -8,16 +8,16 @@ public class AnswerDto {
     private int id;
     private int superiorId;
     private String content;
-    private User respondent;
+    private UserDto respondent;
     private String isTeacher;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date time;
 
-    public User getRespondent() {
+    public UserDto getRespondent() {
         return respondent;
     }
 
-    public void setRespondent(User respondent) {
+    public void setRespondent(UserDto respondent) {
         this.respondent = respondent;
     }
 

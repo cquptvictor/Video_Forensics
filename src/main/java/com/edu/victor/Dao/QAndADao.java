@@ -9,7 +9,7 @@ public interface QAndADao {
     Boolean addReply(Answer answer);
     Page<QuestionDto> getQuestionByPage(Page page);
     QuestionDtoForSpecific getSpecificQuestion(int id);
-    User getUser(Map map);
+    UserDto getUser(Map map);
     User getTargetIdByQsId(int id);
     User getTargetIdByRpId(int id);
 }

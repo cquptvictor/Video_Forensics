@@ -1,9 +1,11 @@
 package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
-
+/**接受用户的提问的参数
+ * 展示问题详情页面*/
 public class Question {
     private int id;
     private int courseId;
@@ -12,14 +14,24 @@ public class Question {
     private char isTeacher;
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date time;
-    private User user;
+    @JsonIgnore
+    private int qsrId;
+    private UserDto userDto;
 
-    public User getUser() {
-        return user;
+    public int getQsrId() {
+        return qsrId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setQsrId(int qsrId) {
+        this.qsrId = qsrId;
+    }
+
+    public UserDto getUserDto() {
+        return userDto;
+    }
+
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
     }
 
     public Date getTime() {
