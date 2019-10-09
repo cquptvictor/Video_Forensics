@@ -26,7 +26,7 @@ public interface CourseManagementService {
     ResponseData deleteChapter(int id,int tea_id);
     ResponseData deleteCourse(int id,int tea_id);
     ResponseData deleteCourseware(int id, int tea_id);
-    ResponseData updateCourse(Course course);
+    ResponseData updateCourse(Course course) throws UnsupportedFileTypeException;
     ResponseData updateChapter(Chapter chapter);
     ResponseData updateSection(Section section);
 

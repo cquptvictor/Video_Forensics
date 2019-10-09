@@ -52,8 +52,8 @@ public class UploadUtils {
             if (!coursewareSuffixes.contains(suffix))
                 throw new UnsupportedFileTypeException();
             directory = coursewareBaseUrl + path;
-        }else if (type.equals("coursewareImage")) {
-            if(!courseImageBaseUrl.contains(suffix))
+        }else if (type.equals("courseImage")) {
+            if(!imageSuffixes.contains(suffix))
                 throw new UnsupportedFileTypeException();
             directory = courseImageBaseUrl + path;
         }else if (type.equals("avatar")){
@@ -83,23 +83,7 @@ public class UploadUtils {
             multipartFile.transferTo(file);
             return url;
         }else{
-            String fileName = multipartFile.getOriginalFilename();
-            String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
-            if (!imageSuffixes.contains(suffix))
-                throw new UnsupportedFileTypeException();
-            int dir1 = fileName.hashCode()&0xf;
-            int dir2 = fileName.hashCode()&0xf0;
-            String path = dir1 + File.separator + dir2 + File.separator + new Date().getTime()  + "." + suffix;
-            String catalog = avatarBaseUrl + path;
-            File catalogFile = new File(catalog);
-            if(!catalogFile.getParentFile().exists()){
-                catalogFile.mkdirs();
-            }
-            try {
-                multipartFile.transferTo(catalogFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            String path  = saveFile(multipartFile,"avatar");
             return path;
         }
     }
@@ -108,26 +92,10 @@ public class UploadUtils {
         List<Courseware> coursewares = new ArrayList<>();
         for(MultipartFile multipartFile : multipartFiles){
             Courseware courseware = new Courseware();
-            //验证文件类型
             String fileName = multipartFile.getOriginalFilename();
-            String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
             fileName = fileName.split("\\.")[0];
-            if (!coursewareSuffixes.contains(suffix))
-                throw new UnsupportedFileTypeException();
-            //获取子路径
-            int dir1 = fileName.hashCode()&0xf;
-            int dir2 = fileName.hashCode()&0xf0;
-            String path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "." + suffix;
-            String catalog = coursewareBaseUrl + path;
-            File catalogFile = new File(catalog);
-            if(!catalogFile.getParentFile().exists()){
-                catalogFile.mkdirs();
-            }
-            try {
-                multipartFile.transferTo(catalogFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            String path = saveFile(multipartFile,"courseware");
             courseware.setUrl(path);
             courseware.setTitle(fileName);
             courseware.setTeaId(teaId);
@@ -136,50 +104,17 @@ public class UploadUtils {
         }
         return coursewares;
     }
+    /**上传视频和课程图片*/
     public static String saveImage(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
-        /**判断文件类型是否符合规定*/
-        String fileName = multipartFile.getOriginalFilename();
-        String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
-        if(type.equals("video")){
-            if(!videoSuffixes.contains(suffix))
-                throw new UnsupportedFileTypeException();
-        }else if(type.equals("courseware")){
-            if (!coursewareSuffixes.contains(suffix))
-                throw new UnsupportedFileTypeException();
-        }else{
-            if (!imageSuffixes.contains(suffix))
-                throw new UnsupportedFileTypeException();
-        }
-        //获取子路径
-        int dir1 = fileName.hashCode()&0xf;
-        int dir2 = fileName.hashCode()&0xf0;
-
-        String path = null;
-        /**头像是可以覆盖的，课程图片、视频、课件要避免覆盖*/
-        String catalog = null;
-        if(type.equals("courseImage")) {
-            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "." + suffix;
-            catalog = courseImageBaseUrl + path;
-        }
-        else if(type.equals("video"))
-        {
-            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + suffix;
-            catalog = courseVideoBaseUrl +  path;
-        }
-        File catalogFile = new File(catalog);
-        if(!catalogFile.getParentFile().exists()){
-            catalogFile.mkdirs();
-        }
-        try {
-            multipartFile.transferTo(catalogFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        String path = saveFile(multipartFile,type);
         return path;
     }
     /**更新课程的展示图片*/
-    public static void updateCourseImage(MultipartFile multipartFile,String url){
+    public static void updateCourseImage(MultipartFile multipartFile,String url) throws UnsupportedFileTypeException {
+        String fileName = multipartFile.getOriginalFilename();
+        String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+        if(!imageSuffixes.contains(suffix))
+            throw new UnsupportedFileTypeException();
         File catalogFile = new File(courseImageBaseUrl + url);
         try {
             multipartFile.transferTo(catalogFile);

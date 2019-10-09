@@ -135,7 +135,7 @@ public class CourseManagementController {
     /**更改课程名、描述和图片*/
     @RequestMapping(value = "/uCourse")
     @ResponseBody
-    public ResponseData updateCourse(Course course,HttpServletRequest httpServletRequest){
+    public ResponseData updateCourse(Course course,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         course.setTeaId(teacher.getId());
         return courseManagementService.updateCourse(course);
