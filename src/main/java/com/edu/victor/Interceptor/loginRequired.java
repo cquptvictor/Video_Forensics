@@ -6,6 +6,8 @@ import com.edu.victor.domain.Teacher;
 import com.edu.victor.domain.User;
 import com.edu.victor.utils.JWT;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,6 +26,8 @@ public class loginRequired implements HandlerInterceptor {
             user = JWT.unsign(token,Student.class);
             user.setIsTeacher("0");
         }
+        if(!JWT.authBlackList(user,token))
+            return false;
         /**转换为对应类型*/
         if(user == null) {
             return false;
@@ -49,4 +53,6 @@ public class loginRequired implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
 
     }
+
+
 }

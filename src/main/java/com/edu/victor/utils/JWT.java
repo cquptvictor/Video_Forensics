@@ -5,11 +5,14 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
 import com.auth0.jwt.internal.org.bouncycastle.math.ec.ScaleYPointMap;
 import com.edu.victor.domain.Student;
+import com.edu.victor.domain.User;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -20,6 +23,8 @@ import java.util.HashMap;
 import java.util.Map;
 @Component
 public class JWT {
+    @Autowired
+    private static RedisTemplate redisTemplate;
     private static final String SECRET = "XX#$%()(#*!()!KL<><MQLMNQNQJQK sdfkjsdrow32234545fdf>?N<:{LWPW";
 
     private static final String EXP = "exp";
@@ -70,6 +75,14 @@ public class JWT {
             e.printStackTrace();
         }
         return null;
+    }
+    public static Boolean authBlackList(User user, String token){
+        String key = String.format("%s%d",user.getIsTeacher().equals("1")?"Teacher":"Student",user.getId());
+        String value = (String)redisTemplate.opsForValue().get(key);
+        if(value == null || value.equals(token))
+            return false;
+        else
+            return true;
     }
   public static void main(String[] args){
       Student student = new Student();

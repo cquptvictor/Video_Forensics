@@ -54,5 +54,4 @@ public class StuManagementController {
     public ResponseData batchImport(MultipartFile file) throws StuNumNotFound {
         return stuManagementService.batchImport(file);
     }
-
 }

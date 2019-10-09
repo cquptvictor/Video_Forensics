@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -40,11 +41,12 @@ public class UserServiceImpl implements UserService {
         return responseData;
     }
 
+    /**每个用户对应一个固定的key
+     * 设置一个为期20分钟的black list*/
     @Override
-    public ResponseData logout(String token) {
-        Date date = new Date();
-        date.setTime(date.getTime()+1200000);
-        redisTemplate.opsForZSet().add("blackList",token,date.getTime());
+    public ResponseData logout(String token,User user) {
+        String key = String.format("%s%d",user.getIsTeacher().equals("1")?"Teacher":"Student",user.getId());
+        redisTemplate.opsForValue().set(key,token,20,TimeUnit.MINUTES);
         ResponseData responseData = new ResponseData(200);
         return responseData;
     }

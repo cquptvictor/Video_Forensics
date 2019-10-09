@@ -31,9 +31,9 @@ public class UserController {
     /**登出*/
     @RequestMapping("/logout")
     @ResponseBody
-    public ResponseData logout(HttpServletRequest httpServletRequest){
-       String token = httpServletRequest.getParameter("token");
-        return userService.logout(token);
+    public ResponseData logout(String token,HttpServletRequest httpServletRequest){
+       User user = (User)httpServletRequest.getAttribute("User");
+       return userService.logout(token,user);
     }
     /**更新老师信息*/
     @RequestMapping(value = "/uInfo/teacher")

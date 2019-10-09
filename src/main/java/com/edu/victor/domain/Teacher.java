@@ -11,7 +11,6 @@ public class Teacher extends User{
 
 
 
-
     public String getEmail() {
         return email;
     }

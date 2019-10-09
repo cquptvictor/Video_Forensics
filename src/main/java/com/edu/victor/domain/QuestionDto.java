@@ -1,4 +1,9 @@
 package com.edu.victor.domain;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
+
 /**问答区的帖子列表展示*/
 public class QuestionDto {
     private int id;
@@ -6,7 +11,16 @@ public class QuestionDto {
     private String title;
     private String isTeacher;
     private Integer commentNum;
+    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+    private Date time;
 
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
     public Integer getCommentNum() {
         return commentNum;

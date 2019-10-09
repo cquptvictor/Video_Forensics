@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public interface UserService {
     ResponseData login(Teacher teacher);
-    ResponseData logout(String token);
+    ResponseData logout(String token,User user);
     ResponseData updateTeaInfo(Teacher teacher);
     ResponseData updateStuInfo(Student student);
     Teacher isCompleted(Teacher teacher) throws IncompleteInformationException;

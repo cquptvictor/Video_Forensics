@@ -16,15 +16,15 @@ import java.util.List;
 /**
  * 处理video、avatar、courseImage、courseware的上传*/
 public class UploadUtils {
-   /* private static String avatarBaseUrl = "E:\\netClass\\avatar\\";
+    private static String avatarBaseUrl = "E:\\netClass\\avatar\\";
     private static String courseImageBaseUrl = "E:\\netClass\\course\\";
     private static String courseVideoBaseUrl = "E:\\netClass\\video\\";
-    private static String coursewareBaseUrl = "E:\\netClass\\courseware\\";*/
+    private static String coursewareBaseUrl = "E:\\netClass\\courseware\\";
     private static String defaultAvatar = "default.jpg";
-    private static String avatarBaseUrl = "/root/netClass/avatar/";
+  /*  private static String avatarBaseUrl = "/root/netClass/avatar/";
     private static String courseImageBaseUrl = "/root/netClass/course/";
     private static String courseVideoBaseUrl = "/root/netClass/video/";
-    private static String coursewareBaseUrl = "/root/netClass/courseware/";
+    private static String coursewareBaseUrl = "/root/netClass/courseware/";*/
     private static List<String> imageSuffixes = new ArrayList<>();
     private static List<String> videoSuffixes = new ArrayList<>();
     private static List<String> coursewareSuffixes = new ArrayList<>();
@@ -35,6 +35,45 @@ public class UploadUtils {
         videoSuffixes.add("mp4");
         coursewareSuffixes.add("pptx");
         coursewareSuffixes.add("ppt");
+    }
+    private static String saveFile(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
+        String fileName = multipartFile.getOriginalFilename();
+        String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+        fileName = fileName.split("\\.")[0];
+        int dir1 = fileName.hashCode()&0xf;
+        int dir2 = fileName.hashCode()&0xf0;
+        String path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "." + suffix;
+        String directory;
+        if(type.equals("video")){
+            if(!videoSuffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+            directory = courseVideoBaseUrl + path;
+        }else if(type.equals("courseware")){
+            if (!coursewareSuffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+            directory = coursewareBaseUrl + path;
+        }else if (type.equals("coursewareImage")) {
+            if(!courseImageBaseUrl.contains(suffix))
+                throw new UnsupportedFileTypeException();
+            directory = courseImageBaseUrl + path;
+        }else if (type.equals("avatar")){
+            if (!imageSuffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+            directory = avatarBaseUrl + path;
+        }else{
+            throw new UnsupportedFileTypeException();
+        }
+        File file = new File(directory);
+        if(!file.getParentFile().exists()){
+            file.mkdirs();
+        }
+        try {
+            multipartFile.transferTo(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return path;
     }
     /**更新头像*/
     public static String updateAvatar(MultipartFile multipartFile, String url) throws IOException, UnsupportedFileTypeException {
@@ -126,12 +165,7 @@ public class UploadUtils {
         {
             path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + suffix;
             catalog = courseVideoBaseUrl +  path;
-        }/*else if(type.equals("courseware")){
-            path = dir1 + File.separator + dir2 + File.separator + new Date().getTime() + "_" + id + "." + suffix;
-            catalog = coursewareBaseUrl + path;
-        }*/
-
-
+        }
         File catalogFile = new File(catalog);
         if(!catalogFile.getParentFile().exists()){
             catalogFile.mkdirs();
