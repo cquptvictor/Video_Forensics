@@ -59,7 +59,7 @@
         select email,name,id,avatar,username from teacher where id = #{id};
     </select>
     <select id="getUserMessagesByPage" resultMap="MessagesMap">
-        select message.id,`name`,content_id,content,category,`time` from message join msg_user on msg_id = message.id where msg_user.is_teacher = #{filter.isTeacher} and msg_user.target_id = #{filter.targetId} order by `time` desc
+        select message.id,`name`,content_id,content,category,`time` from message join msg_user on msg_id = message.id where msg_user.is_teacher = #{filter.isTeacher} and msg_user.target_id = #{filter.targetId} order by msg_user.`read`,`time` desc
     </select>
     <select id="getUnreadMessageNum" resultType="Integer">
         select count(id) from msg_user where target_id = #{targetId} and `read` = '0' and is_teacher = #{isTeacher};
