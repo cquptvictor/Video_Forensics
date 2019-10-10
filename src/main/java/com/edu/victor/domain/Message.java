@@ -1,5 +1,7 @@
 package com.edu.victor.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 //name + 发布了 + category:+ content + time
 public class Message {
@@ -8,6 +10,7 @@ public class Message {
     private int contentId;//发送的内容的id
     private String content;//发送的内容
     private String category;//hw,nt,rp
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
 
     public int getId() {

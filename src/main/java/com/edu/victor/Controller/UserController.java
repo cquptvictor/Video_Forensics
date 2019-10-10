@@ -84,11 +84,14 @@ public class UserController {
     @ResponseBody
     public ResponseData getUserMessages(Page page, HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
-        Map<String,Object> map = new HashMap<>();
-        map.put("is_teacher",user.getIsTeacher());
-        map.put("target_id",user.getId());
-        page.setFilter(map);
-        return userService.getMessages(page);
+        return userService.getMessages(page,user);
     }
 
+    /**获取用户未读的消息数目*/
+    @RequestMapping("/unreadNum")
+    @ResponseBody
+    public ResponseData getUnreadNum(HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return userService.getUnreadMessageNum(user);
+    }
 }

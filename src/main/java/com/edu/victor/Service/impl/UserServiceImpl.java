@@ -10,11 +10,13 @@ import com.edu.victor.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -134,11 +136,38 @@ public class UserServiceImpl implements UserService {
      }
 
     @Override
-    public ResponseData getMessages(Page page) {
+    @Transactional
+    public ResponseData getMessages(Page page,User user) {
+        /**封装条件*/
+        Map<String,Object> map = new HashMap<>();
+        map.put("isTeacher",user.getIsTeacher());
+        map.put("targetId",user.getId());
+        page.setFilter(map);
         ResponseData responseData = new ResponseData(200);
         Page page1 = userDao.getUserMessagesByPage(page);
+        List<Message> messageList = page1.getPageData();
+        if(messageList != null) {
+            map.put("MessageList",messageList);
+            userDao.setAlreadyRead(map);
+        }
+        //List<Message> messageList = page1.getPageData();
+
         page.setPageData(page1 != null ? page1.getPageData():null);
         responseData.setData(page);
+        return responseData;
+    }
+
+    @Override
+    public ResponseData getUnreadMessageNum(User user) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("isTeacher",user.getIsTeacher());
+        map.put("targetId",user.getId());
+
+        Map<String,Object> resultMap = new HashMap<>();
+        int nums = userDao.getUnreadMessageNum(map);
+        resultMap.put("numbers",nums);
+        ResponseData responseData = new ResponseData(200);
+        responseData.setData(resultMap);
         return responseData;
     }
 }

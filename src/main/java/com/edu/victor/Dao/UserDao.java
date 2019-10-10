@@ -4,6 +4,9 @@ import com.edu.victor.domain.Page;
 import com.edu.victor.domain.Student;
 import com.edu.victor.domain.Teacher;
 import com.edu.victor.domain.User;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Map;
 
 public interface UserDao {
     Teacher teacherLogin(Teacher teacher);
@@ -14,5 +17,6 @@ public interface UserDao {
     Boolean updateTeaAvatar(User user);
     Boolean updateStuAvatar(User user);
     Page getUserMessagesByPage(Page page);
-
+    Integer getUnreadMessageNum(Map map);
+    Boolean setAlreadyRead(@Param("map") Map map);
 }
