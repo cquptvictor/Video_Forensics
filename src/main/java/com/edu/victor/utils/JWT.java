@@ -80,10 +80,10 @@ public class JWT {
     public static Boolean authBlackList(User user, String token){
         String key = String.format("%s%d",user.getIsTeacher().equals("1")?"Teacher":"Student",user.getId());
         String value = (String)redisTemplate.opsForValue().get(key);
-        if(value == null || value.equals(token))
+        if(value != null && value.equals(token))
             return false;
         else
-            return true;
+            return true ;
     }
   public static void main(String[] args){
       Student student = new Student();
