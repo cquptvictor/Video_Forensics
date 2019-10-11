@@ -12,7 +12,7 @@ public class MessageCreateUtils {
     public static Message createHwMessage(Homework homework,String name){
         Message message = new Message();
         message.setContent(homework.getTitle());
-        message.setCategory("hw");
+        message.setCategory("homework");
         message.setContentId(homework.getId());
         message.setName(name);
         message.setTime(new Date());
@@ -22,17 +22,17 @@ public class MessageCreateUtils {
            Message message = new Message();
            message.setTime(new Date());
            message.setContent(notice.getTitle());
-           message.setCategory("nt");
+           message.setCategory("notice");
            message.setContentId(notice.getId());
            message.setName(name);
            return message;
     }
-    public static Message createRyMessage(Answer answer, String name){
+    public static Message createRyMessage(Answer answer, String name,String type){
         Message message = new Message();
         message.setTime(new Date());
         int length = answer.getContent().length();
         message.setContent(length <= 10 ? answer.getContent().substring(0,length) : answer.getContent().substring(0,10));
-        message.setCategory("rp");
+        message.setCategory(type);
         message.setContentId(answer.getQsId());
         message.setName(name);
         return message;

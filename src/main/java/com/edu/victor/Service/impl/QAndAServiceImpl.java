@@ -54,7 +54,7 @@ public class QAndAServiceImpl implements QAndAService {
             map.put("isTeacher",answer.getIsTeacher());
             map.put("id",user.getId());
             UserDto userDto = qAndADao.getUser(map);
-            Message message = MessageCreateUtils.createRyMessage(answer,userDto.getName());
+            Message message = MessageCreateUtils.createRyMessage(answer,userDto.getName(),"course");
             if(messageDao.addMessage(message)) {   /**创建并添加messageUser*/
                 int superiorId = answer.getSuperiorId();
                 User targetUser;

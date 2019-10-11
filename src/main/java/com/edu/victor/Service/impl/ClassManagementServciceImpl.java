@@ -86,7 +86,7 @@ public class ClassManagementServciceImpl implements ClassManagementService {
             map.put("isTeacher",answer.getIsTeacher());
             map.put("id",user.getId());
             UserDto userDto = classDao.getUser(map);
-            Message message = MessageCreateUtils.createRyMessage(answer,userDto.getName());
+            Message message = MessageCreateUtils.createRyMessage(answer,userDto.getName(),"class");
             if(messageDao.addMessage(message)) {   /**创建并添加messageUser*/
                 int superiorId = answer.getSuperiorId();
                 User targetUser;

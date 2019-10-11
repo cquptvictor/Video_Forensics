@@ -18,7 +18,7 @@ public class HWController {
     @Autowired
     HWService hwService;
     /**发布作业*/
-    @RequestMapping(value = "/pHomework")
+    @RequestMapping(value = "/homework/pub")
     @ResponseBody
     public ResponseData publishHW(Homework homework,HttpServletRequest httpServletRequest) throws IncompleteInformationException {
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
@@ -26,7 +26,7 @@ public class HWController {
     }
 
     /**查看发布的作业的列表*/
-    @RequestMapping(value = "/sHomework")
+    @RequestMapping(value = "/homework/show")
     @ResponseBody
     public ResponseData getHW(Homework homework,Page page){
         Map map = new HashMap<>();
@@ -42,9 +42,9 @@ public class HWController {
        return hwService.getSpecificPage(id);
     }
     /**查看某一发布作业的提交情况*/
-    @RequestMapping(value = "/sSubmit")
+    @RequestMapping(value = "/homework/showSubmit/{hwId}")
     @ResponseBody
-    public ResponseData getSubmitHomework(@RequestParam int hwId,Page page){
+    public ResponseData getSubmitHomework(@PathVariable("hwId") int hwId,Page page){
         Map map = new HashMap<>();
         map.put("hwId",hwId);
         page.setFilter(map);
@@ -52,13 +52,13 @@ public class HWController {
     }
 
     /**修改发布的作业*/
-    @RequestMapping(value = "/uHomework")
+    @RequestMapping(value = "/homework/update")
     @ResponseBody
     public ResponseData updatePbHomework(Homework homework){
         return hwService.updateHw(homework);
     }
     /**删除发布的作业*/
-    @RequestMapping(value = "/dHomework")
+    @RequestMapping(value = "/homework/delete")
     @ResponseBody
     public ResponseData deleteHw(int id,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
@@ -68,7 +68,7 @@ public class HWController {
         return hwService.deleteHw(map);
     }
     /**评分*/
-    @RequestMapping(value = "/judge")
+    @RequestMapping(value = "/homework/judge")
     @ResponseBody
     public ResponseData judge(Judge judge){
        return hwService.judgeHw(judge);
