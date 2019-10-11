@@ -30,22 +30,23 @@
     </select>
 
     <resultMap id="PageQuestion" type="Page">
-        <collection property="pageData" ofType="CourseDiscussionQuestionDto" autoMapping="true">
+        <collection property="pageData" ofType="ClassDiscussionQuestionDto" autoMapping="true">
             <association property="commentNum" select="getCommentNum" column="qid"/>
             <association property="userDto"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
         </collection>
     </resultMap>
-    <resultMap id="QuestionSpecificDto" type="CourseDiscussionQuestionDtoForSpecific">
+    <resultMap id="ClassDiscussionQuestionSpecificDto" type="ClassDiscussionQuestionDtoForSpecific">
         <association property="userDto"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
         <collection property="answerList" ofType="Answer"  column="qid" select="getAnswerByQuestion" autoMapping="true">
         </collection>
     </resultMap>
-    <resultMap id="AnswerMap" type="CourseDiscussionAnswerDto" autoMapping="true">
+    <resultMap id="AnswerMap" type="ClassDiscussionAnswerDto" autoMapping="true">
         <association property="respondent"  select="getUser" column="{id = asr_id,isTeacher = isTeacher}" autoMapping="true"/>
     </resultMap>
-    <insert id="addQuestion" parameterType="CourseDiscussionQuestion">
+    <insert id="addQuestion" parameterType="ClassDiscussionQuestion">
         insert into class_discussion_question(title,content,qsr_id,class_id,is_teacher)value(#{title},#{content},#{qsrId},#{classId},#{isTeacher});
     </insert>
+
     <insert id="addReply" parameterType="Answer">
         insert into class_discussion_answer(content,qs_id,asr_id,superior_id,is_teacher)value(#{content},#{qsId},#{asrId},#{superiorId},#{isTeacher})
     </insert>

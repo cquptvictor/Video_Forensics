@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 @RequestMapping(method = RequestMethod.POST)
@@ -60,7 +58,7 @@ public class ClassManagementController {
     /**展示提问列表*/
     @RequestMapping("/ClassDiscussion/questions/{classId}")
     @ResponseBody
-    public ResponseData getQuestions(@PathVariable("classid") int id, Page page){
+    public ResponseData getQuestions(@PathVariable("classId") int id, Page page){
         return classManagementService.getQuestionList(page,id);
     }
     /**进入具体的问题页面*/

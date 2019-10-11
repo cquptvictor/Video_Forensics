@@ -37,7 +37,7 @@
         select count(id) as commentNum from course_discussion_answer where qs_id = #{qid}
     </select>
 
-    <select id="getSpecificQuestion" resultMap="CourseDiscussionQuestionSpecificDto">
+    <select id="getSpecificQuestion" resultMap="QuestionSpecificDto">
       select id,id as qid,title,content,qsr_id,is_teacher,is_teacher as isTeacher,time from course_discussion_question where id = #{id}
     </select>
     <select id="getAnswerByQuestion" resultMap="AnswerMap">
