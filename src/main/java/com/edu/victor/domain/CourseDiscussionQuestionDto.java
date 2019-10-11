@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 /**问答区的帖子列表展示*/
-public class QuestionDto {
+public class CourseDiscussionQuestionDto {
     private int id;
     private UserDto userDto;
     private String title;

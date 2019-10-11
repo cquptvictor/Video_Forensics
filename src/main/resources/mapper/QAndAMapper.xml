@@ -5,27 +5,27 @@
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.QAndADao">
     <resultMap id="PageQuestion" type="Page">
-        <collection property="pageData" ofType="QuestionDto" autoMapping="true">
+        <collection property="pageData" ofType="CourseDiscussionQuestionDto" autoMapping="true">
             <association property="commentNum" select="getCommentNum" column="qid"/>
             <association property="userDto"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
         </collection>
     </resultMap>
-    <resultMap id="QuestionSpecificDto" type="QuestionDtoForSpecific">
+    <resultMap id="QuestionSpecificDto" type="CourseDiscussionQuestionDtoForSpecific">
         <association property="userDto"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
         <collection property="answerList" ofType="Answer"  column="qid" select="getAnswerByQuestion" autoMapping="true">
         </collection>
     </resultMap>
-    <resultMap id="AnswerMap" type="AnswerDto" autoMapping="true">
+    <resultMap id="AnswerMap" type="CourseDiscussionAnswerDto" autoMapping="true">
         <association property="respondent"  select="getUser" column="{id = asr_id,isTeacher = isTeacher}" autoMapping="true"/>
     </resultMap>
-    <insert id="addQuestion" parameterType="Question">
-        insert into question(title,content,qsr_id,course_id,is_teacher)value(#{title},#{content},#{qsrId},#{courseId},#{isTeacher});
+    <insert id="addQuestion" parameterType="CourseDiscussionQuestion">
+        insert into course_discussion_question(title,content,qsr_id,course_id,is_teacher)value(#{title},#{content},#{qsrId},#{courseId},#{isTeacher});
     </insert>
     <insert id="addReply" parameterType="Answer">
-        insert into answer(content,qs_id,asr_id,superior_id,is_teacher)value(#{content},#{qsId},#{asrId},#{superiorId},#{isTeacher})
+        insert into course_discussion_answer(content,qs_id,asr_id,superior_id,is_teacher)value(#{content},#{qsId},#{asrId},#{superiorId},#{isTeacher})
     </insert>
     <select id="getQuestionByPage"  resultMap="PageQuestion">
-        select id,id as qid,title,qsr_id,is_teacher,is_teacher as isTeacher,time from question where course_id = #{filter.courseId}
+        select id,id as qid,title,qsr_id,is_teacher,is_teacher as isTeacher,time from course_discussion_question where course_id = #{filter.courseId}
     </select>
     <select id="getUser" resultType="UserDto">
         select name,avatar from
@@ -34,19 +34,19 @@
         where id = #{id}
     </select>
     <select id="getCommentNum" resultType="Integer">
-        select count(id) as commentNum from answer where qs_id = #{qid}
+        select count(id) as commentNum from course_discussion_answer where qs_id = #{qid}
     </select>
 
-    <select id="getSpecificQuestion" resultMap="QuestionSpecificDto">
-      select id,id as qid,title,content,qsr_id,is_teacher,is_teacher as isTeacher,time from question where id = #{id}
+    <select id="getSpecificQuestion" resultMap="CourseDiscussionQuestionSpecificDto">
+      select id,id as qid,title,content,qsr_id,is_teacher,is_teacher as isTeacher,time from course_discussion_question where id = #{id}
     </select>
     <select id="getAnswerByQuestion" resultMap="AnswerMap">
-        select id,superior_id,content,asr_id,is_teacher,is_teacher as isTeacher,time from answer where qs_id = #{qid};
+        select id,superior_id,content,asr_id,is_teacher,is_teacher as isTeacher,time from course_discussion_answer where qs_id = #{qid};
     </select>
     <select id="getTargetIdByQsId" resultType="User">
-        select is_teacher,qsr_id as id from question where id = #{id};
+        select is_teacher,qsr_id as id from course_discussion_question where id = #{id};
     </select>
     <select id="getTargetIdByRpId" resultType="User">
-        select asr_id as id, is_teacher from answer where id = #{id};
+        select asr_id as id, is_teacher from course_discussion_answer where id = #{id};
     </select>
 </mapper>

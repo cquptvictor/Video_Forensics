@@ -14,10 +14,10 @@
           class_num = #{classNum},
           </if>
            <if test="description != null">
-               description = #{discription}
+            description = #{description}
            </if>
      </set>
-     where id = #{id}
+        where id = #{id}
     </update>
     <delete id="delete" >
         delete from class where id = #{id}
@@ -29,4 +29,49 @@
         select id,class_num,description from class order by id
     </select>
 
+    <resultMap id="PageQuestion" type="Page">
+        <collection property="pageData" ofType="CourseDiscussionQuestionDto" autoMapping="true">
+            <association property="commentNum" select="getCommentNum" column="qid"/>
+            <association property="userDto"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
+        </collection>
+    </resultMap>
+    <resultMap id="QuestionSpecificDto" type="CourseDiscussionQuestionDtoForSpecific">
+        <association property="userDto"  select="getUser" column="{id = qsr_id,isTeacher = isTeacher}"/>
+        <collection property="answerList" ofType="Answer"  column="qid" select="getAnswerByQuestion" autoMapping="true">
+        </collection>
+    </resultMap>
+    <resultMap id="AnswerMap" type="CourseDiscussionAnswerDto" autoMapping="true">
+        <association property="respondent"  select="getUser" column="{id = asr_id,isTeacher = isTeacher}" autoMapping="true"/>
+    </resultMap>
+    <insert id="addQuestion" parameterType="CourseDiscussionQuestion">
+        insert into class_discussion_question(title,content,qsr_id,class_id,is_teacher)value(#{title},#{content},#{qsrId},#{classId},#{isTeacher});
+    </insert>
+    <insert id="addReply" parameterType="Answer">
+        insert into class_discussion_answer(content,qs_id,asr_id,superior_id,is_teacher)value(#{content},#{qsId},#{asrId},#{superiorId},#{isTeacher})
+    </insert>
+    <select id="getQuestionByPage"  resultMap="PageQuestion">
+        select id,id as qid,title,qsr_id,is_teacher,is_teacher as isTeacher,time from class_discussion_question where class_id = #{filter.classId}
+    </select>
+    <select id="getUser" resultType="UserDto">
+        select name,avatar from
+        <if test="isTeacher == 1">teacher</if>
+        <if test="isTeacher == 0">stu</if>
+        where id = #{id}
+    </select>
+    <select id="getCommentNum" resultType="Integer">
+        select count(id) as commentNum from class_discussion_answer where qs_id = #{qid}
+    </select>
+
+    <select id="getSpecificQuestion" resultMap="ClassDiscussionQuestionSpecificDto">
+      select id,id as qid,title,content,qsr_id,is_teacher,is_teacher as isTeacher,time from class_discussion_question where id = #{id}
+    </select>
+    <select id="getAnswerByQuestion" resultMap="AnswerMap">
+        select id,superior_id,content,asr_id,is_teacher,is_teacher as isTeacher,time from class_discussion_answer where qs_id = #{qid};
+    </select>
+    <select id="getTargetIdByQsId" resultType="User">
+        select is_teacher,qsr_id as id from class_discussion_question where id = #{id};
+    </select>
+    <select id="getTargetIdByRpId" resultType="User">
+        select asr_id as id, is_teacher from class_discussion_answer where id = #{id};
+    </select>
 </mapper>

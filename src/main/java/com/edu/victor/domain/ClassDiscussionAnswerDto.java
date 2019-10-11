@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class AnswerDto {
+public class ClassDiscussionAnswerDto {
     private int id;
     private int superiorId;
     private String content;

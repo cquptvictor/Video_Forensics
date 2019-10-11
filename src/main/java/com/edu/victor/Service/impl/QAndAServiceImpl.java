@@ -22,7 +22,7 @@ public class QAndAServiceImpl implements QAndAService {
     MessageDao messageDao;
     /**区分用户是学生还是老师*/
     @Override
-    public ResponseData addQustion(Question question, User user) {
+    public ResponseData addQustion(CourseDiscussionQuestion question, User user) {
         question.setQsrId(user.getId());
         if(user.getIsTeacher().equals("1")){
             question.setIsTeacher('1');
@@ -39,7 +39,7 @@ public class QAndAServiceImpl implements QAndAService {
      * 创建Message，添加到message表
      * 然后创建通知对象，添加到通知表*/
     @Override
-    public ResponseData relpy(Answer answer, User user) {
+    public ResponseData relpy(CourseDiscussionAnswer answer, User user) {
         answer.setAsrId(user.getId());
         if(user instanceof Teacher){
             answer.setIsTeacher("1");
@@ -90,8 +90,8 @@ public class QAndAServiceImpl implements QAndAService {
     @Override
     public ResponseData getSpecificQuestion(int id) {
         ResponseData responseData = new ResponseData(200);
-        QuestionDtoForSpecific questionDtoForSpecific = qAndADao.getSpecificQuestion(id);
-        responseData.setData(questionDtoForSpecific);
+        ClassDiscussionQuestionDtoForSpecific classDiscussionQuestionDtoForSpecific = qAndADao.getSpecificQuestion(id);
+        responseData.setData(classDiscussionQuestionDtoForSpecific);
         return responseData;
     }
 }

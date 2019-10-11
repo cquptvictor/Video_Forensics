@@ -21,21 +21,21 @@ public class QAndAController {
     QAndAService qAndAService;
 
     /**学生提问和老师提问要区分*/
-    @RequestMapping("/pQuestion")
+    @RequestMapping("/courseDiscussion/pub")
     @ResponseBody
-    public ResponseData askQuestion(Question question, HttpServletRequest httpServletRequest){
+    public ResponseData askQuestion(CourseDiscussionQuestion question, HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return qAndAService.addQustion(question,user);
     }
     /**回复*/
-    @RequestMapping("/reply")
+    @RequestMapping("/courseDiscussion/reply")
     @ResponseBody
-    public ResponseData replyQuestion(Answer answer, HttpServletRequest httpServletRequest){
+    public ResponseData replyQuestion(CourseDiscussionAnswer answer, HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return qAndAService.relpy(answer,user);
     }
     /**展示提问列表*/
-    @RequestMapping("/questions/{course_id}")
+    @RequestMapping("/courseDiscussion/questions/{course_id}")
     @ResponseBody
     public ResponseData getQuestions(@PathVariable("course_id") int id, Page page){
         Map map = new HashMap();
@@ -44,7 +44,7 @@ public class QAndAController {
         return qAndAService.getQuestionList(page);
     }
     /**进入具体的问题页面*/
-    @RequestMapping("/question/{question_id}")
+    @RequestMapping("/courseDiscussion/question/{question_id}")
     @ResponseBody
     public ResponseData getSpecificQuestionPage(@PathVariable("question_id") int id){
         return qAndAService.getSpecificQuestion(id);

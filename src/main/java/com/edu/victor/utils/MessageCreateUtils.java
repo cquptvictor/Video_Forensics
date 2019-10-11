@@ -1,5 +1,6 @@
 package com.edu.victor.utils;
 
+import com.edu.victor.Dao.CourseDao;
 import com.edu.victor.domain.*;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class MessageCreateUtils {
            message.setName(name);
            return message;
     }
-    public static Message createRyMessage(Answer answer,String name){
+    public static Message createRyMessage(Answer answer, String name){
         Message message = new Message();
         message.setTime(new Date());
         int length = answer.getContent().length();

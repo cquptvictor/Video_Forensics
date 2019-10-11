@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
+
 /**接受用户的提问的参数
  * 展示问题详情页面*/
-public class Question {
+public class ClassDiscussionQuestion {
     private int id;
-    private int courseId;
+    private int ClassId;
     private String title;
     private String content;
     private char isTeacher;
@@ -58,15 +59,13 @@ public class Question {
         this.id = id;
     }
 
-
-    public int getCourseId() {
-        return courseId;
+    public int getClassId() {
+        return ClassId;
     }
 
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
+    public void setClassId(int classId) {
+        ClassId = classId;
     }
-
 
     public String getTitle() {
         return title;
