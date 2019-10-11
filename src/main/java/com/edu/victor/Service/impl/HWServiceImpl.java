@@ -83,7 +83,8 @@ public class HWServiceImpl implements HWService {
     @Override
     public ResponseData getSubmitedHomework(Page page) {
         ResponseData responseData = new ResponseData(200);
-        page.setPageData(hwDao.getSubmitedByPage(page).getPageData());
+        Page page1 = hwDao.getSubmitedByPage(page);
+        page.setPageData(page1 != null ? page1.getPageData():null);
         responseData.setData(page);
         return responseData;
     }

@@ -46,7 +46,7 @@ public class HWController {
     @ResponseBody
     public ResponseData getSubmitHomework(@RequestParam int hwId,Page page){
         Map map = new HashMap<>();
-        map.put("hw_id",hwId);
+        map.put("hwId",hwId);
         page.setFilter(map);
         return hwService.getSubmitedHomework(page);
     }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.ClassDao">
+    <insert id="create" parameterType="TeachingClass">
+        insert into class(class_num,description)value (#{classNum},#{description})
+    </insert>
+    <update id="update" parameterType="TeachingClass">
+        update class
+        <set>
+         <if test="classNum != null">
+          class_num = #{classNum},
+          </if>
+           <if test="description != null">
+               description = #{discription}
+           </if>
+     </set>
+     where id = #{id}
+    </update>
+    <delete id="delete" >
+        delete from class where id = #{id}
+    </delete>
+    <resultMap id="ClassPage" type="Page">
+        <collection property="pageData" ofType="TeachingClass" autoMapping="true"/>
+    </resultMap>
+    <select id="getClassByPage" resultMap="ClassPage">
+        select id,class_num,description from class order by id
+    </select>
+
+</mapper>

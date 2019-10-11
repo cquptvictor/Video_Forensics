@@ -24,7 +24,7 @@
         select * from homework where id = #{id}
     </select>
     <select id="getSubmitedByPage" parameterType="Page" resultMap="PageMapSb">
-        select id,content,score,status from hw_submit where hw_id = #{filter.hw_id}
+        select id,content,score,status from hw_submit where hw_id = #{filter.hwId}
     </select>
     <update id="updateHw" parameterType="Homework">
         update homework <set>
