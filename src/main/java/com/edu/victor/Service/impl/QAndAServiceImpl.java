@@ -90,7 +90,7 @@ public class QAndAServiceImpl implements QAndAService {
     @Override
     public ResponseData getSpecificQuestion(int id) {
         ResponseData responseData = new ResponseData(200);
-        ClassDiscussionQuestionDtoForSpecific classDiscussionQuestionDtoForSpecific = qAndADao.getSpecificQuestion(id);
+        CourseDiscussionQuestionDtoForSpecific classDiscussionQuestionDtoForSpecific = qAndADao.getSpecificQuestion(id);
         responseData.setData(classDiscussionQuestionDtoForSpecific);
         return responseData;
     }

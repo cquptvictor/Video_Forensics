@@ -8,7 +8,7 @@ public interface QAndADao {
     Boolean addQuestion(CourseDiscussionQuestion question);
     Boolean addReply(CourseDiscussionAnswer answer);
     Page<CourseDiscussionQuestionDto> getQuestionByPage(Page page);
-    ClassDiscussionQuestionDtoForSpecific getSpecificQuestion(int id);
+    CourseDiscussionQuestionDtoForSpecific getSpecificQuestion(int id);
     UserDto getUser(Map map);
     User getTargetIdByQsId(int id);
     User getTargetIdByRpId(int id);
