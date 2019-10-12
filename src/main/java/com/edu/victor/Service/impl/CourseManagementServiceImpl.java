@@ -6,7 +6,7 @@ import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.CourseManagementService;
 import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
-import com.edu.victor.utils.UploadUtils;
+import com.edu.victor.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +23,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData addCourse(Course course, Teacher teacher) throws IncompleteInformationException, UnsupportedFileTypeException {
         /**验证用户信息是否完整*/
         teacherService.isCompleted(teacher);
-        String path = UploadUtils.saveImage(course.getPic(),"courseImage");
+        String path = FileUtils.saveImage(course.getPic(),"courseImage");
         course.setUrl(path);
         course.setTeaId(teacher.getId());
         ResponseData responseData = new ResponseData();
@@ -51,7 +51,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData addSection(Section section, Teacher teacher) throws UnsupportedFileTypeException, IncompleteInformationException {
         teacher = teacherService.isCompleted(teacher);
         ResponseData responseData = new ResponseData();
-        String path = UploadUtils.saveImage(section.getFile(),"video");
+        String path = FileUtils.saveImage(section.getFile(),"video");
         section.setUrl(path);
         section.setTeaId(teacher.getId());
         if(courseDao.addSection(section))
@@ -75,7 +75,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Override
     public ResponseData addCourseware(UploadCourseware courseware, Teacher teacher) throws UnsupportedFileTypeException {
 
-        List<Courseware> coursewares = UploadUtils.multiSaveCourseware(courseware.getMultipartFile(),teacher.getId(),courseware.getSuperiorId());
+        List<Courseware> coursewares = FileUtils.multiSaveCourseware(courseware.getMultipartFile(),teacher.getId(),courseware.getSuperiorId());
         ResponseData responseData = new ResponseData();
 
         if(courseDao.addCourseware(coursewares))
@@ -126,7 +126,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         String url = courseDao.getCourseImageUrl(section_id);
         if(courseDao.deleteSection(section_id,tea_id)) {
             responseData.setCode(200);
-            UploadUtils.deleteFile(url,"video");
+            FileUtils.deleteFile(url,"video");
         }else
             responseData.setCode(0);
         return responseData;
@@ -138,7 +138,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         List<String> urls = courseDao.getSectionUrlByChapter(id);
         if(courseDao.deleteChapter(id,tea_id)) {
             responseData.setCode(200);
-            UploadUtils.deleteFile(urls,"video");
+            FileUtils.deleteFile(urls,"video");
         }else
             responseData.setCode(0);
         return responseData;
@@ -153,9 +153,9 @@ public class CourseManagementServiceImpl implements CourseManagementService {
 
         if(courseDao.deleteCourse(id,tea_id)) {
             responseData.setCode(200);
-            UploadUtils.deleteFile(imageUrl,"courseImage");
-            UploadUtils.deleteFile(sectionUrls,"video");
-            UploadUtils.deleteFile(coursewareUrls,"courseware");
+            FileUtils.deleteFile(imageUrl,"courseImage");
+            FileUtils.deleteFile(sectionUrls,"video");
+            FileUtils.deleteFile(coursewareUrls,"courseware");
         }else
             responseData.setCode(0);
         return responseData;
@@ -168,7 +168,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         String url = courseDao.getCoursewareUrl(id);
         if(courseDao.deleteCourseware(id,tea_id)) {
             responseData.setCode(200);
-            UploadUtils.deleteFile(url,"courseware");
+            FileUtils.deleteFile(url,"courseware");
         }else
             responseData.setCode(0);
         return responseData;
@@ -204,7 +204,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
                 String url = courseDao.getCourseImageUrl(course.getId());
                 //提取文件名
                 //String filePath = url.split(".",1)[0];
-                UploadUtils.updateCourseImage(course.getPic(), url);
+                FileUtils.updateCourseImage(course.getPic(), url);
         }
         ResponseData responseData = new ResponseData();
         if(courseDao.updateCourseInfo(course))

@@ -9,12 +9,17 @@ import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Service.HWService;
 import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
+import com.edu.victor.utils.FileUtils;
 import com.edu.victor.utils.MessageCreateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.*;
 import java.util.List;
 import java.util.Map;
 
@@ -124,7 +129,11 @@ public class HWServiceImpl implements HWService {
         else
             responseData.setCode(0);
         return responseData;
+    }
 
-
+    @Override
+    public ResponseEntity<byte[]> downloadHw(int id) throws DownloadFileNotFoundException {
+        String url = hwDao.getUrlBySubmittedHw(id);
+        return FileUtils.dowmloadSubmittedHomework(url);
     }
 }

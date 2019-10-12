@@ -6,7 +6,7 @@ import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
 import com.edu.victor.utils.JWT;
-import com.edu.victor.utils.UploadUtils;
+import com.edu.victor.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -119,7 +118,7 @@ public class UserServiceImpl implements UserService {
                 user = userDao.teacherInfo(user.getId());
             }else
                 user = userDao.studentInfo(user.getId());
-            String url = UploadUtils.updateAvatar(multipartFile, user.getAvatar()+"");
+            String url = FileUtils.updateAvatar(multipartFile, user.getAvatar()+"");
             user.setAvatar(url);
             Boolean result;
             if(isTeacher){

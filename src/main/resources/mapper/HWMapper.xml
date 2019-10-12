@@ -43,7 +43,9 @@
     <select id="getSubmittedHwByHw" resultType="String">
         select url from hw_submit where hw_id = #{id};
     </select>
-
+    <select id="getUrlBySubmittedHw" resultType="String">
+        select url from hw_submit where id = #{id}
+    </select>
     <delete id="deleteHw">
         delete from homework where id = #{id};
     </delete>

@@ -1,13 +1,16 @@
 package com.edu.victor.utils;
 
 import com.edu.victor.Exception.UnsupportedFileTypeException;
+import com.edu.victor.Service.impl.DownloadFileNotFoundException;
 import com.edu.victor.domain.Courseware;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -15,16 +18,20 @@ import java.util.List;
 
 /**
  * 处理video、avatar、courseImage、courseware的上传*/
-public class UploadUtils {
+public class FileUtils {
     private static String avatarBaseUrl = "E:\\netClass\\avatar\\";
     private static String courseImageBaseUrl = "E:\\netClass\\course\\";
     private static String courseVideoBaseUrl = "E:\\netClass\\video\\";
     private static String coursewareBaseUrl = "E:\\netClass\\courseware\\";
+    private static String SubmittedHomeworkUrl = "E:\\netClass\\submitted\\";
     private static String defaultAvatar = "default.jpg";
+
   /*  private static String avatarBaseUrl = "/root/netClass/avatar/";
     private static String courseImageBaseUrl = "/root/netClass/course/";
     private static String courseVideoBaseUrl = "/root/netClass/video/";
-    private static String coursewareBaseUrl = "/root/netClass/courseware/";*/
+    private static String coursewareBaseUrl = "/root/netClass/courseware/";
+    private static String SubmittedHomeworkUrl = "/root/netClass/submitted/"*/
+
     private static List<String> imageSuffixes = new ArrayList<>();
     private static List<String> videoSuffixes = new ArrayList<>();
     private static List<String> coursewareSuffixes = new ArrayList<>();
@@ -143,5 +150,23 @@ public class UploadUtils {
             base = coursewareBaseUrl ;
             File file = new File(base,url);
             file.delete();
+    }
+    public static ResponseEntity<byte[]> dowmloadSubmittedHomework(String url) throws DownloadFileNotFoundException {
+        url = SubmittedHomeworkUrl + url;
+        File file = new File(url);
+        byte[] body = null;
+        InputStream is = null;
+        try {
+            is = new FileInputStream(file);
+            body = new byte[is.available()];
+            is.read(body);
+        } catch (IOException e) {
+            throw new DownloadFileNotFoundException();
+        }
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attchement;filename=" + file.getName());
+        HttpStatus statusCode = HttpStatus.OK;
+        ResponseEntity<byte[]> entity = new ResponseEntity<>(body, headers, statusCode);
+        return entity;
     }
 }

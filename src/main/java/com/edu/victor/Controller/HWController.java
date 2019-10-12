@@ -5,10 +5,12 @@ import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Service.HWService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,10 +64,14 @@ public class HWController {
     @ResponseBody
     public ResponseData deleteHw(int id,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
-        Map<String,Integer> map = new HashMap();
+        Map<String,Integer> map = new HashMap<>();
         map.put("hwId",id);
         map.put("teaId",teacher.getId());
         return hwService.deleteHw(map);
+    }
+    @RequestMapping(value = "/homework/download/{id}",method = RequestMethod.GET)
+    public ResponseEntity<byte[]> Download(@PathVariable("id") int id) throws IOException {
+       return hwService.downloadHw(id);
     }
     /**评分*/
     @RequestMapping(value = "/homework/judge")

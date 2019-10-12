@@ -1,5 +1,6 @@
 package com.edu.victor.Exception;
 
+import com.edu.victor.Service.impl.DownloadFileNotFoundException;
 import com.edu.victor.domain.ResponseData;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -52,6 +53,15 @@ public class GlobalException {
         ResponseData responseData = new ResponseData();
         responseData.setCode(0);
         responseData.setMessage("Please enter a valid argument");
+        return responseData;
+    }
+    /**下载的文件找不到*/
+    @ExceptionHandler(DownloadFileNotFoundException.class)
+    @ResponseBody
+    public ResponseData DownloadNotFound(){
+        ResponseData responseData = new ResponseData();
+        responseData.setCode(0);
+        responseData.setMessage("The File you want to download not Found");
         return responseData;
     }
 }

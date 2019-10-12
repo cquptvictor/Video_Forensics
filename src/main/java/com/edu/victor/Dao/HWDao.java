@@ -15,4 +15,5 @@ public interface HWDao {
     List<String> getSubmittedHwByHw(int id);
     Boolean deleteHw(int id);
     Integer isPermitted(Map map);
+    String getUrlBySubmittedHw(int id);
 }
