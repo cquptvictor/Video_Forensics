@@ -25,7 +25,7 @@
         insert into course_discussion_answer(content,qs_id,asr_id,superior_id,is_teacher)value(#{content},#{qsId},#{asrId},#{superiorId},#{isTeacher})
     </insert>
     <select id="getQuestionByPage"  resultMap="PageQuestion">
-        select id,id as qid,title,qsr_id,is_teacher,is_teacher as isTeacher,time from course_discussion_question where course_id = #{filter.courseId}
+        select id,id as qid,title,qsr_id,is_teacher,is_teacher as isTeacher,`time` from course_discussion_question where course_id = #{filter.courseId} order by `time` desc
     </select>
     <select id="getUser" resultType="UserDto">
         select name,avatar from
@@ -38,10 +38,10 @@
     </select>
 
     <select id="getSpecificQuestion" resultMap="QuestionSpecificDto">
-      select id,id as qid,title,content,qsr_id,is_teacher,is_teacher as isTeacher,time from course_discussion_question where id = #{id}
+      select id,id as qid,title,content,qsr_id,is_teacher,is_teacher as isTeacher,`time` from course_discussion_question where id = #{id} order by `time` desc
     </select>
     <select id="getAnswerByQuestion" resultMap="AnswerMap">
-        select id,superior_id,content,asr_id,is_teacher,is_teacher as isTeacher,time from course_discussion_answer where qs_id = #{qid};
+        select id,superior_id,content,asr_id,is_teacher,is_teacher as isTeacher,`time` from course_discussion_answer where qs_id = #{qid} order by `time` desc
     </select>
     <select id="getTargetIdByQsId" resultType="User">
         select is_teacher,qsr_id as id from course_discussion_question where id = #{id};

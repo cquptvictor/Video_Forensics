@@ -10,7 +10,7 @@ public class Notice {
     private String teaId;
     private String content;
     private String title;
-    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
     private int courseId;
 

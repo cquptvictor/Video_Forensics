@@ -3,7 +3,6 @@ package com.edu.victor.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.web.multipart.MultipartFile;
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
     private Integer id;
     private String name;

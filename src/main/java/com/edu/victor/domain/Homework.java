@@ -14,11 +14,11 @@ public class Homework {
     private String title;
     private String content;
     private String category;
-    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date startTime;
-    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date endTime;
-    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
 
     public Date getTime() {

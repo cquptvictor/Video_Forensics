@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Video_Forensics:war" />
+      <artifact name="Video_Forensics:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
@@ -11,10 +11,28 @@
   <component name="ChangeListManager">
     <list default="true" id="d9c9ca01-48ce-4869-9cf4-5e6ec68a60b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/ClassManagementServciceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/ClassManagementServciceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/QAndAServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/QAndAServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/MessageCreateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/MessageCreateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionAnswerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionAnswerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionAnswerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionAnswerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/News.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Notice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Notice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/StuClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/StuSearch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ExcelUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ExcelUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ClassMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ClassMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/QAndAMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/QAndAMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Controller/HWController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Controller/HWController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/utils/MessageCreateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/utils/MessageCreateUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Controller/HWController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Controller/HWController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/utils/MessageCreateUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/utils/MessageCreateUtils.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,46 +45,64 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/QAndAServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/stuDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="15">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ExcelUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="-360">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Teacher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="117" column="53" lean-forward="true" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UploadCourseware.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="64" column="33" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+            <state relative-caret-position="154">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/ClassManagementController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+            <state relative-caret-position="109">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UserDto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Answer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,53 +111,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ClassMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/ClassManagementService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/ClassManagementServciceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="88" column="96" selection-start-line="88" selection-start-column="96" selection-end-line="88" selection-end-column="96" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="270">
+              <caret line="71" column="53" lean-forward="true" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/QAndAMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-900">
-              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-              <folding>
-                <element signature="e#1458#1459#0" expanded="true" />
-                <element signature="e#1509#1510#0" expanded="true" />
-              </folding>
+            <state>
+              <caret line="27" column="172" lean-forward="true" selection-start-line="27" selection-start-column="152" selection-end-line="27" selection-end-column="172" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/MessageCreateUtils.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Chapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+            <state relative-caret-position="154">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -140,7 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>deleteC</find>
       <find>searchStuByPage</find>
       <find>addS</find>
       <find>teacherDao</find>
@@ -170,6 +180,7 @@
       <find>class</find>
       <find>getUserMessagesByPage</find>
       <find>Mess</find>
+      <find>StuSearch</find>
     </findStrings>
     <replaceStrings>
       <replace>#{teaId}</replace>
@@ -184,18 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Student.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/NewsAndNoticeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UserDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/AnswerDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/QuestionDtoForSpecific.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Question.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/QuestionDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Teacher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/StuManagementController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/UploadUtils.java" />
@@ -204,7 +203,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Message.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext-dao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/loginRequired.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/JWT.java" />
@@ -217,24 +215,37 @@
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/DiscussionQuestionDtoForSpecific.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/DiscussionAnswer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/DiscussionAnswerDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionAnswerDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestionDtoForSpecific.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestionDtoForSpecific.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/QAndAController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/ClassManagementService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/ClassDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Answer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionAnswer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionAnswer.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/QAndAMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/ClassMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/ClassManagementController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/QAndADao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/ClassManagementServciceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/QAndAServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/MessageCreateUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/ClassMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionAnswerDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Answer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestionDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionAnswerDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestion.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestionDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/News.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Notice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/StuSearch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ExcelUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Teacher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/QAndAMapper.xml" />
       </list>
     </option>
   </component>
@@ -265,7 +276,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -474,13 +484,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570802494329" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570844397287" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -741,7 +752,8 @@
       <workItem from="1570687113868" duration="4548000" />
       <workItem from="1570691755381" duration="613000" />
       <workItem from="1570766665488" duration="13104000" />
-      <workItem from="1570784113339" duration="7591000" />
+      <workItem from="1570784113339" duration="7849000" />
+      <workItem from="1570843068410" duration="1324000" />
     </task>
     <task id="LOCAL-00001" summary="初步创建了bean和properties文件">
       <created>1568810061802</created>
@@ -1051,7 +1063,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570799217807</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="修改了作业模块的url">
+      <created>1570802603254</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1570802603255</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1084,7 +1103,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="424416000" />
+    <option name="totallyTimeSpent" value="425998000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1097,8 +1116,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29624665" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30026808" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1107,8 +1127,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.096317284" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49396783" visible="true" weight="0.3243626" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.305949" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49396783" weight="0.3243626" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49798927" weight="0.37677053" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1218,7 +1238,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完成了课程管理，除了删除和学生提交；查看课件和课程提供了分页" />
     <MESSAGE value="重新写了一遍接口，取消了admin" />
     <MESSAGE value="修改了一下冗余的数据库" />
     <MESSAGE value="放个sql文件" />
@@ -1243,7 +1262,8 @@
     <MESSAGE value="完成了班级的问答区" />
     <MESSAGE value="完成了班级讨论区" />
     <MESSAGE value="修复了课程讨论区，问题详情页面的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了课程讨论区，问题详情页面的问题" />
+    <MESSAGE value="修改了作业模块的url" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了作业模块的url" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1310,13 +1330,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ExcelUtils.java</url>
-          <line>45</line>
+          <line>42</line>
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ExcelUtils.java</url>
-          <line>66</line>
+          <line>63</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
@@ -1468,343 +1488,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/UserUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/UploadUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-358">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-service.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/JWT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2745">
-          <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#909#910#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="26" column="80" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/checkInfoInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/loginRequired.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/TeachingClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#165#166#0" expanded="true" />
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#437#438#0" expanded="true" />
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#525#526#0" expanded="true" />
-            <element signature="e#571#572#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MessageMapping.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestionDtoForSpecific.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#276#277#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestionDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestionDtoForSpecific.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
-          <folding>
-            <element signature="e#289#290#0" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#409#410#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionAnswerDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1454">
-          <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-          <folding>
-            <element signature="e#1236#1237#0" expanded="true" />
-            <element signature="e#1279#1280#0" expanded="true" />
-            <element signature="e#1312#1313#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/NewsAndNoticeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/QAndAService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="8" column="45" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="8" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/NewsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/ApplicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionAnswer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/StuManagementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionAnswer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionAnswerDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Answer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding>
-            <element signature="e#317#318#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#410#411#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#465#466#0" expanded="true" />
-            <element signature="e#502#503#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-            <element signature="e#812#813#0" expanded="true" />
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#880#881#0" expanded="true" />
-            <element signature="e#930#931#0" expanded="true" />
-            <element signature="e#972#973#0" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
-            <element signature="e#1028#1029#0" expanded="true" />
-            <element signature="e#1066#1067#0" expanded="true" />
-            <element signature="e#1098#1099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestionDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1177">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.3.RELEASE/spring-web-4.2.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5445">
-          <caret line="138" selection-start-line="138" selection-end-line="138" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/NoticeMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3137">
-          <caret line="90" column="31" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="140" column="45" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2346#2347#0" expanded="true" />
-            <element signature="e#2410#2411#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/QAndAController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="36" column="15" lean-forward="true" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ClassMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="42" column="28" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/ClassDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/stuManagementMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/QAndAMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/NoticeDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/QAndADao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -1819,16 +1502,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/QAndAServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4410">
+          <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
+        <state relative-caret-position="2880">
           <caret line="64" column="33" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/ClassManagementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
+        <state relative-caret-position="2430">
           <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1838,14 +1542,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/ClassManagementService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="540">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/ClassManagementServciceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
+        <state relative-caret-position="3465">
           <caret line="88" column="96" selection-start-line="88" selection-start-column="96" selection-end-line="88" selection-end-column="96" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1853,49 +1557,314 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/QAndAServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="117" column="53" lean-forward="true" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/MessageCreateUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
+        <state relative-caret-position="405">
           <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-900">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="138">
+          <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/CourseManagementServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionAnswerDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="38" selection-start-line="12" selection-end-line="13" />
           <folding>
-            <element signature="e#1458#1459#0" expanded="true" />
-            <element signature="e#1509#1510#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionAnswer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#1206#1207#0" expanded="true" />
+            <element signature="e#1236#1237#0" expanded="true" />
+            <element signature="e#1279#1280#0" expanded="true" />
+            <element signature="e#1312#1313#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestionDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestionDtoForSpecific.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-217">
+          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+          <folding>
+            <element signature="e#289#290#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+            <element signature="e#409#410#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionAnswer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionAnswerDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestionDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDiscussionQuestionDtoForSpecific.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDtoForSImple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseDtoForSpecific.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Courseware.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Judge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/LearningProgress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/News.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/MsgUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Notice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/NoticeDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-397">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Page.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ResponseData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SbHomeworkDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SbHomework.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/StuClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Section.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/stuDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/StuSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/ExcelUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Teacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UploadCourseware.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Chapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Answer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="13" column="65" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ClassMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="71" column="53" lean-forward="true" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/QAndAMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="27" column="172" lean-forward="true" selection-start-line="27" selection-start-column="152" selection-end-line="27" selection-end-column="172" />
         </state>
       </provider>
     </entry>

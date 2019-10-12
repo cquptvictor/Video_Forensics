@@ -1,14 +1,11 @@
 package com.edu.victor.utils;
 
 import com.edu.victor.Exception.StuNumNotFound;
-import com.edu.victor.domain.StuSearch;
 import com.edu.victor.domain.Student;
-import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
