@@ -10,13 +10,14 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 public interface UserService {
-    ResponseData login(Teacher teacher);
+    ResponseData login(User user);
     ResponseData logout(String token,User user);
     ResponseData updateTeaInfo(Teacher teacher);
     ResponseData updateStuInfo(Student student);
     Teacher isCompleted(Teacher teacher) throws IncompleteInformationException;
-    ResponseData getStuInfo(int id);
-    ResponseData getTeaInfo(int id);
+   // ResponseData getStuInfo(int id);
+    //ResponseData getTeaInfo(int id);
+    ResponseData getInfo(User user);
     ResponseData updateAvatar(MultipartFile multipartFile, User user, Boolean isTeacher) throws UnsupportedFileTypeException, IOException;
     ResponseData getMessages(Page page, User user);
     ResponseData getUnreadMessageNum(User user);

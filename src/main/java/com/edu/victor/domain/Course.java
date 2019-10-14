@@ -8,8 +8,17 @@ public class Course {
     private String description;
     private Integer teaId = null;
     private String url;
+    private String code;
     @JsonIgnore
     private MultipartFile pic;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     public String getUrl() {
         return url;

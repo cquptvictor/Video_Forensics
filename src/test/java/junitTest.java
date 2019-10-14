@@ -1,6 +1,7 @@
 import com.edu.victor.Dao.NewsDao;
-import com.edu.victor.domain.News;
-import com.edu.victor.domain.Page;
+import com.edu.victor.Dao.UserDao;
+import com.edu.victor.Service.UserService;
+import com.edu.victor.domain.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,17 @@ public class junitTest
 {
     @Autowired
     NewsDao newsDao;
+    @Autowired
+    UserService userService;
+    @Autowired
+    UserDao userDao;
     @Test
    public void testGet(){
-       System.out.println(newsDao.getSpecificNews(27));
+        User user = new User();
+        user.setIsTeacher("0");
+        user.setUsername("123");
+        user.setPassword("123");
+        ResponseData responseData = userService.login(user);
+        System.out.println(responseData);
    }
 }

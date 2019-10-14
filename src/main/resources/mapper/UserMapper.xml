@@ -7,8 +7,11 @@
     <resultMap id="MessagesMap" type="Page">
         <collection property="pageData" ofType="Message" autoMapping="true"/>
     </resultMap>
-    <select id="teacherLogin" parameterType="Teacher" resultType="Teacher">
-      select IFNULL(MAX(id),-1) as id,name,email,avatar from teacher where username = #{username} and password = #{password};
+    <select id="studentLogin" parameterType="User" resultType="Student">
+      select IFNULL(MAX(id),-1) as id,`name`,phone,sexual,class_num,email,avatar from stu where username = #{username} and password = #{password};
+    </select>
+    <select id="teacherLogin" parameterType="User" resultType="Teacher">
+      select IFNULL(MAX(id),-1) as id,`name`,email,avatar from teacher where username = #{username} and password = #{password};
     </select>
     <update id="updateTeaInfo" parameterType="Teacher">
         update teacher

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(method = RequestMethod.POST)
 public class ClassManagementController {
     @Autowired
-    ClassManagementService  classManagementService;
+    ClassManagementService classManagementService;
     /**创建*/
     @RequestMapping("/class/create")
     @ResponseBody

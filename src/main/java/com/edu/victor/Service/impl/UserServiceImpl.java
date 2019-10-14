@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -26,18 +27,34 @@ public class UserServiceImpl implements UserService {
     @Autowired
     RedisTemplate<String,Object> redisTemplate;
     @Override
-    public ResponseData login(Teacher teacher) {
+    public ResponseData login(User user) {
         ResponseData responseData = new ResponseData();
-        Teacher teacher1 = userDao.teacherLogin(teacher);
-        if(teacher1.getId() != -1){
+        Teacher teacher;
+        Student student;
+        if(user.getIsTeacher().equals('1')) {
+            teacher = userDao.teacherLogin(user);
+        if(teacher.getId() != -1){
             responseData.setCode(200);
             responseData.setMessage("login Successful");
             Map<String,String> map = new HashMap();
-            map.put("token", JWT.sign(teacher1,120000));
+            map.put("token", JWT.sign(teacher,120000));
             responseData.setData(map);
         }else{
             responseData.setCode(0);
             responseData.setMessage("login Failed");
+            }
+        }else{
+            student = userDao.studentLogin(user);
+            if(student.getId() != -1){
+                responseData.setCode(200);
+                responseData.setMessage("login Successful");
+                Map<String,String> map = new HashMap();
+                map.put("token", JWT.sign(student,120000));
+                responseData.setData(map);
+            }else{
+                responseData.setCode(0);
+                responseData.setMessage("login Failed");
+            }
         }
         return responseData;
     }
@@ -94,11 +111,27 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseData getStuInfo(int id) {
-        return null;
+    public ResponseData getInfo(User user) {
+        ResponseData responseData = new ResponseData(200);
+        if (user.getIsTeacher().equals("1")) {
+            Teacher teacher = userDao.teacherInfo(user.getId());
+            if(teacher == null){
+                responseData.setCode(0);
+            }else{
+                responseData.setData(teacher);
+            }
+        } else {
+            Student student = userDao.studentInfo(user.getId());
+            if(student == null){
+                responseData.setCode(0);
+            }else {
+                responseData.setData(student);
+            }
+        }
+        return responseData;
     }
 
-    @Override
+    /*@Override
     public ResponseData getTeaInfo(int id) {
         ResponseData responseData = new ResponseData(200);
         Teacher teacher = userDao.teacherInfo(id);
@@ -110,7 +143,7 @@ public class UserServiceImpl implements UserService {
         }
         return responseData;
     }
-
+*/
     @Override
     public ResponseData updateAvatar(MultipartFile multipartFile, User user, Boolean isTeacher) throws UnsupportedFileTypeException, IOException {
             /**先查询，保证信息是新的再更新*/
@@ -169,4 +202,5 @@ public class UserServiceImpl implements UserService {
         responseData.setData(resultMap);
         return responseData;
     }
+
 }

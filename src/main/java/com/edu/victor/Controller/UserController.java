@@ -24,10 +24,11 @@ public class UserController {
 
     @RequestMapping(value = "/login")
     @ResponseBody
-    public ResponseData login(Teacher teacher) {
+    public ResponseData adminLogin(User user) {
 
-        return userService.login(teacher);
+        return userService.login(user);
     }
+
     /**登出*/
     @RequestMapping("/logout")
     @ResponseBody
@@ -57,13 +58,8 @@ public class UserController {
     @ResponseBody
     public ResponseData getInfo(HttpServletRequest httpServletRequest) {
         User user = (User)httpServletRequest.getAttribute("User");
-        if (user.getIsTeacher().equals("1")) {
-            Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
-            return userService.getTeaInfo(teacher.getId());
-        } else {
-            Student student = (Student) httpServletRequest.getAttribute("User");
-            return userService.getStuInfo(student.getId());
-        }
+        return userService.getInfo(user);
+
 
     }
     /**更新学生或老师的头像*/

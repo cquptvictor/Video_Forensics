@@ -44,10 +44,12 @@ public class CourseManagementController {
     @RequestMapping(value = "/courses")
     @ResponseBody
     public ResponseData searchCourses(HttpServletRequest httpServletRequest,Page page){
-        Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
-        Map map = new HashMap();
-        map.put("id",teacher.getId());
-        page.setFilter(map);
+        User user = (User)httpServletRequest.getAttribute("User");
+            if(user.getIsTeacher().equals("1")){
+            Map map = new HashMap();
+            map.put("id",user.getId());
+            page.setFilter(map);
+        }
         return courseManagementService.searchCourses(page);
     }
     /**查看某一课程的章节和小节*/

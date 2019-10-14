@@ -222,6 +222,12 @@
       <version>4.2.3.RELEASE</version>
       <scope>test</scope>
     </dependency>
+      <!--在spring中使用Freemarker这个必不可少，否则报错-->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.28</version>
+    </dependency>
 
   </dependencies>
 

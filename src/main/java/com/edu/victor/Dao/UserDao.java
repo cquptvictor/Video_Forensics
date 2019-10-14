@@ -9,7 +9,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.Map;
 
 public interface UserDao {
-    Teacher teacherLogin(Teacher teacher);
+    Teacher teacherLogin(User user);
+    Student studentLogin(User user);
     Boolean updateTeaInfo(Teacher teacher);
     Boolean updateStuInfo(Student student);
     Teacher teacherInfo(Integer id);
