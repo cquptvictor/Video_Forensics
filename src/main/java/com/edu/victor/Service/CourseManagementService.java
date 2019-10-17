@@ -29,5 +29,7 @@ public interface CourseManagementService {
     ResponseData updateCourse(Course course) throws UnsupportedFileTypeException;
     ResponseData updateChapter(Chapter chapter);
     ResponseData updateSection(Section section);
-
+    //APP端接口
+    ResponseData searchCourse(Page page);
+    ResponseData joinCourse(Course course,User user);
 }

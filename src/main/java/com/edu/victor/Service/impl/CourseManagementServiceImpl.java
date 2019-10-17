@@ -8,10 +8,13 @@ import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
 import com.edu.victor.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CourseManagementServiceImpl implements CourseManagementService {
@@ -232,6 +235,40 @@ public class CourseManagementServiceImpl implements CourseManagementService {
             responseData.setCode(200);
         else
             responseData.setCode(0);
+        return responseData;
+    }
+
+    /**APP端接口*/
+    @Override
+    public ResponseData searchCourse(Page page) {
+        Page page1 = courseDao.searchCourseByPageForApp(page);
+        page.setPageData(page1 != null ? page1.getPageData() : null);
+        ResponseData responseData = new ResponseData(200);
+        responseData.setData(page);
+        return responseData;
+    }
+    /**
+     * 验证课程邀请码对不对
+     * 添加学生到课程
+     * */
+    @Override
+    @Transactional
+    public ResponseData joinCourse(Course course,User user) {
+        ResponseData responseData = new ResponseData(200);
+        if(courseDao.authCourseCode(course) == -1){
+            responseData.setCode(0);
+            responseData.setMessage("验证码错误");
+        }else{
+            Map<String,Object> map = new HashMap<>();
+            map.put("courseId",course.getId());
+            map.put("studentId",user.getId());
+                if(courseDao.addStuToCourse(map)){
+                    responseData.setMessage("成功加入课程");
+                }else{
+                    responseData.setMessage("您已加入课程");
+                    responseData.setCode(0);
+                }
+        }
         return responseData;
     }
 }

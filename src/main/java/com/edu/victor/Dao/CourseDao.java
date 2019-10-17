@@ -3,6 +3,7 @@ package com.edu.victor.Dao;
 import com.edu.victor.domain.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CourseDao {
     Boolean addCourse(Course course);
@@ -31,5 +32,10 @@ public interface CourseDao {
    Boolean updateCourseInfo(Course course);
    Boolean updateChapterInfo(Chapter chapter);
    Boolean updateSectionInfo(Section section);
+
+   //APP
+    Page searchCourseByPageForApp(Page page);
+    Integer authCourseCode(Course course);
+    Boolean addStuToCourse(Map<String,Object> map);
 
 }

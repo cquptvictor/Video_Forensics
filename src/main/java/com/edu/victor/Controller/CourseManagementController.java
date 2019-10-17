@@ -171,4 +171,23 @@ public class CourseManagementController {
         return courseManagementService.searchStuLearningProgress(page);
     }
 
+    /**APP端功能*/
+    /**展示和查询课程*/
+    @RequestMapping("/course/search")
+    @ResponseBody
+    public ResponseData searchCourse(String title,Page page){
+        Map<String,Object> map = new HashMap<>();
+        map.put("title",title);
+        page.setFilter(map);
+        return courseManagementService.searchCourse(page);
+    }
+    /**加入课程*/
+    @RequestMapping("/course/join")
+    @ResponseBody
+    public ResponseData searchCourse(Course course,HttpServletRequest httpServletRequest){
+        return courseManagementService.joinCourse(course,(User)httpServletRequest.getAttribute("User"));
+    }
+
+
+
 }

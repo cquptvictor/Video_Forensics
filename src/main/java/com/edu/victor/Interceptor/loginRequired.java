@@ -33,13 +33,7 @@ public class loginRequired implements HandlerInterceptor {
         }else {
             httpServletRequest.setAttribute("User", user);
 
-        }/* if(user instanceof Teacher){
-            httpServletRequest.setAttribute("Teacher",user);
-        }else if(user instanceof Student){
-            httpServletRequest.setAttribute("Student",user);
-        }else
-            return false;
-*/
+        }
         return true;
     }
 

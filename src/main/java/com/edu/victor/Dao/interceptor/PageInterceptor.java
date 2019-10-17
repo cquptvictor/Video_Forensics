@@ -30,7 +30,7 @@ public class PageInterceptor implements Interceptor {
         //sql语句的id
         String id = mappedStatement.getId();
         //只改变要ByPage的sql
-        if(id.endsWith("ByPage")) {
+        if(id.endsWith("ByPage") || id.endsWith("ByPageForApp")) {
             BoundSql boundSql = statementHandler.getBoundSql();
             String sql = boundSql.getSql();
             //为了获取总条数
@@ -43,7 +43,7 @@ public class PageInterceptor implements Interceptor {
             parameterHandler.setParameters(statement);
             ResultSet rs = statement.executeQuery();
             Page page = (Page)boundSql.getParameterObject();
-            if(rs.next()){
+            if(id.endsWith("ByPage") && rs.next()){
                 page.setTotalNumber(rs.getInt(1));
             }
             if(page.getCurrentPage() > page.getTotalPage())
@@ -52,6 +52,12 @@ public class PageInterceptor implements Interceptor {
             }
             if(page.getCurrentPage() <= 0){
                 page.setCurrentPage(1);
+            }
+            /**只有前端页面才要求设置hasNext*/
+            if(id.endsWith("ByPageForApp") && page.getCurrentPage() == page.getTotalPage()){
+                page.setHasNext(0);
+            }else{
+                page.setHasNext(1);
             }
             String pageSql = sql + " limit " + (page.getCurrentPage() - 1) * page.getPageNum() + "," + page.getPageNum();
             //更新sql
