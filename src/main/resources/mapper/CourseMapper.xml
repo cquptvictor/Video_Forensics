@@ -32,10 +32,10 @@
         select id as course_id from course where id = #{id};
     </select>
     <select id="getChapterByStep" resultMap="ChapterMap">
-        select id as chapter_id,title,superior_id from course_chapter where superior_id = #{id};
+        select id as chapter_id,title,superior_id from course_chapter where superior_id = #{id} order by weights;
     </select>
     <select id="getSectionByStep" resultType="Section">
-        select id,title,superior_id,url from course_section where superior_id = #{id};
+        select id,title,superior_id,url from course_section where superior_id = #{id} order by weights;
     </select>
 
 
@@ -44,7 +44,7 @@
         select id,time,url,title from courseware where superior_id = #{filter.id}
     </select>
     <select id="searchCoursesByPage" resultMap="PageCourse">
-      select course.id as id,teacher.name as teaName,title,url,description from course join teacher on course.tea_id = teacher.id <where>
+      select course.id as id,teacher.name as teaName,title,url,code,description from course join teacher on course.tea_id = teacher.id <where>
         <if test="filter.id != null">tea_id = #{filter.id}
         </if>
          </where>
@@ -92,7 +92,7 @@
         select url from courseware where superior_id = #{id};
     </select>
     <select id="getStuByCourse" resultType="User">
-        select stu_id as id from stu_course where course_id = #{Id}
+        select stu_id as id,0 as is_teacher from stu_course where course_id = #{Id}
     </select>
     <select id="getStuLearningProgressByPage" resultMap="PageLearningProgress">
         select name,username,phone,stu_course.id as id,course_id,learning_progress,graduated from stu join stu_course on stu.id =stu_course.stu_id

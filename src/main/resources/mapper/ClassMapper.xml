@@ -67,7 +67,7 @@
       select id,id as qid,title,content,qsr_id,is_teacher,is_teacher as isTeacher,`time` from class_discussion_question where id = #{id}
     </select>
     <select id="getAnswerByQuestion" resultMap="AnswerMap">
-        select id,superior_id,content,asr_id,is_teacher,is_teacher as isTeacher,`time` from class_discussion_answer where qs_id = #{qid} order by `time` desc;
+        select id,superior_id,content,asr_id,is_teacher,is_teacher as isTeacher,`time` from class_discussion_answer where qs_id = #{qid} order by `time`;
     </select>
     <select id="getTargetIdByQsId" resultType="User">
         select is_teacher,qsr_id as id from class_discussion_question where id = #{id};

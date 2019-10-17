@@ -138,7 +138,7 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
 
     @Override
     public ResponseData searchNotice(Page page) throws InvalidArgumentsException {
-        Page<Notice> page1 = noticeDao.searchNoticeByPage(page);
+        Page<NoticeDto> page1 = noticeDao.searchNoticeByPage(page);
         if(page1 == null){
             throw  new InvalidArgumentsException();
         }

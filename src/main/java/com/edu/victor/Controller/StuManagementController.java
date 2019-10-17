@@ -5,7 +5,6 @@ import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.Page;
 import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Student;
-import com.edu.victor.utils.ExcelUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,18 +22,18 @@ import java.util.Map;
 public class StuManagementController {
     @Autowired
     StuManagementService stuManagementService;
-    @RequestMapping(value = "/aStu")
+    @RequestMapping(value = "/student/add")
     @ResponseBody
     public ResponseData addStu(String username){
         return stuManagementService.addStu(username);
     }
-    @RequestMapping(value = "/uStu")
+    @RequestMapping(value = "/student/update")
     @ResponseBody
     public ResponseData updateStu(Student student){
         return stuManagementService.updateStu(student);
     }
 
-    @RequestMapping(value = "/stu")
+    @RequestMapping(value = "/students")
     @ResponseBody
     public ResponseData searchStu(String classNum, String stuNum, String stuName,Page page){
         Map<String,Object> map = new HashMap<>();
@@ -44,7 +43,7 @@ public class StuManagementController {
         page.setFilter(map);
         return stuManagementService.searchStu(page);
     }
-    @RequestMapping(value = "/dStu")
+    @RequestMapping(value = "/student/delete")
     @ResponseBody
     public ResponseData deleteStu(String id){
         return null;

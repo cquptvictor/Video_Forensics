@@ -19,19 +19,24 @@ import java.util.List;
 /**
  * 处理video、avatar、courseImage、courseware的上传*/
 public class FileUtils {
-    private static String avatarBaseUrl = "E:\\netClass\\avatar\\";
+   /* private static String avatarBaseUrl = "E:\\netClass\\avatar\\";
     private static String courseImageBaseUrl = "E:\\netClass\\course\\";
     private static String courseVideoBaseUrl = "E:\\netClass\\video\\";
     private static String coursewareBaseUrl = "E:\\netClass\\courseware\\";
-    private static String SubmittedHomeworkUrl = "E:\\netClass\\submitted\\";
+    private static String SubmittedHomeworkUrl = "E:\\netClass\\submitted\\";*/
     private static String defaultAvatar = "default.jpg";
 
   /*  private static String avatarBaseUrl = "/root/netClass/avatar/";
     private static String courseImageBaseUrl = "/root/netClass/course/";
     private static String courseVideoBaseUrl = "/root/netClass/video/";
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
-    private static String SubmittedHomeworkUrl = "/root/netClass/submitted/"*/
-
+    private static String SubmittedHomeworkUrl = "/root/netClass/submitted/";
+*/
+  private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
+    private static String courseImageBaseUrl = "/home/redis1/netClass/course/";
+    private static String courseVideoBaseUrl = "/home/redis1/netClass/video/";
+    private static String coursewareBaseUrl = "/home/redis1/netClass/courseware/";
+    private static String SubmittedHomeworkUrl = "/home/redis1/netClass/submitted/";
     private static List<String> imageSuffixes = new ArrayList<>();
     private static List<String> videoSuffixes = new ArrayList<>();
     private static List<String> coursewareSuffixes = new ArrayList<>();

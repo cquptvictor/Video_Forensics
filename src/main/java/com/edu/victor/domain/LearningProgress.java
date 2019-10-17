@@ -3,7 +3,6 @@ package com.edu.victor.domain;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**学生学习进度*/
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class LearningProgress {
     private Integer id;
     private Integer courseId;

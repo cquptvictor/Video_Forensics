@@ -123,7 +123,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Transactional
     public ResponseData deleteSection(int section_id, int tea_id) {
         ResponseData responseData = new ResponseData();
-        String url = courseDao.getCourseImageUrl(section_id);
+        String url = courseDao.getSectionUrl(section_id);
         if(courseDao.deleteSection(section_id,tea_id)) {
             responseData.setCode(200);
             FileUtils.deleteFile(url,"video");

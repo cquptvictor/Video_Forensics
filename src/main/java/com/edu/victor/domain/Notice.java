@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 /**通知的数据库映射*/
 import java.sql.Date;
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Notice {
     private int id;
     private String teaId;
@@ -12,7 +11,7 @@ public class Notice {
     private String title;
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
-    private int courseId;
+    private Integer courseId = null;
 
     public Date getTime() {
         return time;
@@ -22,11 +21,11 @@ public class Notice {
         this.time = time;
     }
 
-    public int getCourseId() {
+    public Integer getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public void setCourseId(Integer courseId) {
         this.courseId = courseId;
     }
 

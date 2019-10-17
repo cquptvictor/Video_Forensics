@@ -1,6 +1,7 @@
 package com.edu.victor.Interceptor;
 
 
+import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.domain.Student;
 import com.edu.victor.domain.Teacher;
 import com.edu.victor.domain.User;
@@ -25,10 +26,10 @@ public class loginRequired implements HandlerInterceptor {
             user.setIsTeacher("0");
         }
         if(!JWT.authBlackList(user,token))
-            return false;
+            throw new NotAuthorizedException();
         /**转换为对应类型*/
         if(user == null) {
-            return false;
+            throw new NotAuthorizedException();
         }else {
             httpServletRequest.setAttribute("User", user);
 

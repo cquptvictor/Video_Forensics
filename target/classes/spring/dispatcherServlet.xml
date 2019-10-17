@@ -13,14 +13,15 @@
     <mvc:annotation-driven conversion-service="conversionService"/>
     <!-- 允许对静态资源文件的访问 -->
     <mvc:default-servlet-handler/>
-    <mvc:resources mapping="/css/**" location="/css/"/>
-    <mvc:resources mapping="/fonts/**" location="/fonts/"/>
-    <mvc:resources mapping="/js/**" location="/js/"/>
-    <mvc:resources mapping="/img/**" location="/img/"/>
+    <mvc:resources mapping="/css/**" location="static/css/"/>
+    <mvc:resources mapping="/fonts/**" location="static/fonts/"/>
+    <mvc:resources mapping="/js/**" location="static/js/"/>
+    <mvc:resources mapping="/img/**" location="static/img/"/>
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/index.html"/>
+            <mvc:exclude-mapping path="/"/>
+            <mvc:exclude-mapping path="/static/index.html"/>
             <mvc:exclude-mapping path="/login"/>
             <mvc:exclude-mapping path="/js/**"/>
             <mvc:exclude-mapping path="/img/**"/>
@@ -28,13 +29,7 @@
             <mvc:exclude-mapping path="/css/**"/>
             <bean class="com.edu.victor.Interceptor.loginRequired"/>
         </mvc:interceptor>
-     <!--   <mvc:interceptor>
-            <mvc:mapping path="/a*"/>
-            <mvc:mapping path="/p*"/>
-            <bean class="com.edu.victor.Interceptor.checkInfoInterceptor"/>
-        </mvc:interceptor>-->
-    </mvc:interceptors>
-
+</mvc:interceptors>
     <!-- 配置视图解析器 -->
         <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath">
@@ -43,7 +38,9 @@
     </bean>
     <bean id="htmlviewResolver"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+
         <property name="suffix" value=".html" />
+        <property name="prefix" value="static/"/>
         <property name="order" value="0"/>
         <property name="contentType" value="text/html;charset=UTF-8"></property>
     </bean>

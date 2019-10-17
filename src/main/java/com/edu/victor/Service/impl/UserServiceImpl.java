@@ -31,8 +31,9 @@ public class UserServiceImpl implements UserService {
         ResponseData responseData = new ResponseData();
         Teacher teacher;
         Student student;
-        if(user.getIsTeacher().equals('1')) {
+        if(user.getIsTeacher().equals("1")) {
             teacher = userDao.teacherLogin(user);
+            teacher.setIsTeacher("1");
         if(teacher.getId() != -1){
             responseData.setCode(200);
             responseData.setMessage("login Successful");
@@ -45,6 +46,7 @@ public class UserServiceImpl implements UserService {
             }
         }else{
             student = userDao.studentLogin(user);
+            student.setIsTeacher("0");
             if(student.getId() != -1){
                 responseData.setCode(200);
                 responseData.setMessage("login Successful");
