@@ -166,9 +166,6 @@
         </set>
         where id = #{id} and tea_id = #{teaId};
     </update>
-    <resultMap id="PageCourseForApp" type="Page">
-        <collection property="pageData" ofType=""
-    </resultMap>
 
     <!--APP端-->
     <select id="searchCourseByPageForApp" resultMap="PageCourse">

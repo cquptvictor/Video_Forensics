@@ -3,7 +3,7 @@ package com.edu.victor.domain;
 import org.springframework.web.multipart.MultipartFile;
 
 public class UploadCourseware {
-    private int id;
+    private Integer id;
     private MultipartFile[] multipartFile;
     private Integer superiorId;
 
@@ -15,11 +15,11 @@ public class UploadCourseware {
         this.superiorId = superiorId;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

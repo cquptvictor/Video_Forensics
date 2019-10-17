@@ -1,6 +1,5 @@
 package com.edu.victor.domain;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**学生学习进度*/
 public class LearningProgress {

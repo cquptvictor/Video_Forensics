@@ -1,40 +1,40 @@
 package com.edu.victor.domain;
 
-import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Chapter {
-    private int id;
+    private Integer id;
     @JsonIgnore
-    private int superiorId;
+    @NotNull
+    private Integer superiorId;
+    @NotEmpty
     private String title;
     @JsonIgnore
-    private int weights;
+    @NotNull
+    private Integer weights;
     @JsonIgnore
-    private int teaId;
+    @NotNull
+    private Integer teaId;
 
-    public int getTeaId() {
-        return teaId;
-    }
-
-    public void setTeaId(int teaId) {
-        this.teaId = teaId;
-    }
-
-    public int getSuperiorId() {
-        return superiorId;
-    }
-
-    public void setSuperiorId(int superiorId) {
-        this.superiorId = superiorId;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getSuperiorId() {
+        return superiorId;
+    }
+
+    public void setSuperiorId(Integer superiorId) {
+        this.superiorId = superiorId;
     }
 
     public String getTitle() {
@@ -45,11 +45,19 @@ public class Chapter {
         this.title = title;
     }
 
-    public int getWeights() {
+    public Integer getWeights() {
         return weights;
     }
 
-    public void setWeights(int weights) {
+    public void setWeights(Integer weights) {
         this.weights = weights;
+    }
+
+    public Integer getTeaId() {
+        return teaId;
+    }
+
+    public void setTeaId(Integer teaId) {
+        this.teaId = teaId;
     }
 }

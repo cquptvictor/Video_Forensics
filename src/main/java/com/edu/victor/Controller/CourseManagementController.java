@@ -6,9 +6,11 @@ import com.edu.victor.Service.CourseManagementService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,14 +23,14 @@ public class CourseManagementController {
     /**添加课程*/
     @RequestMapping(value = "/course/create")
     @ResponseBody
-    public ResponseData addCourse(Course course, HttpServletRequest httpServletRequest) throws IncompleteInformationException, UnsupportedFileTypeException {
+    public ResponseData addCourse(@Valid Course course, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws IncompleteInformationException, UnsupportedFileTypeException {
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         return courseManagementService.addCourse(course,teacher);
     }
     /**添加章节*/
     @RequestMapping(value = "/chapter/create")
     @ResponseBody
-    public ResponseData addChapter(Chapter chapter,HttpServletRequest httpServletRequest) throws IncompleteInformationException {
+    public ResponseData addChapter(@Valid Chapter chapter,BindingResult bindingResult,HttpServletRequest httpServletRequest) throws IncompleteInformationException {
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
 
         return courseManagementService.addChapter(chapter,teacher);
@@ -36,7 +38,7 @@ public class CourseManagementController {
     /**添加小节*/
     @RequestMapping(value = "/section/create")
     @ResponseBody
-    public ResponseData addSection(Section section,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IncompleteInformationException {
+    public ResponseData addSection(@Valid Section section, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IncompleteInformationException {
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         return courseManagementService.addSection(section,teacher);
     }
@@ -97,7 +99,7 @@ public class CourseManagementController {
     /**课件上传*/
     @RequestMapping(value = "/uploadCourseware",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData uploadCorseware(UploadCourseware courseware,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+    public ResponseData uploadCorseware(@Valid UploadCourseware courseware,BindingResult bindingResult,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         return courseManagementService.addCourseware(courseware,teacher);
     }

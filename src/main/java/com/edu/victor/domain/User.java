@@ -1,14 +1,24 @@
 package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class User {
     private Integer id;
     private String name;
+    @NotBlank
     private String username;
     @JsonIgnore
+    @NotBlank
+    @Size(min=6)
     private String password;
+    @NotNull
+    @Pattern(regexp = "[0|1]")
     private String isTeacher;
     private String avatar;
     @JsonIgnore

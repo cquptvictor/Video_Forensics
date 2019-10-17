@@ -4,11 +4,14 @@ import com.edu.victor.Service.QAndAService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,14 +26,14 @@ public class QAndAController {
     /**学生提问和老师提问要区分*/
     @RequestMapping("/courseDiscussion/pub")
     @ResponseBody
-    public ResponseData askQuestion(CourseDiscussionQuestion question, HttpServletRequest httpServletRequest){
+    public ResponseData askQuestion(@Valid CourseDiscussionQuestion question, BindingResult bindingResult, HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return qAndAService.addQustion(question,user);
     }
     /**回复*/
     @RequestMapping("/courseDiscussion/reply")
     @ResponseBody
-    public ResponseData replyQuestion(CourseDiscussionAnswer answer, HttpServletRequest httpServletRequest){
+    public ResponseData replyQuestion(@Valid CourseDiscussionAnswer answer,BindingResult bindingResult, HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return qAndAService.relpy(answer,user);
     }

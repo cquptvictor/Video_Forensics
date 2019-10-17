@@ -4,15 +4,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Courseware {
-    private int id;
-
+    private Integer id;
+    @NotNull
     private Integer superiorId = null;
+    @NotNull
     private MultipartFile file;
     private String url;
+    @NotNull
     private String title;
+    @NotNull
     private Integer teaId = null;
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
@@ -25,11 +29,11 @@ public class Courseware {
         this.url = url;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

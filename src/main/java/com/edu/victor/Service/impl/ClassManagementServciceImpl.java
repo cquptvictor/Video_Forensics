@@ -59,9 +59,9 @@ public class ClassManagementServciceImpl implements ClassManagementService {
     public ResponseData addQustion(ClassDiscussionQuestion classDiscussionQuestion, User user) {
         classDiscussionQuestion.setQsrId(user.getId());
         if(user.getIsTeacher().equals("1")){
-            classDiscussionQuestion.setIsTeacher('1');
+            classDiscussionQuestion.setIsTeacher("1");
         }else{
-            classDiscussionQuestion.setIsTeacher('0');
+            classDiscussionQuestion.setIsTeacher("0");
         }
         ResponseData responseData = new ResponseData(200);
 

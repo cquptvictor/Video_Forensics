@@ -1,15 +1,18 @@
 package com.edu.victor.domain;
 
+import javax.validation.constraints.NotNull;
+
 public class TeachingClass {
-    private int id;
+    private Integer id;
+    @NotNull
     private String classNum;
     private String description;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -3,7 +3,7 @@ package com.edu.victor.domain;
 
 
 public class stuDto{
-        private int id;
+        private Integer id;
         private String username;
         private String name;
         private String phone;
@@ -18,11 +18,11 @@ public class stuDto{
         this.classNum = classNum;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

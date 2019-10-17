@@ -1,22 +1,26 @@
 package com.edu.victor.domain;
 
-public class Judge {
-    private int id;
-    private double score;
+import javax.validation.constraints.NotNull;
 
-    public int getId() {
+public class Judge {
+    @NotNull
+    private Integer id;
+    @NotNull
+    private Double score;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public double getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(double score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 }

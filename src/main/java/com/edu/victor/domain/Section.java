@@ -1,51 +1,51 @@
 package com.edu.victor.domain;
 
-import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class Section {
-    private int id;
+    private Integer id;
     @JsonIgnore
-    private int weights;
+    @NotNull
+    private Integer weights;
     @JsonIgnore
-    private int superiorId;
+    @NotNull
+    private Integer superiorId;
+    @NotEmpty
     private String title;
     private String url;
     @JsonIgnore
-    private int teaId;
+    @NotNull
+    private Integer teaId;
     @JsonIgnore
+    @NotNull
     private MultipartFile file;
 
-    public MultipartFile getFile() {
-        return file;
-    }
-
-    public void setFile(MultipartFile file) {
-        this.file = file;
-    }
-
-    public int getSuperiorId() {
-        return superiorId;
-    }
-
-    public void setSuperiorId(int superiorId) {
-        this.superiorId = superiorId;
-    }
-
-    public int getTeaId() {
-        return teaId;
-    }
-
-    public void setTeaId(int teaId) {
-        this.teaId = teaId;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getWeights() {
+        return weights;
+    }
+
+    public void setWeights(Integer weights) {
+        this.weights = weights;
+    }
+
+    public Integer getSuperiorId() {
+        return superiorId;
+    }
+
+    public void setSuperiorId(Integer superiorId) {
+        this.superiorId = superiorId;
     }
 
     public String getTitle() {
@@ -56,14 +56,6 @@ public class Section {
         this.title = title;
     }
 
-    public int getWeights() {
-        return weights;
-    }
-
-    public void setWeights(int weights) {
-        this.weights = weights;
-    }
-
     public String getUrl() {
         return url;
     }
@@ -72,4 +64,19 @@ public class Section {
         this.url = url;
     }
 
+    public Integer getTeaId() {
+        return teaId;
+    }
+
+    public void setTeaId(Integer teaId) {
+        this.teaId = teaId;
+    }
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 }

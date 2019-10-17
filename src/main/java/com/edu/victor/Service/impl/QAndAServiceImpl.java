@@ -25,9 +25,9 @@ public class QAndAServiceImpl implements QAndAService {
     public ResponseData addQustion(CourseDiscussionQuestion question, User user) {
         question.setQsrId(user.getId());
         if(user.getIsTeacher().equals("1")){
-            question.setIsTeacher('1');
+            question.setIsTeacher("1");
         }else{
-            question.setIsTeacher('0');
+            question.setIsTeacher("0");
         }
         ResponseData responseData = new ResponseData(200);
 

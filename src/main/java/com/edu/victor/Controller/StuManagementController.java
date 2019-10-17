@@ -7,12 +7,13 @@ import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +25,7 @@ public class StuManagementController {
     StuManagementService stuManagementService;
     @RequestMapping(value = "/student/add")
     @ResponseBody
-    public ResponseData addStu(String username){
+    public ResponseData addStu(@NotEmpty String username, BindingResult bindingResult){
         return stuManagementService.addStu(username);
     }
     @RequestMapping(value = "/student/update")

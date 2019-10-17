@@ -4,16 +4,30 @@ package com.edu.victor.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class News {
-    private int id;
+    private Integer id;
+    @NotEmpty
     private String title;
+    @NotEmpty
     private String content;
-    private int publisherId;
+    @NotNull
+    private Integer publisherId;
+    @NotEmpty
     private String publisherName;
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -21,14 +35,6 @@ public class News {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getContent() {
@@ -39,11 +45,11 @@ public class News {
         this.content = content;
     }
 
-    public int getPublisherId() {
+    public Integer getPublisherId() {
         return publisherId;
     }
 
-    public void setPublisherId(int publisherId) {
+    public void setPublisherId(Integer publisherId) {
         this.publisherId = publisherId;
     }
 
@@ -52,7 +58,7 @@ public class News {
     }
 
     public void setPublisherName(String publisherName) {
-            this.publisherName = publisherName;
+        this.publisherName = publisherName;
     }
 
     public Date getTime() {

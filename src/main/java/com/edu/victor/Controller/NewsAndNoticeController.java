@@ -7,9 +7,11 @@ import com.edu.victor.Service.NewsAndNoticeService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +23,7 @@ public class NewsAndNoticeController {
     /**新闻添加*/
     @RequestMapping(value = "/aNews")
     @ResponseBody
-    public ResponseData addNews(News news, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
+    public ResponseData addNews(@Valid News news, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
         Teacher teacher =(Teacher)httpServletRequest.getAttribute("User");
         return newsAndNoticeService.addNews(news,teacher);
     }
@@ -56,7 +58,7 @@ public class NewsAndNoticeController {
     /**通知开发*/
     @RequestMapping(value = "/pNotice")
     @ResponseBody
-    public ResponseData publishNotice(Notice notice,HttpServletRequest httpServletRequest){
+    public ResponseData publishNotice(@Valid Notice notice,BindingResult bindingResult, HttpServletRequest httpServletRequest){
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         return newsAndNoticeService.addNotice(notice,teacher);
     }

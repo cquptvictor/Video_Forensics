@@ -1,10 +1,13 @@
 package com.edu.victor.Controller;
 
+import com.auth0.jwt.internal.org.bouncycastle.math.ec.ScaleYPointMap;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 
 @RequestMapping(method = RequestMethod.POST)
@@ -22,8 +27,12 @@ public class UserController {
 
     @RequestMapping(value = "/login")
     @ResponseBody
-    public ResponseData adminLogin(User user) {
-
+    public ResponseData adminLogin(@Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            for(FieldError error:bindingResult.getFieldErrors()){
+                System.out.println(error);
+            }
+        }
         return userService.login(user);
     }
 
@@ -37,7 +46,7 @@ public class UserController {
     /**更新老师信息*/
     @RequestMapping(value = "/uInfo/teacher")
     @ResponseBody
-    public ResponseData updateTeacherInfo(Teacher teacher, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+    public ResponseData updateTeacherInfo(Teacher teacher, HttpServletRequest httpServletRequest){
         Teacher teacher1 = (Teacher) httpServletRequest.getAttribute("User");
         teacher.setId(teacher1.getId());
         return userService.updateTeaInfo(teacher);
@@ -63,7 +72,7 @@ public class UserController {
     /**更新学生或老师的头像*/
     @RequestMapping("/uAvatar")
     @ResponseBody
-    public ResponseData updateAvatar(@RequestParam("file") MultipartFile avatar, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IOException {
+    public ResponseData updateAvatar(@RequestParam("file") @NotNull  MultipartFile avatar,BindingResult bindingResult, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IOException {
         User user = (User)httpServletRequest.getAttribute("User");
         return userService.updateAvatar(avatar,user,user.getIsTeacher().equals("1") ? true : false);
        /* if (user.getIsTeacher().equals("1")) {
@@ -88,4 +97,5 @@ public class UserController {
         User user = (User)httpServletRequest.getAttribute("User");
         return userService.getUnreadMessageNum(user);
     }
+
 }

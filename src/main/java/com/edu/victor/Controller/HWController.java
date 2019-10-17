@@ -7,9 +7,11 @@ import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +24,7 @@ public class HWController {
     /**发布作业*/
     @RequestMapping(value = "/homework/pub")
     @ResponseBody
-    public ResponseData publishHW(Homework homework,HttpServletRequest httpServletRequest) throws IncompleteInformationException {
+    public ResponseData publishHW(@Valid Homework homework, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         return hwService.publishHW(homework,teacher);
     }
@@ -76,7 +78,7 @@ public class HWController {
     /**评分*/
     @RequestMapping(value = "/homework/judge")
     @ResponseBody
-    public ResponseData judge(Judge judge){
+    public ResponseData judge(@Valid Judge judge,BindingResult bindingResult){
        return hwService.judgeHw(judge);
     }
 }

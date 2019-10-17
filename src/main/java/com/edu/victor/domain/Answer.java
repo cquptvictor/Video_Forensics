@@ -2,39 +2,56 @@ package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 public class Answer {
-    private int id;
-    private int superiorId;
-    private int qsId;
-    private int asrId;
+    private Integer id;
+    @NotNull
+    private Integer superiorId;
+    @NotNull
+    private Integer qsId;
+    @NotNull
+    private Integer asrId;
+    @NotEmpty
     private String content;
+    @NotNull
+    @Pattern(regexp = "[0|1]")
     private String isTeacher;
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
 
-    public int getSuperiorId() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getSuperiorId() {
         return superiorId;
     }
 
-    public void setSuperiorId(int superiorId) {
+    public void setSuperiorId(Integer superiorId) {
         this.superiorId = superiorId;
     }
 
-    public int getQsId() {
+    public Integer getQsId() {
         return qsId;
     }
 
-    public void setQsId(int qsId) {
+    public void setQsId(Integer qsId) {
         this.qsId = qsId;
     }
 
-    public int getAsrId() {
+    public Integer getAsrId() {
         return asrId;
     }
 
-    public void setAsrId(int asrId) {
+    public void setAsrId(Integer asrId) {
         this.asrId = asrId;
     }
 
@@ -60,13 +77,5 @@ public class Answer {
 
     public void setTime(Date time) {
         this.time = time;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

@@ -64,4 +64,13 @@ public class GlobalException {
         responseData.setMessage("The File you want to download not Found");
         return responseData;
     }
+    /**传入的参数错误*/
+    @ExceptionHandler(WrongArgumentsException.class)
+    @ResponseBody
+    public ResponseData WrongArguments(WrongArgumentsException e){
+        ResponseData responseData = new ResponseData();
+        responseData.setCode(0);
+        responseData.setMessage("Please enter correct arguments");
+        return responseData;
+    }
 }

@@ -166,5 +166,18 @@
         </set>
         where id = #{id} and tea_id = #{teaId};
     </update>
+
+    <!--APP端-->
+    <select id="searchCourseByPageForApp" resultMap="PageCourse">
+        select course.id as id,teacher.name as teaName,title,url,code,description from course join teacher on course.tea_id = teacher.id
+        <where>
+        <if test="filter.title != null">
+          title = #{filter.title}
+        </if>
+    </where>
+    </select>
+    <select id="authCourseCode" resultType="Integer">
+        select id from course where id = #{id} and code = #{code}
+    </select>
 </mapper>
 
