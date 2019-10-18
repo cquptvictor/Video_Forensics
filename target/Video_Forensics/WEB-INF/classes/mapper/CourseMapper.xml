@@ -44,10 +44,17 @@
         select id,time,url,title from courseware where superior_id = #{filter.id}
     </select>
     <select id="searchCoursesByPage" resultMap="PageCourse">
-      select course.id as id,teacher.name as teaName,title,url,code,description from course join teacher on course.tea_id = teacher.id <where>
-        <if test="filter.id != null">tea_id = #{filter.id}
+      select course.id as id,teacher.name as teaName,title,url,code,description from course join teacher join stu_course on course.id = stu_course.course_id and course.tea_id = teacher.id <where>
+        <if test="filter.id != null">
+            tea_id = #{filter.id}
         </if>
          </where>
+    </select>
+    <select id="searchCoursesByPageForStu" resultMap="PageCourse">
+        select course.id as id,teacher.name as teaName,title,url,description from course join teacher on course.tea_id = teacher.id <where><if test="filter.id != null">
+        course.stu_id = #{filter.id}
+    </if>
+    </where>
     </select>
     <insert id="addCourse" parameterType="Course">
         insert into course(tea_id,title,description,url,code)value (#{teaId},#{title},#{description},#{url},#{code});

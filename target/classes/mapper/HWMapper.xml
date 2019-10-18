@@ -52,4 +52,9 @@
     <select id="isPermitted" resultType="Integer">
       select count(course.id) from course join homework on homework.course_id = course.id where course.tea_id =#{teaId} and homework.id = #{hwId};
     </select>
+
+    <!--APP端-->
+    <insert id="addSubmmitedHomework" parameterType="SubmittedHomework">
+        insert into hw_submmit(hw_id,stu_id,url)value (#{hw_id},#{stu_id},#{url});
+    </insert>
 </mapper>

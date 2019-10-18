@@ -81,4 +81,11 @@ public class HWController {
     public ResponseData judge(@Valid Judge judge,BindingResult bindingResult){
        return hwService.judgeHw(judge);
     }
+    /**APP端*/
+    //学生提交作业
+    @RequestMapping("/homework/submit")
+    @ResponseBody
+    public ResponseData submit(@Valid SubmittedHomework submittedHw, BindingResult bindingResult){
+        return null;
+    }
 }

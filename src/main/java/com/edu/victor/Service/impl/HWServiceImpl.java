@@ -6,6 +6,7 @@ import com.edu.victor.Dao.MessageDao;
 import com.edu.victor.Dao.UserDao;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.NotAuthorizedException;
+import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.HWService;
 import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
@@ -13,13 +14,10 @@ import com.edu.victor.utils.FileUtils;
 import com.edu.victor.utils.MessageCreateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.*;
 import java.util.List;
 import java.util.Map;
 
@@ -135,5 +133,25 @@ public class HWServiceImpl implements HWService {
     public ResponseEntity<byte[]> downloadHw(int id) throws DownloadFileNotFoundException {
         String url = hwDao.getUrlBySubmittedHw(id);
         return FileUtils.dowmloadSubmittedHomework(url);
+    }
+
+    //APP端
+    /**学生提交作业
+     * 1.文件上传
+     * 2.赋值url
+     * 3.插入数据库
+     * */
+    @Override
+    public ResponseData submitHw(SubmittedHomework submittedHomework, User user) throws UnsupportedFileTypeException {
+        ResponseData responseData = new ResponseData(0);
+        if(user.getIsTeacher().equals("0")){
+            submittedHomework.setStuId(user.getId());
+            String url =FileUtils.saveImage(submittedHomework.getFile(),"homework");
+            submittedHomework.setUrl(url);
+            if(hwDao.addSubmmitedHomework(submittedHomework)){
+                responseData.setCode(200);
+            }
+        }
+        return responseData;
     }
 }

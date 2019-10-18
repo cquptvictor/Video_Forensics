@@ -124,7 +124,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         }else{
             page1 = courseDao.searchCoursesByPageForStu(page);
         }
-        page.setPageData(page1.getPageData());
+        page.setPageData(page1 != null ? page1.getPageData() : null);
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);
         return responseData;

@@ -32,7 +32,8 @@ public class FileUtils {
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
     private static String SubmittedHomeworkUrl = "/root/netClass/submitted/";
 */
-  private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
+    private static String getSubmittedHomeworkBaseUrl = "/home/redis1/netClass/homework";
+    private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
     private static String courseImageBaseUrl = "/home/redis1/netClass/course/";
     private static String courseVideoBaseUrl = "/home/redis1/netClass/video/";
     private static String coursewareBaseUrl = "/home/redis1/netClass/courseware/";
@@ -40,6 +41,7 @@ public class FileUtils {
     private static List<String> imageSuffixes = new ArrayList<>();
     private static List<String> videoSuffixes = new ArrayList<>();
     private static List<String> coursewareSuffixes = new ArrayList<>();
+    private static List<String> homeworkSUffixes = new ArrayList<>();
     /**添加类型限制*/
     static {
         imageSuffixes.add("jpg");
@@ -47,6 +49,11 @@ public class FileUtils {
         videoSuffixes.add("mp4");
         coursewareSuffixes.add("pptx");
         coursewareSuffixes.add("ppt");
+        homeworkSUffixes.add("pdf");
+        homeworkSUffixes.add("word");
+        homeworkSUffixes.add("jpg");
+        homeworkSUffixes.add("png");
+        homeworkSUffixes.add("txt");
     }
     private static String saveFile(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
         String fileName = multipartFile.getOriginalFilename();
@@ -72,6 +79,10 @@ public class FileUtils {
             if (!imageSuffixes.contains(suffix))
                 throw new UnsupportedFileTypeException();
             directory = avatarBaseUrl + path;
+        }else if(type.equals("homework")){
+            if(!homeworkSUffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+            directory = SubmittedHomeworkUrl + path;
         }else{
             throw new UnsupportedFileTypeException();
         }

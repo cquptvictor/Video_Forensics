@@ -2,12 +2,14 @@ package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SbHomework {
     private int id;
+    @NotNull
     private Integer hwId;
     private String content;
     private double score;
