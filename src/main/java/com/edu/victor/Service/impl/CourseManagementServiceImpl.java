@@ -114,8 +114,16 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
 
     @Override
-    public ResponseData searchCourses(Page page) {
-        Page page1 = courseDao.searchCoursesByPage(page);
+    public ResponseData searchCourses(Page page, User user) {
+        Page page1= null;
+        Map map = new HashMap();
+        map.put("id",user.getId());
+        page.setFilter(map);
+        if(user.getIsTeacher().equals("1")){
+            page1 = courseDao.searchCoursesByPage(page);
+        }else{
+            page1 = courseDao.searchCoursesByPageForStu(page);
+        }
         page.setPageData(page1.getPageData());
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);

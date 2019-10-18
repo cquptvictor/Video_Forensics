@@ -47,12 +47,7 @@ public class CourseManagementController {
     @ResponseBody
     public ResponseData searchCourses(HttpServletRequest httpServletRequest,Page page){
         User user = (User)httpServletRequest.getAttribute("User");
-            if(user.getIsTeacher().equals("1")){
-            Map map = new HashMap();
-            map.put("id",user.getId());
-            page.setFilter(map);
-        }
-        return courseManagementService.searchCourses(page);
+        return courseManagementService.searchCourses(page,user);
     }
     /**查看某一课程的章节和小节*/
     @RequestMapping(value = "/courseInfo/{id}")

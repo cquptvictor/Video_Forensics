@@ -1,7 +1,6 @@
 package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.apache.ibatis.plugin.Interceptor;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotEmpty;

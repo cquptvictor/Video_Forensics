@@ -11,7 +11,7 @@ public interface CourseManagementService {
     ResponseData addChapter(Chapter chapter, Teacher teacher) throws IncompleteInformationException;
     ResponseData addSection(Section section,Teacher teacher) throws UnsupportedFileTypeException, IncompleteInformationException;
     ResponseData addCourseware(UploadCourseware courseware, Teacher teacher) throws UnsupportedFileTypeException;
-    ResponseData searchCourses(Page page);
+    ResponseData searchCourses(Page page,User user);
     ResponseData searchCoursewares(Page page);
 
     ResponseData searchStuLearningProgress(Page page);

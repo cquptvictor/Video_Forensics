@@ -67,7 +67,7 @@ public class GlobalException {
     /**传入的参数错误*/
     @ExceptionHandler(WrongArgumentsException.class)
     @ResponseBody
-    public ResponseData WrongArguments(WrongArgumentsException e){
+    public ResponseData WrongArguments(){
         ResponseData responseData = new ResponseData();
         responseData.setCode(0);
         responseData.setMessage("Please enter correct arguments");

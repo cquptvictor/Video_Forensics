@@ -12,6 +12,7 @@ public interface CourseDao {
     Boolean addCourseware(List<Courseware> courseware);
 
     Page<Course> searchCoursesByPage(Page page);
+    Page<Course> searchCoursesByPageForStu(Page page);
     Page<Courseware> searchCoursewareByPage(Page page);
     Page<LearningProgress> getStuLearningProgressByPage(Page page);
     /*List<Chapter> searchChapter(Integer id);
