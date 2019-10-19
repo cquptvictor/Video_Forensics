@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -86,5 +87,13 @@ public class HWController {
     public ResponseData submit(@Valid SubmittedHomework submittedHw, BindingResult bindingResult,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
         User user = (User)httpServletRequest.getAttribute("User");
         return hwService.submitHw(submittedHw,user);
+    }
+
+    /**查看我的提交*/
+    @RequestMapping("/homework/mySubmittion")
+    @ResponseBody
+    public ResponseData mySubmittion(@NotNull int hwId,BindingResult bindingResult,HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return hwService.getMySubmittion(hwId,user);
     }
 }

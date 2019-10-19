@@ -20,4 +20,5 @@ public interface HWDao {
     Page getHwByCourseByPageForStu(Page page);
     Boolean addSubmittedHomework(SubmittedHomework submittedHomework);
     String getSubmittedHomeworkUrl(SubmittedHomework submittedHomework);
+    StudentSubmittion getStudentSubmittion(Map<String,Object> map);
 }

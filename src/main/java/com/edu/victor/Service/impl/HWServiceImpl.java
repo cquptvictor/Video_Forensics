@@ -174,4 +174,15 @@ public class HWServiceImpl implements HWService {
         }
         return responseData;
     }
+
+    @Override
+    public ResponseData getMySubmittion(int id, User user) {
+         Map<String,Object> map  = new HashMap<>();
+         map.put("hwId",id);
+         map.put("stuId",user.getId());
+         ResponseData responseData = new ResponseData(200);
+         hwDao.getStudentSubmittion(map);
+         return responseData;
+
+    }
 }
