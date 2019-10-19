@@ -18,6 +18,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -68,9 +70,20 @@ public class HWServiceImpl implements HWService {
     }
 
     @Override
-    public ResponseData getHwList(Page page) {
+    public ResponseData getHwList(Homework homework,Page page,User user) {
+        Map map = new HashMap<>();
+        Page page1 = null;
+        map.put("id",homework.getId());
+        map.put("category",homework.getCategory());
         ResponseData responseData = new ResponseData(200);
-        Page page1 = hwDao.getHwByCourseByPage(page);
+        if(user.getIsTeacher().equals(1)) {
+            page.setFilter(map);
+            page1 = hwDao.getHwByCourseByPage(page);
+        }else{
+            map.put("stuId",user.getId());
+            page.setFilter(map);
+            page1 = hwDao.getHwByCourseByPageForStu(page);
+        }
         page.setPageData(page1 != null ? page1.getPageData() : null);
         responseData.setData(page);
         return responseData;
@@ -137,18 +150,25 @@ public class HWServiceImpl implements HWService {
 
     //APP端
     /**学生提交作业
-     * 1.文件上传
-     * 2.赋值url
-     * 3.插入数据库
+     * 1.检查是否是第一次提交
+     * 2.文件上传
+     * 3.赋值url
+     * 4.插入数据库
      * */
     @Override
     public ResponseData submitHw(SubmittedHomework submittedHomework, User user) throws UnsupportedFileTypeException {
         ResponseData responseData = new ResponseData(0);
         if(user.getIsTeacher().equals("0")){
             submittedHomework.setStuId(user.getId());
-            String url =FileUtils.saveImage(submittedHomework.getFile(),"homework");
+            String url = hwDao.getSubmittedHomeworkUrl(submittedHomework);
+            if(url == null) {
+                    //第一次
+                 url = FileUtils.saveImage(submittedHomework.getFile(), "homework");
+            }else{
+                FileUtils.reSubmit(submittedHomework.getFile(),url);
+            }
             submittedHomework.setUrl(url);
-            if(hwDao.addSubmmitedHomework(submittedHomework)){
+            if(hwDao.addSubmittedHomework(submittedHomework)){
                 responseData.setCode(200);
             }
         }

@@ -26,18 +26,18 @@ public class FileUtils {
     private static String SubmittedHomeworkUrl = "E:\\netClass\\submitted\\";*/
     private static String defaultAvatar = "default.jpg";
 
-  /*  private static String avatarBaseUrl = "/root/netClass/avatar/";
+    private static String avatarBaseUrl = "/root/netClass/avatar/";
     private static String courseImageBaseUrl = "/root/netClass/course/";
     private static String courseVideoBaseUrl = "/root/netClass/video/";
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
     private static String SubmittedHomeworkUrl = "/root/netClass/submitted/";
-*/
-    private static String getSubmittedHomeworkBaseUrl = "/home/redis1/netClass/homework";
+
+   /* private static String getSubmittedHomeworkBaseUrl = "/home/redis1/netClass/homework";
     private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
     private static String courseImageBaseUrl = "/home/redis1/netClass/course/";
     private static String courseVideoBaseUrl = "/home/redis1/netClass/video/";
     private static String coursewareBaseUrl = "/home/redis1/netClass/courseware/";
-    private static String SubmittedHomeworkUrl = "/home/redis1/netClass/submitted/";
+    private static String SubmittedHomeworkUrl = "/home/redis1/netClass/submitted/";*/
     private static List<String> imageSuffixes = new ArrayList<>();
     private static List<String> videoSuffixes = new ArrayList<>();
     private static List<String> coursewareSuffixes = new ArrayList<>();
@@ -139,6 +139,19 @@ public class FileUtils {
         if(!imageSuffixes.contains(suffix))
             throw new UnsupportedFileTypeException();
         File catalogFile = new File(courseImageBaseUrl + url);
+        try {
+            multipartFile.transferTo(catalogFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /**再次提交作业*/
+    public static void reSubmit(MultipartFile multipartFile,String url) throws UnsupportedFileTypeException {
+        String fileName = multipartFile.getOriginalFilename();
+        String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+        if(!homeworkSUffixes.contains(suffix))
+            throw new UnsupportedFileTypeException();
+        File catalogFile = new File(SubmittedHomeworkUrl + url);
         try {
             multipartFile.transferTo(catalogFile);
         } catch (IOException e) {

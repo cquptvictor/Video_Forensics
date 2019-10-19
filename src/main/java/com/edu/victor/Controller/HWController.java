@@ -2,6 +2,7 @@ package com.edu.victor.Controller;
 
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.NotAuthorizedException;
+import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.HWService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +33,9 @@ public class HWController {
     /**查看发布的作业的列表*/
     @RequestMapping(value = "/homework/show")
     @ResponseBody
-    public ResponseData getHW(Homework homework,Page page){
-        Map map = new HashMap<>();
-        map.put("id",homework.getCourseId());
-        map.put("category",homework.getCategory());
-        page.setFilter(map);
-        return hwService.getHwList(page);
+    public ResponseData getHW(Homework homework,Page page,HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return hwService.getHwList(homework,page,user);
     }
     /**查看某一发布作业的具体内容*/
     @RequestMapping(value = "/homework/{id}")
@@ -85,7 +83,8 @@ public class HWController {
     //学生提交作业
     @RequestMapping("/homework/submit")
     @ResponseBody
-    public ResponseData submit(@Valid SubmittedHomework submittedHw, BindingResult bindingResult){
-        return null;
+    public ResponseData submit(@Valid SubmittedHomework submittedHw, BindingResult bindingResult,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+        User user = (User)httpServletRequest.getAttribute("User");
+        return hwService.submitHw(submittedHw,user);
     }
 }

@@ -28,11 +28,6 @@ public class UserController {
     @RequestMapping(value = "/login")
     @ResponseBody
     public ResponseData adminLogin(@Valid User user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()){
-            for(FieldError error:bindingResult.getFieldErrors()){
-                System.out.println(error);
-            }
-        }
         return userService.login(user);
     }
 

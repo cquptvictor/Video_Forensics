@@ -13,9 +13,8 @@ import org.springframework.validation.FieldError;
 @Aspect
 @Component
 public class ArgumentsAop{
-    @Around("execution(* com.edu.victor..*(*,org.springframework.validation.BindingResult,..))")
+    @Before("execution(* com.edu.victor..*(*,org.springframework.validation.BindingResult,..))")
     public void authArguments(JoinPoint joinPoint) throws WrongArgumentsException, NotAuthorizedException {
-            System.out.println("这是AOP");
             Object[] args = joinPoint.getArgs();
             for(Object object : args){
                 if(object instanceof BindingResult){

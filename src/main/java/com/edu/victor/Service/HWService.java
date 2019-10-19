@@ -11,7 +11,7 @@ import java.util.Map;
 
 public interface HWService {
     ResponseData publishHW(Homework homework, Teacher teacher) throws IncompleteInformationException;
-    ResponseData getHwList(Page page);
+    ResponseData getHwList(Homework homework,Page page, User user);
     ResponseData getSpecificPage(int id);
     ResponseData getSubmitedHomework(Page page);
     ResponseData updateHw(Homework homework);

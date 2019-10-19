@@ -1,7 +1,6 @@
 package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.apache.ibatis.plugin.Interceptor;
 
 import java.util.Date;
 

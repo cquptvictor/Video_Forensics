@@ -34,16 +34,16 @@ public class UserServiceImpl implements UserService {
         if(user.getIsTeacher().equals("1")) {
             teacher = userDao.teacherLogin(user);
             teacher.setIsTeacher("1");
-        if(teacher.getId() != -1){
-            responseData.setCode(200);
-            responseData.setMessage("login Successful");
-            Map<String,String> map = new HashMap();
-            map.put("token", JWT.sign(teacher,120000));
-            responseData.setData(map);
-        }else{
-            responseData.setCode(0);
-            responseData.setMessage("login Failed");
-            }
+            if(teacher.getId() != -1){
+                responseData.setCode(200);
+                responseData.setMessage("login Successful");
+                Map<String,String> map = new HashMap();
+                map.put("token", JWT.sign(teacher,120000));
+                responseData.setData(map);
+            }else{
+                responseData.setCode(0);
+                responseData.setMessage("login Failed");
+                }
         }else{
             student = userDao.studentLogin(user);
             student.setIsTeacher("0");

@@ -24,7 +24,7 @@
         select * from homework where id = #{id}
     </select>
     <select id="getSubmitedByPage" parameterType="Page" resultMap="PageMapSb">
-        select id,content,score,status from hw_submit where hw_id = #{filter.hwId}
+        select hw_submit.id as id,score,status,stu.name as name,stu.username as username from hw_submit join stu on hw_submit.stu_id = stu.id where hw_id = #{filter.hwId}
     </select>
     <update id="updateHw" parameterType="Homework">
         update homework <set>
@@ -54,7 +54,13 @@
     </select>
 
     <!--APP端-->
-    <insert id="addSubmmitedHomework" parameterType="SubmittedHomework">
-        insert into hw_submmit(hw_id,stu_id,url)value (#{hw_id},#{stu_id},#{url});
+    <insert id="addSubmittedHomework" parameterType="SubmittedHomework">
+        insert into hw_submit(hw_id,stu_id,url)value (#{hwId},#{stuId},#{url});
     </insert>
+    <resultMap id="HomeworkPage" type="Page">
+        <collection property="pageData" ofType="HomeworkForStudent" autoMapping="true" select="getHwByCourseByPageForStu"/>
+    </resultMap>
+    <select id="getHwByCourseByPageForStu" parameterType="Page" resultMap="HomeworkPage">
+      select homework.id as id,title,category,start_time,end_time,`time`,IFNULL(hw_submit.id,-1) as isComitted from homework left join hw_submit on hw_submit.hw_id = homework.id and hw_submit.stu_id = #{filter.stuId} where course_id = #{id} order by `time` desc
+    </select>
 </mapper>

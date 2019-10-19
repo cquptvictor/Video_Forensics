@@ -4,8 +4,8 @@ package com.edu.victor.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
@@ -17,8 +17,6 @@ public class Homework {
     private Integer courseId;
     @NotEmpty
     private String title;
-    @NotEmpty
-    private String content;
     @NotNull
     @Pattern(regexp = "[homework|test]")
     private String category;
@@ -28,6 +26,7 @@ public class Homework {
     private Date endTime;
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
     private Date time;
+
 
     public Integer getId() {
         return id;
@@ -53,13 +52,6 @@ public class Homework {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 
     public String getCategory() {
         return category;
