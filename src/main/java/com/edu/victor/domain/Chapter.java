@@ -18,7 +18,6 @@ public class Chapter {
     @NotNull
     private Integer weights;
     @JsonIgnore
-    @NotNull
     private Integer teaId;
 
     public Integer getId() {

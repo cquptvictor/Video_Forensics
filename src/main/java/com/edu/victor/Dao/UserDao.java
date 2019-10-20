@@ -1,6 +1,5 @@
 package com.edu.victor.Dao;
 
-import com.edu.victor.domain.Page;
 import com.edu.victor.domain.Student;
 import com.edu.victor.domain.Teacher;
 import com.edu.victor.domain.User;
@@ -17,7 +16,4 @@ public interface UserDao {
     Student studentInfo(Integer id);
     Boolean updateTeaAvatar(User user);
     Boolean updateStuAvatar(User user);
-    Page getUserMessagesByPage(Page page);
-    Integer getUnreadMessageNum(Map map);
-    Boolean setAlreadyRead(@Param("map") Map map);
 }

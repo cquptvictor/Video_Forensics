@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface UserService {
     ResponseData login(User user);
@@ -22,4 +23,5 @@ public interface UserService {
     ResponseData getMessages(Page page, User user);
     ResponseData getUnreadMessageNum(User user);
     //  ResponseData updateAvatar(Teacher teacher) throws UnsupportedFileTypeException;
+    ResponseData MarkUnreadAsRead(List<Integer> list , User user);
 }

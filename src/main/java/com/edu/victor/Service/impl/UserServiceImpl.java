@@ -1,5 +1,6 @@
 package com.edu.victor.Service.impl;
 
+import com.edu.victor.Dao.MessageDao;
 import com.edu.victor.Dao.UserDao;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
@@ -7,6 +8,7 @@ import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
 import com.edu.victor.utils.JWT;
 import com.edu.victor.utils.FileUtils;
+import org.aspectj.lang.annotation.Around;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +27,8 @@ import java.util.concurrent.TimeUnit;
 public class UserServiceImpl implements UserService {
     @Autowired
     UserDao userDao;
+    @Autowired
+    MessageDao messageDao;
     @Autowired
     RedisTemplate<String,Object> redisTemplate;
     @Override
@@ -178,13 +183,12 @@ public class UserServiceImpl implements UserService {
         map.put("targetId",user.getId());
         page.setFilter(map);
         ResponseData responseData = new ResponseData(200);
-        Page page1 = userDao.getUserMessagesByPage(page);
-        List<Message> messageList = page1.getPageData();
-        if(messageList != null) {
+        Page page1 = messageDao.getUserMessagesByPage(page);
+        List<Message> messageList = page1 != null ? page1.getPageData() : null;
+        /*if(messageList != null) {
             map.put("MessageList",messageList);
             userDao.setAlreadyRead(map);
-        }
-        //List<Message> messageList = page1.getPageData();
+        }*/
 
         page.setPageData(page1 != null ? page1.getPageData():null);
         responseData.setData(page);
@@ -198,11 +202,25 @@ public class UserServiceImpl implements UserService {
         map.put("targetId",user.getId());
 
         Map<String,Object> resultMap = new HashMap<>();
-        int nums = userDao.getUnreadMessageNum(map);
+        int nums = messageDao.getUnreadMessageNum(map);
         resultMap.put("numbers",nums);
         ResponseData responseData = new ResponseData(200);
         responseData.setData(resultMap);
         return responseData;
     }
+    /**对于非聊天消息，直接标记为已读
+     * 对于聊天消息，把帖子中的当前时间之前的消息都标记为已读*/
+    @Override
+    public ResponseData MarkUnreadAsRead(List<Integer> list, User user) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("list",list);
+        //后面两个参数主要是避免伪造数据包
+        map.put("targetId",user.getId());
+        map.put("isTeacher",user.getIsTeacher());
+        ResponseData responseData = new ResponseData(200);
+        if(messageDao.markAsRead(map))
+            responseData.setCode(0);
+        return responseData;
 
+    }
 }

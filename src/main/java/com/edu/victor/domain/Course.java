@@ -1,10 +1,11 @@
 package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 
 public class Course {
     private Integer id;
@@ -12,8 +13,7 @@ public class Course {
     private String title;
     @NotEmpty
     private String description;
-    @NotNull
-    private Integer teaId = null;
+    private Integer teaId ;
     private String url;
     @NotEmpty
     private String code;

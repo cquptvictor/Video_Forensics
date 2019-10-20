@@ -32,7 +32,7 @@ public class FileUtils {
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
     private static String SubmittedHomeworkUrl = "/root/netClass/submitted/";
 
-   /* private static String getSubmittedHomeworkBaseUrl = "/home/redis1/netClass/homework";
+ /*  private static String getSubmittedHomeworkBaseUrl = "/home/redis1/netClass/homework";
     private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
     private static String courseImageBaseUrl = "/home/redis1/netClass/course/";
     private static String courseVideoBaseUrl = "/home/redis1/netClass/video/";

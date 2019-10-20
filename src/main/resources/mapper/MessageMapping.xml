@@ -15,4 +15,26 @@
     <delete id="deleteMessage">
         delete from message where content_id = #{0} and category = #{1}
     </delete>
+
+    <select id="getUserMessagesByPage" resultMap="MessagesMap">
+        select message.id,`name`,`read` as isRead,content_id,content,category,`time` from message join msg_user on msg_id = message.id where msg_user.is_teacher = #{filter.isTeacher} and msg_user.target_id = #{filter.targetId} order by msg_user.`read`,`time` desc
+    </select>
+    <select id="getUnreadMessageNum" resultType="Integer">
+        select count(id) from msg_user where target_id = #{targetId} and `read` = '0' and is_teacher = #{isTeacher};
+    </select>
+    <select id="getContentId" parameterType="Integer">
+        select contentId from message where id = #{message.id};
+    </select>
+    <update id="setAlreadyRead">
+        update msg_user set `read` = '1' where target_id = #{targetId} and `read` = '0' and is_teacher = #{isTeacher} and msg_id in
+        <foreach collection="MessageList" item="item" open="(" close=")" separator=",">
+            #{item.id}
+        </foreach>
+    </update>
+    <update id="markAsRead" parameterType="Integer">
+        update msg_user set `read` = 1 where target_id = #{targetId} is_teacher = #{isTeacher} and id in
+        <foreach collection="list" separator="," item="item" open="(" close=")">
+          #{item}
+        </foreach>
+    </update>
 </mapper>

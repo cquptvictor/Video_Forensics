@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
+import java.util.List;
 
 @RequestMapping(method = RequestMethod.POST)
 @Controller
@@ -91,6 +92,13 @@ public class UserController {
     public ResponseData getUnreadNum(HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return userService.getUnreadMessageNum(user);
+    }
+    /**标记消息为未读*/
+    @RequestMapping("/markAsRead")
+    @ResponseBody
+    public ResponseData markAsRead(List<Integer> msgUserId,HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return userService.MarkUnreadAsRead(msgUserId,user);
     }
 
 }

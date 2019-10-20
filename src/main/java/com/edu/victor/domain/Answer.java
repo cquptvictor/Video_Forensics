@@ -1,8 +1,8 @@
 package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
@@ -13,12 +13,11 @@ public class Answer {
     private Integer superiorId;
     @NotNull
     private Integer qsId;
-    @NotNull
+
     private Integer asrId;
+
     @NotEmpty
     private String content;
-    @NotNull
-    @Pattern(regexp = "[0|1]")
     private String isTeacher;
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;

@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 import java.sql.Date;
 public class Notice {
     private Integer id;
-    @NotNull
     private String teaId;
     @NotEmpty
     private String content;
@@ -16,7 +15,7 @@ public class Notice {
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
     @NotNull
-    private Integer courseId = null;
+    private Integer courseId;
 
     public Integer getId() {
         return id;
