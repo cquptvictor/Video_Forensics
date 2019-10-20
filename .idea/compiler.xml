@@ -9,5 +9,8 @@
         <module name="Video_Forensics" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Video_Forensics" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -18,7 +18,9 @@ public class Homework {
     @NotEmpty
     private String title;
     @NotNull
-    @Pattern(regexp = "[homework|test]")
+    private String content;
+    @NotNull
+    @Pattern(regexp = "(homework|test)")
     private String category;
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
     private Date startTime;
@@ -27,6 +29,13 @@ public class Homework {
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
     private Date time;
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public Integer getId() {
         return id;
