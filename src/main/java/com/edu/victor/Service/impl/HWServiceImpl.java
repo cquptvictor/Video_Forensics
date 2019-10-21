@@ -163,14 +163,19 @@ public class HWServiceImpl implements HWService {
             String url = hwDao.getSubmittedHomeworkUrl(submittedHomework);
             if(url == null) {
                     //第一次
-                 url = FileUtils.saveImage(submittedHomework.getFile(), "homework");
+                url = FileUtils.saveImage(submittedHomework.getFile(), "homework");
+                submittedHomework.setUrl(url);
+                if(hwDao.addSubmittedHomework(submittedHomework)){
+                    responseData.setCode(200);
+                }
             }else{
-                FileUtils.reSubmit(submittedHomework.getFile(),url);
+                url = FileUtils.reSubmit(submittedHomework.getFile(),url);
+                submittedHomework.setUrl(url);
+                if(hwDao.updateSubmittedHomework(submittedHomework)){
+                    responseData.setCode(200);
+                }
             }
-            submittedHomework.setUrl(url);
-            if(hwDao.addSubmittedHomework(submittedHomework)){
-                responseData.setCode(200);
-            }
+
         }
         return responseData;
     }
@@ -181,7 +186,8 @@ public class HWServiceImpl implements HWService {
          map.put("hwId",id);
          map.put("stuId",user.getId());
          ResponseData responseData = new ResponseData(200);
-         hwDao.getStudentSubmittion(map);
+         StudentSubmittion studentSubmittion = hwDao.getStudentSubmittion(map);
+         responseData.setData(studentSubmittion);
          return responseData;
 
     }

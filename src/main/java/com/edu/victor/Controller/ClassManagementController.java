@@ -5,10 +5,7 @@ import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -70,4 +67,12 @@ public class ClassManagementController {
     public ResponseData getSpecificQuestionPage(@PathVariable("questionId") int id){
         return classManagementService.getSpecificQuestion(id);
     }
+    /**加入班级*/
+    @RequestMapping("/class/join")
+    @ResponseBody
+    public ResponseData joinClass(@NotNull @ModelAttribute Integer classId, BindingResult bindingResult, HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return classManagementService.joinClass(classId,user);
+    }
+
 }

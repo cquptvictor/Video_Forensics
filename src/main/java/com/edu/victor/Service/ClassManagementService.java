@@ -11,4 +11,5 @@ public interface ClassManagementService {
     ResponseData relpy(ClassDiscussionAnswer answer, User user);
     ResponseData getQuestionList(Page page,int id);
     ResponseData getSpecificQuestion(int id);
+    ResponseData joinClass(int classId,User user);
 }

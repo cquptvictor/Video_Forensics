@@ -17,6 +17,11 @@ public interface ClassDao {
     UserDto getUser(Map map);
     User getTargetIdByQsId(int id);
     User getTargetIdByRpId(int id);
+
+    //APP
+    Integer getStudentClass(Map<String,Object> map);
+    Boolean updateStudentClass(Map<String,Object> map);
+    Boolean addStudentToClass(Map<String,Object> map);
 }
 
 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -185,6 +186,11 @@ public class CourseManagementController {
         return courseManagementService.joinCourse(course,(User)httpServletRequest.getAttribute("User"));
     }
 
-
-
+    @RequestMapping("/course/graduate")
+    @ResponseBody
+    public ResponseData graduateCourse(@NotNull @ModelAttribute Integer courseId, HttpServletRequest httpServletRequest)
+    {
+        User user = (User)httpServletRequest.getAttribute("User");
+        return courseManagementService.graduate(courseId,user);
+    }
 }

@@ -32,4 +32,5 @@ public interface CourseManagementService {
     //APP端接口
     ResponseData searchCourse(Page page);
     ResponseData joinCourse(Course course,User user);
+    ResponseData graduate(Integer courseId,User user);
 }

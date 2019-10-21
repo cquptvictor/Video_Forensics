@@ -4,9 +4,7 @@
 
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.UserDao">
-    <resultMap id="MessagesMap" type="Page">
-        <collection property="pageData" ofType="Message" autoMapping="true"/>
-    </resultMap>
+
     <select id="studentLogin" parameterType="User" resultType="Student">
       select IFNULL(MAX(id),-1) as id,`name`,phone,sexual,class_num,email,avatar,username from stu where username = #{username} and password = #{password};
     </select>
@@ -61,13 +59,6 @@
     <select id="teacherInfo" resultType="Teacher">
         select email,name,id,avatar,username from teacher where id = #{id};
     </select>
-    <select id="getUserMessagesByPage" resultMap="MessagesMap">
-        select message.id,`name`,`read` as isRead,content_id,content,category,`time` from message join msg_user on msg_id = message.id where msg_user.is_teacher = #{filter.isTeacher} and msg_user.target_id = #{filter.targetId} order by msg_user.`read`,`time` desc
-    </select>
-    <select id="getUnreadMessageNum" resultType="Integer">
-        select count(id) from msg_user where target_id = #{targetId} and `read` = '0' and is_teacher = #{isTeacher};
-    </select>
-
     <update id="updateTeaAvatar">
         update teacher set avatar = #{avatar} where id =#{id}
     </update>

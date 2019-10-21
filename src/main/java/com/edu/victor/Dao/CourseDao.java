@@ -38,5 +38,7 @@ public interface CourseDao {
     Page searchCourseByPageForApp(Page page);
     Integer authCourseCode(Course course);
     Boolean addStuToCourse(Map<String,Object> map);
+    Boolean isSatisfied(Map<String,Object> map);
+    Boolean graduate(Map<String,Object> map);
 
 }

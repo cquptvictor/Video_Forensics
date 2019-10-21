@@ -57,6 +57,9 @@
     <insert id="addSubmittedHomework" parameterType="SubmittedHomework">
         insert into hw_submit(hw_id,stu_id,url)value (#{hwId},#{stuId},#{url});
     </insert>
+    <update id="updateSubmittedHomework" parameterType="SubmittedHomework">
+        update hw_submit set url = #{url} where hw_id  = #{hwId};
+    </update>
     <resultMap id="HomeworkPage" type="Page">
         <collection property="pageData" ofType="HomeworkForStudent" autoMapping="true"/>
     </resultMap>
@@ -65,5 +68,8 @@
     </select>
     <select id="getStudentSubmittion" parameterType="Map" resultType="StudentSubmittion">
         select url,score from hw_submit where hw_id = #{hwId} and stu_id = #{stuId};
+    </select>
+    <select id="getSubmittedHomeworkUrl" parameterType="SubmittedHomework" resultType="String">
+        select url from hw_submit where hw_id  = #{hwId} and stu_id = #{stuId};
     </select>
 </mapper>

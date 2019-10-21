@@ -75,4 +75,15 @@
     <select id="getTargetIdByRpId" resultType="User">
         select asr_id as id, is_teacher from class_discussion_answer where id = #{id};
     </select>
+
+    <!--APP-->
+   <select id="getStudentClass" resultType="Integer">
+          select IFNULL(id,-1) from stu_class where stu_id = #{stuId};
+    </select>
+    <update id="updateStudentClass">
+        update class_stu set class_id = #{classId} where  stu_id = #{stuId}
+    </update>
+    <insert id="addStudentToClass">
+        insert into class_stu(class_id,stu_id)value (#{classId},#{stuId});
+    </insert>
 </mapper>

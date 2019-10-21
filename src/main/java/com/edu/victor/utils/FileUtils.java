@@ -32,8 +32,7 @@ public class FileUtils {
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
     private static String SubmittedHomeworkUrl = "/root/netClass/submitted/";
 
- /*  private static String getSubmittedHomeworkBaseUrl = "/home/redis1/netClass/homework";
-    private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
+/*    private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
     private static String courseImageBaseUrl = "/home/redis1/netClass/course/";
     private static String courseVideoBaseUrl = "/home/redis1/netClass/video/";
     private static String coursewareBaseUrl = "/home/redis1/netClass/courseware/";
@@ -128,7 +127,7 @@ public class FileUtils {
         return coursewares;
     }
     /**上传视频和课程图片*/
-    public static String saveImage(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
+    public static String  saveImage(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
         String path = saveFile(multipartFile,type);
         return path;
     }
@@ -146,9 +145,11 @@ public class FileUtils {
         }
     }
     /**再次提交作业*/
-    public static void reSubmit(MultipartFile multipartFile,String url) throws UnsupportedFileTypeException {
+    public static String reSubmit(MultipartFile multipartFile,String url) throws UnsupportedFileTypeException {
         String fileName = multipartFile.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+        //有可能两次上传的文件类型不同
+        url = url.substring(0,url.lastIndexOf(".") + 1) + suffix;
         if(!homeworkSUffixes.contains(suffix))
             throw new UnsupportedFileTypeException();
         File catalogFile = new File(SubmittedHomeworkUrl + url);
@@ -157,6 +158,7 @@ public class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return url;
     }
     /**批量删除课件和课程视频*/
     public static void deleteFile(List<String> url,String type){

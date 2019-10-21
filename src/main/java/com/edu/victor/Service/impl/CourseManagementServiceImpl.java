@@ -279,6 +279,22 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         }
         return responseData;
     }
+    /**
+     * 结业要先校验用户是否达到结业要求*/
+    @Override
+    public ResponseData graduate(Integer courseId, User user) {
+        ResponseData responseData = new ResponseData(0);
+        if(user.getIsTeacher().equals("0")) {
+            Map<String,Object> map = new HashMap<>();
+            map.put("courseId", courseId);
+            map.put("stuId", user.getId());
+            if(courseDao.graduate(map))
+                responseData.setCode(200);
+            else
+                responseData.setMessage("您未达到结业要求");
+        }
+        return responseData;
+    }
 }
 
 

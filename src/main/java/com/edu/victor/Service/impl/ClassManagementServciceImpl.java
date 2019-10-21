@@ -128,4 +128,27 @@ public class ClassManagementServciceImpl implements ClassManagementService {
         responseData.setData(classDiscussionQuestionDtoForSpecific);
         return responseData;
     }
+
+    /**第一次加入班级，班级-学生表添加数据
+     * 第二次加入班级，班级-学生表修改数据
+     * 1.查看学生是否有现有班级
+     * 2.没有则直接添加数据
+     * 3.若有，修改数据*/
+    @Override
+    public ResponseData joinClass(int classId, User user) {
+        ResponseData responseData = new ResponseData(0);
+        if(user.getIsTeacher().equals("0")){
+            Map<String, Object> map = new HashMap<>();
+            map.put("classId",classId);
+            map.put("stuId",user.getId());
+            if(classDao.getStudentClass(map) == -1){
+                classDao.addStudentToClass(map);
+            }else{
+                classDao.updateStudentClass(map);
+            }
+            responseData.setCode(200);
+            return responseData;
+        }
+        return responseData;
+    }
 }

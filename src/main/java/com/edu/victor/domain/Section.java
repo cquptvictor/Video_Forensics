@@ -18,7 +18,6 @@ public class Section {
     private String title;
     private String url;
     @JsonIgnore
-    @NotNull
     private Integer teaId;
     @JsonIgnore
     @NotNull

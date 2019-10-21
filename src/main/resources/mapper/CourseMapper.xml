@@ -168,7 +168,7 @@
             <if test="weights != null">
                 weights = #{weights},
             </if>
-            <if test="superior_id"/>
+            <if test="superiorId != null"/>
               superior_id = #{superiorId}
         </set>
         where id = #{id} and tea_id = #{teaId};
@@ -186,5 +186,11 @@
     <select id="authCourseCode" resultType="Integer">
         select id from course where id = #{id} and code = #{code}
     </select>
+    <select id="isSatisfied" resultType="Boolean">
+        select progress > 95 from stu_course where stu_id =#{stuId} and course_id = #{courseId};
+    </select>
+    <update id="graduate">
+        update stu_course set graduated = 1 where stu_id = #{stuId} and course_id = #{courseId} and progress >= 95.0;
+    </update>
 </mapper>
 

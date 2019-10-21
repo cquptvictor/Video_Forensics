@@ -168,7 +168,7 @@
             <if test="weights != null">
                 weights = #{weights},
             </if>
-            <if test="superior_id"/>
+            <if test="superiorId != null"/>
               superior_id = #{superiorId}
         </set>
         where id = #{id} and tea_id = #{teaId};

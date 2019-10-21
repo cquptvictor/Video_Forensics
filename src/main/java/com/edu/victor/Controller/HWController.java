@@ -92,7 +92,7 @@ public class HWController {
     /**查看我的提交*/
     @RequestMapping("/homework/mySubmittion")
     @ResponseBody
-    public ResponseData mySubmittion(@NotNull int hwId,BindingResult bindingResult,HttpServletRequest httpServletRequest){
+    public ResponseData mySubmittion( @NotNull @ModelAttribute ("hwId") Integer hwId,BindingResult bindingResult,HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return hwService.getMySubmittion(hwId,user);
     }

@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="war" name="Video_Forensics">
-    <output-path>$PROJECT_DIR$/target/artifacts/Video_Forensics</output-path>
+    <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="Video_Forensics.war">
       <element id="artifact" artifact-name="Video_Forensics:war exploded" />
     </root>
