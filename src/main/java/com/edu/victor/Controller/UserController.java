@@ -8,16 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping(method = RequestMethod.POST)
@@ -96,7 +94,7 @@ public class UserController {
     /**标记消息为未读*/
     @RequestMapping("/markAsRead")
     @ResponseBody
-    public ResponseData markAsRead(List<Integer> msgUserId,HttpServletRequest httpServletRequest){
+    public ResponseData markAsRead(Integer[] msgUserId, HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return userService.MarkUnreadAsRead(msgUserId,user);
     }

@@ -23,5 +23,5 @@ public interface UserService {
     ResponseData getMessages(Page page, User user);
     ResponseData getUnreadMessageNum(User user);
     //  ResponseData updateAvatar(Teacher teacher) throws UnsupportedFileTypeException;
-    ResponseData MarkUnreadAsRead(List<Integer> list , User user);
+    ResponseData MarkUnreadAsRead(Integer[] array , User user);
 }

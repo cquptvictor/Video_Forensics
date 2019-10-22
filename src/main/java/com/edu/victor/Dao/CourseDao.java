@@ -12,7 +12,6 @@ public interface CourseDao {
     Boolean addCourseware(List<Courseware> courseware);
 
     Page<Course> searchCoursesByPage(Page page);
-    Page<Course> searchCoursesByPageForStu(Page page);
     Page<Courseware> searchCoursewareByPage(Page page);
     Page<LearningProgress> getStuLearningProgressByPage(Page page);
     /*List<Chapter> searchChapter(Integer id);
@@ -33,12 +32,13 @@ public interface CourseDao {
    Boolean updateCourseInfo(Course course);
    Boolean updateChapterInfo(Chapter chapter);
    Boolean updateSectionInfo(Section section);
-
+   Boolean closeCourse(Map<String,Object> map);
    //APP
-    Page searchCourseByPageForApp(Page page);
-    Integer authCourseCode(Course course);
+    Page searchAllCoursesByPageForApp(Page page);
+    Integer authCourseCode(CourseJoin course);
     Boolean addStuToCourse(Map<String,Object> map);
-    Boolean isSatisfied(Map<String,Object> map);
-    Boolean graduate(Map<String,Object> map);
+    Page<Course> searchCoursesByPageForStu(Page page);
+ /*   Boolean isSatisfied(Map<String,Object> map);
+    Boolean graduate(Map<String,Object> map);*/
 
 }

@@ -15,7 +15,7 @@ public class GlobalException {
     public ResponseData duplicatedUsername(DuplicateKeyException e){
         ResponseData responseData = new ResponseData();
         responseData.setCode(0);
-        responseData.setMessage("Duplicate usernames");
+        responseData.setMessage("Duplicated");
         return responseData;
     }
     /**权限不够的问题*/

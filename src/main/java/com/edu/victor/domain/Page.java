@@ -20,7 +20,6 @@ public class Page<T> {
     private int totalNumber;
     //数据存放
     private List<T> pageData;
-    private int hasNext;
     //过滤条件
     private Map<String,Object> filter;
 
@@ -40,14 +39,6 @@ public class Page<T> {
         int totalPage = totalNumber % pageNum != 0 ? totalNumber/pageNum+1 : totalNumber/pageNum;
         this.setTotalPage(totalPage);
         this.totalNumber = totalNumber;
-    }
-
-    public int getHasNext() {
-        return hasNext;
-    }
-
-    public void setHasNext(int hasNext) {
-        this.hasNext = hasNext;
     }
 
     public int getCurrentPage() {

@@ -20,6 +20,9 @@
     <resultMap id="PageCourse" type="Page">
         <collection property="pageData" ofType="CourseDtoForSimple" autoMapping="true"/>
     </resultMap>
+    <resultMap id="PageCourseForApp" type="Page">
+        <collection property="pageData" ofType="CourseForApp" autoMapping="true"/>
+    </resultMap>
     <resultMap id="LearningProgressMap" type="LearningProgress" autoMapping="true">
         <association property="student" javaType="Student" autoMapping="true">
 
@@ -41,7 +44,7 @@
 
 
     <select id="searchCoursewareByPage" resultMap="PageCourseware">
-        select id,time,url,title from courseware where superior_id = #{filter.id}
+        select id,`time`,url,title from courseware where superior_id = #{filter.id}
     </select>
     <select id="searchCoursesByPage" resultMap="PageCourse">
       select course.id as id,teacher.name as teaName,title,url,code,description from course join teacher on course.tea_id = teacher.id <where>
@@ -50,12 +53,7 @@
         </if>
          </where>
     </select>
-    <select id="searchCoursesByPageForStu" resultMap="PageCourse">
-        select course.id as id,teacher.name as teaName,title,url,description from course join teacher join stu_course on course.id = stu_course.course_id and on course.tea_id = teacher.id <where><if test="filter.id != null">
-        course.stu_id = #{filter.id}
-    </if>
-    </where>
-    </select>
+
     <insert id="addCourse" parameterType="Course">
         insert into course(tea_id,title,description,url,code)value (#{teaId},#{title},#{description},#{url},#{code});
     </insert>
@@ -173,24 +171,39 @@
         </set>
         where id = #{id} and tea_id = #{teaId};
     </update>
-
+    <update id="closeCourse">
+        update course set is_closed = "1" where id = #{courseId} and tea_id = #{teaId} and is_closed = "0";
+    </update>
     <!--APP端-->
-    <select id="searchCourseByPageForApp" resultMap="PageCourse">
-        select course.id as id,teacher.name as teaName,title,url,code,description from course join teacher on course.tea_id = teacher.id
+    <select id="searchAllCoursesByPageForApp" resultMap="PageCourseForApp">
+        select course.id as id,teacher.name as teaName,title,url,description from course join teacher on course.tea_id = teacher.id
         <where>
-        <if test="filter.title != null">
-          title = #{filter.title}
-        </if>
-    </where>
+            <if test="filter.title != null">
+                title like "%${filter.title}%"
+            </if>
+        </where>
     </select>
     <select id="authCourseCode" resultType="Integer">
         select id from course where id = #{id} and code = #{code}
     </select>
+    <insert id="addStuToCourse">
+        insert into stu_course(course_id,stu_id)value (#{courseId},#{stuId})
+    </insert>
+    <select id="searchCoursesByPageForStu" resultMap="PageCourseForApp">
+        select course.id as id,teacher.name as teaName,title,url,description from course join teacher join stu_course and course.tea_id = teacher.id
+        <where>
+            <if test="filter.id != null">
+                stu_course.stu_id = #{filter.id}
+            </if>
+        </where>
+    </select>
+    <!--
     <select id="isSatisfied" resultType="Boolean">
         select progress > 95 from stu_course where stu_id =#{stuId} and course_id = #{courseId};
     </select>
     <update id="graduate">
         update stu_course set graduated = 1 where stu_id = #{stuId} and course_id = #{courseId} and progress >= 95.0;
     </update>
+    -->
 </mapper>
 

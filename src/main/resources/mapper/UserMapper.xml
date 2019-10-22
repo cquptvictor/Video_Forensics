@@ -6,7 +6,7 @@
 <mapper namespace="com.edu.victor.Dao.UserDao">
 
     <select id="studentLogin" parameterType="User" resultType="Student">
-      select IFNULL(MAX(id),-1) as id,`name`,phone,sexual,class_num,email,avatar,username from stu where username = #{username} and password = #{password};
+      select IFNULL(MAX(stu.id),-1) as id,`name`,phone,sexual,class_num,email,avatar,username from stu left join class on stu.class_id = class.id where username = #{username} and password = #{password};
     </select>
     <select id="teacherLogin" parameterType="User" resultType="Teacher">
       select IFNULL(MAX(id),-1) as id,`name`,email,avatar,username from teacher where username = #{username} and password = #{password};
@@ -58,6 +58,9 @@
     </update>
     <select id="teacherInfo" resultType="Teacher">
         select email,name,id,avatar,username from teacher where id = #{id};
+    </select>
+    <select id="studentInfo" resultType="Student">
+        select stu.id,email,`name`,avatar,username,birth,sexual,phone,class_num from stu left join class on stu.class_id = class_id where stu.id = #{id}
     </select>
     <update id="updateTeaAvatar">
         update teacher set avatar = #{avatar} where id =#{id}

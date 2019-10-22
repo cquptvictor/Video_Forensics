@@ -116,17 +116,18 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Override
     public ResponseData searchCourses(Page page, User user) {
         Page page1= null;
-        Map map = new HashMap();
+        Map<String,Object> map = new HashMap<>();
         map.put("id",user.getId());
         page.setFilter(map);
+        ResponseData responseData = new ResponseData(200);
         if(user.getIsTeacher().equals("1")){
             page1 = courseDao.searchCoursesByPage(page);
+            page.setPageData(page1 != null ? page1.getPageData() : null);
+            responseData.setData(page);
         }else{
-            page1 = courseDao.searchCoursesByPageForStu(page);
+            responseData.setCode(0);
         }
-        page.setPageData(page1 != null ? page1.getPageData() : null);
-        ResponseData responseData = new ResponseData(200);
-        responseData.setData(page);
+
         return responseData;
     }
     /**删除小节*/
@@ -248,12 +249,20 @@ public class CourseManagementServiceImpl implements CourseManagementService {
 
     /**APP端接口*/
     @Override
-    public ResponseData searchCourse(Page page) {
-        Page page1 = courseDao.searchCourseByPageForApp(page);
-        page.setPageData(page1 != null ? page1.getPageData() : null);
+    public ResponseData searchCourse(Page page, User user, String type) {
         ResponseData responseData = new ResponseData(200);
-        responseData.setData(page);
-        return responseData;
+
+       if(type.equals("all")){
+            Page page1 = courseDao.searchAllCoursesByPageForApp(page);
+            page.setPageData(page1 != null ? page1.getPageData() : null);
+            responseData.setData(page);
+        }else if(type.equals("my")){
+           Page page1 = courseDao.searchCoursesByPageForStu(page);
+           page.setPageData(page1 != null ? page1.getPageData() : null);
+           responseData.setData(page);
+       }else
+           responseData.setCode(0);
+       return responseData;
     }
     /**
      * 验证课程邀请码对不对
@@ -261,7 +270,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
      * */
     @Override
     @Transactional
-    public ResponseData joinCourse(Course course,User user) {
+    public ResponseData joinCourse(CourseJoin course,User user) {
         ResponseData responseData = new ResponseData(200);
         if(courseDao.authCourseCode(course) == -1){
             responseData.setCode(0);
@@ -269,19 +278,19 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         }else{
             Map<String,Object> map = new HashMap<>();
             map.put("courseId",course.getId());
-            map.put("studentId",user.getId());
-                if(courseDao.addStuToCourse(map)){
-                    responseData.setMessage("成功加入课程");
-                }else{
-                    responseData.setMessage("您已加入课程");
-                    responseData.setCode(0);
-                }
+            map.put("stuId",user.getId());
+            if(courseDao.addStuToCourse(map)){
+                responseData.setMessage("成功加入课程");
+            }else{
+                responseData.setMessage("您已加入课程");
+                responseData.setCode(0);
+            }
         }
         return responseData;
     }
     /**
      * 结业要先校验用户是否达到结业要求*/
-    @Override
+   /* @Override
     public ResponseData graduate(Integer courseId, User user) {
         ResponseData responseData = new ResponseData(0);
         if(user.getIsTeacher().equals("0")) {
@@ -292,6 +301,19 @@ public class CourseManagementServiceImpl implements CourseManagementService {
                 responseData.setCode(200);
             else
                 responseData.setMessage("您未达到结业要求");
+        }
+        return responseData;
+    }*/
+    /**老师关闭了课程之后，学生就不能再进入课程了*/
+    @Override
+    public ResponseData closeCourse(int courseId, User user) {
+        ResponseData responseData = new ResponseData(0);
+        if(user.getIsTeacher().equals("1")){
+            Map<String,Object> map = new HashMap<>();
+            map.put("courseId",courseId);
+            map.put("teaId",user.getId());
+            if(courseDao.closeCourse(map))
+                responseData.setCode(200);
         }
         return responseData;
     }

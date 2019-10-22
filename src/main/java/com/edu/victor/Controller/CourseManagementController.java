@@ -171,26 +171,34 @@ public class CourseManagementController {
 
     /**APP端功能*/
     /**展示和查询课程*/
-    @RequestMapping("/course/search")
+    @RequestMapping("/course/search/{type}")
     @ResponseBody
-    public ResponseData searchCourse(String title,Page page){
+    public ResponseData searchCourse(@PathVariable String type, String title,Page page,HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
         Map<String,Object> map = new HashMap<>();
         map.put("title",title);
         page.setFilter(map);
-        return courseManagementService.searchCourse(page);
+        return courseManagementService.searchCourse(page,user,type);
     }
     /**加入课程*/
     @RequestMapping("/course/join")
     @ResponseBody
-    public ResponseData searchCourse(Course course,HttpServletRequest httpServletRequest){
+    public ResponseData searchCourse(@Valid CourseJoin course,BindingResult bindingResult,HttpServletRequest httpServletRequest){
         return courseManagementService.joinCourse(course,(User)httpServletRequest.getAttribute("User"));
     }
-
-    @RequestMapping("/course/graduate")
+    @RequestMapping("/course/over")
+    @ResponseBody
+    public ResponseData finishCourse(@NotNull @ModelAttribute Integer courseId,HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return courseManagementService.closeCourse(courseId,user);
+    }
+    /*@RequestMapping("/course/graduate")
     @ResponseBody
     public ResponseData graduateCourse(@NotNull @ModelAttribute Integer courseId, HttpServletRequest httpServletRequest)
     {
         User user = (User)httpServletRequest.getAttribute("User");
         return courseManagementService.graduate(courseId,user);
-    }
+    }*/
+
+
 }

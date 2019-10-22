@@ -30,7 +30,8 @@ public interface CourseManagementService {
     ResponseData updateChapter(Chapter chapter);
     ResponseData updateSection(Section section);
     //APP端接口
-    ResponseData searchCourse(Page page);
-    ResponseData joinCourse(Course course,User user);
-    ResponseData graduate(Integer courseId,User user);
+    ResponseData searchCourse(Page page,User user,String type);
+    ResponseData joinCourse(CourseJoin course,User user);
+   // ResponseData graduate(Integer courseId,User user);
+    ResponseData closeCourse(int courseId,User user);
 }

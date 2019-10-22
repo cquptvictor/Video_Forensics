@@ -20,7 +20,7 @@
     </delete>
 
     <select id="getUserMessagesByPage" resultMap="MessagesMap">
-        select message.id,`name`,`read` as isRead,content_id,content,category,`time` from message join msg_user on msg_id = message.id where msg_user.is_teacher = #{filter.isTeacher} and msg_user.target_id = #{filter.targetId} order by msg_user.`read`,`time` desc
+        select msg_user.id,`name`,`read` as isRead,content_id,content,category,`time` from message join msg_user on msg_id = message.id where msg_user.is_teacher = #{filter.isTeacher} and msg_user.target_id = #{filter.targetId} order by msg_user.`read`,`time` desc
     </select>
     <select id="getUnreadMessageNum" resultType="Integer">
         select count(id) from msg_user where target_id = #{targetId} and `read` = '0' and is_teacher = #{isTeacher};
@@ -34,10 +34,10 @@
             #{item.id}
         </foreach>
     </update>
-    <update id="markAsRead" parameterType="Integer">
-        update msg_user set `read` = 1 where target_id = #{targetId} is_teacher = #{isTeacher} and id in
-        <foreach collection="list" separator="," item="item" open="(" close=")">
-          #{item}
+    <update id="markAsRead" parameterType="map">
+        update msg_user set `read` = 1 where target_id = #{targetId} and is_teacher = #{isTeacher} and id in
+        <foreach collection="idList" separator="," item="item" index="index" open="(" close=")">
+            #{item}
         </foreach>
     </update>
 </mapper>

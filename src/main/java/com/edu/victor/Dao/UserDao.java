@@ -3,9 +3,7 @@ package com.edu.victor.Dao;
 import com.edu.victor.domain.Student;
 import com.edu.victor.domain.Teacher;
 import com.edu.victor.domain.User;
-import org.springframework.data.repository.query.Param;
 
-import java.util.Map;
 
 public interface UserDao {
     Teacher teacherLogin(User user);

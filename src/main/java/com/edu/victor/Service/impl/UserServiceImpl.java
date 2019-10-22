@@ -211,14 +211,14 @@ public class UserServiceImpl implements UserService {
     /**对于非聊天消息，直接标记为已读
      * 对于聊天消息，把帖子中的当前时间之前的消息都标记为已读*/
     @Override
-    public ResponseData MarkUnreadAsRead(List<Integer> list, User user) {
+    public ResponseData MarkUnreadAsRead(Integer[] array, User user) {
         Map<String,Object> map = new HashMap<>();
-        map.put("list",list);
+        map.put("idList",array);
         //后面两个参数主要是避免伪造数据包
         map.put("targetId",user.getId());
         map.put("isTeacher",user.getIsTeacher());
         ResponseData responseData = new ResponseData(200);
-        if(messageDao.markAsRead(map))
+        if(!messageDao.markAsRead(map))
             responseData.setCode(0);
         return responseData;
 
