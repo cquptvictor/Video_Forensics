@@ -47,7 +47,7 @@ public class UserController {
 
     }
     /**更新学生信息*/
-    @RequestMapping(value = "/uInfo/stu")
+    @RequestMapping(value = "/uInfo/student")
     @ResponseBody
     public ResponseData updateStudentInfo(Student student, HttpServletRequest httpServletRequest) {
         Student student1 = (Student)httpServletRequest.getAttribute("User");
@@ -66,9 +66,9 @@ public class UserController {
     /**更新学生或老师的头像*/
     @RequestMapping("/uAvatar")
     @ResponseBody
-    public ResponseData updateAvatar(@RequestParam("file") @NotNull  MultipartFile avatar,BindingResult bindingResult, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IOException {
+    public ResponseData updateAvatar(MultipartFile file, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IOException {
         User user = (User)httpServletRequest.getAttribute("User");
-        return userService.updateAvatar(avatar,user,user.getIsTeacher().equals("1") ? true : false);
+        return userService.updateAvatar(file,user,user.getIsTeacher().equals("1") ? true : false);
        /* if (user.getIsTeacher().equals("1")) {
             Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
             return userService.updateAvatar(avatar, teacher, true);

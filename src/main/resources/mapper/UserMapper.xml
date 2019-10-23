@@ -42,16 +42,19 @@
                 password = #{password},
             </if>
             <if test="avatar != null">
-                avatar = #{avatar}
+                avatar = #{avatar},
             </if>
             <if test="phone != null">
-                phone = #{phone}
+                phone = #{phone},
             </if>
             <if test="birth != null">
-                birth = #{birth}
+                birth = #{birth},
             </if>
             <if test="sexual != null">
-                sexual = #{sexual}
+                sexual = #{sexual},
+            </if>
+            <if test="classId  != null">
+                class_id = #{classId}
             </if>
         </set>
         where id = #{id}
@@ -60,7 +63,7 @@
         select email,name,id,avatar,username from teacher where id = #{id};
     </select>
     <select id="studentInfo" resultType="Student">
-        select stu.id,email,`name`,avatar,username,birth,sexual,phone,class_num from stu left join class on stu.class_id = class_id where stu.id = #{id}
+        select stu.id as id,email,`name`,avatar,username,birth,sexual,phone,class_num from stu left join class on stu.class_id = class.id where stu.id = #{id}
     </select>
     <update id="updateTeaAvatar">
         update teacher set avatar = #{avatar} where id =#{id}

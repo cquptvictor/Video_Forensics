@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,8 +65,8 @@ public class HWServiceImpl implements HWService {
         String startKey = String.format("hw_%d_start",id);
         String endKey = String.format("hw_%d_end",id);
         /**添加时间限制和发送消息*/
-        redisTemplate.opsForValue().set(startKey,String.valueOf(homework.getStartTime().getTime()));
-        redisTemplate.opsForValue().set(endKey,String.valueOf(homework.getEndTime().getTime()));
+        redisTemplate.opsForValue().set(startKey,String.valueOf(homework.getStartTime()));
+        redisTemplate.opsForValue().set(endKey,String.valueOf(homework.getEndTime()));
         return  responseData;
     }
 
@@ -90,12 +91,22 @@ public class HWServiceImpl implements HWService {
     }
 
     @Override
-    public ResponseData getSpecificPage(int id) {
+    public ResponseData getSpecificPage(int id, User user) {
+
         ResponseData responseData = new ResponseData(200);
+        if(user.getIsTeacher().equals("0")){
+            String key = String.format("hw_%d_start",id);
+            Long startTime = Long.valueOf((String)redisTemplate.opsForValue().get(key));
+            if(startTime > new Date().getTime()){
+                responseData.setCode(0);
+                responseData.setMessage("未到开放时间");
+                return responseData;
+            }
+        }
         responseData.setData(hwDao.getSpecificHomework(id));
         return responseData;
     }
-
+    /*老师可以任意查看，学生只能在开始后查看**/
     @Override
     public ResponseData getSubmitedHomework(Page page) {
         ResponseData responseData = new ResponseData(200);
@@ -158,6 +169,10 @@ public class HWServiceImpl implements HWService {
     @Override
     public ResponseData submitHw(SubmittedHomework submittedHomework, User user) throws UnsupportedFileTypeException {
         ResponseData responseData = new ResponseData(0);
+        String key = String.format("hw_%d_end",submittedHomework.getHwId());
+        Long endTime =Long.valueOf((String)redisTemplate.opsForValue().get(key));
+        if(endTime > new Date().getTime())
+        {
         if(user.getIsTeacher().equals("0")){
             submittedHomework.setStuId(user.getId());
             String url = hwDao.getSubmittedHomeworkUrl(submittedHomework);
@@ -175,7 +190,10 @@ public class HWServiceImpl implements HWService {
                     responseData.setCode(200);
                 }
             }
-
+        }
+        }else{
+            responseData.setCode(0);
+            responseData.setMessage("超过提交截止时间");
         }
         return responseData;
     }

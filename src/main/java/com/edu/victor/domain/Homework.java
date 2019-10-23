@@ -23,9 +23,9 @@ public class Homework {
     @Pattern(regexp = "(homework|test)")
     private String category;
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
-    private Date startTime;
+    private Long startTime;
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
-    private Date endTime;
+    private Long endTime;
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
     private Date time;
 
@@ -70,19 +70,19 @@ public class Homework {
         this.category = category;
     }
 
-    public Date getStartTime() {
+    public Long getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public Long getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 

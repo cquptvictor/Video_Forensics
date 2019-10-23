@@ -68,11 +68,11 @@ public class ClassManagementController {
         return classManagementService.getSpecificQuestion(id);
     }
     /**加入班级*/
-    @RequestMapping("/class/join")
+  /*  @RequestMapping("/class/join")
     @ResponseBody
     public ResponseData joinClass(@NotNull @ModelAttribute Integer classId, BindingResult bindingResult, HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return classManagementService.joinClass(classId,user);
-    }
+    }*/
 
 }

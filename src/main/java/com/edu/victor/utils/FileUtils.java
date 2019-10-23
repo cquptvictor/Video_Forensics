@@ -26,17 +26,17 @@ public class FileUtils {
     private static String SubmittedHomeworkUrl = "E:\\netClass\\submitted\\";*/
     private static String defaultAvatar = "default.jpg";
 
-    private static String avatarBaseUrl = "/root/netClass/avatar/";
+    /*private static String avatarBaseUrl = "/root/netClass/avatar/";
     private static String courseImageBaseUrl = "/root/netClass/course/";
     private static String courseVideoBaseUrl = "/root/netClass/video/";
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
     private static String SubmittedHomeworkUrl = "/root/netClass/submitted/";
-
-/*    private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
+*/
+    private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
     private static String courseImageBaseUrl = "/home/redis1/netClass/course/";
     private static String courseVideoBaseUrl = "/home/redis1/netClass/video/";
     private static String coursewareBaseUrl = "/home/redis1/netClass/courseware/";
-    private static String SubmittedHomeworkUrl = "/home/redis1/netClass/submitted/";*/
+    private static String SubmittedHomeworkUrl = "/home/redis1/netClass/submitted/";
     private static List<String> imageSuffixes = new ArrayList<>();
     private static List<String> videoSuffixes = new ArrayList<>();
     private static List<String> coursewareSuffixes = new ArrayList<>();
@@ -148,6 +148,8 @@ public class FileUtils {
     public static String reSubmit(MultipartFile multipartFile,String url) throws UnsupportedFileTypeException {
         String fileName = multipartFile.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+        File fileToDelete = new File(SubmittedHomeworkUrl,url);
+        fileToDelete.delete();
         //有可能两次上传的文件类型不同
         url = url.substring(0,url.lastIndexOf(".") + 1) + suffix;
         if(!homeworkSUffixes.contains(suffix))

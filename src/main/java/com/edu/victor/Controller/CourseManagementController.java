@@ -188,7 +188,7 @@ public class CourseManagementController {
     }
     @RequestMapping("/course/over")
     @ResponseBody
-    public ResponseData finishCourse(@NotNull @ModelAttribute Integer courseId,HttpServletRequest httpServletRequest){
+    public ResponseData finishCourse( Integer courseId,HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return courseManagementService.closeCourse(courseId,user);
     }

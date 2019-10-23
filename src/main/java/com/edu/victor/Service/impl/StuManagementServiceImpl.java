@@ -6,7 +6,7 @@ import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.Page;
 import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Student;
-import com.edu.victor.domain.stuDto;
+import com.edu.victor.domain.StudentDto;
 import com.edu.victor.utils.ExcelUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -46,7 +46,7 @@ public class StuManagementServiceImpl implements StuManagementService {
     @Override
     public ResponseData searchStu(Page page) {
         ResponseData<Page> responseData = new ResponseData(200);
-        Page<stuDto> page2 = stuManagementDao.searchStuByPage(page);
+        Page<StudentDto> page2 = stuManagementDao.searchStuByPage(page);
         page.setPageData(page2 != null ? page2.getPageData():null);
         responseData.setData(page);
         return responseData;

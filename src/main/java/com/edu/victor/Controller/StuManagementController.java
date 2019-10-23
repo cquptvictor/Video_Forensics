@@ -25,7 +25,7 @@ public class StuManagementController {
     StuManagementService stuManagementService;
     @RequestMapping(value = "/student/add")
     @ResponseBody
-    public ResponseData addStu(@NotEmpty String username, BindingResult bindingResult){
+    public ResponseData addStu(String username){
         return stuManagementService.addStu(username);
     }
     @RequestMapping(value = "/student/update")

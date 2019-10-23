@@ -41,13 +41,15 @@ public class HWController {
     /**查看某一发布作业的具体内容*/
     @RequestMapping(value = "/homework/{id}")
     @ResponseBody
-    public ResponseData getSpecificHomework(@PathVariable int id){
-       return hwService.getSpecificPage(id);
+    public ResponseData getSpecificHomework(@PathVariable int id,HttpServletRequest httpServletRequest){
+       User user = (User)httpServletRequest.getAttribute("User");
+       return hwService.getSpecificPage(id,user);
+
     }
     /**查看某一发布作业的提交情况*/
     @RequestMapping(value = "/homework/showSubmit/{hwId}")
     @ResponseBody
-    public ResponseData getSubmitHomework(@PathVariable("hwId") int hwId,Page page){
+    public ResponseData getSubmitHomework(@PathVariable("hwId") int hwId,HttpServletRequest httpServletRequest,Page page){
         Map map = new HashMap<>();
         map.put("hwId",hwId);
         page.setFilter(map);
@@ -92,7 +94,7 @@ public class HWController {
     /**查看我的提交*/
     @RequestMapping("/homework/mySubmittion")
     @ResponseBody
-    public ResponseData mySubmittion( @NotNull @ModelAttribute ("hwId") Integer hwId,BindingResult bindingResult,HttpServletRequest httpServletRequest){
+    public ResponseData mySubmittion(Integer hwId,HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
         return hwService.getMySubmittion(hwId,user);
     }

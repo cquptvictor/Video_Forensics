@@ -50,7 +50,7 @@
           class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <bean class="com.edu.victor.Conveter.StringToDate" />
+                <bean class="com.edu.victor.Conveter.StringToLong" />
             </set>
         </property>
     </bean>

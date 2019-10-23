@@ -6,8 +6,8 @@ public class Student extends User {
     private String email;
     private String phone;
     private String sexual;
+    private String classId;
     private String classNum;
-
 
     public String getClassNum() {
         return classNum;
@@ -15,6 +15,14 @@ public class Student extends User {
 
     public void setClassNum(String classNum) {
         this.classNum = classNum;
+    }
+
+    public String getClassId() {
+        return classId;
+    }
+
+    public void setClassId(String classId) {
+        this.classId = classId;
     }
 
     public String getBirth() {

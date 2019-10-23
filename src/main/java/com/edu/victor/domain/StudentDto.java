@@ -2,7 +2,7 @@ package com.edu.victor.domain;
 
 
 
-public class stuDto{
+public class StudentDto {
         private Integer id;
         private String username;
         private String name;
