@@ -318,7 +318,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         }
         return responseData;
     }*/
-    /**老师关闭了课程之后，学生就不能再进入课程了*/
+    /**老师关闭课程，当前课程下的学生的结业状态由0变为1*/
     @Override
     public ResponseData closeCourse(int courseId, User user) {
         ResponseData responseData = new ResponseData(0);
@@ -326,6 +326,16 @@ public class CourseManagementServiceImpl implements CourseManagementService {
             Map<String,Object> map = new HashMap<>();
             map.put("courseId",courseId);
             map.put("teaId",user.getId());
+            //校验课程是否是该老师的
+            if(!courseDao.courseBelongTo(map))
+            {
+                responseData.setCode(0);
+                responseData.setMessage("你不是该课程的老师");
+                return responseData;
+            }
+            //先查询出课程下的学生，再更改学生状态
+            List<User> userList = courseDao.getStuByCourse(courseId);
+            map.put("userList",userList);
             if(courseDao.closeCourse(map))
                 responseData.setCode(200);
         }

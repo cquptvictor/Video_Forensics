@@ -35,6 +35,7 @@ public interface CourseDao {
     Boolean updateCourseInfo(Course course);
     Boolean updateChapterInfo(Chapter chapter);
     Boolean updateSectionInfo(Section section);
+    Boolean courseBelongTo(Map<String,Object> map);
     Boolean closeCourse(Map<String,Object> map);
    //APP
     Page searchAllCoursesByPageForApp(Page page);
