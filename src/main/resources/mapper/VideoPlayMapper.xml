@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.VideoPlayDao">
+    <resultMap id="VideoCommentPage" type="Page">
+        <collection property="pageData" ofType="VideoCommentDto" autoMapping="true"/>
+    </resultMap>
+    <insert id="addNewPlayRecord" parameterType="VideoPlay">
+        insert into play_record (stu_id,sec_id,location,over)values(#{stuId},#{secId},#{location},#{over});
+    </insert>
+    <insert id="updatePlayRecord" parameterType="VideoPlay">
+        update play_record set location = #{location} where stu_id = #{stuId} and sec_id = #{secId};
+    </insert>
+    <update id="playOver" parameterType="VideoPlay">
+          update play_record set over = #{over} where stu_id = #{stuId} and sec_id = #{secId};
+    </update>
+    <insert id="pubComment" parameterType="VideoComment">
+        insert into video_comment(sec_id,stu_id,content,location)value (#{secId},#{stuId},#{content},#{location});
+    </insert>
+    <select id="getVideoCommentListByPage" resultMap="VideoCommentPage">
+        select video_comment.id as id,stu_id,stu.name as name,stu.avatar as avatar,content,location,`time` from video_comment join stu on stu.id = video_comment.stu_id where sec_id = #{filter.secId} order by `time` desc
+    </select>
+</mapper>

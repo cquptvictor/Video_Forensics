@@ -1,5 +1,6 @@
 package com.edu.victor.Conveter;
 
+import com.edu.victor.Exception.WrongArgumentsException;
 import org.springframework.core.convert.converter.Converter;
 
 import java.text.SimpleDateFormat;
@@ -12,12 +13,12 @@ public class StringToLong implements Converter<String, Long> {
     @Override
     public Long convert(String s) {
         try{
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             Date target = simpleDateFormat.parse(s);
+            System.out.println(target.getTime());
             return target.getTime();
         }catch (Exception e){
-            e.printStackTrace();
-            return null;
+            throw new WrongArgumentsException();
         }
 
     }

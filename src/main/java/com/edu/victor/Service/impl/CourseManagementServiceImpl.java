@@ -238,8 +238,13 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
 
     @Override
-    public ResponseData updateSection(Section section) {
+    public ResponseData updateSection(Section section) throws UnsupportedFileTypeException {
         ResponseData responseData = new ResponseData();
+        //如果更新了视频要对视频单独处理
+        if(section.getFile() != null){
+            String url = courseDao.getSectionUrl(section.getId());
+            FileUtils.updateSectionVideo(section.getFile(),url);
+        }
         if(courseDao.updateSectionInfo(section))
             responseData.setCode(200);
         else

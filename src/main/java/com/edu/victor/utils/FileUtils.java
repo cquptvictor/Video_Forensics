@@ -26,7 +26,7 @@ public class FileUtils {
     private static String SubmittedHomeworkUrl = "E:\\netClass\\submitted\\";*/
     private static String defaultAvatar = "default.jpg";
 
-    /*private static String avatarBaseUrl = "/root/netClass/avatar/";
+/*    private static String avatarBaseUrl = "/root/netClass/avatar/";
     private static String courseImageBaseUrl = "/root/netClass/course/";
     private static String courseVideoBaseUrl = "/root/netClass/video/";
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
@@ -172,6 +172,18 @@ public class FileUtils {
         for(String each:url) {
             File file = new File(base,each);
             file.delete();
+        }
+    }
+    public static void updateSectionVideo(MultipartFile multipartFile,String url) throws UnsupportedFileTypeException {
+        String fileName = multipartFile.getOriginalFilename();
+        String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+        if(!videoSuffixes.contains(suffix))
+            throw new UnsupportedFileTypeException();
+        File catalogFile = new File(courseVideoBaseUrl + url);
+        try {
+            multipartFile.transferTo(catalogFile);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     /**单个删除课件和视频*/

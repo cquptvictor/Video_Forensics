@@ -152,7 +152,7 @@ public class CourseManagementController {
     /**更改小节名，权重，视频*/
     @RequestMapping(value = "/section/update")
     @ResponseBody
-    public ResponseData updateSection(Section section,HttpServletRequest httpServletRequest){
+    public ResponseData updateSection(Section section,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         section.setTeaId(teacher.getId());
         return courseManagementService.updateSection(section);
