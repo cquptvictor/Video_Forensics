@@ -5,14 +5,23 @@
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.CourseDao">
     <!--课程下的章节和小节查询-->
-    <resultMap id="ChapterMap" type="ChapterDto">
-        <id column="chapter_id" property="id"/>
-        <collection property="sectionList" column="chapter_id" select="getSectionByStep" ofType="Section"/>
-
-    </resultMap>
     <resultMap id="CourseMap" type="CourseDtoForSpecific">
         <id column="course_id" property="id"/>
         <collection property="chapterDtoList" column="course_id" ofType="ChapterDto" select="getChapterByStep"/>
+    </resultMap>
+
+    <resultMap id="ChapterMap" type="ChapterDto">
+        <id column="chapter_id" property="id"/>
+        <collection property="sectionList" column="chapter_id" select="getSectionByStep" ofType="Section"/>
+    </resultMap>
+    <!--针对学生-->
+    <resultMap id="CourseMapForStu" type="CourseDtoSpecificForStu">
+        <id column="course_id" property="id"/>
+        <collection property="chapterDtoList" column="course_id" ofType="ChapterDtoForStu" select="getChapterByStepForStu"/>
+    </resultMap>
+    <resultMap id="ChapterMapForStu" type="ChapterDto">
+        <id column="chapter_id" property="id"/>
+        <collection property="sectionList" column="chapter_id" select="getSectionByStepForStu" ofType="SectionDtoForStu"/>
     </resultMap>
     <resultMap id="PageCourseware" type="Page">
         <collection property="pageData" ofType="Courseware" autoMapping="true"/>
@@ -31,6 +40,7 @@
     <resultMap id="PageLearningProgress" type="Page" autoMapping="true">
         <collection property="pageData" resultMap="LearningProgressMap" autoMapping="true"/>
     </resultMap>
+    <!--获取课程章节信息-->
     <select id="getCourseInfo" resultMap="CourseMap">
         select id as course_id from course where id = #{id};
     </select>
@@ -40,8 +50,16 @@
     <select id="getSectionByStep" resultType="Section">
         select id,title,superior_id,url from course_section where superior_id = #{id} order by weights;
     </select>
-
-
+    <!--针对app页面-->
+    <select id="getCourseInfoForStu" resultMap="CourseMapForStu">
+        select id as course_id from course where id = #{id};
+    </select>
+    <select id="getChapterByStepForStu" resultMap="ChapterMapForStu">
+        select id as chapter_id,title,superior_id from course_chapter where superior_id = #{id} order by weights;
+    </select>
+    <select id="getSectionByStepForStu" resultType="SectionDtoForStu">
+        select course_section.id,title,superior_id,url,IFNULL(over,0) as over,IFNULL(location,0) as location from course_section left join play_record on course_section.id = play_record.sec_id and play_record.stu_id = #{stuId} where superior_id = #{chapter_id} order by weights;
+    </select>
 
     <select id="searchCoursewareByPage" resultMap="PageCourseware">
         select id,`time`,url,title from courseware where superior_id = #{filter.id}
@@ -174,29 +192,32 @@
     <update id="closeCourse">
         update course set is_closed = "1" where id = #{courseId} and tea_id = #{teaId} and is_closed = "0";
     </update>
-    <!--APP端-->
+    <!--APP端所有课程-->
     <select id="searchAllCoursesByPageForApp" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,url,description from course join teacher on course.tea_id = teacher.id
+        select course.id as id,teacher.name as teaName,title,url,description,IFNULL(stu_course.id,0) as alreadyIn,url from course join teacher left join stu_course on stu_course.course_id = course.id and stu_course.stu_id = #{filter.stuId} and course.tea_id = teacher.id
         <where>
             <if test="filter.title != null">
                 title like "%${filter.title}%"
             </if>
         </where>
     </select>
+    <!--APP端我的课程-->
+    <select id="searchCoursesByPageForStu" resultMap="PageCourseForApp">
+        select course.id as id,teacher.name as teaName,title,url,description from course join teacher join stu_course and course.tea_id = teacher.id
+        <where>
+            <if test="filter.id != null">
+                stu_course.stu_id = #{filter.stuId}
+            </if>
+        </where>
+    </select>
+
     <select id="authCourseCode" resultType="Integer">
         select id from course where id = #{id} and code = #{code}
     </select>
     <insert id="addStuToCourse">
         insert into stu_course(course_id,stu_id)value (#{courseId},#{stuId})
     </insert>
-    <select id="searchCoursesByPageForStu" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,url,description from course join teacher join stu_course and course.tea_id = teacher.id
-        <where>
-            <if test="filter.id != null">
-                stu_course.stu_id = #{filter.id}
-            </if>
-        </where>
-    </select>
+
     <!--
     <select id="isSatisfied" resultType="Boolean">
         select progress > 95 from stu_course where stu_id =#{stuId} and course_id = #{courseId};

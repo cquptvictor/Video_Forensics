@@ -8,8 +8,16 @@ public class CourseForApp {
     private String title;
     private String description;
     private String teaName ;
+    private Integer alreadyIn;
     private String url;
-    private MultipartFile pic;
+
+    public Integer getAlreadyIn() {
+        return alreadyIn;
+    }
+
+    public void setAlreadyIn(Integer alreadyIn) {
+        this.alreadyIn = alreadyIn;
+    }
 
     public Integer getId() {
         return id;
@@ -49,14 +57,6 @@ public class CourseForApp {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public MultipartFile getPic() {
-        return pic;
-    }
-
-    public void setPic(MultipartFile pic) {
-        this.pic = pic;
     }
 
 }

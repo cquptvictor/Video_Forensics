@@ -21,7 +21,7 @@ public interface CourseManagementService {
     String searchSection(int id);
     List<String> searchSectionByChapter(int id );
     List<String> searchSectionByCourse(int course_id);*/
-    ResponseData getCourseInfo(int id);
+    ResponseData getCourseInfo(int id,User user);
     ResponseData deleteSection(int section_id, int tea_id);
     ResponseData deleteChapter(int id,int tea_id);
     ResponseData deleteCourse(int id,int tea_id);
@@ -30,7 +30,7 @@ public interface CourseManagementService {
     ResponseData updateChapter(Chapter chapter);
     ResponseData updateSection(Section section) throws UnsupportedFileTypeException;
     //APP端接口
-    ResponseData searchCourse(Page page,User user,String type);
+    ResponseData searchCourse(Page page,User user,CourseSearchForApp courseSearchForApp);
     ResponseData joinCourse(CourseJoin course,User user);
    // ResponseData graduate(Integer courseId,User user);
     ResponseData closeCourse(int courseId,User user);

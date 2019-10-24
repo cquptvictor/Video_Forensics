@@ -89,9 +89,16 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
 
     @Override
-    public ResponseData getCourseInfo(int id) {
+    public ResponseData getCourseInfo(int id,User user) {
         ResponseData responseData = new ResponseData(200);
-        responseData.setData(courseDao.getCourseInfo(id));
+        if(user.getIsTeacher().equals("1")) {
+            responseData.setData(courseDao.getCourseInfo(id));
+        }else{
+            Map<String,Object> map = new HashMap<>();
+            map.put("id",id);
+            map.put("stuId",id);
+            responseData.setData(courseDao.getCourseInfoForStu(map));
+        }
         return responseData;
     }
 
@@ -254,19 +261,21 @@ public class CourseManagementServiceImpl implements CourseManagementService {
 
     /**APP端接口*/
     @Override
-    public ResponseData searchCourse(Page page, User user, String type) {
+    public ResponseData searchCourse(Page page, User user, CourseSearchForApp courseSearchForApp) {
         ResponseData responseData = new ResponseData(200);
-
-       if(type.equals("all")){
+        Map<String,Object> map = new HashMap<>();
+        map.put("title",courseSearchForApp.getTitle());
+        map.put("stuId",user.getId());
+        page.setFilter(map);
+       if(courseSearchForApp.getType().equals("all")){
             Page page1 = courseDao.searchAllCoursesByPageForApp(page);
             page.setPageData(page1 != null ? page1.getPageData() : null);
             responseData.setData(page);
-        }else if(type.equals("my")){
+        }else{
            Page page1 = courseDao.searchCoursesByPageForStu(page);
            page.setPageData(page1 != null ? page1.getPageData() : null);
            responseData.setData(page);
-       }else
-           responseData.setCode(0);
+       }
        return responseData;
     }
     /**

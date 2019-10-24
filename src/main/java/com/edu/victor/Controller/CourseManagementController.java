@@ -53,8 +53,9 @@ public class CourseManagementController {
     /**查看某一课程的章节和小节*/
     @RequestMapping(value = "/courseInfo/{id}")
     @ResponseBody
-    public ResponseData getCourseInfo(@PathVariable int id){
-        return courseManagementService.getCourseInfo(id);
+    public ResponseData getCourseInfo(@PathVariable int id,HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return courseManagementService.getCourseInfo(id,user);
     }
     /**查看某一课程下的课件*/
     @RequestMapping(value = "/coursewares")
@@ -171,14 +172,11 @@ public class CourseManagementController {
 
     /**APP端功能*/
     /**展示和查询课程*/
-    @RequestMapping("/course/search/{type}")
+    @RequestMapping("/course/search")
     @ResponseBody
-    public ResponseData searchCourse(@PathVariable String type, String title,Page page,HttpServletRequest httpServletRequest){
+    public ResponseData searchCourse(@Valid CourseSearchForApp courseSearchForApp,BindingResult bindingResult, Page page,HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
-        Map<String,Object> map = new HashMap<>();
-        map.put("title",title);
-        page.setFilter(map);
-        return courseManagementService.searchCourse(page,user,type);
+        return courseManagementService.searchCourse(page,user,courseSearchForApp);
     }
     /**加入课程*/
     @RequestMapping("/course/join")
