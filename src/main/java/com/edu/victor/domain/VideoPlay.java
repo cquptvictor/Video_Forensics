@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 public class VideoPlay {
     @NotNull
     private Integer secId;//视频所在小节的id
-    private Double location;//视频播放到的进度
+    private String location;//视频播放到的进度
     private String over;//视频是否播放完毕
     private Integer stuId;
 
@@ -17,11 +17,11 @@ public class VideoPlay {
         this.secId = secId;
     }
 
-    public Double getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Double location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
