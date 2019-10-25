@@ -22,7 +22,6 @@ public class playProgressSchedule {
     @Scheduled(cron = "0 0/1 * * * ?")
     public void updateStuProgressToMysql(){
         Set<String> keys = redisTemplate.keys("playProgress*");
-        System.out.println(keys.size());
        // Long now = new Date().getTime();
         for(String key : keys){
             Map<String,Object> map = redisTemplate.opsForHash().entries(key);

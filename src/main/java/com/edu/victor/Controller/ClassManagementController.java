@@ -31,7 +31,7 @@ public class ClassManagementController {
     /**删除*/
     @RequestMapping("/class/delete")
     @ResponseBody
-    public ResponseData deleteClass(@NotNull int id,BindingResult bindingResult){
+    public ResponseData deleteClass(Integer id){
         return classManagementService.deleteClass(id);
     }
     /**展示班级*/

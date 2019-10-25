@@ -57,6 +57,18 @@
             </if>
         </where>
     </select>
+    <select id="getSubmittedHomeworkUrlByStu" resultType="String">
+        select url from hw_submit where stu_id = #{id};
+    </select>
+    <select id="getAvatarUrlByStu" resultType="String">
+        select avatar from stu where id = #{id}
+    </select>
+    <delete id="deleteStudent">
+        delete from stu where id = #{id};
+    </delete>
+    <delete id="deleteStudentMessage">
+        delete from msg_user where target_id = #{id} and is_teacher = "0";
+    </delete>
     <insert id="batchImport" parameterType="Student">
         insert into stu(username,password,name,sexual) values(#{username},#{password},#{name},#{sexual});
     </insert>

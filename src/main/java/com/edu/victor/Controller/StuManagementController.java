@@ -5,6 +5,7 @@ import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.Page;
 import com.edu.victor.domain.ResponseData;
 import com.edu.victor.domain.Student;
+import com.edu.victor.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotEmpty;
 import java.util.HashMap;
 import java.util.Map;
@@ -46,8 +48,9 @@ public class StuManagementController {
     }
     @RequestMapping(value = "/student/delete")
     @ResponseBody
-    public ResponseData deleteStu(String id){
-        return null;
+    public ResponseData deleteStu(Integer id, HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return stuManagementService.deleteStu(id,user);
     }
     @RequestMapping(value = "/batchImport",method = RequestMethod.POST)
     @ResponseBody

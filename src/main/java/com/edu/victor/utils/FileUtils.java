@@ -99,7 +99,8 @@ public class FileUtils {
     }
     /**更新头像*/
     public static String updateAvatar(MultipartFile multipartFile, String url) throws IOException, UnsupportedFileTypeException {
-        /**更新头像，直接替换；第一次上传还要创建文件*/
+        /**第一次换头像，需要创建文件这些
+         * 后面换头像，直接覆盖文件*/
         if(!url.equals(defaultAvatar)){
             File file = new File(avatarBaseUrl+url);
             multipartFile.transferTo(file);
@@ -167,8 +168,10 @@ public class FileUtils {
         String base = null;
         if(type.equals("video")){
             base = courseVideoBaseUrl ;
-        }else
+        }else if(type.equals("courseware")){
             base = coursewareBaseUrl ;
+        }else
+            base = SubmittedHomeworkUrl;
         for(String each:url) {
             File file = new File(base,each);
             file.delete();

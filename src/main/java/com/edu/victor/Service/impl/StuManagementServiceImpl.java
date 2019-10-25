@@ -3,14 +3,13 @@ package com.edu.victor.Service.impl;
 import com.edu.victor.Dao.StuManagementDao;
 import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.Service.StuManagementService;
-import com.edu.victor.domain.Page;
-import com.edu.victor.domain.ResponseData;
-import com.edu.victor.domain.Student;
-import com.edu.victor.domain.StudentDto;
+import com.edu.victor.domain.*;
 import com.edu.victor.utils.ExcelUtils;
+import com.edu.victor.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -40,8 +39,28 @@ public class StuManagementServiceImpl implements StuManagementService {
             responseData.setCode(0);
         return responseData;
     }
-
-
+    /**1.校验是否有权限删除
+     * 2.删除学生对应的头像文件，作业文件
+     * 3.数据库中删除学生记录,以及msg_user表的记录*/
+    @Override
+    @Transactional
+    public ResponseData deleteStu(Integer stuId, User user) {
+        ResponseData responseData = new ResponseData(0);
+        if(user.getIsTeacher().equals("1")){
+            //查询，并删除文件
+            String avatar = stuManagementDao.getAvatarUrlByStu(stuId);
+            List<String> list = stuManagementDao.getSubmittedHomeworkUrlByStu(stuId);
+            //默认头像不删除
+            if(!avatar.equals("default.jpg"))
+                FileUtils.deleteFile(avatar,"avatar");
+            FileUtils.deleteFile(list,"homework");
+            //删除数据库记录
+            stuManagementDao.deleteStudentMessage(stuId);
+            stuManagementDao.deleteStudent(stuId);
+            responseData.setCode(200);
+        }
+        return responseData;
+    }
 
     @Override
     public ResponseData searchStu(Page page) {

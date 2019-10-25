@@ -1,13 +1,11 @@
 package com.edu.victor.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;
 import java.util.Map;
 
 @JsonIgnoreProperties({"pageNumber","filter"})
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Page<T> {
 
     // 当前页数
