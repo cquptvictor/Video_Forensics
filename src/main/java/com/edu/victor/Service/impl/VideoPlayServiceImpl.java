@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class VideoPlayServiceImpl implements VideoPlayService {
@@ -41,8 +42,9 @@ public class VideoPlayServiceImpl implements VideoPlayService {
         map.put("stuId",user.getId()+"");
         map.put("secId",videoPlay.getSecId()+"");
         map.put("time",new Date().getTime()+"");
-
+        //存入值，同时设置过期时间
         redisTemplate.opsForHash().putAll(key,map);
+        redisTemplate.expire(key,60,TimeUnit.SECONDS);
         return responseData;
     }
 

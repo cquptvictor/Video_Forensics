@@ -11,26 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bd4d9fd-bd1d-47d4-948a-e0a2c620c172" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Schedule/playProgressSchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/VideoPlayDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/VideoPlayDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Schedule/playProgressSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Schedule/playProgressSchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/VideoPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/VideoPlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/VideoPlayMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/VideoPlayMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-service.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Dao/CourseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Dao/CourseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/CourseManagementServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/CourseManagementServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/spring/applicationContext-redis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/spring/applicationContext-redis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/spring/applicationContext-service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/spring/applicationContext-service.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Dao/CourseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Dao/CourseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/CourseManagementServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/CourseManagementServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext-redis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/applicationContext-redis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext-service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/applicationContext-service.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,65 +24,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/VideoPlayController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/VideoPlayService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/VideoPlayMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Schedule/playProgressSchedule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="90">
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UserDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -117,31 +49,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="256">
+              <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-service.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
             </state>
           </provider>
         </entry>
@@ -248,10 +162,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext-service.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/VideoPlayDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/VideoPlayMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Schedule/playProgressSchedule.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UserDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Schedule/playProgressSchedule.java" />
       </list>
     </option>
   </component>
@@ -264,7 +178,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-35" />
-    <option name="y" value="146" />
+    <option name="y" value="145" />
     <option name="width" value="1940" />
     <option name="height" value="1105" />
   </component>
@@ -276,7 +190,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -536,13 +449,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571927831131" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571927893959" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/target" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -575,7 +489,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UserDto">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 7.0.65">
     <configuration name="Homework" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.edu.victor.domain.Homework" />
       <module name="Video_Forensics" />
@@ -678,8 +592,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Homework" />
-      <item itemvalue="Tomcat Server.Tomcat 7.0.65" />
       <item itemvalue="Application.UserDto" />
+      <item itemvalue="Tomcat Server.Tomcat 7.0.65" />
     </list>
     <recent_temporary>
       <list>
@@ -704,7 +618,8 @@
       <workItem from="1571709384080" duration="12446000" />
       <workItem from="1571802428410" duration="21419000" />
       <workItem from="1571838087379" duration="3167000" />
-      <workItem from="1571882204231" duration="21977000" />
+      <workItem from="1571882204231" duration="22280000" />
+      <workItem from="1571969237575" duration="4000000" />
     </task>
     <task id="LOCAL-00001" summary="保存一下">
       <created>1571554969069</created>
@@ -762,11 +677,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571901676739</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="更新视频播放进度，采用了redis作为中介">
+      <created>1571927883308</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1571927883308</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90396000" />
+    <option name="totallyTimeSpent" value="94699000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -778,8 +700,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2660858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -791,8 +712,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.04249292" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2875354" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.11331445" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31303117" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.47308782" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -805,7 +726,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" />
-      <window_info anchor="bottom" id="Messages" order="16" weight="0.15580736" />
+      <window_info anchor="bottom" id="Messages" order="16" visible="true" weight="0.0694051" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -818,7 +739,7 @@
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2660858" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2660858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -828,8 +749,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.04249292" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31586403" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.11331445" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41218132" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.47308782" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -867,7 +788,8 @@
     <MESSAGE value="增加了视频播放的进度，评论的接口" />
     <MESSAGE value="app端获取所有课程多返回了一个alreadyIn参数" />
     <MESSAGE value="老师关闭课程前校验老师是否有权限关闭课程" />
-    <option name="LAST_COMMIT_MESSAGE" value="老师关闭课程前校验老师是否有权限关闭课程" />
+    <MESSAGE value="更新视频播放进度，采用了redis作为中介" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新视频播放进度，采用了redis作为中介" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -902,34 +824,16 @@
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Schedule/playProgressSchedule.java</url>
+          <line>26</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="85" column="51" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="65" column="87" selection-start-line="65" selection-start-column="75" selection-end-line="65" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/IndexController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1130,13 +1034,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/AppCourse.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/AppCourse.kt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseForApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -1290,54 +1188,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-service.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/VideoPlayDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/VideoPlayController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
+        <state relative-caret-position="585">
           <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1351,27 +1205,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-redis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1755">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.2.3.RELEASE/spring-context-4.2.3.RELEASE.jar!/org/springframework/scheduling/support/ScheduledMethodRunnable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/VideoPlayMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
+        <state relative-caret-position="118">
           <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Schedule/playProgressSchedule.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.2.3.RELEASE/spring-context-4.2.3.RELEASE.jar!/org/springframework/scheduling/concurrent/ReschedulingRunnable.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="98">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.2.3.RELEASE/spring-context-4.2.3.RELEASE.jar!/org/springframework/scheduling/support/DelegatingErrorHandlingRunnable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/VideoPlayDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/UserDto.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        <state relative-caret-position="315">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Schedule/playProgressSchedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

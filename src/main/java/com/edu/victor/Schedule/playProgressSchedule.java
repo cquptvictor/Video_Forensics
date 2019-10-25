@@ -21,17 +21,16 @@ public class playProgressSchedule {
      * 2.删除redis中的过期数据*/
     @Scheduled(cron = "0 0/1 * * * ?")
     public void updateStuProgressToMysql(){
-       // System.out.println("每个一分钟");
         Set<String> keys = redisTemplate.keys("playProgress*");
-        Long now = new Date().getTime();
+        System.out.println(keys.size());
+       // Long now = new Date().getTime();
         for(String key : keys){
             Map<String,Object> map = redisTemplate.opsForHash().entries(key);
             //时间间隔大于5分钟，说明已经更新到数据库过了,需要删除
-            if((Long)map.get("time") + 60000 > now){
+            //System.out.println(Long.valueOf((String)map.get("time")) + 60000L - now);
+            //if(Long.valueOf((String)map.get("time")) + 60000L > now){
                 videoPlayDao.updatePlayRecord(map);
-            }else{
-                redisTemplate.opsForHash().delete(key);
-            }
+            //}
         }
     }
 }
