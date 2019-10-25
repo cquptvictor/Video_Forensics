@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 
-
+/**接收学生提交作业*/
 public class SubmittedHomework {
     @NotNull
     private MultipartFile file;

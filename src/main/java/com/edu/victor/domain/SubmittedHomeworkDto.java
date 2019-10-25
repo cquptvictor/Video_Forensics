@@ -2,7 +2,7 @@ package com.edu.victor.domain;
 
 import javax.validation.constraints.NotNull;
 
-public class SbHomework {
+public class SubmittedHomeworkDto {
     private int id;
     @NotNull
     private Integer hwId;
@@ -10,6 +10,15 @@ public class SbHomework {
     private String status;
     private String name;
     private String username;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getUsername() {
         return username;

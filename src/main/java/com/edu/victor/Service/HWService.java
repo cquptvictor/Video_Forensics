@@ -17,7 +17,7 @@ public interface HWService {
     ResponseData updateHw(Homework homework);
     ResponseData deleteHw(Map<String,Integer> map) throws NotAuthorizedException;
     ResponseData judgeHw(Judge judge);
-    ResponseEntity<byte[]> downloadHw(int id) throws DownloadFileNotFoundException;
+    //ResponseEntity<byte[]> downloadHw(int id) throws DownloadFileNotFoundException;
     //APP
     ResponseData submitHw(SubmittedHomework submittedHw,User user) throws UnsupportedFileTypeException;
     ResponseData getMySubmittion(int id,User user);

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,10 +71,10 @@ public class HWController {
         map.put("teaId",teacher.getId());
         return hwService.deleteHw(map);
     }
-    @RequestMapping(value = "/homework/download/{id}",method = RequestMethod.GET)
+  /*  @RequestMapping(value = "/homework/download/{id}",method = RequestMethod.GET)
     public ResponseEntity<byte[]> Download(@PathVariable("id") int id) throws IOException {
        return hwService.downloadHw(id);
-    }
+    }*/
     /**评分*/
     @RequestMapping(value = "/homework/judge")
     @ResponseBody

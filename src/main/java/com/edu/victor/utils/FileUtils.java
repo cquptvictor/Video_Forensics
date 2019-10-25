@@ -199,7 +199,7 @@ public class FileUtils {
             File file = new File(base,url);
             file.delete();
     }
-    public static ResponseEntity<byte[]> dowmloadSubmittedHomework(String url) throws DownloadFileNotFoundException {
+  /*  public static ResponseEntity<byte[]> dowmloadSubmittedHomework(String url) throws DownloadFileNotFoundException {
         url = SubmittedHomeworkUrl + url;
         File file = new File(url);
         byte[] body = null;
@@ -212,9 +212,9 @@ public class FileUtils {
             throw new DownloadFileNotFoundException();
         }
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "attchement;filename=" + file.getName());
+        headers.add("Content-Disposition","attachment;filename=" + file.getName());
         HttpStatus statusCode = HttpStatus.OK;
         ResponseEntity<byte[]> entity = new ResponseEntity<>(body, headers, statusCode);
         return entity;
-    }
+    }*/
 }

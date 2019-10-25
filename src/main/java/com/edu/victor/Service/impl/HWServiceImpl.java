@@ -153,11 +153,11 @@ public class HWServiceImpl implements HWService {
         return responseData;
     }
 
-    @Override
+  /*  @Override
     public ResponseEntity<byte[]> downloadHw(int id) throws DownloadFileNotFoundException {
         String url = hwDao.getUrlBySubmittedHw(id);
         return FileUtils.dowmloadSubmittedHomework(url);
-    }
+    }*/
 
     //APP端
     /**学生提交作业

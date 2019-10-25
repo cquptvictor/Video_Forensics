@@ -32,12 +32,6 @@
             #{item.id}
         </foreach>
     </update>
-    <update id="markAsRead" parameterType="map">
-        update msg_user set `read` = 1 where id in
-        <foreach collection="idList" separator="," item="item" index="index" open="(" close=")">
-            #{item}
-        </foreach>
-    </update>
     <select id="getContentId" resultType="Integer">
         select content_id from msg_user join message on msg_user.msg_id = message.id and msg_user.id = #{id};
     </select>
@@ -45,4 +39,11 @@
     <select id="getMsgUserIdList" resultType="Integer">
         select msg_user.id from msg_user join message on msg_user.msg_id = message.id where msg_user.target_id = 1 and message.content_id = 3 and  msg_user.is_teacher = 1 and msg_user.read = 0;
     </select>
+    <update id="markAsRead" parameterType="map">
+        update msg_user set `read` = 1 where id in
+        <foreach collection="idList" separator="," item="item" index="index" open="(" close=")">
+            #{item}
+        </foreach>
+    </update>
+
 </mapper>

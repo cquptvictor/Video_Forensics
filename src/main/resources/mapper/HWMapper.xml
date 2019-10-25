@@ -9,7 +9,7 @@
         </collection>
     </resultMap>
     <resultMap id="PageMapSb" type="Page">
-        <collection property="pageData" ofType="SbHomework" autoMapping="true">
+        <collection property="pageData" ofType="SubmittedHomeworkDto" autoMapping="true">
         </collection>
     </resultMap>
     <!--mapper返回的任然是受影响的行数，主键返回在实体的对应属性中-->
@@ -24,7 +24,7 @@
         select * from homework where id = #{id}
     </select>
     <select id="getSubmitedByPage" parameterType="Page" resultMap="PageMapSb">
-        select hw_submit.id as id,score,status,stu.name as name,stu.username as username from hw_submit join stu on hw_submit.stu_id = stu.id where hw_id = #{filter.hwId}
+        select hw_submit.id as id,score,status,stu.name as name,stu.username as username,url from hw_submit join stu on hw_submit.stu_id = stu.id where hw_id = #{filter.hwId}
     </select>
     <update id="updateHw" parameterType="Homework">
         update homework <set>

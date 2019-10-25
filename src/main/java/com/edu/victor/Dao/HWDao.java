@@ -9,7 +9,7 @@ public interface HWDao {
     Boolean publishHW(Homework homework);
     Page<Homework> getHwByCourseByPage(Page page);
     Homework getSpecificHomework(int id);
-    Page<SbHomework> getSubmitedByPage(Page page);
+    Page<SubmittedHomeworkDto> getSubmitedByPage(Page page);
     Boolean updateHw(Homework homework);
     Boolean judgeHw(Judge judge);
     List<String> getSubmittedHwByHw(int id);
