@@ -94,9 +94,9 @@ public class UserController {
     /**标记消息为未读*/
     @RequestMapping("/markAsRead")
     @ResponseBody
-    public ResponseData markAsRead(Integer[] msgUserId, HttpServletRequest httpServletRequest){
+    public ResponseData markAsRead(@Valid MarkRead markRead,BindingResult bindingResult, HttpServletRequest httpServletRequest){
         User user = (User)httpServletRequest.getAttribute("User");
-        return userService.MarkUnreadAsRead(msgUserId,user);
+        return userService.MarkUnreadAsRead(markRead,user);
     }
 
 }

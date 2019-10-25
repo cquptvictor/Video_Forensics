@@ -12,10 +12,11 @@ public interface MessageDao {
     Boolean addMessage(Message message);
     Boolean addMsgUser(List<MsgUser> msgUser);
     Boolean deleteMessage(int id, String category);
-    List<Integer> getMsgUserIdList(Map<String,Object> map);
     Page getUserMessagesByPage(Page page);
     Integer getUnreadMessageNum(Map map);
     Boolean setAlreadyRead(@Param("map") Map map);
     Boolean markAsRead(Map<String,Object> map);
+    Integer getContentId(Integer id);
+    List<Integer> getMsgUserIdList(Map<String,Object> map);
 
 }

@@ -209,14 +209,24 @@ public class UserServiceImpl implements UserService {
         return responseData;
     }
     /**对于非聊天消息，直接标记为已读
-     * 对于聊天消息，把帖子中的当前时间之前的消息都标记为已读*/
+     * 对于聊天消息，把该帖子的所有消息直接标记为已读*/
     @Override
-    public ResponseData MarkUnreadAsRead(Integer[] array, User user) {
-        Map<String,Object> map = new HashMap<>();
-        map.put("idList",array);
-        //后面两个参数主要是避免伪造数据包
-        map.put("targetId",user.getId());
-        map.put("isTeacher",user.getIsTeacher());
+    public ResponseData MarkUnreadAsRead( MarkRead markRead,User user) {
+        //0表示非问答
+        Map<String, Object> map = new HashMap<>();
+        List<Integer> idList = new ArrayList<>();
+        if(markRead.getType().equals("1")) {/**
+         * 1.根据id查询出ContentId
+         * 2.根据targetId和ContentId得到所有的id*/
+            Integer contentId = messageDao.getContentId(markRead.getMsgUserId());
+            map.put("contentId", contentId);
+            map.put("targetId", user.getId());
+            map.put("isTeacher", user.getIsTeacher());
+            idList = messageDao.getMsgUserIdList(map);
+        }else{
+            idList.add(markRead.getMsgUserId());
+        }
+        map.put("idList", idList);
         ResponseData responseData = new ResponseData(200);
         if(!messageDao.markAsRead(map))
             responseData.setCode(0);
