@@ -1,10 +1,8 @@
 package com.edu.victor.Dao;
 
-import com.edu.victor.domain.Page;
-import com.edu.victor.domain.VideoComment;
-import com.edu.victor.domain.VideoCommentDto;
-import com.edu.victor.domain.VideoPlay;
+import com.edu.victor.domain.*;
 
+import java.util.List;
 import java.util.Map;
 
 public interface VideoPlayDao {
@@ -14,4 +12,5 @@ public interface VideoPlayDao {
     Boolean playOver(VideoPlay videoPlay);
     Boolean pubComment(VideoComment videoComment);
     Page<VideoCommentDto> getVideoCommentListByPage(Page page);
+    List<HistoryRecord> getHistoryRecord(Map<String,Object> map);
 }

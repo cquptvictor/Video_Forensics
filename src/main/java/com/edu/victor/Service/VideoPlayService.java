@@ -8,4 +8,6 @@ public interface VideoPlayService {
     ResponseData finishPlay(VideoPlay videoPlay,User user);
     ResponseData publishVideoComment(VideoComment videoComment, User user);
     ResponseData showVideoCommentList(Page page,Integer secId);
+    ResponseData getLastRecord(User user);
+    ResponseData addLastRecord(Integer id, User user);
 }

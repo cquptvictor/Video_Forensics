@@ -47,4 +47,16 @@ public class VideoPlayController {
     public ResponseData showVideoComment(Integer secId, Page page, HttpServletRequest httpServletRequest){
         return videoPlayService.showVideoCommentList(page,secId);
     }
+    @RequestMapping("/historyRecord")
+    @ResponseBody
+    public ResponseData getHistoryRecord(HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return videoPlayService.getLastRecord(user);
+    }
+    @RequestMapping("/addRecord")
+    @ResponseBody
+    public ResponseData addHistoryRecord(Integer id,HttpServletRequest httpServletRequest){
+        User user = (User)httpServletRequest.getAttribute("User");
+        return videoPlayService.addLastRecord(id,user);
+    }
 }

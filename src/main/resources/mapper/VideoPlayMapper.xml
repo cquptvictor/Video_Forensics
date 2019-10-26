@@ -22,4 +22,10 @@
     <select id="getVideoCommentListByPage" resultMap="VideoCommentPage">
         select video_comment.id as id,stu_id,stu.name as name,stu.avatar as avatar,content,location,`time` from video_comment join stu on stu.id = video_comment.stu_id where sec_id = #{filter.secId} order by `time` desc
     </select>
+    <select id="getHistoryRecord" resultType="HistoryRecord">
+        select play_record.sec_id as sectionId,course.title as courseName,course_chapter.title,course_section.title as sectionName,course.url from play_record join course join course_chapter join course_section on play_record.sec_id = course_section.id and course_section.superior_id = course_chapter.id and course_chapter.superior_id = course.id where play_record.stu_id = #{stuId} and play_record.sec_id in
+        <foreach collection="idList" separator="," item="item" index="index" open="(" close=")">
+          #{item}
+        </foreach>
+    </select>
 </mapper>
