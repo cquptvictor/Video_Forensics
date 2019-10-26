@@ -9,9 +9,11 @@ import com.edu.victor.domain.*;
 import com.edu.victor.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +24,8 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     CourseDao courseDao;
     @Autowired
     UserService teacherService;
+    @Autowired
+    RedisTemplate redisTemplate;
     @Override
     public ResponseData addCourse(Course course, Teacher teacher) throws IncompleteInformationException, UnsupportedFileTypeException {
         /**验证用户信息是否完整*/
@@ -94,10 +98,27 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         if(user.getIsTeacher().equals("1")) {
             responseData.setData(courseDao.getCourseInfo(id));
         }else{
+            //在Mysql中查询
             Map<String,Object> map = new HashMap<>();
             map.put("id",id);
             map.put("stuId",id);
-            responseData.setData(courseDao.getCourseInfoForStu(map));
+            CourseDtoSpecificForStu courseDtoSpecificForStu = courseDao.getCourseInfoForStu(map);
+            /**找到该播放的视频section，
+             * 更新section的location
+             * */
+            for(ChapterDtoForStu chapter :courseDtoSpecificForStu.getChapterDtoList())
+            {
+                for(SectionDtoForStu sectionDtoForStu:chapter.getSectionList()){
+                    if(sectionDtoForStu.getOver().equals("0")){
+                        String key = String.format("playProgress_%d_%d",sectionDtoForStu.getId(),user.getId());
+                        Object mysqlLocation = redisTemplate.opsForHash().entries(key).get("location");
+
+                        if(mysqlLocation != null && (Double)mysqlLocation > Double.valueOf(sectionDtoForStu.getLocation()));
+                            sectionDtoForStu.setLocation((Double)mysqlLocation);
+                    }
+                }
+                responseData.setData(courseDtoSpecificForStu);
+            }
         }
         return responseData;
     }

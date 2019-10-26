@@ -19,7 +19,7 @@
         <id column="course_id" property="id"/>
         <collection property="chapterDtoList" column="course_id" ofType="ChapterDtoForStu" select="getChapterByStepForStu"/>
     </resultMap>
-    <resultMap id="ChapterMapForStu" type="ChapterDto">
+    <resultMap id="ChapterMapForStu" type="ChapterDtoForStu">
         <id column="chapter_id" property="id"/>
         <collection property="sectionList" column="chapter_id" select="getSectionByStepForStu" ofType="SectionDtoForStu"/>
     </resultMap>
@@ -58,7 +58,7 @@
         select id as chapter_id,title,superior_id from course_chapter where superior_id = #{id} order by weights;
     </select>
     <select id="getSectionByStepForStu" resultType="SectionDtoForStu">
-        select course_section.id,title,superior_id,url,IFNULL(over,0) as over,IFNULL(location,0) as location from course_section left join play_record on course_section.id = play_record.sec_id and play_record.stu_id = #{stuId} where superior_id = #{chapter_id} order by weights;
+        select course_section.id,title,superior_id,url,IFNULL(play_record.over,0) as  `over`, location from course_section left join play_record on course_section.id = play_record.sec_id and play_record.stu_id = #{stuId} where superior_id = #{chapter_id} order by weights;
     </select>
 
     <select id="searchCoursewareByPage" resultMap="PageCourseware">
@@ -209,7 +209,7 @@
     </select>
     <!--APP端我的课程-->
     <select id="searchCoursesByPageForStu" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,url,description from course join teacher join stu_course and course.tea_id = teacher.id
+        select course.id as id,teacher.name as teaName,title,url,description from course join teacher join stu_course on course.tea_id = teacher.id
         <where>
             <if test="filter.id != null">
                 stu_course.stu_id = #{filter.stuId}

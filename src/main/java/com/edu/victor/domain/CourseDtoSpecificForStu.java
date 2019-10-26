@@ -1,12 +1,12 @@
 package com.edu.victor.domain;
 
 
+
 import java.util.List;
 
 public class CourseDtoSpecificForStu {
     private List<ChapterDtoForStu> chapterDtoList;
     private Integer id;
-
     public List<ChapterDtoForStu> getChapterDtoList() {
         return chapterDtoList;
     }

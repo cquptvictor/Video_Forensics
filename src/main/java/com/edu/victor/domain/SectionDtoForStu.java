@@ -2,7 +2,7 @@ package com.edu.victor.domain;
 
 public class SectionDtoForStu extends Section{
     private String over;
-    private String location;
+    private Double location;
 
     public String getOver() {
         return over;
@@ -12,11 +12,11 @@ public class SectionDtoForStu extends Section{
         this.over = over;
     }
 
-    public String getLocation() {
+    public Double getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Double location) {
         this.location = location;
     }
 }

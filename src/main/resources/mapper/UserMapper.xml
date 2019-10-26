@@ -63,7 +63,7 @@
         select email,name,id,avatar,username from teacher where id = #{id};
     </select>
     <select id="studentInfo" resultType="Student">
-        select stu.id as id,email,`name`,avatar,username,birth,sexual,phone,class_num from stu left join class on stu.class_id = class.id where stu.id = #{id}
+        select stu.id as id,email,`name`,avatar,username,birth,sexual,phone,class_num,class.id as classId from stu left join class on stu.class_id = class.id where stu.id = #{id}
     </select>
     <update id="updateTeaAvatar">
         update teacher set avatar = #{avatar} where id =#{id}
