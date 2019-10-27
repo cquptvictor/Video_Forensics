@@ -11,17 +11,17 @@
     </resultMap>
 
     <resultMap id="ChapterMap" type="ChapterDto">
-        <id column="chapter_id" property="id"/>
         <collection property="sectionList" column="chapter_id" select="getSectionByStep" ofType="Section"/>
     </resultMap>
     <!--针对学生-->
     <resultMap id="CourseMapForStu" type="CourseDtoSpecificForStu">
         <id column="course_id" property="id"/>
-        <collection property="chapterDtoList" column="course_id" ofType="ChapterDtoForStu" select="getChapterByStepForStu"/>
+        <collection property="chapterDtoList" column="{courseId = course_id,stuId=stuId}" ofType="ChapterDtoForStu" select="getChapterByStepForStu"/>
     </resultMap>
     <resultMap id="ChapterMapForStu" type="ChapterDtoForStu">
         <id column="chapter_id" property="id"/>
-        <collection property="sectionList" column="chapter_id" select="getSectionByStepForStu" ofType="SectionDtoForStu"/>
+        <collection property="sectionList" column="{chapterId =chapter_id,stuId = stuId}" ofType="SectionDtoForStu" select="getSectionByStepForStu">
+        </collection>
     </resultMap>
     <resultMap id="PageCourseware" type="Page">
         <collection property="pageData" ofType="Courseware" autoMapping="true"/>
@@ -45,20 +45,20 @@
         select id as course_id from course where id = #{id};
     </select>
     <select id="getChapterByStep" resultMap="ChapterMap">
-        select id as chapter_id,title,superior_id from course_chapter where superior_id = #{id} order by weights;
+        select id as chapter_id,title,superior_id from course_chapter where superior_id = #{courseId} order by weights;
     </select>
     <select id="getSectionByStep" resultType="Section">
         select id,title,superior_id,url from course_section where superior_id = #{id} order by weights;
     </select>
     <!--针对app页面-->
     <select id="getCourseInfoForStu" resultMap="CourseMapForStu">
-        select id as course_id from course where id = #{id};
+        select id as course_id ,#{stuId} as stuId from course where id = #{id};
     </select>
     <select id="getChapterByStepForStu" resultMap="ChapterMapForStu">
-        select id as chapter_id,title,superior_id from course_chapter where superior_id = #{id} order by weights;
+        select id as chapter_id,title,superior_id,#{stuId} as stuId from course_chapter where superior_id = #{courseId} order by weights;
     </select>
     <select id="getSectionByStepForStu" resultType="SectionDtoForStu">
-        select course_section.id,title,superior_id,url,IFNULL(play_record.over,0) as  `over`, location from course_section left join play_record on course_section.id = play_record.sec_id and play_record.stu_id = #{stuId} where superior_id = #{chapter_id} order by weights;
+        select course_section.id,title,superior_id,url,IFNULL(play_record.over,0) as  `over`, location from course_section left join play_record on course_section.id = play_record.sec_id and play_record.stu_id = #{stuId} where superior_id = #{chapterId} order by weights;
     </select>
 
     <select id="searchCoursewareByPage" resultMap="PageCourseware">

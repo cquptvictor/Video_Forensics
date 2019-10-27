@@ -26,7 +26,7 @@ public class VideoPlayServiceImpl implements VideoPlayService {
         if(user.getIsTeacher().equals("0")){
             videoPlay.setStuId(user.getId());
             videoPlay.setOver("0");
-            videoPlay.setLocation("00:00");
+            videoPlay.setLocation("000.00");
             if(!videoPlayDao.addNewPlayRecord(videoPlay))
                 responseData.setCode(0);
         }else{

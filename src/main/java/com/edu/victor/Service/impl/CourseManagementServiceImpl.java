@@ -101,7 +101,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
             //在Mysql中查询
             Map<String,Object> map = new HashMap<>();
             map.put("id",id);
-            map.put("stuId",id);
+            map.put("stuId",user.getId());
             CourseDtoSpecificForStu courseDtoSpecificForStu = courseDao.getCourseInfoForStu(map);
             /**找到该播放的视频section，
              * 更新section的location
@@ -113,7 +113,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
                         String key = String.format("playProgress_%d_%d",sectionDtoForStu.getId(),user.getId());
                         Object mysqlLocation = redisTemplate.opsForHash().entries(key).get("location");
 
-                        if(mysqlLocation != null && (Double)mysqlLocation > Double.valueOf(sectionDtoForStu.getLocation()));
+                        if(mysqlLocation != null && (Double)mysqlLocation > Double.valueOf(sectionDtoForStu.getLocation()))
                             sectionDtoForStu.setLocation((Double)mysqlLocation);
                     }
                 }
