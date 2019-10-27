@@ -54,6 +54,7 @@ public class VideoPlayServiceImpl implements VideoPlayService {
     public ResponseData finishPlay(VideoPlay videoPlay, User user) {
         ResponseData responseData = new ResponseData(200);
         videoPlay.setStuId(user.getId());
+        videoPlay.setOver("1");
         if(!videoPlayDao.playOver(videoPlay))
             responseData.setCode(0);
         return responseData;

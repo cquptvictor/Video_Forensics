@@ -44,5 +44,9 @@ public interface CourseDao {
     Page<Course> searchCoursesByPageForStu(Page page);
  /*   Boolean isSatisfied(Map<String,Object> map);
     Boolean graduate(Map<String,Object> map);*/
-
+    /**学生进度*/
+    List<Integer> getAllCourse();
+    List<Integer> getAllStudentsByCourse(int id);
+    VideoPlaySituation getStudentVideoPlaySituation(VideoPlaySituation videoPlaySituation);
+    Boolean updateStudentStudyProgress(VideoPlaySituation videoPlaySituation);
 }

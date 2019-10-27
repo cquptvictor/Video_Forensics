@@ -8,6 +8,16 @@ public class VideoPlay {
     private String location;//视频播放到的进度
     private String over;//视频是否播放完毕
     private Integer stuId;
+    @NotNull
+    private Integer courseId;
+
+    public Integer getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
 
     public Integer getSecId() {
         return secId;

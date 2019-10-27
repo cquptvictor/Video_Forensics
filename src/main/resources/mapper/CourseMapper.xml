@@ -224,7 +224,6 @@
     <insert id="addStuToCourse">
         insert into stu_course(course_id,stu_id)value (#{courseId},#{stuId})
     </insert>
-
     <!--
     <select id="isSatisfied" resultType="Boolean">
         select progress > 95 from stu_course where stu_id =#{stuId} and course_id = #{courseId};
@@ -233,5 +232,18 @@
         update stu_course set graduated = 1 where stu_id = #{stuId} and course_id = #{courseId} and progress >= 95.0;
     </update>
     -->
+    <!--用于学生学习进度-->
+    <select id="getAllCourse" resultType="Integer">
+        select id from course;
+    </select>
+    <select id="getAllStudentsByCourse" resultType="Integer">
+        select id from stu_course where course_id = #{id};
+    </select>
+    <select id="getStudentVideoPlaySituation" resultType="VideoPlaySituation">
+        select count(id) as total,count(`over` = "1" or null) as alreadyOver from play_record where course_id = #{courseId} and stu_id = #{stuId};
+    </select>
+    <update id="updateStudentStudyProgress">
+        update stu_course set learning_progress = #{progress} where stu_id = #{stuId} and course_id = #{courseId};
+    </update>
 </mapper>
 

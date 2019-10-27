@@ -8,7 +8,7 @@
         <collection property="pageData" ofType="VideoCommentDto" autoMapping="true"/>
     </resultMap>
     <insert id="addNewPlayRecord" parameterType="VideoPlay">
-        insert into play_record(stu_id,sec_id,location,over)values(#{stuId},#{secId},#{location},#{over});
+        insert into play_record(stu_id,sec_id,location,over,course_id)values(#{stuId},#{secId},#{location},#{over},#{courseId});
     </insert>
     <insert id="updatePlayRecord">
         update play_record set location = #{location} where stu_id = #{stuId} and sec_id = #{secId};

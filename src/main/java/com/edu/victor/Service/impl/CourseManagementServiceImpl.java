@@ -103,7 +103,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
             map.put("id",id);
             map.put("stuId",user.getId());
             CourseDtoSpecificForStu courseDtoSpecificForStu = courseDao.getCourseInfoForStu(map);
-            /**找到该播放的视频section，
+            /**找到应该该播放的视频section，
              * 更新section的location
              * */
             for(ChapterDtoForStu chapter :courseDtoSpecificForStu.getChapterDtoList())
@@ -111,10 +111,10 @@ public class CourseManagementServiceImpl implements CourseManagementService {
                 for(SectionDtoForStu sectionDtoForStu:chapter.getSectionList()){
                     if(sectionDtoForStu.getOver().equals("0")){
                         String key = String.format("playProgress_%d_%d",sectionDtoForStu.getId(),user.getId());
-                        Object mysqlLocation = redisTemplate.opsForHash().entries(key).get("location");
-
-                        if(mysqlLocation != null && (Double)mysqlLocation > sectionDtoForStu.getLocation())
-                            sectionDtoForStu.setLocation((Double)mysqlLocation);
+                        Object object= redisTemplate.opsForHash().entries(key).get("location");
+                        Double mysqlLocation = object != null ? Double.valueOf((String)object) : null;
+                        if(mysqlLocation != null && mysqlLocation > sectionDtoForStu.getLocation())
+                            sectionDtoForStu.setLocation(mysqlLocation);
                     }
                 }
                 responseData.setData(courseDtoSpecificForStu);
