@@ -113,7 +113,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
                         String key = String.format("playProgress_%d_%d",sectionDtoForStu.getId(),user.getId());
                         Object mysqlLocation = redisTemplate.opsForHash().entries(key).get("location");
 
-                        if(mysqlLocation != null && (Double)mysqlLocation > Double.valueOf(sectionDtoForStu.getLocation()))
+                        if(mysqlLocation != null && (Double)mysqlLocation > sectionDtoForStu.getLocation())
                             sectionDtoForStu.setLocation((Double)mysqlLocation);
                     }
                 }

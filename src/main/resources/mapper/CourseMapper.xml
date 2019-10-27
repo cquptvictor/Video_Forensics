@@ -11,6 +11,7 @@
     </resultMap>
 
     <resultMap id="ChapterMap" type="ChapterDto">
+        <id column="chapter_id" property="id"/>
         <collection property="sectionList" column="chapter_id" select="getSectionByStep" ofType="Section"/>
     </resultMap>
     <!--针对学生-->
@@ -209,7 +210,7 @@
     </select>
     <!--APP端我的课程-->
     <select id="searchCoursesByPageForStu" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,url,description from course join teacher join stu_course on course.tea_id = teacher.id
+        select course.id as id,teacher.name as teaName,title,url,description,stu_id from course join teacher join stu_course on course.tea_id = teacher.id and stu_course.course_id = course.id
         <where>
             <if test="filter.id != null">
                 stu_course.stu_id = #{filter.stuId}

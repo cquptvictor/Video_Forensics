@@ -85,13 +85,14 @@ public class VideoPlayServiceImpl implements VideoPlayService {
      * 根据SectionId到数据库中进行查询数据*/
     @Override
     public ResponseData getLastRecord(User user) {
+        ResponseData responseData = new ResponseData(200);
         String key = String.format("history%d", user.getId());
         List<Integer> idList = redisTemplate.opsForList().range(key,0,10);
         Map<String, Object> map = new HashMap<>();
         map.put("idList",idList);
         map.put("stuId",user.getId());
-        videoPlayDao.getHistoryRecord(map);
-        return null;
+        responseData.setData(videoPlayDao.getHistoryRecord(map));
+        return responseData;
     }
     /**添加入redis历史记录中*/
     @Override
@@ -102,7 +103,7 @@ public class VideoPlayServiceImpl implements VideoPlayService {
         if(id == redisTemplate.opsForList().index(key,0)){
          return responseData;
         }
-        redisTemplate.opsForList().leftPush(key,id);
+        redisTemplate.opsForList().leftPush(key,id +"");
         /**超过了10就从右边删除*/
         while(redisTemplate.opsForList().size(key) > 10){
             redisTemplate.opsForList().rightPop(key);
