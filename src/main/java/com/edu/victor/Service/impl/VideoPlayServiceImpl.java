@@ -100,15 +100,12 @@ public class VideoPlayServiceImpl implements VideoPlayService {
     public ResponseData addLastRecord(Integer id, User user) {
         ResponseData responseData = new ResponseData(200);
         String key = String.format("history%d", user.getId());
-        //连续两次看同一个视频，就不变
-        if(id == redisTemplate.opsForList().index(key,0)){
-         return responseData;
-        }
+        //移出表中等于id的记录
+        redisTemplate.opsForList().trim(key,1,id);
+        //把id推入list中
         redisTemplate.opsForList().leftPush(key,id +"");
-        /**超过了10就从右边删除*/
-        while(redisTemplate.opsForList().size(key) > 10){
-            redisTemplate.opsForList().rightPop(key);
-        }
+        /**保持list的长度不超过10*/
+        redisTemplate.opsForList().trim(key,0,9);
         return responseData;
     }
 }

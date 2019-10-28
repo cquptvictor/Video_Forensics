@@ -32,7 +32,7 @@ public class StudentProgressSchedule {
                 videoPlaySituation.setStuId(studentId);
                 videoPlaySituation.setCourseId(courseId);
                 VideoPlaySituation temp = courseDao.getStudentVideoPlaySituation(videoPlaySituation);
-                videoPlaySituation.setProgress((temp.getAlreadyOver()/temp.getTotal()));
+                videoPlaySituation.setProgress((temp.getAlreadyOver()/temp.getTotal()*100));
                 videoPlaySituations.add(videoPlaySituation);
             }
         }

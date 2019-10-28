@@ -203,9 +203,9 @@
     <select id="searchAllCoursesByPageForApp" resultMap="PageCourseForApp">
         select course.id as id,teacher.name as teaName,title,url,description,IFNULL(stu_course.id,0) as alreadyIn, url from course join teacher left join stu_course on stu_course.course_id = course.id and stu_course.stu_id = #{filter.stuId} and course.tea_id = teacher.id
         <where>
-            graduated = 0 or graduated is null and
+            graduated = 0 or graduated is null
             <if test="filter.title != null">
-                title like "%${filter.title}%"
+               and title like "%${filter.title}%"
             </if>
         </where>
     </select>
