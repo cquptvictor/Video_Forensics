@@ -1,6 +1,5 @@
 package com.edu.victor.domain;
 
-import org.springframework.web.multipart.MultipartFile;
 
 
 public class CourseForApp {
@@ -10,6 +9,15 @@ public class CourseForApp {
     private String teaName ;
     private Integer alreadyIn;
     private String url;
+    private String graduated;
+
+    public String getGraduated() {
+        return graduated;
+    }
+
+    public void setGraduated(String graduated) {
+        this.graduated = graduated;
+    }
 
     public Integer getAlreadyIn() {
         return alreadyIn;

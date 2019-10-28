@@ -355,7 +355,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
                 return responseData;
             }
             //先查询出课程下的学生，再更改学生状态
-            List<User> userList = courseDao.getStuByCourse(courseId);
+            List<User> userList = courseDao.getUngraduatedStuByCourse(courseId);
             map.put("userList",userList);
             if(courseDao.closeCourse(map))
                 responseData.setCode(200);

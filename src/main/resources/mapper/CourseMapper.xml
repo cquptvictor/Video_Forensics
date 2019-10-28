@@ -115,8 +115,8 @@
     <select id="getCoursewareUrlByCourse" resultType="String">
         select url from courseware where superior_id = #{id};
     </select>
-    <select id="getStuByCourse" resultType="User">
-        select stu_id as id,0 as is_teacher from stu_course where course_id = #{Id}
+    <select id="getUngraduatedStuByCourse" resultType="User">
+        select stu_id as id,0 as is_teacher from stu_course where course_id = #{Id} and stu_course.graduate = 0
     </select>
     <select id="getStuLearningProgressByPage" resultMap="PageLearningProgress">
         select name,username,phone,stu_course.id as id,course_id,learning_progress,graduated from stu join stu_course on stu.id =stu_course.stu_id
@@ -201,8 +201,9 @@
     </update>
     <!--APP端所有课程-->
     <select id="searchAllCoursesByPageForApp" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,url,description,IFNULL(stu_course.id,0) as alreadyIn,url from course join teacher left join stu_course on stu_course.course_id = course.id and stu_course.stu_id = #{filter.stuId} and course.tea_id = teacher.id
+        select course.id as id,teacher.name as teaName,title,url,description,IFNULL(stu_course.id,0) as alreadyIn, url from course join teacher left join stu_course on stu_course.course_id = course.id and stu_course.stu_id = #{filter.stuId} and course.tea_id = teacher.id
         <where>
+            graduated = 0 or graduated is null and
             <if test="filter.title != null">
                 title like "%${filter.title}%"
             </if>
@@ -210,7 +211,7 @@
     </select>
     <!--APP端我的课程-->
     <select id="searchCoursesByPageForStu" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,url,description,stu_id from course join teacher join stu_course on course.tea_id = teacher.id and stu_course.course_id = course.id
+        select course.id as id,teacher.name as teaName,title,url,description,stu_id,graduated from course join teacher join stu_course on course.tea_id = teacher.id and stu_course.course_id = course.id
         <where>
             <if test="filter.id != null">
                 stu_course.stu_id = #{filter.stuId}

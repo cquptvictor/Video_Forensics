@@ -9,7 +9,7 @@ public class VideoPlay {
     private String over;//视频是否播放完毕
     private Integer stuId;
     @NotNull
-    private Integer courseId;
+    private Integer courseId;//冗余一个courseId，方便更新学生学习进度
 
     public Integer getCourseId() {
         return courseId;

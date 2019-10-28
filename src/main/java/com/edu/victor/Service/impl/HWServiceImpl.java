@@ -57,7 +57,7 @@ public class HWServiceImpl implements HWService {
         Message message = MessageCreateUtils.createHwMessage(homework,teacher.getName());
         messageDao.addMessage(message);
         //查询课程下的学生id，存入通知-学生表
-        List<User> students = courseDao.getStuByCourse(homework.getCourseId());
+        List<User> students = courseDao.getUngraduatedStuByCourse(homework.getCourseId());
         List<MsgUser> list = MessageCreateUtils.createMsgUser(message.getId(),students);
         if(list != null && list.size() != 0)
         messageDao.addMsgUser(list);
