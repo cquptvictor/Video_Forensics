@@ -14,11 +14,9 @@ import com.edu.victor.utils.FileUtils;
 import com.edu.victor.utils.MessageCreateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +50,7 @@ public class HWServiceImpl implements HWService {
             return responseData;
         }
         int id = homework.getId();
-        //查出老师名字，创建message，添加到messag表
+        //查出老师名字，创建message，添加到message表
         teacher = teacherDao.teacherInfo(teacher.getId());
         Message message = MessageCreateUtils.createHwMessage(homework,teacher.getName());
         messageDao.addMessage(message);

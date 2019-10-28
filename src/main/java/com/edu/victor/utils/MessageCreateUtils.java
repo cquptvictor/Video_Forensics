@@ -1,6 +1,5 @@
 package com.edu.victor.utils;
 
-import com.edu.victor.Dao.CourseDao;
 import com.edu.victor.domain.*;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public class MessageCreateUtils {
         Message message = new Message();
         message.setContent(homework.getTitle());
         message.setCategory("homework");
-        message.setContentId(homework.getId());
+        message.setContentId(homework.getId()+"_"+homework.getCourseId());
         message.setName(name);
         message.setTime(new Date());
         return message;
@@ -23,7 +22,7 @@ public class MessageCreateUtils {
            message.setTime(new Date());
            message.setContent(notice.getTitle());
            message.setCategory("notice");
-           message.setContentId(notice.getId());
+           message.setContentId(notice.getId()+"_"+notice.getCourseId());
            message.setName(name);
            return message;
     }
@@ -33,7 +32,7 @@ public class MessageCreateUtils {
         int length = answer.getContent().length();
         message.setContent(length <= 10 ? answer.getContent().substring(0,length) : answer.getContent().substring(0,10));
         message.setCategory(type);
-        message.setContentId(answer.getQsId());
+        message.setContentId(answer.getQsId()+"_"+answer.getCourseId());
         message.setName(name);
         return message;
     }

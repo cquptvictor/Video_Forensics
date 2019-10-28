@@ -8,13 +8,21 @@ import java.util.Date;
 public class Message {
     private int id;
     private String name;//发送者的名字
-    private int contentId;//发送的内容的id
+    private String contentId;//发送的内容的id
     private String content;//发送的内容
     private String isRead;
 
     private String category;//hw,nt,rp
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
+
+    public String getContentId() {
+        return contentId;
+    }
+
+    public void setContentId(String contentId) {
+        this.contentId = contentId;
+    }
 
     public String getIsRead() {
         return isRead;
@@ -40,13 +48,6 @@ public class Message {
         this.name = name;
     }
 
-    public int getContentId() {
-        return contentId;
-    }
-
-    public void setContentId(int contentId) {
-        this.contentId = contentId;
-    }
 
     public String getContent() {
         return content;

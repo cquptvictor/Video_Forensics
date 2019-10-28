@@ -185,10 +185,6 @@ public class UserServiceImpl implements UserService {
         ResponseData responseData = new ResponseData(200);
         Page page1 = messageDao.getUserMessagesByPage(page);
         List<Message> messageList = page1 != null ? page1.getPageData() : null;
-        /*if(messageList != null) {
-            map.put("MessageList",messageList);
-            userDao.setAlreadyRead(map);
-        }*/
 
         page.setPageData(page1 != null ? page1.getPageData():null);
         responseData.setData(page);

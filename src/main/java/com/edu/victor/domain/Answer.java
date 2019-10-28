@@ -19,6 +19,17 @@ public class Answer {
     @NotEmpty
     private String content;
     private String isTeacher;
+    @NotNull
+    private Integer courseId;
+
+    public Integer getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
+
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
 
