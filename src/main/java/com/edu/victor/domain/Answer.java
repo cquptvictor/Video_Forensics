@@ -19,7 +19,6 @@ public class Answer {
     @NotEmpty
     private String content;
     private String isTeacher;
-    @NotNull
     private Integer courseId;
 
     public Integer getCourseId() {

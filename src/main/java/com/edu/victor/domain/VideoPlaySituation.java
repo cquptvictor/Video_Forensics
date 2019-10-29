@@ -7,7 +7,16 @@ public class VideoPlaySituation {
     private Double progress;
     private Integer courseId;
 
-
+    @Override
+    public String toString() {
+        return "VideoPlaySituation{" +
+                "total=" + total +
+                ", alreadyOver=" + alreadyOver +
+                ", stuId=" + stuId +
+                ", progress=" + progress +
+                ", courseId=" + courseId +
+                '}';
+    }
 
     public Integer getCourseId() {
         return courseId;

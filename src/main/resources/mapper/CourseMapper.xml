@@ -238,10 +238,10 @@
         select id from course;
     </select>
     <select id="getAllStudentsByCourse" resultType="Integer">
-        select id from stu_course where course_id = #{id};
+        select stu_id from stu_course where course_id = #{id};
     </select>
     <select id="getStudentVideoPlaySituation" resultType="VideoPlaySituation">
-        select count(id) as total,count(`over` = "1" or null) as alreadyOver from play_record where course_id = #{courseId} and stu_id = #{stuId};
+        select count(course_section.id) as total, count(`over` = 1 or null) as alreadyOver from course_section left join play_record on play_record.sec_id = course_section.id and play_record.stu_id = #{stuId} where course_section.superior_id in (select course_chapter.id from course_chapter join course on course_chapter.superior_id = course.id where course.id = #{courseId})
     </select>
     <update id="updateStudentStudyProgress">
         update stu_course set learning_progress = #{progress} where stu_id = #{stuId} and course_id = #{courseId};

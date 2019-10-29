@@ -31,8 +31,9 @@ public class StudentProgressSchedule {
                 VideoPlaySituation videoPlaySituation = new VideoPlaySituation();
                 videoPlaySituation.setStuId(studentId);
                 videoPlaySituation.setCourseId(courseId);
+
                 VideoPlaySituation temp = courseDao.getStudentVideoPlaySituation(videoPlaySituation);
-                videoPlaySituation.setProgress((temp.getAlreadyOver()/temp.getTotal()*100));
+                videoPlaySituation.setProgress((temp.getAlreadyOver()/temp.getTotal()*100.0));
                 videoPlaySituations.add(videoPlaySituation);
             }
         }
