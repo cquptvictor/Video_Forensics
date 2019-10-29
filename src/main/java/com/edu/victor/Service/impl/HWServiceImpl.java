@@ -92,10 +92,10 @@ public class HWServiceImpl implements HWService {
     public ResponseData getSpecificPage(int id, User user) {
 
         ResponseData responseData = new ResponseData(200);
-        if(user.getIsTeacher().equals("0")){
+        if(!user.getIsTeacher().equals("1")){
             String key = String.format("hw_%d_start",id);
             Long startTime = Long.valueOf((String)redisTemplate.opsForValue().get(key));
-            if(startTime > new Date().getTime()){
+            if(startTime > (new Date().getTime())){
                 responseData.setCode(0);
                 responseData.setMessage("未到开放时间");
                 return responseData;
