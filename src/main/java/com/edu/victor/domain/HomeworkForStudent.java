@@ -1,13 +1,13 @@
 package com.edu.victor.domain;
 
 public class HomeworkForStudent extends Homework {
-    private String isCommited;
+    private String isComitted;
 
-    public String getIsCommited() {
-        return isCommited;
+    public String getIsComitted() {
+        return isComitted;
     }
 
-    public void setIsCommited(String isCommited) {
-        this.isCommited = isCommited;
+    public void setIsComitted(String isComitted) {
+        this.isComitted = isComitted;
     }
 }

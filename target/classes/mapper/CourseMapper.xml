@@ -116,7 +116,7 @@
         select url from courseware where superior_id = #{id};
     </select>
     <select id="getUngraduatedStuByCourse" resultType="User">
-        select stu_id as id,0 as is_teacher from stu_course where course_id = #{Id} and stu_course.graduate = 0
+        select stu_id as id,0 as is_teacher from stu_course where course_id = #{id} and stu_course.graduated = 0
     </select>
     <select id="getStuLearningProgressByPage" resultMap="PageLearningProgress">
         select name,username,phone,stu_course.id as id,course_id,learning_progress,graduated from stu join stu_course on stu.id =stu_course.stu_id

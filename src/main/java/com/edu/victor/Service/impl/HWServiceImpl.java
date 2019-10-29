@@ -72,7 +72,7 @@ public class HWServiceImpl implements HWService {
     public ResponseData getHwList(Homework homework,Page page,User user) {
         Map map = new HashMap<>();
         Page page1 = null;
-        map.put("id",homework.getCourseId());
+        map.put("courseId",homework.getCourseId());
         map.put("category",homework.getCategory());
         ResponseData responseData = new ResponseData(200);
         if(user.getIsTeacher().equals("1")) {
