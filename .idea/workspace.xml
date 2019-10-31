@@ -12,16 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2bd4d9fd-bd1d-47d4-948a-e0a2c620c172" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Chapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Chapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Section.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Section.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Chapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Chapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Section.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Section.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/StuManagementServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/StuManagementServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/StuManagementServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/impl/StuManagementServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,37 +26,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MessageMapping.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="38" column="32" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
-              <caret line="203" column="22" selection-start-line="203" selection-end-line="204" />
+              <caret line="203" column="265" selection-start-line="203" selection-start-column="265" selection-end-line="203" selection-end-column="265" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ChapterDto.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/VideoPlayController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="360">
+              <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SectionDtoForStu.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/VideoPlayService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+            <state relative-caret-position="282">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2172">
+              <caret line="103" column="52" selection-start-line="103" selection-start-column="52" selection-end-line="103" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -89,17 +82,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/StuManagementService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
+            <state relative-caret-position="199">
               <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+            <state relative-caret-position="379">
+              <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,8 +160,8 @@
       <find>CourseMapForStu</find>
       <find>courseIn</find>
       <find>ChapterMap</find>
-      <find>getSectionByStep</find>
       <find>getAvatarUrlByStu</find>
+      <find>getSectionByStep</find>
     </findStrings>
     <replaceStrings>
       <replace>ByPage</replace>
@@ -194,7 +187,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/CourseDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/CourseForApp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Message.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/MessageCreateUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/HomeworkForStudent.java" />
@@ -227,10 +219,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Chapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/NewsAndNoticeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Section.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -506,7 +499,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572506794880" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572507900467" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/target" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -723,7 +716,7 @@
       <workItem from="1572327231933" duration="15034000" />
       <workItem from="1572397602173" duration="4536000" />
       <workItem from="1572411564618" duration="6616000" />
-      <workItem from="1572485688074" duration="14185000" />
+      <workItem from="1572485688074" duration="15252000" />
     </task>
     <task id="LOCAL-00001" summary="保存一下">
       <created>1571554969069</created>
@@ -907,11 +900,18 @@
       <option name="project" value="LOCAL" />
       <updated>1572505419464</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="section和chapter返回了权重，改了一个sql小错误">
+      <created>1572506934355</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1572506934355</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219556000" />
+    <option name="totallyTimeSpent" value="220623000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -950,7 +950,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" />
-      <window_info anchor="bottom" id="Messages" order="16" sideWeight="0.49932975" visible="true" weight="0.12606232" />
+      <window_info anchor="bottom" id="Messages" order="16" sideWeight="0.49932975" visible="true" weight="0.08356941" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1004,7 +1004,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加了结业，加入班级的接口" />
     <MESSAGE value="添加了加入课程的参数校验" />
     <MESSAGE value="数据库的timestamp改为了Long" />
     <MESSAGE value="增加了视频播放的进度，评论的接口" />
@@ -1029,7 +1028,8 @@
     <MESSAGE value="弄好了限制时间不到，进入作业详情页面看不到数据" />
     <MESSAGE value="纠正了新闻列表展示的错误（sql错误）" />
     <MESSAGE value="修改了app端的课程展示的问题（sql错误）" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了app端的课程展示的问题（sql错误）" />
+    <MESSAGE value="section和chapter返回了权重，改了一个sql小错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="section和chapter返回了权重，改了一个sql小错误" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1092,27 +1092,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/NotAuthorizedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/InvalidArgumentsException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/JWT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/GlobalException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1440,34 +1419,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/StuManagementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/stuManagementMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="63" column="39" selection-start-line="63" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/StuManagementService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1481,7 +1436,52 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CourseMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
-          <caret line="203" column="22" selection-start-line="203" selection-end-line="204" />
+          <caret line="203" column="265" selection-start-line="203" selection-start-column="265" selection-end-line="203" selection-end-column="265" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/VideoPlayServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2172">
+          <caret line="103" column="52" selection-start-line="103" selection-start-column="52" selection-end-line="103" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/VideoPlayService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/VideoPlayController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/StuManagementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/StuManagementService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/StuManagementServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

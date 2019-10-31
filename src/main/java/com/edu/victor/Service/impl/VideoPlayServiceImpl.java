@@ -101,7 +101,7 @@ public class VideoPlayServiceImpl implements VideoPlayService {
         ResponseData responseData = new ResponseData(200);
         String key = String.format("history%d", user.getId());
         //移出表中等于id的记录
-        redisTemplate.opsForList().trim(key,1,id);
+        redisTemplate.opsForList().remove(key,1,id);
         //把id推入list中
         redisTemplate.opsForList().leftPush(key,id +"");
         /**保持list的长度不超过10*/
