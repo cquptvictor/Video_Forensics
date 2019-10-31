@@ -1,6 +1,8 @@
 package com.edu.victor.Service.impl;
 
 import com.edu.victor.Dao.StuManagementDao;
+import com.edu.victor.Dao.UserDao;
+import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.*;
@@ -18,6 +20,8 @@ import java.util.List;
 public class StuManagementServiceImpl implements StuManagementService {
     @Autowired
     StuManagementDao stuManagementDao;
+    @Autowired
+    UserDao userDao;
     @Override
     public ResponseData addStu(String username)
     {
@@ -44,8 +48,11 @@ public class StuManagementServiceImpl implements StuManagementService {
      * 3.数据库中删除学生记录,以及msg_user表的记录*/
     @Override
     @Transactional
-    public ResponseData deleteStu(Integer stuId, User user) {
+    public ResponseData deleteStu(Integer stuId, User user) throws NotAuthorizedException {
         ResponseData responseData = new ResponseData(0);
+        //校验是否有权限
+        if(userDao.teacherLogin(user).getId().equals("-1"))
+            throw new NotAuthorizedException();
         if(user.getIsTeacher().equals("1")){
             //查询，并删除文件
             String avatar = stuManagementDao.getAvatarUrlByStu(stuId);

@@ -1,6 +1,5 @@
 package com.edu.victor.domain;
 
-import java.util.Date;
 
 /**用于问答区的用户信息展示*/
 public class UserDto {

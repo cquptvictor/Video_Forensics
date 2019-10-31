@@ -54,7 +54,7 @@
         select id,id as qid,title,qsr_id,is_teacher,is_teacher as isTeacher,`time` from class_discussion_question where class_id = #{filter.classId} order by `time` desc
     </select>
     <select id="getUser" resultType="UserDto">
-        select name,avatar from
+        select `name`,avatar from
         <if test="isTeacher == 1">teacher</if>
         <if test="isTeacher == 0">stu</if>
         where id = #{id}

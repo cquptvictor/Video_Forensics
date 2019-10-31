@@ -20,20 +20,20 @@ public class loginRequired implements HandlerInterceptor {
         String token = httpServletRequest.getParameter("token");
         try {/**Teacher必须在前*/
              user = JWT.unsign(token, Teacher.class);
+            if(user == null) {
+                throw new NotAuthorizedException();
+            }
              user.setIsTeacher("1");
         }catch (JsonMappingException | NullPointerException e){
             user = JWT.unsign(token,Student.class);
+            if(user == null) {
+                throw new NotAuthorizedException();
+            }
             user.setIsTeacher("0");
         }
         if(!JWT.authBlackList(user,token))
             throw new NotAuthorizedException();
-        /**转换为对应类型*/
-        if(user == null) {
-            throw new NotAuthorizedException();
-        }else {
-            httpServletRequest.setAttribute("User", user);
-
-        }
+        httpServletRequest.setAttribute("User", user);
         return true;
     }
 

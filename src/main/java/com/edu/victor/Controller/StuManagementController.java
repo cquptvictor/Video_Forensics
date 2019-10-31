@@ -1,5 +1,6 @@
 package com.edu.victor.Controller;
 
+import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.Service.StuManagementService;
 import com.edu.victor.domain.Page;
@@ -48,8 +49,9 @@ public class StuManagementController {
     }
     @RequestMapping(value = "/student/delete")
     @ResponseBody
-    public ResponseData deleteStu(Integer id, HttpServletRequest httpServletRequest){
+    public ResponseData deleteStu(Integer id,String password, HttpServletRequest httpServletRequest) throws NotAuthorizedException {
         User user = (User)httpServletRequest.getAttribute("User");
+        user.setPassword(password);
         return stuManagementService.deleteStu(id,user);
     }
     @RequestMapping(value = "/batchImport",method = RequestMethod.POST)

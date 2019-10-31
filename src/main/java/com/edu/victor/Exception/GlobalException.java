@@ -23,7 +23,7 @@ public class GlobalException {
     @ResponseBody
     public ResponseData duplicatedUsername(NotAuthorizedException e){
         ResponseData responseData = new ResponseData();
-        responseData.setCode(0);
+        responseData.setCode(401);
         responseData.setMessage("You do not have permission to perform this operation");
         return responseData;
     }

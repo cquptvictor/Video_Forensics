@@ -19,7 +19,7 @@ public class Answer {
     @NotEmpty
     private String content;
     private String isTeacher;
-    private Integer courseId;
+    private Integer courseId = -1;
 
     public Integer getCourseId() {
         return courseId;

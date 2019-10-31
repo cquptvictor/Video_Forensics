@@ -82,10 +82,10 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData searchNews(Page page, User user) {
-        Map<String,Object> filter = new HashMap<>();
+    public ResponseData searchNews(Page page) {
+        /*Map<String,Object> filter = new HashMap<>();
         filter.put("tea_id",user.getId());
-        page.setFilter(filter);
+        page.setFilter(filter);*/
         Page<News> page2 = newsDao.searchNewsByPage(page);
         page.setPageData(page2 != null ? page2.getPageData() : null);
         ResponseData responseData = new ResponseData(200);
@@ -137,11 +137,9 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData searchNotice(Page page) throws InvalidArgumentsException {
+    public ResponseData searchNotice(Page page){
         Page<NoticeDto> page1 = noticeDao.searchNoticeByPage(page);
-        if(page1 == null){
-            throw  new InvalidArgumentsException();
-        }
+
         page.setPageData(page1.getPageData());
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);

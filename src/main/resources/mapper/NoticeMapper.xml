@@ -9,7 +9,7 @@
     </resultMap>
 
     <select id="searchNoticeByPage" resultMap="PageNotice">
-        select id,title,`time` from notice where course_id = #{filter.courseId} order by `time` desc
+        select notice.id,notice.title,`time`,teacher.name as publisherName from notice join teacher join course on notice.course_id = course.id and course.tea_id = teacher.id where course_id = #{filter.courseId}  order by `time` desc
     </select>
 
     <insert id="addNotice" useGeneratedKeys="true" keyProperty="id" parameterType="Notice">

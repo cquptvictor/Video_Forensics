@@ -1,5 +1,6 @@
 package com.edu.victor.Service;
 
+import com.edu.victor.Exception.NotAuthorizedException;
 import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.domain.Page;
 import com.edu.victor.domain.ResponseData;
@@ -14,7 +15,7 @@ import java.util.Map;
 public interface StuManagementService {
     ResponseData addStu(String username);
     ResponseData updateStu(Student student);
-    ResponseData deleteStu(Integer stuId, User user);
+    ResponseData deleteStu(Integer stuId, User user) throws NotAuthorizedException;
     ResponseData searchStu(Page page);
     ResponseData batchImport(MultipartFile excel) throws StuNumNotFound;
 }

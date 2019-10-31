@@ -8,8 +8,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties({"course_id","toUser"})
 public class Homework {
@@ -94,11 +94,5 @@ public class Homework {
     public void setTime(Date time) {
         this.time = time;
     }
-    public static void main(String[] args){
-        Long value = Long.valueOf("1571289240000");
-        Date date = new Date(value);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        System.out.println(simpleDateFormat.format(date));
 
-    }
 }

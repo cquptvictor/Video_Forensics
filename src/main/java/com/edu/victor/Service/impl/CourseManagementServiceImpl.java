@@ -29,7 +29,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Override
     public ResponseData addCourse(Course course, Teacher teacher) throws IncompleteInformationException, UnsupportedFileTypeException {
         /**验证用户信息是否完整*/
-        teacherService.isCompleted(teacher);
+        //  teacherService.isCompleted(teacher);
         String path = FileUtils.saveImage(course.getPic(),"courseImage");
         course.setUrl(path);
         course.setTeaId(teacher.getId());
@@ -43,7 +43,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
 
     @Override
     public ResponseData addChapter(Chapter chapter, Teacher teacher) throws IncompleteInformationException {
-        teacher = teacherService.isCompleted(teacher);
+      //  teacher = teacherService.isCompleted(teacher);
         ResponseData responseData = new ResponseData();
         chapter.setTeaId(teacher.getId());
         if(courseDao.addChapter(chapter))
@@ -56,7 +56,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
 
     @Override
     public ResponseData addSection(Section section, Teacher teacher) throws UnsupportedFileTypeException, IncompleteInformationException {
-        teacher = teacherService.isCompleted(teacher);
+        //teacher = teacherService.isCompleted(teacher);
         ResponseData responseData = new ResponseData();
         String path = FileUtils.saveImage(section.getFile(),"video");
         section.setUrl(path);

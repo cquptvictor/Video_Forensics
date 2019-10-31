@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
                 responseData.setCode(200);
                 responseData.setMessage("login Successful");
                 Map<String,String> map = new HashMap();
-                map.put("token", JWT.sign(teacher,120000));
+                map.put("token", JWT.sign(teacher,12000000));
                 responseData.setData(map);
             }else{
                 responseData.setCode(0);
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
                 responseData.setCode(200);
                 responseData.setMessage("login Successful");
                 Map<String,String> map = new HashMap();
-                map.put("token", JWT.sign(student,120000));
+                map.put("token", JWT.sign(student,12000000));
                 responseData.setData(map);
             }else{
                 responseData.setCode(0);

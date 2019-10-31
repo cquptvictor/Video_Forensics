@@ -47,8 +47,8 @@ public class NewsAndNoticeController {
     @RequestMapping(value = "/news")
     @ResponseBody
     public ResponseData searchNews(Page page,HttpServletRequest httpServletRequest){
-        User user = (User)httpServletRequest.getAttribute("User");
-        return newsAndNoticeService.searchNews(page,user);
+       // User user = (User)httpServletRequest.getAttribute("User");
+        return newsAndNoticeService.searchNews(page);
     }
     @RequestMapping(value="/news/{news_id}",method = RequestMethod.POST)
     @ResponseBody

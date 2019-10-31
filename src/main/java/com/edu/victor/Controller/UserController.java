@@ -1,22 +1,17 @@
 package com.edu.victor.Controller;
 
-import com.auth0.jwt.internal.org.bouncycastle.math.ec.ScaleYPointMap;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @RequestMapping(method = RequestMethod.POST)
 @Controller
