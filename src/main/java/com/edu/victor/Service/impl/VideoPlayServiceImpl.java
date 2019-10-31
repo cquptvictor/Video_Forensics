@@ -55,6 +55,10 @@ public class VideoPlayServiceImpl implements VideoPlayService {
         ResponseData responseData = new ResponseData(200);
         videoPlay.setStuId(user.getId());
         videoPlay.setOver("1");
+
+        //更新前，先清除redis中的playing
+        String key = String.format("playProgress_%d_%d",videoPlay.getSecId(),user.getId());
+        redisTemplate.delete(key);
         if(!videoPlayDao.playOver(videoPlay))
             responseData.setCode(0);
         return responseData;
@@ -101,7 +105,7 @@ public class VideoPlayServiceImpl implements VideoPlayService {
         ResponseData responseData = new ResponseData(200);
         String key = String.format("history%d", user.getId());
         //移出表中等于id的记录
-        redisTemplate.opsForList().remove(key,1,id);
+        redisTemplate.opsForList().remove(key,1,id+"");
         //把id推入list中
         redisTemplate.opsForList().leftPush(key,id +"");
         /**保持list的长度不超过10*/

@@ -14,7 +14,7 @@
         update play_record set location = #{location} where stu_id = #{stuId} and sec_id = #{secId};
     </insert>
     <update id="playOver" parameterType="VideoPlay">
-          update play_record set over = #{over} where stu_id = #{stuId} and sec_id = #{secId};
+          update play_record set over = #{over}, location = #{location} where stu_id = #{stuId} and sec_id = #{secId};
     </update>
     <insert id="pubComment" parameterType="VideoComment">
         insert into video_comment(sec_id,stu_id,content,location)value (#{secId},#{stuId},#{content},#{location});

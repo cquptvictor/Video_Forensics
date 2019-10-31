@@ -158,7 +158,7 @@ public class UserServiceImpl implements UserService {
                 user = userDao.teacherInfo(user.getId());
             }else
                 user = userDao.studentInfo(user.getId());
-            String url = FileUtils.updateAvatar(multipartFile, user.getAvatar()+"");
+            String url = FileUtils.updateAvatar(multipartFile, user.getAvatar());
             user.setAvatar(url);
             Boolean result;
             if(isTeacher){

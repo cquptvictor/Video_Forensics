@@ -37,7 +37,7 @@
     </select>
 
     <select id="getMsgUserIdList" resultType="Integer">
-        select msg_user.id from msg_user join message on msg_user.msg_id = message.id where msg_user.target_id = 1 and message.content_id = #{contentId} and  msg_user.is_teacher = #{isTeacher} and msg_user.read = 0;
+        select msg_user.id from msg_user join message on msg_user.msg_id = message.id where msg_user.target_id = #{targetId} and message.content_id = #{contentId} and  msg_user.is_teacher = #{isTeacher} and msg_user.read = 0;
     </select>
     <update id="markAsRead" parameterType="map">
         update msg_user set `read` = 1 where id in
