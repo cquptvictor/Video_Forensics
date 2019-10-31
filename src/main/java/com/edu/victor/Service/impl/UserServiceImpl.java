@@ -214,7 +214,7 @@ public class UserServiceImpl implements UserService {
         if(markRead.getType().equals("1")) {/**
          * 1.根据id查询出ContentId
          * 2.根据targetId和ContentId得到所有的id*/
-            Integer contentId = messageDao.getContentId(markRead.getMsgUserId());
+            String contentId = messageDao.getContentId(markRead.getMsgUserId());
             map.put("contentId", contentId);
             map.put("targetId", user.getId());
             map.put("isTeacher", user.getIsTeacher());

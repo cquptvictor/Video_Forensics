@@ -46,7 +46,7 @@
         select id as course_id from course where id = #{id};
     </select>
     <select id="getChapterByStep" resultMap="ChapterMap">
-        select id as chapter_id,title,superior_id from course_chapter where superior_id = #{courseId} order by weights;
+        select id as chapter_id,title,superior_id,weights from course_chapter where superior_id = #{courseId} order by weights;
     </select>
     <select id="getSectionByStep" resultType="Section">
         select id,title,superior_id,url from course_section where superior_id = #{id} order by weights;
@@ -201,22 +201,15 @@
     </update>
     <!--APP端所有课程-->
     <select id="searchAllCoursesByPageForApp" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,url,description,IFNULL(stu_course.id,0) as alreadyIn, url from course join teacher left join stu_course on stu_course.course_id = course.id and stu_course.stu_id = #{filter.stuId} and course.tea_id = teacher.id
-        <where>
-            graduated = 0 or graduated is null
+        select course.id as id,teacher.name as teaName,title,description,IFNULL(stu_course.id,0) as alreadyIn, url,graduated from course  join teacher on course.tea_id = teacher.id left join stu_course on stu_course.course_id = course.id and stu_id = 9 where graduated is null or graduated = 0
             <if test="filter.title != null">
                and title like "%${filter.title}%"
             </if>
-        </where>
     </select>
     <!--APP端我的课程-->
     <select id="searchCoursesByPageForStu" resultMap="PageCourseForApp">
         select course.id as id,teacher.name as teaName,title,url,description,stu_id,graduated from course join teacher join stu_course on course.tea_id = teacher.id and stu_course.course_id = course.id
-        <where>
-            <if test="filter.id != null">
-                stu_course.stu_id = #{filter.stuId}
-            </if>
-        </where>
+        where stu_course.stu_id = #{filter.stuId}
     </select>
 
     <select id="authCourseCode" resultType="Integer">

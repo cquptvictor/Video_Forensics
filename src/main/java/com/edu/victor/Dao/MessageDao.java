@@ -16,7 +16,7 @@ public interface MessageDao {
     Integer getUnreadMessageNum(Map map);
     Boolean setAlreadyRead(@Param("map") Map map);
     Boolean markAsRead(Map<String,Object> map);
-    Integer getContentId(Integer id);
+    String getContentId(Integer id);
     List<Integer> getMsgUserIdList(Map<String,Object> map);
 
 }

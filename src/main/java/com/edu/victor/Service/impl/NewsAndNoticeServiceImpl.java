@@ -139,8 +139,7 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     @Override
     public ResponseData searchNotice(Page page){
         Page<NoticeDto> page1 = noticeDao.searchNoticeByPage(page);
-
-        page.setPageData(page1.getPageData());
+        page.setPageData(page1 != null ? page1.getPageData() : null);
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);
         return responseData;

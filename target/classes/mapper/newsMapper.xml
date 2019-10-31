@@ -25,7 +25,7 @@
     </set>where id = #{id};
     </update>
     <select id="searchNewsByPage" parameterType="Page" resultMap="PageMap">
-        select news.id,title,teacher.name as publisherName,`time` from news join teacher on publisher_id = teacher.id where publisher_id = #{filter.tea_id} order by `time` desc
+        select news.id,title,teacher.name as publisherName,`time` from news join teacher on publisher_id = teacher.id  order by `time` desc
     </select>
 
     <select id="getSpecificNews" resultType="News">

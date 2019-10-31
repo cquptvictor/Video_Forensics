@@ -14,7 +14,6 @@ public class Chapter {
     private Integer superiorId;
     @NotEmpty
     private String title;
-    @JsonIgnore
     @NotNull
     private Integer weights;
     @JsonIgnore

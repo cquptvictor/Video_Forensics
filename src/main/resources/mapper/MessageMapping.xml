@@ -32,7 +32,7 @@
             #{item.id}
         </foreach>
     </update>
-    <select id="getContentId" resultType="Integer">
+    <select id="getContentId" resultType="String">
         select content_id from msg_user join message on msg_user.msg_id = message.id and msg_user.id = #{id};
     </select>
 
