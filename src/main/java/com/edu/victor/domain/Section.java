@@ -8,7 +8,6 @@ import javax.validation.constraints.NotNull;
 
 public class Section {
     private Integer id;
-    @JsonIgnore
     @NotNull
     private Integer weights;
     @JsonIgnore

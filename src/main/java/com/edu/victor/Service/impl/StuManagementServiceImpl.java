@@ -51,7 +51,7 @@ public class StuManagementServiceImpl implements StuManagementService {
     public ResponseData deleteStu(Integer stuId, User user) throws NotAuthorizedException {
         ResponseData responseData = new ResponseData(0);
         //校验是否有权限
-        if(userDao.teacherLogin(user).getId().equals("-1"))
+        if(userDao.teacherLogin(user).getId().equals(-1))
             throw new NotAuthorizedException();
         if(user.getIsTeacher().equals("1")){
             //查询，并删除文件

@@ -49,7 +49,7 @@
         select id as chapter_id,title,superior_id,weights from course_chapter where superior_id = #{courseId} order by weights;
     </select>
     <select id="getSectionByStep" resultType="Section">
-        select id,title,superior_id,url from course_section where superior_id = #{id} order by weights;
+        select id,title,superior_id,url,weights from course_section where superior_id = #{id} order by weights;
     </select>
     <!--针对app页面-->
     <select id="getCourseInfoForStu" resultMap="CourseMapForStu">
@@ -201,7 +201,7 @@
     </update>
     <!--APP端所有课程-->
     <select id="searchAllCoursesByPageForApp" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,description,IFNULL(stu_course.id,0) as alreadyIn, url,graduated from course  join teacher on course.tea_id = teacher.id left join stu_course on stu_course.course_id = course.id and stu_id = 9 where graduated is null or graduated = 0
+        select course.id as id,teacher.name as teaName,title,description,IFNULL(stu_course.id,0) as alreadyIn, url,graduated from course  join teacher on course.tea_id = teacher.id left join stu_course on stu_course.course_id = course.id and stu_id = #{filter.stuId} where graduated is null or graduated = 0
             <if test="filter.title != null">
                and title like "%${filter.title}%"
             </if>

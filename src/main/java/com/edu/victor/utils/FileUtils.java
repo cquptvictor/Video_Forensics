@@ -194,10 +194,12 @@ public class FileUtils {
         String base = null;
         if(type.equals("video")){
             base = courseVideoBaseUrl ;
+        }else if(type.equals("avatar")) {
+            base = avatarBaseUrl;
         }else
-            base = coursewareBaseUrl ;
-            File file = new File(base,url);
-            file.delete();
+            base = coursewareBaseUrl;
+        File file = new File(base,url);
+        file.delete();
     }
   /*  public static ResponseEntity<byte[]> dowmloadSubmittedHomework(String url) throws DownloadFileNotFoundException {
         url = SubmittedHomeworkUrl + url;
