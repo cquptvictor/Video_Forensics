@@ -4,13 +4,14 @@ import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.domain.*;
 
+import java.io.FileNotFoundException;
 
 
 public interface CourseManagementService {
     ResponseData addCourse(Course course, Teacher teacher) throws IncompleteInformationException, UnsupportedFileTypeException;
     ResponseData addChapter(Chapter chapter, Teacher teacher) throws IncompleteInformationException;
     ResponseData addSection(Section section,Teacher teacher) throws UnsupportedFileTypeException, IncompleteInformationException;
-    ResponseData addCourseware(UploadCourseware courseware, Teacher teacher) throws UnsupportedFileTypeException;
+    ResponseData addCourseware(UploadCourseware courseware, Teacher teacher) throws UnsupportedFileTypeException, FileNotFoundException;
     ResponseData searchCourses(Page page,User user);
     ResponseData searchCoursewares(Page page);
 

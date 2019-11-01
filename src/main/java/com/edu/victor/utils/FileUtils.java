@@ -48,8 +48,12 @@ public class FileUtils {
         videoSuffixes.add("mp4");
         coursewareSuffixes.add("pptx");
         coursewareSuffixes.add("ppt");
+        coursewareSuffixes.add("docx");
+        coursewareSuffixes.add("doc");
+        coursewareSuffixes.add("pdf");
         homeworkSUffixes.add("pdf");
-        homeworkSUffixes.add("word");
+        homeworkSUffixes.add("docx");
+        homeworkSUffixes.add("doc");
         homeworkSUffixes.add("jpg");
         homeworkSUffixes.add("png");
         homeworkSUffixes.add("txt");
@@ -101,6 +105,9 @@ public class FileUtils {
     public static String updateAvatar(MultipartFile multipartFile, String url) throws IOException, UnsupportedFileTypeException {
         /**第一次换头像，需要创建文件这些
          * 后面换头像，直接覆盖文件*/
+        String suffix = url.split("\\.")[1];
+        if(!imageSuffixes.contains(suffix))
+            throw new FileNotFoundException();
         if(!url.equals(defaultAvatar)){
             File file = new File(avatarBaseUrl+url);
             multipartFile.transferTo(file);
@@ -111,13 +118,16 @@ public class FileUtils {
         }
     }
     /**批量上传课件*/
-    public static List<Courseware> multiSaveCourseware(MultipartFile[] multipartFiles,int teaId,int superiorId) throws UnsupportedFileTypeException {
+    public static List<Courseware> multiSaveCourseware(MultipartFile[] multipartFiles,int teaId,int superiorId) throws UnsupportedFileTypeException, FileNotFoundException {
         List<Courseware> coursewares = new ArrayList<>();
         for(MultipartFile multipartFile : multipartFiles){
             Courseware courseware = new Courseware();
             String fileName = multipartFile.getOriginalFilename();
             fileName = fileName.split("\\.")[0];
-
+            //验证文件类型
+            String suffix = fileName.split("\\.")[1];
+            if(!coursewareSuffixes.contains(suffix))
+                throw new FileNotFoundException();
             String path = saveFile(multipartFile,"courseware");
             courseware.setUrl(path);
             courseware.setTitle(fileName);

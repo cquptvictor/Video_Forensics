@@ -13,6 +13,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -80,7 +81,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
 */
     @Override
-    public ResponseData addCourseware(UploadCourseware courseware, Teacher teacher) throws UnsupportedFileTypeException {
+    public ResponseData addCourseware(UploadCourseware courseware, Teacher teacher) throws UnsupportedFileTypeException, FileNotFoundException {
 
         List<Courseware> coursewares = FileUtils.multiSaveCourseware(courseware.getMultipartFile(),teacher.getId(),courseware.getSuperiorId());
         ResponseData responseData = new ResponseData();

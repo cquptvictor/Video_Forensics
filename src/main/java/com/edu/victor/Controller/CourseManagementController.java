@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -96,7 +97,7 @@ public class CourseManagementController {
     /**课件上传*/
     @RequestMapping(value = "/uploadCourseware",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData uploadCorseware(@Valid UploadCourseware courseware,BindingResult bindingResult,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+    public ResponseData uploadCorseware(@Valid UploadCourseware courseware,BindingResult bindingResult,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, FileNotFoundException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
         return courseManagementService.addCourseware(courseware,teacher);
     }

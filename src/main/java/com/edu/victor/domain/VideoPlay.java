@@ -1,14 +1,15 @@
 package com.edu.victor.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.validation.constraints.NotNull;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Scanner;
 
 public class VideoPlay {
     @NotNull
     private Integer secId;//视频所在小节的id
-    private String location;//视频播放到的进度
+    @NotEmpty
+    private String location = "0";//视频播放到的进度
     private String over;//视频是否播放完毕
     private Integer stuId;
     @NotNull
