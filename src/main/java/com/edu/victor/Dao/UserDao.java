@@ -4,6 +4,8 @@ import com.edu.victor.domain.Student;
 import com.edu.victor.domain.Teacher;
 import com.edu.victor.domain.User;
 
+import java.util.List;
+
 
 public interface UserDao {
     Teacher teacherLogin(User user);
@@ -14,4 +16,6 @@ public interface UserDao {
     Student studentInfo(Integer id);
     Boolean updateTeaAvatar(User user);
     Boolean updateStuAvatar(User user);
+  /*  List<User> getAllTeachers();
+    List<User> getAllStudents();*/
 }

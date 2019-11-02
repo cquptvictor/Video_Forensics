@@ -5,6 +5,7 @@ import com.edu.victor.domain.MsgUser;
 import com.edu.victor.domain.Page;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,5 +19,6 @@ public interface MessageDao {
     Boolean markAsRead(Map<String,Object> map);
     String getContentId(Integer id);
     List<Integer> getMsgUserIdList(Map<String,Object> map);
+    Boolean clearExpiredMessages(String date);
 
 }

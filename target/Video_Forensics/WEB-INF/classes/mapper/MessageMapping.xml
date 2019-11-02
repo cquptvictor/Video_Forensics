@@ -45,5 +45,7 @@
             #{item}
         </foreach>
     </update>
-
+    <delete id="clearExpiredMessages" >
+        delete from message where  #{time,jdbcType=TIMESTAMP} > `time`
+    </delete>
 </mapper>

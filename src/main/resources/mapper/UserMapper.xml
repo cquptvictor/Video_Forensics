@@ -71,5 +71,10 @@
     <update id="updateStuAvatar">
         update stu set avatar = #{avatar} where id = #{id}
     </update>
-
+    <!--<select id="getAllTeachers" resultType="User">
+        select id,1 as isTeacher from teacher
+    </select>
+    <select id="getAllStudents" resultType="User">
+        select id, 0 as isTeacher from stu
+    </select>-->
 </mapper>
