@@ -12,6 +12,15 @@ public class SubmittedHomework {
     private Integer hwId;
     private String url;
     private Integer stuId;
+    private Long now;
+
+    public Long getNow() {
+        return now;
+    }
+
+    public void setNow(Long now) {
+        this.now = now;
+    }
 
     public Integer getStuId() {
         return stuId;

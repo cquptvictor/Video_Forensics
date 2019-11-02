@@ -94,5 +94,9 @@ public class Homework {
     public void setTime(Date time) {
         this.time = time;
     }
-
+    public static void  main(String[] args){
+        String s = "hello.world";
+        System.out.println(s.lastIndexOf("."));
+        System.out.println(s.substring(0,5));
+    }
 }

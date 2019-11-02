@@ -13,7 +13,7 @@ import java.util.Date;
 public class ClassDiscussionQuestion {
     private Integer id;
     @NotNull
-    private Integer ClassId;
+    private Integer classId;
     @NotEmpty
     private String title;
     @NotEmpty
@@ -34,11 +34,11 @@ public class ClassDiscussionQuestion {
     }
 
     public Integer getClassId() {
-        return ClassId;
+        return classId;
     }
 
     public void setClassId(Integer classId) {
-        ClassId = classId;
+        this.classId = classId;
     }
 
     public String getTitle() {

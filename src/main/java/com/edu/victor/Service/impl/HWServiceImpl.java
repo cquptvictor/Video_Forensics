@@ -169,10 +169,12 @@ public class HWServiceImpl implements HWService {
         ResponseData responseData = new ResponseData(0);
         String key = String.format("hw_%d_end",submittedHomework.getHwId());
         Long endTime =Long.valueOf((String)redisTemplate.opsForValue().get(key));
-        if(endTime > new Date().getTime())
+        Long now = new Date().getTime();
+        if(endTime > now)
         {
         if(user.getIsTeacher().equals("0")){
             submittedHomework.setStuId(user.getId());
+            submittedHomework.setNow(now);
             String url = hwDao.getSubmittedHomeworkUrl(submittedHomework);
             if(url == null) {
                     //第一次

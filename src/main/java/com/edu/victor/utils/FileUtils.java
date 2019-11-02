@@ -159,12 +159,14 @@ public class FileUtils {
     public static String reSubmit(MultipartFile multipartFile,String url) throws UnsupportedFileTypeException {
         String fileName = multipartFile.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+        //先删除之前的文件
         File fileToDelete = new File(SubmittedHomeworkUrl,url);
         fileToDelete.delete();
         //有可能两次上传的文件类型不同
-        url = url.substring(0,url.lastIndexOf(".") + 1) + suffix;
         if(!homeworkSUffixes.contains(suffix))
             throw new UnsupportedFileTypeException();
+        //新的url
+        url = url.substring(0,url.lastIndexOf(".") + 1)+suffix;
         File catalogFile = new File(SubmittedHomeworkUrl + url);
         try {
             multipartFile.transferTo(catalogFile);
