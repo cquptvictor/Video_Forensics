@@ -167,10 +167,13 @@ public class HWServiceImpl implements HWService {
     @Override
     public ResponseData submitHw(SubmittedHomework submittedHomework, User user) throws UnsupportedFileTypeException {
         ResponseData responseData = new ResponseData(0);
-        String key = String.format("hw_%d_end",submittedHomework.getHwId());
-        Long endTime =Long.valueOf((String)redisTemplate.opsForValue().get(key));
+
+        String key1 = String.format("hw_%d_start",submittedHomework.getHwId());
+        String key2 = String.format("hw_%d_end",submittedHomework.getHwId());
+        Long startTime =Long.valueOf((String)redisTemplate.opsForValue().get(key1));
+        Long endTime =Long.valueOf((String)redisTemplate.opsForValue().get(key2));
         Long now = new Date().getTime();
-        if(endTime > now)
+        if(endTime >= now && startTime <= now)
         {
         if(user.getIsTeacher().equals("0")){
             submittedHomework.setStuId(user.getId());
@@ -193,7 +196,7 @@ public class HWServiceImpl implements HWService {
         }
         }else{
             responseData.setCode(0);
-            responseData.setMessage("超过提交截止时间");
+            responseData.setMessage("未到开放时间或已过了截止时间");
         }
         return responseData;
     }

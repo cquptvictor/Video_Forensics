@@ -13,13 +13,9 @@
     <list default="true" id="2bd4d9fd-bd1d-47d4-948a-e0a2c620c172" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SubmittedHomework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SubmittedHomework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/HWMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/mapper/HWMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/HWMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/HWMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/HWServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/impl/HWServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Homework.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/domain/Homework.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Homework.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/domain/Homework.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,31 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
+            <state relative-caret-position="306">
               <caret line="87" column="29" lean-forward="true" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SubmittedHomework.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-              <folding>
-                <element signature="e#391#392#0" expanded="true" />
-                <element signature="e#427#428#0" expanded="true" />
-                <element signature="e#457#458#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="99" column="42" selection-start-line="99" selection-start-column="42" selection-end-line="99" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -65,35 +38,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
+            <state relative-caret-position="177">
               <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-546">
-              <caret line="186" column="35" selection-start-line="186" selection-start-column="35" selection-end-line="186" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="69" column="56" selection-start-line="69" selection-end-line="70" />
+            <state relative-caret-position="357">
+              <caret line="198" column="51" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -200,10 +155,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/DownloadIntercepter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/SubmittedHomework.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -511,7 +466,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572692241307" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572694219639" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/target" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -733,7 +688,7 @@
       <workItem from="1572485688074" duration="22633000" />
       <workItem from="1572533398334" duration="87000" />
       <workItem from="1572573404786" duration="5947000" />
-      <workItem from="1572673330023" duration="7741000" />
+      <workItem from="1572673330023" duration="10158000" />
     </task>
     <task id="LOCAL-00001" summary="保存一下">
       <created>1571554969069</created>
@@ -945,11 +900,18 @@
       <option name="project" value="LOCAL" />
       <updated>1572616968089</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="学生再次上传作业的sql语句会先判断时间">
+      <created>1572692438552</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1572692438552</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241779000" />
+    <option name="totallyTimeSpent" value="244196000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -962,7 +924,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24463807" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -974,7 +935,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.2592068" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.24787535" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.21104816" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.04249292" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -988,7 +949,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" />
-      <window_info anchor="bottom" id="Messages" order="16" sideWeight="0.49932975" weight="0.13739377" />
+      <window_info anchor="bottom" id="Messages" order="16" sideWeight="0.49932975" visible="true" weight="0.13739377" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1042,7 +1003,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="app端获取所有课程多返回了一个alreadyIn参数" />
     <MESSAGE value="老师关闭课程前校验老师是否有权限关闭课程" />
     <MESSAGE value="更新视频播放进度，采用了redis作为中介" />
     <MESSAGE value="修正了定时器报错" />
@@ -1067,14 +1027,15 @@
     <MESSAGE value="删除学生，解决了自定义头像未删除的问题" />
     <MESSAGE value="修改了markAsRead的bug" />
     <MESSAGE value="文件上传，新增加了一些能上传的文件类型" />
-    <option name="LAST_COMMIT_MESSAGE" value="文件上传，新增加了一些能上传的文件类型" />
+    <MESSAGE value="学生再次上传作业的sql语句会先判断时间" />
+    <option name="LAST_COMMIT_MESSAGE" value="学生再次上传作业的sql语句会先判断时间" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java</url>
-          <line>177</line>
+          <line>180</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -1092,7 +1053,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java</url>
-          <line>174</line>
+          <line>177</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -1458,20 +1419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="87" column="29" lean-forward="true" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -1498,17 +1445,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-546">
-          <caret line="186" column="35" selection-start-line="186" selection-start-column="35" selection-end-line="186" selection-end-column="35" />
+        <state relative-caret-position="746">
+          <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HWMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="69" column="56" selection-start-line="69" selection-end-line="70" />
+        <state relative-caret-position="306">
+          <caret line="87" column="29" lean-forward="true" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/HWService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/HWServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="198" column="51" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
         </state>
       </provider>
     </entry>
