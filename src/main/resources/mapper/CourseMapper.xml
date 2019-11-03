@@ -194,7 +194,7 @@
         select tea_id from course where id = #{courseId}
     </select>
     <update id="closeCourse">
-        update stu_course set graduated = 1 where graduated = 0 and stu_id in
+        update stu_course set graduated = 1 where graduated = 0 and course_id = #{courseId} and stu_id in
         <foreach collection="userList" open="(" close=")" separator="," item="user">
             #{user.id}
         </foreach>
