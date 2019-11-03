@@ -347,9 +347,8 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         if(user.getIsTeacher().equals("1")){
             Map<String,Object> map = new HashMap<>();
             map.put("courseId",courseId);
-            map.put("teaId",user.getId());
             //校验课程是否是该老师的
-            if(!courseDao.courseBelongTo(map))
+            if(!courseDao.courseBelongTo(map).equals(user.getId()))
             {
                 responseData.setCode(0);
                 responseData.setMessage("你不是该课程的老师");
@@ -358,7 +357,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
             //先查询出课程下的学生，再更改学生状态
             List<User> userList = courseDao.getUngraduatedStuByCourse(courseId);
             map.put("userList",userList);
-            if(courseDao.closeCourse(map))
+            if(userList.size() != 0 && courseDao.closeCourse(map))
                 responseData.setCode(200);
         }
         return responseData;
