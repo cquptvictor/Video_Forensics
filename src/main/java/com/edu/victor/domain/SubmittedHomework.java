@@ -53,4 +53,9 @@ public class SubmittedHomework {
     public void setHwId(Integer hwId) {
         this.hwId = hwId;
     }
+    public static void main(String[] args){
+        String s = "searchAllCoursesByPageForApp";
+        System.out.println(s.endsWith("ByPage"));
+    }
+
 }

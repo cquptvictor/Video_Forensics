@@ -34,11 +34,15 @@ public class Page<T> {
     }
 
     public void setTotalNumber(int totalNumber) {
-        int totalPage = totalNumber % pageNum != 0 ? totalNumber/pageNum+1 : totalNumber/pageNum;
-        this.setTotalPage(totalPage);
+        if (totalNumber <= pageNum) {
+            this.setTotalPage(1);
+        } else {
+            int totalPage = totalNumber % pageNum != 0 ? totalNumber / pageNum + 1 : totalNumber / pageNum;
+            this.setTotalPage(totalPage);
+        }
         this.totalNumber = totalNumber;
-    }
 
+    }
     public int getCurrentPage() {
         return currentPage;
     }
@@ -70,4 +74,5 @@ public class Page<T> {
     public void setPageData(List<T> pageData) {
         this.pageData = pageData;
     }
+
 }

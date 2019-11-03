@@ -290,14 +290,13 @@ public class CourseManagementServiceImpl implements CourseManagementService {
         map.put("stuId",user.getId());
         page.setFilter(map);
        if(courseSearchForApp.getType().equals("all")){
-            Page page1 = courseDao.searchAllCoursesByPageForApp(page);
+            Page page1 = courseDao.searchAllCoursesByPage(page);
             page.setPageData(page1 != null ? page1.getPageData() : null);
-            responseData.setData(page);
         }else{
-           Page page1 = courseDao.searchCoursesByPageForStu(page);
+           Page page1 = courseDao.searchMyCoursesByPage(page);
            page.setPageData(page1 != null ? page1.getPageData() : null);
-           responseData.setData(page);
        }
+       responseData.setData(page);
        return responseData;
     }
     /**

@@ -38,10 +38,10 @@ public interface CourseDao {
     Integer courseBelongTo(Map<String,Object> map);
     Boolean closeCourse(Map<String,Object> map);
    //APP
-    Page searchAllCoursesByPageForApp(Page page);
+    Page searchAllCoursesByPage(Page page);
     Integer authCourseCode(CourseJoin course);
     Boolean addStuToCourse(Map<String,Object> map);
-    Page<Course> searchCoursesByPageForStu(Page page);
+    Page<Course> searchMyCoursesByPage(Page page);
  /*   Boolean isSatisfied(Map<String,Object> map);
     Boolean graduate(Map<String,Object> map);*/
     /**学生进度*/
