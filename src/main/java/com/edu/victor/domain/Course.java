@@ -5,17 +5,21 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 public class Course {
     private Integer id;
     @NotEmpty
+    @Size(min = 1,max = 10)
     private String title;
     @NotEmpty
+    @Size(min = 1, max = 50)
     private String description;
     private Integer teaId ;
     private String url;
     @NotEmpty
+    @Size(min = 6,max = 6)
     private String code;
     @JsonIgnore
     @NotNull

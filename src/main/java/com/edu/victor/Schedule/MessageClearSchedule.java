@@ -19,7 +19,7 @@ public class MessageClearSchedule {
     public void clear(){
         Calendar calendar = Calendar.getInstance();
         //calendar.add(Calendar.MONTH,- 3);
-        calendar.add(Calendar.DAY_OF_YEAR,-3);
+        calendar.add(Calendar.DAY_OF_YEAR,-1);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         messageDao.clearExpiredMessages(simpleDateFormat.format(calendar.getTime()));
     }

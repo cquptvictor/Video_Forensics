@@ -64,7 +64,7 @@
         <collection property="pageData" ofType="HomeworkForStudent" autoMapping="true"/>
     </resultMap>
     <select id="getHwByCourseByPageForStu" parameterType="Page" resultMap="HomeworkPage">
-            select homework.id as id,title,category,start_time,end_time,`time`,IFNULL(hw_submit.id,-1) as isComitted  from homework left join hw_submit on hw_submit.hw_id = homework.id and hw_submit.stu_id = #{filter.stuId}  where course_id = #{filter.courseId} and category = #{filter.category} order by `end_time` desc
+            select homework.id as id,title,category,start_time,end_time,`time`,IFNULL(hw_submit.id,-1) as isComitted  from homework left join hw_submit on hw_submit.hw_id = homework.id and hw_submit.stu_id = #{filter.stuId}  where course_id = #{filter.courseId} and category = #{filter.category} order by `time` desc
    </select>
     <select id="getStudentSubmittion" parameterType="Map" resultType="StudentSubmittion">
         select url,score from hw_submit where hw_id = #{hwId} and stu_id = #{stuId};

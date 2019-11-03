@@ -154,11 +154,11 @@
             title = #{title},
         </if>
         <if test="description != null">
-            description = #{description}
+            description = #{description},
         </if>
         <if test="code != null">
-            code = #{code
-        </if>}
+            code = #{code}
+        </if>
     </set>
       where id = #{id} and tea_id = #{teaId};
     </update>
