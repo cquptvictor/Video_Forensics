@@ -44,13 +44,10 @@ public class HWController {
 
     }
     /**查看某一发布作业的提交情况*/
-    @RequestMapping(value = "/homework/showSubmit/{hwId}")
+    @RequestMapping(value = "/homework/showSubmit")
     @ResponseBody
-    public ResponseData getSubmitHomework(@PathVariable("hwId") int hwId,HttpServletRequest httpServletRequest,Page page){
-        Map map = new HashMap<>();
-        map.put("hwId",hwId);
-        page.setFilter(map);
-        return hwService.getSubmitedHomework(page);
+    public ResponseData getSubmitHomework( Homework homework,HttpServletRequest httpServletRequest,Page page){
+        return hwService.getSubmitedHomework(homework,page);
     }
 
     /**修改发布的作业*/

@@ -74,6 +74,7 @@ public class HWServiceImpl implements HWService {
         Page page1 = null;
         map.put("courseId",homework.getCourseId());
         map.put("category",homework.getCategory());
+        page.setFilter(map);
         ResponseData responseData = new ResponseData(200);
         if(user.getIsTeacher().equals("1")) {
             page.setFilter(map);
@@ -104,9 +105,12 @@ public class HWServiceImpl implements HWService {
         responseData.setData(hwDao.getSpecificHomework(id));
         return responseData;
     }
-    /*老师可以任意查看，学生只能在开始后查看**/
     @Override
-    public ResponseData getSubmitedHomework(Page page) {
+    public ResponseData getSubmitedHomework(Homework homework,Page page) {
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("courseId",homework.getCourseId());
+        map.put("hwId",homework.getId());
+        page.setFilter(map);
         ResponseData responseData = new ResponseData(200);
         Page page1 = hwDao.getSubmitedByPage(page);
         page.setPageData(page1 != null ? page1.getPageData():null);

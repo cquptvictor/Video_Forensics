@@ -6,8 +6,7 @@ public class SubmittedHomeworkDto {
     private int id;
     @NotNull
     private Integer hwId;
-    private double score;
-    private String status;
+    private Double score = null;
     private String name;
     private String username;
     private String url;
@@ -53,21 +52,12 @@ public class SubmittedHomeworkDto {
         this.hwId = hwId;
     }
 
-    public double getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(double score) {
+    public void setScore(Double score) {
         this.score = score;
     }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
 
 }

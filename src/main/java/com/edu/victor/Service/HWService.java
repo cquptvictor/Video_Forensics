@@ -13,7 +13,7 @@ public interface HWService {
     ResponseData publishHW(Homework homework, Teacher teacher) throws IncompleteInformationException;
     ResponseData getHwList(Homework homework,Page page, User user);
     ResponseData getSpecificPage(int id,User user);
-    ResponseData getSubmitedHomework(Page page);
+    ResponseData getSubmitedHomework(Homework homework,Page page);
     ResponseData updateHw(Homework homework);
     ResponseData deleteHw(Map<String,Integer> map) throws NotAuthorizedException;
     ResponseData judgeHw(Judge judge);
