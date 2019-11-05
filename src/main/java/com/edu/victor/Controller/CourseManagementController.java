@@ -161,14 +161,8 @@ public class CourseManagementController {
     }
     @RequestMapping(value = "/course/progress")
     @ResponseBody
-    public ResponseData getStuLearningProgress(Page page, String clssNum,String stuNum,String stuName,int course_id){
-        Map map = new HashMap();
-        map.put("classNum",clssNum);
-        map.put("stuNum",stuNum);
-        map.put("stuName",stuName);
-        map.put("course_id",course_id);
-        page.setFilter(map);
-        return courseManagementService.searchStuLearningProgress(page);
+    public ResponseData getStuLearningProgress(@Valid StudentProgress studentProgress,BindingResult bindingResult,Page page){
+        return courseManagementService.searchStuLearningProgress(page,studentProgress);
     }
 
     /**APP端功能*/

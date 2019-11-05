@@ -134,7 +134,13 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     }
 
     @Override
-    public ResponseData searchStuLearningProgress(Page page) {
+    public ResponseData searchStuLearningProgress(Page page,StudentProgress studentProgress) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("courseId",studentProgress.getCourseId());
+        map.put("classNum",studentProgress.getClassNum());
+        map.put("stuNum",studentProgress.getStuNum());
+        map.put("stuName",studentProgress.getName());
+        page.setFilter(map);
         Page page1 = courseDao.getStuLearningProgressByPage(page);
         page.setPageData(page1 != null ? page1.getPageData() : null);
         ResponseData responseData = new ResponseData(200);

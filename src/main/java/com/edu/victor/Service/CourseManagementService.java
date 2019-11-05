@@ -15,7 +15,7 @@ public interface CourseManagementService {
     ResponseData searchCourses(Page page,User user);
     ResponseData searchCoursewares(Page page);
 
-    ResponseData searchStuLearningProgress(Page page);
+    ResponseData searchStuLearningProgress(Page page,StudentProgress studentProgress);
   /*  List<Chapter> searchChapter(int id);
     List<Section> searchSection(int id);
     String searchCoursewareUrl(int id);

@@ -121,7 +121,7 @@
     <select id="getStuLearningProgressByPage" resultMap="PageLearningProgress">
         select name,username,phone,stu_course.id as id,course_id,learning_progress,graduated from stu join stu_course on stu.id =stu_course.stu_id
          <where>
-        course_id = #{filter.course_id}
+        course_id = #{filter.courseId}
         <if test="filter.classNum != null">
           and  stu.class_num = #{filter.classNum}
         </if>
@@ -132,6 +132,7 @@
              and name like "%${filter.stuName}%"
          </if>
     </where>
+    order by graduated
 
     </select>
     <delete id="deleteCourse">
