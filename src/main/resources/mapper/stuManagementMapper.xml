@@ -50,7 +50,7 @@
                 class_num = #{filter.classNum}
             </if>
             <if test="filter.stuNum != null">
-                and username = #{filter.stuNum}
+                and username = "%${filter.stuNum}%"
             </if>
             <if test="filter.stuName != null">
                 and name like "%${filter.stuName}%"
