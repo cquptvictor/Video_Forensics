@@ -10,8 +10,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/ClassManagementServciceImpl.java" line="143" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bd4d9fd-bd1d-47d4-948a-e0a2c620c172" name="Default Changelist" comment="学生课程进度页面的查询问题">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/TimeSettingException.java" afterDir="false" />
+    <list default="true" id="2bd4d9fd-bd1d-47d4-948a-e0a2c620c172" name="Default Changelist" comment="发布作业的开始时间必须大于结束时间">
       <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/app.02a2191d.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/app.40dbea98.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/app.873da26b.css" afterDir="false" />
@@ -26,14 +25,8 @@
       <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/chunk-vendors.d712d66e.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/chunk-vendors.d712d66e.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/GlobalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/GlobalException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Controller/CourseManagementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Controller/CourseManagementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/CourseManagementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Video_Forensics/WEB-INF/classes/com/edu/victor/Service/CourseManagementService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Controller/CourseManagementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Controller/CourseManagementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/CourseManagementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edu/victor/Service/CourseManagementService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+            <state relative-caret-position="405">
+              <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -83,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/GlobalException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="83" column="65" selection-start-line="83" selection-start-column="65" selection-end-line="83" selection-end-column="65" />
+            <state relative-caret-position="251">
+              <caret line="83" column="38" lean-forward="true" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -224,7 +217,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Service/impl/QAndAServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/domain/ClassDiscussionQuestion.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Interceptor/DownloadIntercepter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Dao/MessageDao.java" />
@@ -249,6 +241,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/TimeSettingException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/GlobalException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java" />
       </list>
     </option>
   </component>
@@ -524,7 +517,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573026312737" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573026629178" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/target" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -755,7 +748,7 @@
       <workItem from="1572780428491" duration="2414000" />
       <workItem from="1572856268447" duration="2991000" />
       <workItem from="1572918107591" duration="3660000" />
-      <workItem from="1573015029619" duration="1963000" />
+      <workItem from="1573015029619" duration="2223000" />
     </task>
     <task id="LOCAL-00001" summary="保存一下">
       <created>1571554969069</created>
@@ -1030,11 +1023,18 @@
       <option name="project" value="LOCAL" />
       <updated>1572956800208</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="发布作业的开始时间必须大于结束时间">
+      <created>1573026384264</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1573026384264</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281801000" />
+    <option name="totallyTimeSpent" value="282061000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1128,7 +1128,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改了double映射不到属性，作业和考试不区分" />
     <MESSAGE value="修复了location的问题" />
     <MESSAGE value="课程作业报错的问题" />
     <MESSAGE value="通过定时器更新学生的学习进度，播放记录表冗余了一个course_id字段，用于方便更新进度" />
@@ -1153,7 +1152,8 @@
     <MESSAGE value="作业提交列表会展示所有学生的提交情况" />
     <MESSAGE value="解决了App端课程的totalPage参数没有的问题" />
     <MESSAGE value="学生课程进度页面的查询问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="学生课程进度页面的查询问题" />
+    <MESSAGE value="发布作业的开始时间必须大于结束时间" />
+    <option name="LAST_COMMIT_MESSAGE" value="发布作业的开始时间必须大于结束时间" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1530,20 +1530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/CourseManagementController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
@@ -1558,6 +1544,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/GlobalException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="83" column="38" lean-forward="true" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Controller/HWController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1565,10 +1558,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/Exception/GlobalException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/domain/Homework.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="83" column="65" selection-start-line="83" selection-start-column="65" selection-end-line="83" selection-end-column="65" />
+        <state relative-caret-position="507">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/edu/victor/utils/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
         </state>
       </provider>
     </entry>

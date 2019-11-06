@@ -45,17 +45,24 @@ public class FileUtils {
     static {
         imageSuffixes.add("jpg");
         imageSuffixes.add("png");
+        imageSuffixes.add("jpeg");
+
         videoSuffixes.add("mp4");
+
         coursewareSuffixes.add("pptx");
         coursewareSuffixes.add("ppt");
         coursewareSuffixes.add("docx");
         coursewareSuffixes.add("doc");
         coursewareSuffixes.add("pdf");
+        coursewareSuffixes.add("md");
+
+
         homeworkSUffixes.add("pdf");
         homeworkSUffixes.add("docx");
         homeworkSUffixes.add("doc");
         homeworkSUffixes.add("jpg");
         homeworkSUffixes.add("png");
+        homeworkSUffixes.add("jpeg");
         homeworkSUffixes.add("txt");
     }
     private static String saveFile(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
