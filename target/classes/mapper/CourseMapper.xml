@@ -122,11 +122,8 @@
         select name,username,phone,stu_course.id as id,course_id,learning_progress,graduated from stu join stu_course on stu.id =stu_course.stu_id
          <where>
         course_id = #{filter.courseId}
-        <if test="filter.classNum != null">
-          and  stu.class_num = #{filter.classNum}
-        </if>
          <if test="filter.stuNum != null">
-             and stu.username = #{filter.stuNum}
+             and stu.username like "%${filter.stuNum}%"
          </if>
          <if test="filter.stuName != null">
              and name like "%${filter.stuName}%"
