@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.sql.Time;
+
 @ControllerAdvice
 public class GlobalException {
     /**处理账号重复的问题*/
@@ -73,4 +75,12 @@ public class GlobalException {
         responseData.setMessage("Please enter correct arguments");
         return responseData;
     }
-}
+    /**作业发布设置的时间错误*/
+    @ExceptionHandler(TimeSettingException.class)
+    @ResponseBody
+    public ResponseData TimeSettingException(){
+        ResponseData responseData = new ResponseData();
+        responseData.setCode(0);
+        responseData.setMessage("start time must before the end time");
+        return responseData;
+    }}

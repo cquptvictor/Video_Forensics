@@ -2,6 +2,7 @@ package com.edu.victor.Controller;
 
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.NotAuthorizedException;
+import com.edu.victor.Exception.TimeSettingException;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.HWService;
 import com.edu.victor.domain.*;
@@ -23,7 +24,9 @@ public class HWController {
     /**发布作业*/
     @RequestMapping(value = "/homework/pub")
     @ResponseBody
-    public ResponseData publishHW(@Valid Homework homework, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
+    public ResponseData publishHW(@Valid Homework homework, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws IncompleteInformationException, TimeSettingException {
+        if(homework.getStartTime() < homework.getEndTime())
+            throw new TimeSettingException();
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         return hwService.publishHW(homework,teacher);
     }

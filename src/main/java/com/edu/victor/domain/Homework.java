@@ -24,8 +24,10 @@ public class Homework {
     @Pattern(regexp = "(homework|test)")
     private String category;
     //@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
+    @NotNull
     private Long startTime;
    // @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
+    @NotNull
     private Long endTime;
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
     private Date time;
