@@ -34,7 +34,7 @@
         <collection property="pageData" ofType="CourseForApp" autoMapping="true"/>
     </resultMap>
     <resultMap id="LearningProgressMap" type="LearningProgress" autoMapping="true">
-        <association property="student" javaType="Student" autoMapping="true">
+        <association property="student" javaType="StudentLearingProgressInfoDto" autoMapping="true">
 
         </association>
     </resultMap>
@@ -121,7 +121,7 @@
     <select id="getStuLearningProgressByPage" resultMap="PageLearningProgress">
         select name,username,phone,stu_course.id as id,course_id,learning_progress,graduated from stu join stu_course on stu.id =stu_course.stu_id
          <where>
-        course_id = #{filter.courseId}
+            course_id = #{filter.courseId}
          <if test="filter.stuNum != null">
              and stu.username like "%${filter.stuNum}%"
          </if>

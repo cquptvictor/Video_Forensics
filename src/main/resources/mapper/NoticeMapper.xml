@@ -20,7 +20,7 @@
     </delete>
 
     <select id="getNotice" resultType="Notice">
-        select * from notice where id = #{id}
+        select course_id,id `time`,title,content from notice where id = #{id}
     </select>
 
 </mapper>

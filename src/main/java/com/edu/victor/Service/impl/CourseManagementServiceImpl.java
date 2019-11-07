@@ -137,7 +137,6 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData searchStuLearningProgress(Page page,StudentProgress studentProgress) {
         Map<String,Object> map = new HashMap<>();
         map.put("courseId",studentProgress.getCourseId());
-        map.put("classNum",studentProgress.getClassNum());
         map.put("stuNum",studentProgress.getStuNum());
         map.put("stuName",studentProgress.getName());
         page.setFilter(map);
@@ -313,7 +312,8 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     @Transactional
     public ResponseData joinCourse(CourseJoin course,User user) {
         ResponseData responseData = new ResponseData(200);
-        if(courseDao.authCourseCode(course) == -1){
+        Integer result = courseDao.authCourseCode(course);
+        if(result == null && result == -1){
             responseData.setCode(0);
             responseData.setMessage("验证码错误");
         }else{

@@ -7,7 +7,7 @@ public class LearningProgress {
     private Integer courseId;
     private double learningProgress;
     private char graduated;
-    private Student student;
+    private StudentLearingProgressInfoDto student;
 
     public Integer getId() {
         return id;
@@ -41,11 +41,11 @@ public class LearningProgress {
         this.graduated = graduated;
     }
 
-    public Student getStudent() {
+    public StudentLearingProgressInfoDto getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
+    public void setStudent(StudentLearingProgressInfoDto student) {
         this.student = student;
     }
 }
