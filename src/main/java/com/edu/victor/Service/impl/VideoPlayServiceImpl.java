@@ -96,7 +96,8 @@ public class VideoPlayServiceImpl implements VideoPlayService {
         Map<String, Object> map = new HashMap<>();
         map.put("idList",idList);
         map.put("stuId",user.getId());
-        responseData.setData(videoPlayDao.getHistoryRecord(map));
+        if (idList != null && idList.size() != 0)
+            responseData.setData(videoPlayDao.getHistoryRecord(map));
         return responseData;
     }
     /**添加入redis历史记录中*/
