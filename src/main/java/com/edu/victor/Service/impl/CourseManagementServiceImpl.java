@@ -313,7 +313,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData joinCourse(CourseJoin course,User user) {
         ResponseData responseData = new ResponseData(200);
         Integer result = courseDao.authCourseCode(course);
-        if(result == null && result == -1){
+        if(result == null || result == -1){
             responseData.setCode(0);
             responseData.setMessage("验证码错误");
         }else{

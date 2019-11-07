@@ -143,8 +143,5 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
         responseData.setData(notice);
         return responseData;
     }
-    public static void main(String[] args){
-        String s = "catsdogand";
-        System.out.println(Arrays.toString(s.split(".")));
-    }
+
 }

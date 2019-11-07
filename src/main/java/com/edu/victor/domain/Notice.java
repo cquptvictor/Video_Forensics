@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 /**通知的数据库映射*/
 import javax.validation.constraints.NotNull;
-import java.sql.Date;
+import java.util.Date;
+
 public class Notice {
     private Integer id;
     @JsonIgnore
