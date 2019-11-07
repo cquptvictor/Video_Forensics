@@ -64,13 +64,6 @@ public class UserController {
     public ResponseData updateAvatar(MultipartFile file, HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException, IOException {
         User user = (User)httpServletRequest.getAttribute("User");
         return userService.updateAvatar(file,user,user.getIsTeacher().equals("1") ? true : false);
-       /* if (user.getIsTeacher().equals("1")) {
-            Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
-            return userService.updateAvatar(avatar, teacher, true);
-        } else {
-            Student student = (Student) httpServletRequest.getAttribute("Student");
-            return userService.updateAvatar(avatar, student, false);
-        }*/
     }
     @RequestMapping("/messages")
     @ResponseBody

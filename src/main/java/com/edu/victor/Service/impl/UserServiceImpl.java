@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -71,7 +68,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseData logout(String token,User user) {
         String key = String.format("%s%d",user.getIsTeacher().equals("1")?"Teacher":"Student",user.getId());
-        redisTemplate.opsForValue().set(key,token,20,TimeUnit.MINUTES);
+        //redisTemplate.opsForValue().set(key,token,1440,TimeUnit.MINUTES);
+        Long now = new Date().getTime();
+        redisTemplate.opsForZSet().add(key,token,now);
         ResponseData responseData = new ResponseData(200);
         return responseData;
     }

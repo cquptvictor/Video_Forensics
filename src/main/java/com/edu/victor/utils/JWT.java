@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
 @Component
 public class JWT {
     private static RedisTemplate redisTemplate;
@@ -75,12 +75,19 @@ public class JWT {
         return null;
     }
     public static Boolean authBlackList(User user, String token){
-        String key = String.format("%s%d",user.getIsTeacher().equals("1")?"Teacher":"Student",user.getId());
+      /*  String key = String.format("%s%d",user.getIsTeacher().equals("1")?"Teacher":"Student",user.getId());
         String value = (String)redisTemplate.opsForValue().get(key);
         if(value != null && value.equals(token))
             return false;
         else
-            return true ;
+            return true ;*/
+        String key = String.format("%s%d",user.getIsTeacher().equals("1") ? "Teacher" : "Student", user.getId());
+        Set values = redisTemplate.opsForZSet().range(key,0,-1);
+        for(Object value : values){
+            if (String.valueOf(value).equals(token))
+                return false;
+        }
+        return true;
     }
   public static void main(String[] args){
       Student student = new Student();

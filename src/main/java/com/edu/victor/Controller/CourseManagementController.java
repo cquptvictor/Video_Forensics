@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
@@ -67,32 +66,7 @@ public class CourseManagementController {
         page.setFilter(map);
         return courseManagementService.searchCoursewares(page);
     }
-    /*@RequestMapping(value = "/chapter/{course_id}",method = RequestMethod.POST)
-    @ResponseBody
-    public ResponseData getChapter(@PathVariable int course_id){
-        ResponseData responseData = new ResponseData();
-        List<Chapter> list = courseManagementService.searchChapter(course_id);
-        if(list != null) {
-            responseData.setCode(200);
-            responseData.setData(list);
-        }else{
-            responseData.setCode(0);
-        }
-        return responseData;
-    }
-    @RequestMapping(value = "/section/{chapter_id}",method = RequestMethod.POST)
-    @ResponseBody
-    public ResponseData getSection(@PathVariable int chapter_id){
-        ResponseData responseData = new ResponseData();
-        List<Section> list = courseManagementService.searchSection(chapter_id);
-        if(list != null) {
-            responseData.setCode(200);
-            responseData.setData(list);
-        }else{
-            responseData.setCode(0);
-        }
-        return responseData;
-    }*/
+
 
     /**课件上传*/
     @RequestMapping(value = "/uploadCourseware",method = RequestMethod.POST)
