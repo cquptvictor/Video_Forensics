@@ -25,7 +25,7 @@ public class HWController {
     @RequestMapping(value = "/homework/pub")
     @ResponseBody
     public ResponseData publishHW(@Valid Homework homework, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws IncompleteInformationException, TimeSettingException {
-        if(homework.getStartTime() < homework.getEndTime())
+        if(homework.getStartTime() >= homework.getEndTime())
             throw new TimeSettingException();
         Teacher teacher = (Teacher) httpServletRequest.getAttribute("User");
         return hwService.publishHW(homework,teacher);
