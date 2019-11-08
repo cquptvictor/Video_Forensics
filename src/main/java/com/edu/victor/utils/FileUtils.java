@@ -130,9 +130,10 @@ public class FileUtils {
         for(MultipartFile multipartFile : multipartFiles){
             Courseware courseware = new Courseware();
             String fileName = multipartFile.getOriginalFilename();
-            fileName = fileName.split("\\.")[0];
+            String[] preAndSuf= fileName.split("\\.");
+            fileName = preAndSuf[0];
             //验证文件类型
-            String suffix = fileName.split("\\.")[1];
+            String suffix = preAndSuf[1];
             if(!coursewareSuffixes.contains(suffix))
                 throw new FileNotFoundException();
             String path = saveFile(multipartFile,"courseware");
