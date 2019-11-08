@@ -12,7 +12,7 @@ import java.util.Set;
 public class BlackListSchedule {
     @Autowired
     RedisTemplate redisTemplate;
-    @Scheduled(cron = "0/10 * * * * ?")
+    @Scheduled(cron = "0 0 0/1 * * ?")
     public void clear(){
         Set teachers = redisTemplate.keys("Teacher*");
         Set students = redisTemplate.keys("Student*");

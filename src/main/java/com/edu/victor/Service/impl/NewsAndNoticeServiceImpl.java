@@ -47,12 +47,12 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData deleteNews(News news,int tea_id) throws NotAuthorizedException {
+    public ResponseData deleteNews(Integer id) {
         /**不是发布人，没有删除权限*/
-        if(news.getPublisherId() != tea_id)
-            throw new NotAuthorizedException();
+      /*  if(news.getPublisherId() != tea_id)
+            throw new NotAuthorizedException();*/
         ResponseData responseData = new ResponseData();
-        if(newsDao.deleteNews(news.getId())){
+        if(newsDao.deleteNews(id)){
             responseData.setCode(200);
         }else
             responseData.setCode(0);

@@ -30,10 +30,8 @@ public class NewsAndNoticeController {
     /**新闻删除*/
     @RequestMapping(value = "/dNews")
     @ResponseBody
-    public ResponseData deleteNews(News news, HttpServletRequest httpServletRequest) throws NotAuthorizedException {
-        Teacher teacher =(Teacher) httpServletRequest.getAttribute("User");
-
-        return newsAndNoticeService.deleteNews(news,teacher.getId());
+    public ResponseData deleteNews(Integer id) throws NotAuthorizedException {
+        return newsAndNoticeService.deleteNews(id);
     }
     /**新闻修改*/
     @RequestMapping(value = "/uNews")
