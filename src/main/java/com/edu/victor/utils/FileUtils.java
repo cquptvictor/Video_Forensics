@@ -1,18 +1,12 @@
 package com.edu.victor.utils;
 
 import com.edu.victor.Exception.UnsupportedFileTypeException;
-import com.edu.victor.Service.impl.DownloadFileNotFoundException;
 import com.edu.victor.domain.Courseware;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -26,26 +20,30 @@ public class FileUtils {
     private static String SubmittedHomeworkUrl = "E:\\netClass\\submitted\\";*/
     private static String defaultAvatar = "default.jpg";
 
-    private static String avatarBaseUrl = "/root/netClass/avatar/";
+     private static String avatarBaseUrl = "/root/netClass/avatar/";
     private static String courseImageBaseUrl = "/root/netClass/course/";
     private static String courseVideoBaseUrl = "/root/netClass/video/";
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
     private static String SubmittedHomeworkUrl = "/root/netClass/submitted/";
-/*
-    private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
+    private static String MarkdownImageBaseUrl = "/root/netClass/markdown/";
+
+   /* private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
     private static String courseImageBaseUrl = "/home/redis1/netClass/course/";
     private static String courseVideoBaseUrl = "/home/redis1/netClass/video/";
     private static String coursewareBaseUrl = "/home/redis1/netClass/courseware/";
     private static String SubmittedHomeworkUrl = "/home/redis1/netClass/submitted/";
-   */ private static List<String> imageSuffixes = new ArrayList<>();
+    private static String MarkdownImageBaseUrl = "/root/netClass/markdown/";
+ */   private static List<String> imageSuffixes = new ArrayList<>();
     private static List<String> videoSuffixes = new ArrayList<>();
     private static List<String> coursewareSuffixes = new ArrayList<>();
-    private static List<String> homeworkSUffixes = new ArrayList<>();
+    private static List<String> homeworkSuffixes = new ArrayList<>();
+   private static List<String> markDownSuffixes = new ArrayList<>();
     /**添加类型限制*/
     static {
         imageSuffixes.add("jpg");
         imageSuffixes.add("png");
         imageSuffixes.add("jpeg");
+        markDownSuffixes.addAll(imageSuffixes);
 
         videoSuffixes.add("mp4");
 
@@ -57,13 +55,13 @@ public class FileUtils {
         coursewareSuffixes.add("md");
 
 
-        homeworkSUffixes.add("pdf");
-        homeworkSUffixes.add("docx");
-        homeworkSUffixes.add("doc");
-        homeworkSUffixes.add("jpg");
-        homeworkSUffixes.add("png");
-        homeworkSUffixes.add("jpeg");
-        homeworkSUffixes.add("txt");
+        homeworkSuffixes.add("pdf");
+        homeworkSuffixes.add("docx");
+        homeworkSuffixes.add("doc");
+        homeworkSuffixes.add("jpg");
+        homeworkSuffixes.add("png");
+        homeworkSuffixes.add("jpeg");
+        homeworkSuffixes.add("txt");
     }
     private static String saveFile(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
         String fileName = multipartFile.getOriginalFilename();
@@ -90,10 +88,14 @@ public class FileUtils {
                 throw new UnsupportedFileTypeException();
             directory = avatarBaseUrl + path;
         }else if(type.equals("homework")){
-            if(!homeworkSUffixes.contains(suffix))
+            if(!homeworkSuffixes.contains(suffix))
                 throw new UnsupportedFileTypeException();
             directory = SubmittedHomeworkUrl + path;
-        }else{
+        }else if(type.equals("markdown")){
+            if(!markDownSuffixes.contains(suffix))
+                throw  new UnsupportedFileTypeException();
+            directory = MarkdownImageBaseUrl + path;
+        } else{
             throw new UnsupportedFileTypeException();
         }
         File file = new File(directory);
@@ -171,7 +173,7 @@ public class FileUtils {
         File fileToDelete = new File(SubmittedHomeworkUrl,url);
         fileToDelete.delete();
         //有可能两次上传的文件类型不同
-        if(!homeworkSUffixes.contains(suffix))
+        if(!homeworkSuffixes.contains(suffix))
             throw new UnsupportedFileTypeException();
         //新的url
         url = url.substring(0,url.lastIndexOf(".") + 1)+suffix;

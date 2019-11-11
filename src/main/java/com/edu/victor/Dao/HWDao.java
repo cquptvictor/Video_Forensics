@@ -17,7 +17,7 @@ public interface HWDao {
     Integer isPermitted(Map map);
     String getUrlBySubmittedHw(int id);
     //APP
-    Page getHwByCourseByPageForStu(Page page);
+    Page getStuHwByCourseByPage(Page page);
     Boolean addSubmittedHomework(SubmittedHomework submittedHomework);
     Boolean updateSubmittedHomework(SubmittedHomework submittedHomework);
     String getSubmittedHomeworkUrl(SubmittedHomework submittedHomework);

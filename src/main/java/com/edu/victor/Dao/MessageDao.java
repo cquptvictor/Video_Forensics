@@ -12,7 +12,7 @@ import java.util.Map;
 public interface MessageDao {
     Boolean addMessage(Message message);
     Boolean addMsgUser(List<MsgUser> msgUser);
-    Boolean deleteMessage(int id, String category);
+    Boolean deleteMessage(Map<String,Object> map);
     Page getUserMessagesByPage(Page page);
     Integer getUnreadMessageNum(Map map);
     Boolean setAlreadyRead(@Param("map") Map map);

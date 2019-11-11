@@ -82,7 +82,7 @@ public class HWServiceImpl implements HWService {
         }else{
             map.put("stuId",user.getId());
             page.setFilter(map);
-            page1 = hwDao.getHwByCourseByPageForStu(page);
+            page1 = hwDao.getStuHwByCourseByPage(page);
         }
         page.setPageData(page1 != null ? page1.getPageData() : null);
         responseData.setData(page);

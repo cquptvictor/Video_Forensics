@@ -16,7 +16,7 @@
         </foreach>
     </insert>
     <delete id="deleteMessage">
-        delete from message where content_id = #{0} and category = #{1}
+        delete from message where content_id like "${contenId}%" and category = #{category}
     </delete>
 
     <select id="getUserMessagesByPage" resultMap="MessagesMap">

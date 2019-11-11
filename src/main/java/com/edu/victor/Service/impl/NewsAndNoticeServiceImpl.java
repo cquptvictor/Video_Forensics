@@ -121,7 +121,11 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     @Override
     public ResponseData deleteNotice(int id) {
         noticeDao.deleteNotice(id);
-        messageDao.deleteMessage(id,"nt");
+        String contentId = id+"_";
+        Map<String,Object> map = new HashMap<>();
+        map.put("contentId",contentId);
+        map.put("category","notice");
+        messageDao.deleteMessage(map);
         ResponseData responseData = new ResponseData(200);
         return responseData;
     }

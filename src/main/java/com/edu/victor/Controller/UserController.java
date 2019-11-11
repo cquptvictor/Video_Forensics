@@ -3,9 +3,11 @@ package com.edu.victor.Controller;
 import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
+import com.edu.victor.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -86,5 +88,19 @@ public class UserController {
         User user = (User)httpServletRequest.getAttribute("User");
         return userService.MarkUnreadAsRead(markRead,user);
     }
+    /**用于保存markdown中的图片*/
+    @RequestMapping("/saveMdImage")
+    @ResponseBody
+    public ResponseData saveMdImage(@RequestParam("file") MultipartFile multipartFile) throws UnsupportedFileTypeException {
+        ResponseData responseData = new ResponseData<>(200);
+        String url = FileUtils.saveImage(multipartFile,"markdown");
+        if(url == null){
+            responseData.setCode(0);
+        }else {
+            responseData.setData(url);
+        }
+        return responseData;
+    }
+
 
 }

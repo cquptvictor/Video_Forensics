@@ -91,6 +91,6 @@
     <orderEntry type="library" name="Maven: com.github.virtuald:curvesapi:1.04" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.28" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains:annotations-java5:17.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations-java5:18.0.0" level="project" />
   </component>
 </module>
