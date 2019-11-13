@@ -34,7 +34,7 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     @Override
     public ResponseData addNews(News news, Teacher teacher) throws IncompleteInformationException {
         /**验证用户信息是否完整*/
-        teacher = teacherService.isCompleted(teacher);
+        //teacher = teacherService.isCompleted(teacher);
         news.setPublisherId(teacher.getId());
         news.setPublisherName(teacher.getName());
         ResponseData responseData = new ResponseData();

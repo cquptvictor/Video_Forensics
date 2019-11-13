@@ -18,14 +18,14 @@ public class News {
     private Integer publisherId;
     private String publisherName;
     private String image;
-    private String brife;
+    private String brief;
 
-    public String getBrife() {
-        return brife;
+    public String getBrief() {
+        return brief;
     }
 
-    public void setBrife(String brife) {
-        this.brife = brife;
+    public void setBrief(String brief) {
+        this.brief = brief;
     }
 
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
