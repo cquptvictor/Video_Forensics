@@ -6,7 +6,6 @@ public class CourseForApp {
     private Integer id;
     private String title;
     private String description;
-    private String teaName ;
     private Integer alreadyIn;
     private String url;
     private String graduated;
@@ -51,13 +50,6 @@ public class CourseForApp {
         this.description = description;
     }
 
-    public String getTeaName() {
-        return teaName;
-    }
-
-    public void setTeaName(String teaName) {
-        this.teaName = teaName;
-    }
 
     public String getUrl() {
         return url;
