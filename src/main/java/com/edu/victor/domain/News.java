@@ -17,17 +17,26 @@ public class News {
     private String content;
     private Integer publisherId;
     private String publisherName;
-    private String indexImage;
+    private String image;
+    private String brife;
+
+    public String getBrife() {
+        return brife;
+    }
+
+    public void setBrife(String brife) {
+        this.brife = brife;
+    }
 
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
 
-    public String getIndexImage() {
-        return indexImage;
+    public String getImage() {
+        return image;
     }
 
-    public void setIndexImage(String indexImage) {
-        this.indexImage = indexImage;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Integer getId() {
