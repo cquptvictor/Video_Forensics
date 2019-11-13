@@ -4,12 +4,16 @@
 
 <!-- namespace属性是名称空间，必须唯一 -->
 <mapper namespace="com.edu.victor.Dao.NewsDao">
-    <resultMap id="PageMap" type="Page">
-        <collection property="pageData" ofType="News" autoMapping="true">
+    <resultMap id="AppNewsPage" type="Page">
+        <collection property="pageData" ofType="NewsDtoForApp" autoMapping="true">
+        </collection>
+    </resultMap>
+    <resultMap id="WebNewsPage" type="Page">
+        <collection property="pageData" ofType="NewsDtoForWeb" autoMapping="true">
         </collection>
     </resultMap>
     <insert id="addNews" parameterType="News">
-        insert into news(title,content,publisher_id,publisher_name)value (#{title},#{content},#{publisherId},#{publisherName});
+        insert into news(title,content,publisher_id,publisher_name,image,brief)value (#{title},#{content},#{publisherId},#{publisherName},#{image},#{brief});
     </insert>
     <delete id="deleteNews">
         delete from news where id = #{id};
@@ -20,14 +24,22 @@
             content = #{content},
         </if>
         <if test="title != null">
-            title = #{title}
+            title = #{title},
+        </if>
+        <if test="brief != null">
+            brief = #{brief},
+        </if>
+        <if test="image != null">
+            image = #{image}
         </if>
     </set>where id = #{id};
     </update>
-    <select id="searchNewsByPage" parameterType="Page" resultMap="PageMap">
+    <select id="searchNewsForWebByPage" parameterType="Page" resultMap="WebNewsPage">
         select news.id,title,teacher.name as publisherName,`time` from news join teacher on publisher_id = teacher.id  order by `time` desc
     </select>
-
+    <select id="searchNewsForAppByPage" parameterType="Page" resultMap="AppNewsPage">
+        select news.id,title,teacher.name as publisherName,image,brief,`time` from news join teacher on publisher_id = teacher.id  order by `time` desc
+    </select>
     <select id="getSpecificNews" resultType="News">
         select *  FROM news where id = #{id}
     </select>

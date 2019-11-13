@@ -44,8 +44,8 @@ public class NewsAndNoticeController {
     /**新闻查看*/
     @RequestMapping(value = "/news")
     @ResponseBody
-    public ResponseData searchNews(Page page,HttpServletRequest httpServletRequest){
-        return newsAndNoticeService.searchNews(page);
+    public ResponseData searchNews(String type,Page page,HttpServletRequest httpServletRequest){
+        return newsAndNoticeService.searchNews(type,page);
     }
 
     @RequestMapping(value="/news/{news_id}",method = RequestMethod.POST)

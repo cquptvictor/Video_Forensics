@@ -2,13 +2,8 @@ package com.edu.victor.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.validation.constraints.NotNull;
 import java.util.Date;
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class News {
     private Integer id;
     @NotEmpty

@@ -199,14 +199,14 @@
     </update>
     <!--APP端所有课程-->
     <select id="searchAllCoursesByPage" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,description,IFNULL(stu_course.id,0) as alreadyIn, url,graduated from course  join teacher on course.tea_id = teacher.id left join stu_course on stu_course.course_id = course.id and stu_id = #{filter.stuId} where (graduated is null or graduated = 0)
+        select course.id as id,title,description,IFNULL(stu_course.id,0) as alreadyIn, url,graduated from course  join teacher on course.tea_id = teacher.id left join stu_course on stu_course.course_id = course.id and stu_id = #{filter.stuId} where (graduated is null or graduated = 0)
             <if test="filter.title != null">
                and title like "%${filter.title}%"
             </if>
     </select>
     <!--APP端我的课程-->
     <select id="searchMyCoursesByPage" resultMap="PageCourseForApp">
-        select course.id as id,teacher.name as teaName,title,url,description,stu_id,graduated from course join teacher join stu_course on course.tea_id = teacher.id and stu_course.course_id = course.id
+        select course.id as id,title,url,description,stu_id,graduated from course join teacher join stu_course on course.tea_id = teacher.id and stu_course.course_id = course.id
         where stu_course.stu_id = #{filter.stuId}
     </select>
 

@@ -74,9 +74,12 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData searchNews(Page page) {
-
-        Page<News> page2 = newsDao.searchNewsByPage(page);
+    public ResponseData searchNews(String type, Page page) {
+        Page page2  = null;
+        if(type.equals("app")){
+            page2 = newsDao.searchNewsForAppByPage(page);
+        }else
+            page2 = newsDao.searchNewsForWebByPage(page);
         page.setPageData(page2 != null ? page2.getPageData() : null);
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);
