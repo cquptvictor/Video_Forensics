@@ -1,10 +1,8 @@
 package com.edu.victor.Service.impl;
 
 import com.edu.victor.Dao.*;
-import com.edu.victor.Exception.IncompleteInformationException;
-import com.edu.victor.Exception.InvalidArgumentsException;
 import com.edu.victor.Exception.NotAuthorizedException;
-import com.edu.victor.Service.NewsAndNoticeService;
+import com.edu.victor.Service.ArticleAndNoticeService;
 import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
 import com.edu.victor.utils.MessageCreateUtils;
@@ -12,15 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Service
-public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
+public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
     @Autowired
-    NewsDao newsDao;
+    ArticleDao newsDao;
     @Autowired
     UserService teacherService;
     @Autowired
@@ -32,13 +29,13 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     @Autowired
     CourseDao courseDao;
     @Override
-    public ResponseData addNews(News news, Teacher teacher) throws IncompleteInformationException {
+    public ResponseData addArticle(Article article, Teacher teacher) {
         /**验证用户信息是否完整*/
         //teacher = teacherService.isCompleted(teacher);
-        news.setPublisherId(teacher.getId());
-        news.setPublisherName(teacher.getName());
+        article.setPublisherId(teacher.getId());
+        article.setPublisherName(teacher.getName());
         ResponseData responseData = new ResponseData();
-        if(newsDao.addNews(news))
+        if(newsDao.addArticle(article))
         {
             responseData.setCode(200);
         }else
@@ -47,12 +44,12 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData deleteNews(Integer id) {
+    public ResponseData deleteArticle(Integer id) {
         /**不是发布人，没有删除权限*/
       /*  if(news.getPublisherId() != tea_id)
             throw new NotAuthorizedException();*/
         ResponseData responseData = new ResponseData();
-        if(newsDao.deleteNews(id)){
+        if(newsDao.deleteArticle(id)){
             responseData.setCode(200);
         }else
             responseData.setCode(0);
@@ -60,13 +57,13 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData updateNews(News news,Teacher teacher) throws NotAuthorizedException {
+    public ResponseData updateArticle(Article article,Teacher teacher) throws NotAuthorizedException {
         /**不是发布人，没有更新权限*/
-        if(teacher.getId() != news.getPublisherId()){
+        if(teacher.getId() != article.getPublisherId()){
             throw  new NotAuthorizedException();
         }
         ResponseData responseData = new ResponseData();
-        if(newsDao.updateNews(news))
+        if(newsDao.updateArticle(article))
             responseData.setCode(200);
         else
             responseData.setCode(0);
@@ -74,12 +71,15 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData searchNews(String type, Page page) {
+    public ResponseData searchArticle(String type,Integer isApp, Page page) {
         Page page2  = null;
-        if(type.equals("app")){
-            page2 = newsDao.searchNewsForAppByPage(page);
+        Map<String, Object> map = new HashMap<>();
+        map.put("type",type);
+        page.setFilter(map);
+        if(isApp == 1){
+            page2 = newsDao.searchArticleForAppByPage(page);
         }else
-            page2 = newsDao.searchNewsForWebByPage(page);
+            page2 = newsDao.searchArticleForWebByPage(page);
         page.setPageData(page2 != null ? page2.getPageData() : null);
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);
@@ -87,12 +87,12 @@ public class NewsAndNoticeServiceImpl implements NewsAndNoticeService {
     }
 
     @Override
-    public ResponseData getSpecificNews(int id) {
+    public ResponseData getSpecificArticle(int id) {
         ResponseData responseData = new ResponseData(200);
-        News news = newsDao.getSpecificNews(id);
-        if(news == null)
+        Article article = newsDao.getSpecificArticle(id);
+        if(article == null)
             responseData.setCode(0);
-        responseData.setData(news);
+        responseData.setData(article);
         return responseData;
     }
 

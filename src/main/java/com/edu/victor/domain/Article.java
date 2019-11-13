@@ -2,18 +2,34 @@ package com.edu.victor.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
-public class News {
+public class Article {
+
     private Integer id;
-    @NotEmpty
+    @NotNull
     private String title;
-    @NotEmpty
+    @NotNull
     private String content;
     private Integer publisherId;
+    @NotNull
     private String publisherName;
+
     private String image;
+    @NotNull
     private String brief;
+    @Pattern(regexp = "(news|article|book)")
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getBrief() {
         return brief;

@@ -3,7 +3,7 @@ package com.edu.victor.Controller;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.InvalidArgumentsException;
 import com.edu.victor.Exception.NotAuthorizedException;
-import com.edu.victor.Service.NewsAndNoticeService;
+import com.edu.victor.Service.ArticleAndNoticeService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,53 +17,57 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(method = RequestMethod.POST)
-public class NewsAndNoticeController {
+public class ArticleAndNoticeController {
     @Autowired
-    NewsAndNoticeService newsAndNoticeService;
+    ArticleAndNoticeService articleAndNoticeService;
     /**新闻添加*/
-    @RequestMapping(value = "/aNews")
+    @RequestMapping(value = "/article/add")
     @ResponseBody
-    public ResponseData addNews(@Valid News news, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
+    public ResponseData addNews(@Valid Article article, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
         Teacher teacher =(Teacher)httpServletRequest.getAttribute("User");
-        return newsAndNoticeService.addNews(news,teacher);
+        return articleAndNoticeService.addArticle(article,teacher);
     }
     /**新闻删除*/
-    @RequestMapping(value = "/dNews")
+    @RequestMapping(value = "/article/delete")
     @ResponseBody
-    public ResponseData deleteNews(Integer id) throws NotAuthorizedException {
-        return newsAndNoticeService.deleteNews(id);
+    public ResponseData deleteNews(Integer id) {
+        return articleAndNoticeService.deleteArticle(id);
     }
     /**新闻修改*/
-    @RequestMapping(value = "/uNews")
+    @RequestMapping(value = "/article/update")
     @ResponseBody
-    public ResponseData updateNews(News news,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
+    public ResponseData updateNews(Article article,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
-        return newsAndNoticeService.updateNews(news,teacher);
+        return articleAndNoticeService.updateArticle(article,teacher);
     }
 
     /**新闻查看*/
-    @RequestMapping(value = "/news")
+    @RequestMapping(value = "/article/search")
     @ResponseBody
-    public ResponseData searchNews(String type,Page page,HttpServletRequest httpServletRequest){
-        return newsAndNoticeService.searchNews(type,page);
+    public ResponseData searchNews(String type ,Integer isApp,Page page,HttpServletRequest httpServletRequest){
+        return articleAndNoticeService.searchArticle(type,isApp,page);
     }
 
-    @RequestMapping(value="/news/{news_id}",method = RequestMethod.POST)
+    @RequestMapping(value="/article/{article_id}",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseData specificNews(@PathVariable("news_id") Integer news_id){
-        return newsAndNoticeService.getSpecificNews(news_id);
+    public ResponseData specificNews(@PathVariable("article_id") Integer articleId){
+        return articleAndNoticeService.getSpecificArticle(articleId);
     }
+
+
+
+
     /**通知开发*/
     @RequestMapping(value = "/pNotice")
     @ResponseBody
     public ResponseData publishNotice(@Valid Notice notice,BindingResult bindingResult, HttpServletRequest httpServletRequest){
         Teacher teacher = (Teacher)httpServletRequest.getAttribute("User");
-        return newsAndNoticeService.addNotice(notice,teacher);
+        return articleAndNoticeService.addNotice(notice,teacher);
     }
     @RequestMapping(value = "/dNotice")
     @ResponseBody
     public ResponseData deleteNotice(int id){
-        return newsAndNoticeService.deleteNotice(id);
+        return articleAndNoticeService.deleteNotice(id);
     }
     @RequestMapping(value = "/notices")
     @ResponseBody
@@ -71,12 +75,12 @@ public class NewsAndNoticeController {
         Map map = new HashMap<>();
         map.put("courseId",courseId);
         page.setFilter(map);
-        return newsAndNoticeService.searchNotice(page);
+        return articleAndNoticeService.searchNotice(page);
     }
     @RequestMapping("/notice/{notice_id}")
     @ResponseBody
     public ResponseData getSpecificNotice(@PathVariable("notice_id") int id){
-        return newsAndNoticeService.getSpecificNotice(id);
+        return articleAndNoticeService.getSpecificNotice(id);
     }
 
 }

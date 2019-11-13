@@ -1,15 +1,14 @@
 package com.edu.victor.domain;
 
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class NewsDtoForApp {
+public class ArticleDtoForWeb {
     private Integer id;
     private String title;
     private String publisherName;
-    private String image;
-    private String brief;
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
 
@@ -37,28 +36,11 @@ public class NewsDtoForApp {
         this.title = title;
     }
 
-
     public String getPublisherName() {
         return publisherName;
     }
 
     public void setPublisherName(String publisherName) {
         this.publisherName = publisherName;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getBrief() {
-        return brief;
-    }
-
-    public void setBrief(String brief) {
-        this.brief = brief;
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间，必须唯一 -->
+<mapper namespace="com.edu.victor.Dao.ArticleDao">
+    <resultMap id="AppArticlePage" type="Page">
+        <collection property="pageData" ofType="ArticleDtoForApp" autoMapping="true">
+        </collection>
+    </resultMap>
+    <resultMap id="WebArticlePage" type="Page">
+        <collection property="pageData" ofType="ArticleDtoForWeb" autoMapping="true">
+        </collection>
+    </resultMap>
+    <insert id="addArticle" parameterType="Article">
+        insert into article(title,content,publisher_id,publisher_name,image,brief,type)value (#{title},#{content},#{publisherId},#{publisherName},#{image},#{brief},#{type});
+    </insert>
+    <delete id="deleteArticle">
+        delete from article where id = #{id};
+    </delete>
+    <update id="updateArticle" parameterType="Article">
+        update article <set>
+        <if test="content != null">
+            content = #{content},
+        </if>
+        <if test="title != null">
+            title = #{title},
+        </if>
+        <if test="brief != null">
+            brief = #{brief},
+        </if>
+        <if test="image != null">
+            image = #{image}
+        </if>
+    </set>where id = #{id};
+    </update>
+    <select id="searchArticleForWebByPage" parameterType="Page" resultMap="WebArticlePage">
+        select article.id,title,teacher.name as publisherName,`time` from Article join teacher on publisher_id = teacher.id  where `type` = #{filter.type} order by `time` desc
+    </select>
+    <select id="searchArticleForAppByPage" parameterType="Page" resultMap="AppArticlePage">
+        select article.id,title,teacher.name as publisherName,image,brief,`time` from Article join teacher on publisher_id = teacher.id where `type` = #{filter.type}  order by `time` desc
+    </select>
+    <select id="getSpecificArticle" resultType="Article">
+        select *  FROM article where id = #{id}
+    </select>
+
+</mapper>
