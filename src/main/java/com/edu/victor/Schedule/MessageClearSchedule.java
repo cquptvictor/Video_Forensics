@@ -15,7 +15,7 @@ public class MessageClearSchedule {
     @Autowired
     MessageDao messageDao;
 
-    @Scheduled(cron = "0 0 0/1 * * ?")
+    @Scheduled(cron = "0 0 0/7 * * ?")
     public void clear(){
         Calendar calendar = Calendar.getInstance();
         //calendar.add(Calendar.MONTH,- 3);

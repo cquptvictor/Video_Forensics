@@ -13,7 +13,6 @@ public interface NewsAndNoticeService {
      ResponseData updateNews(News news,Teacher teacher) throws NotAuthorizedException;
      ResponseData searchNews(Page page);
      ResponseData getSpecificNews(int id);
-
      //通知
      ResponseData addNotice(Notice notice,Teacher teacher);
      ResponseData deleteNotice(int id);

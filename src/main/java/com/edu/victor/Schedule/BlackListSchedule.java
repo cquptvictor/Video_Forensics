@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Calendar;
 import java.util.Set;
 
+/**定时清除黑名单中失效的token*/
 @Component
 public class BlackListSchedule {
     @Autowired

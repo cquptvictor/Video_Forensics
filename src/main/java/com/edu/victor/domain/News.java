@@ -4,6 +4,7 @@ package com.edu.victor.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -16,8 +17,18 @@ public class News {
     private String content;
     private Integer publisherId;
     private String publisherName;
+    private String indexImage;
+
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
+
+    public String getIndexImage() {
+        return indexImage;
+    }
+
+    public void setIndexImage(String indexImage) {
+        this.indexImage = indexImage;
+    }
 
     public Integer getId() {
         return id;

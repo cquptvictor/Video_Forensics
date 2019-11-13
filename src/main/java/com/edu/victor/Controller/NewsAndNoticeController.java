@@ -47,6 +47,7 @@ public class NewsAndNoticeController {
     public ResponseData searchNews(Page page,HttpServletRequest httpServletRequest){
         return newsAndNoticeService.searchNews(page);
     }
+
     @RequestMapping(value="/news/{news_id}",method = RequestMethod.POST)
     @ResponseBody
     public ResponseData specificNews(@PathVariable("news_id") Integer news_id){
@@ -77,4 +78,5 @@ public class NewsAndNoticeController {
     public ResponseData getSpecificNotice(@PathVariable("notice_id") int id){
         return newsAndNoticeService.getSpecificNotice(id);
     }
+
 }
