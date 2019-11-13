@@ -10,6 +10,7 @@ public class CourseForApp {
     private String url;
     private String graduated;
 
+
     public String getGraduated() {
         return graduated;
     }

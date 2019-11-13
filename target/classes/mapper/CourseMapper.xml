@@ -66,15 +66,16 @@
         select id,`time`,url,title from courseware where superior_id = #{filter.id} order by `time` desc
     </select>
     <select id="searchCoursesByPage" resultMap="PageCourse">
-      select course.id as id,teacher.name as teaName,title,url,code,description from course join teacher on course.tea_id = teacher.id <where>
+      select course.id as id,teacher.name as teaName,title,weights,url,code,description from course join teacher on course.tea_id = teacher.id <where>
         <if test="filter.id != null">
             tea_id = #{filter.id}
         </if>
          </where>
+         order by weights
     </select>
 
     <insert id="addCourse" parameterType="Course">
-        insert into course(tea_id,title,description,url,code)value (#{teaId},#{title},#{description},#{url},#{code});
+        insert into course(tea_id,title,description,url,code,weights)value (#{teaId},#{title},#{description},#{url},#{code},#{weights});
     </insert>
     <insert id="addChapter" parameterType="Chapter">
         insert into course_chapter(title,weights,superior_id,tea_id)value (#{title},#{weights},#{superiorId},#{teaId});
@@ -155,7 +156,10 @@
             description = #{description},
         </if>
         <if test="code != null">
-            code = #{code}
+            code = #{code},
+        </if>
+        <if test="weights != null">
+            weights = #{weights}
         </if>
     </set>
       where id = #{id} and tea_id = #{teaId};
@@ -202,13 +206,13 @@
         select course.id as id,title,description,IFNULL(stu_course.id,0) as alreadyIn, url,graduated from course  join teacher on course.tea_id = teacher.id left join stu_course on stu_course.course_id = course.id and stu_id = #{filter.stuId} where (graduated is null or graduated = 0)
             <if test="filter.title != null">
                and title like "%${filter.title}%"
-            </if>
+            </if>order by weights
     </select>
     <!--APP端我的课程-->
     <select id="searchMyCoursesByPage" resultMap="PageCourseForApp">
         select course.id as id,title,url,description,stu_id,graduated from course join teacher join stu_course on course.tea_id = teacher.id and stu_course.course_id = course.id
         where stu_course.stu_id = #{filter.stuId}
-    </select>
+    </select>order by weights
 
     <select id="authCourseCode" resultType="Integer">
         select id from course where id = #{id} and code = #{code}

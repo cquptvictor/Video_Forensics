@@ -21,9 +21,19 @@ public class Course {
     @NotEmpty
     @Size(min = 6,max = 6)
     private String code;
+    @NotNull
+    private Integer weights;
     @JsonIgnore
     @NotNull
     private MultipartFile pic;
+
+    public Integer getWeights() {
+        return weights;
+    }
+
+    public void setWeights(Integer weights) {
+        this.weights = weights;
+    }
 
     public Integer getId() {
         return id;
