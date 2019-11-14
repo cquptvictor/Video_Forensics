@@ -17,6 +17,7 @@ public interface ArticleAndNoticeService {
      //小说
      ResponseData addBook(Book book, Teacher teacher) throws UnsupportedFileTypeException;
      ResponseData updateBook(Book book) throws UnsupportedFileTypeException;
+     ResponseData deleteBook(Integer id);
      //通知
      ResponseData addNotice(Notice notice,Teacher teacher);
      ResponseData deleteNotice(int id);

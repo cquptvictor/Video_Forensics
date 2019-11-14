@@ -84,6 +84,19 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
             responseData.setCode(0);
         return responseData;
     }
+   /**查询出内容
+    * 删除文件
+    * 删除数据库记录*/
+    @Override
+    public ResponseData deleteBook(Integer id) {
+        ResponseData responseData = new ResponseData(200);
+        Article article = articleDao.getSpecificArticle(id);
+        FileUtils.deleteFile(article.getImage(),"image");
+        FileUtils.deleteFile(article.getContent(),"book");
+        if(!articleDao.deleteArticle(id))
+            responseData.setCode(0);
+        return responseData;
+    }
 
     @Override
     public ResponseData deleteArticle(Integer id) {
@@ -101,9 +114,9 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
     @Override
     public ResponseData updateArticle(Article article,Teacher teacher) throws NotAuthorizedException {
         /**不是发布人，没有更新权限*/
-        if(teacher.getId() != article.getPublisherId()){
+        /*if(teacher.getId() != article.getPublisherId()){
             throw  new NotAuthorizedException();
-        }
+        }*/
         ResponseData responseData = new ResponseData();
         if(articleDao.updateArticle(article))
             responseData.setCode(200);

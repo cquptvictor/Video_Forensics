@@ -69,7 +69,12 @@ public class ArticleAndNoticeController {
     public ResponseData updateBook(Book book) throws UnsupportedFileTypeException {
         return articleAndNoticeService.updateBook(book);
     }
-
+    //删除小说
+    @RequestMapping(value = "/book/delete")
+    @ResponseBody
+    public ResponseData deleteBook(Integer id){
+        return articleAndNoticeService.deleteArticle(id);
+    }
 
     /**通知开发*/
     @RequestMapping(value = "/pNotice")

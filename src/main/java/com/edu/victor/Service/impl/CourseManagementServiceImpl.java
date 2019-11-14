@@ -199,7 +199,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
 
         if(courseDao.deleteCourse(id,tea_id)) {
             responseData.setCode(200);
-            FileUtils.deleteFile(imageUrl,"courseImage");
+            FileUtils.deleteFile(imageUrl,"image");
             FileUtils.deleteFile(sectionUrls,"video");
             FileUtils.deleteFile(coursewareUrls,"courseware");
         }else

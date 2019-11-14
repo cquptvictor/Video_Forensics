@@ -241,6 +241,10 @@ public class FileUtils {
             base = courseVideoBaseUrl ;
         }else if(type.equals("avatar")) {
             base = avatarBaseUrl;
+        }else if(type.equals("book")){
+             base = BookBaseUrl;
+        }else if(type.equals("image")) {
+            base = courseImageBaseUrl;
         }else
             base = coursewareBaseUrl;
         File file = new File(base,url);
