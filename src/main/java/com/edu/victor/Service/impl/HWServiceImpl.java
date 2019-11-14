@@ -191,7 +191,7 @@ public class HWServiceImpl implements HWService {
                     responseData.setCode(200);
                 }
             }else{
-                url = FileUtils.reSubmit(submittedHomework.getFile(),url);
+                url = FileUtils.reSubmit(submittedHomework.getFile(),url,"homework");
                 submittedHomework.setUrl(url);
                 if(hwDao.updateSubmittedHomework(submittedHomework)){
                     responseData.setCode(200);

@@ -7,16 +7,20 @@ import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.domain.*;
 
 public interface ArticleAndNoticeService {
+     //文章
      ResponseData addArticle(Article news, Teacher teacher);
-     ResponseData addBook(Book book, Teacher teacher) throws UnsupportedFileTypeException;
-
      ResponseData deleteArticle(Integer id);
      ResponseData updateArticle(Article article,Teacher teacher) throws NotAuthorizedException;
      ResponseData searchArticle(Article article,Integer isApp,Page page);
      ResponseData getSpecificArticle(int id);
+
+     //小说
+     ResponseData addBook(Book book, Teacher teacher) throws UnsupportedFileTypeException;
+     ResponseData updateBook(Book book) throws UnsupportedFileTypeException;
      //通知
      ResponseData addNotice(Notice notice,Teacher teacher);
      ResponseData deleteNotice(int id);
      ResponseData searchNotice(Page page) throws InvalidArgumentsException;
      ResponseData getSpecificNotice(int id);
+
 }

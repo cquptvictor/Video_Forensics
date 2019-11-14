@@ -65,8 +65,25 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
             responseData.setCode(0);
         return responseData;
     }
-
-
+ /**如果有图片和新书，先把旧的覆盖掉
+  * */
+    @Override
+    public ResponseData updateBook(Book book) throws UnsupportedFileTypeException {
+        Article article = articleDao.getSpecificArticle(book.getId());
+        if(book.getImage() != null){
+            FileUtils.updateCourseImage(book.getImage(),article.getImage());
+        }
+        if(book.getBook() != null){
+            FileUtils.reSubmit(book.getBook(),article.getContent(),"book");
+        }
+        Article article1 = new Article();
+        article1.setTitle(book.getTitle());
+        article1.setBrief(book.getDescription());
+        ResponseData responseData = new ResponseData(200);
+        if(!articleDao.updateArticle(article))
+            responseData.setCode(0);
+        return responseData;
+    }
 
     @Override
     public ResponseData deleteArticle(Integer id) {

@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 
 /**传小说*/
 public class Book {
+    private Integer id;
     @NotNull
     private MultipartFile book;
     @NotNull
@@ -16,6 +17,14 @@ public class Book {
     private String description;
     @NotNull
     private MultipartFile image;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public MultipartFile getBook() {
         return book;

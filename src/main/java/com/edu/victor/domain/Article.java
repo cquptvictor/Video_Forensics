@@ -14,14 +14,15 @@ public class Article {
     @NotNull
     private String content;
     private Integer publisherId;
-    @NotNull
     private String publisherName;
 
     private String image;
     @NotNull
     private String brief;
-    @Pattern(regexp = "(news|article|book)")
+    @Pattern(regexp = "(news|article)")
     private String type;
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
+    private Date time;
 
     public String getType() {
         return type;
@@ -38,9 +39,6 @@ public class Article {
     public void setBrief(String brief) {
         this.brief = brief;
     }
-
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
-    private Date time;
 
     public String getImage() {
         return image;

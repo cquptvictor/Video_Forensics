@@ -26,7 +26,7 @@ public class FileUtils {
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
     private static String SubmittedHomeworkUrl = "/root/netClass/submitted/";
     private static String MarkdownImageBaseUrl = "/root/netClass/markdown/";
-    private static String bookBaseUrl = "/root/netClass/book/";
+    private static String BookBaseUrl = "/root/netClass/book/";
 
    /* private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
     private static String courseImageBaseUrl = "/home/redis1/netClass/course/";
@@ -104,7 +104,7 @@ public class FileUtils {
         }else if(type.equals("book")){
             if(!bookSuffixes.contains(suffix))
                 throw  new UnsupportedFileTypeException();
-            directory = bookBaseUrl + path;
+            directory = BookBaseUrl + path;
         } else{
             throw new UnsupportedFileTypeException();
         }
@@ -177,19 +177,29 @@ public class FileUtils {
             e.printStackTrace();
         }
     }
-    /**再次提交作业*/
-    public static String reSubmit(MultipartFile multipartFile,String url) throws UnsupportedFileTypeException {
+    
+    /**再次提交作业和更新书*/
+    public static String reSubmit(MultipartFile multipartFile,String url,String type) throws UnsupportedFileTypeException {
         String fileName = multipartFile.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
-        //先删除之前的文件
-        File fileToDelete = new File(SubmittedHomeworkUrl,url);
+        //先删除之前的文件,检查文件后缀
+        File fileToDelete = null;
+        String baseUrl = null;
+        if(type.equals("homework")){
+            if(!homeworkSuffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+            fileToDelete = new File(SubmittedHomeworkUrl,url);
+            baseUrl = SubmittedHomeworkUrl;
+        }else{
+            if(!bookSuffixes.contains(suffix))
+                throw new UnsupportedFileTypeException();
+            fileToDelete = new File(BookBaseUrl,url);
+            baseUrl = BookBaseUrl;
+        }
         fileToDelete.delete();
-        //有可能两次上传的文件类型不同
-        if(!homeworkSuffixes.contains(suffix))
-            throw new UnsupportedFileTypeException();
         //新的url
         url = url.substring(0,url.lastIndexOf(".") + 1)+suffix;
-        File catalogFile = new File(SubmittedHomeworkUrl + url);
+        File catalogFile = new File(baseUrl + url);
         try {
             multipartFile.transferTo(catalogFile);
         } catch (IOException e) {
@@ -197,6 +207,7 @@ public class FileUtils {
         }
         return url;
     }
+    
     /**批量删除课件和课程视频*/
     public static void deleteFile(List<String> url,String type){
         String base = null;

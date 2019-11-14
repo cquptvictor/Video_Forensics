@@ -28,13 +28,6 @@ public class ArticleAndNoticeController {
         Teacher teacher =(Teacher)httpServletRequest.getAttribute("User");
         return articleAndNoticeService.addArticle(article,teacher);
     }
-    //添加小说
-    @RequestMapping(value = "/book/add")
-    @ResponseBody
-    public ResponseData addBook(@Valid Book book, BindingResult bindingResult,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
-        Teacher teacher  = (Teacher)httpServletRequest.getAttribute("User");
-        return articleAndNoticeService.addBook(book,teacher);
-    }
     /**删除*/
     @RequestMapping(value = "/article/delete")
     @ResponseBody
@@ -60,6 +53,21 @@ public class ArticleAndNoticeController {
     @ResponseBody
     public ResponseData specificNews(@PathVariable("article_id") Integer articleId){
         return articleAndNoticeService.getSpecificArticle(articleId);
+    }
+ /**电子书*/
+ //添加小说
+    @RequestMapping(value = "/book/add")
+    @ResponseBody
+     public ResponseData addBook(@Valid Book book, BindingResult bindingResult,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+         Teacher teacher  = (Teacher)httpServletRequest.getAttribute("User");
+        return articleAndNoticeService.addBook(book,teacher);
+    }
+
+    //修改小说
+    @RequestMapping(value = "/book/update")
+    @ResponseBody
+    public ResponseData updateBook(Book book) throws UnsupportedFileTypeException {
+        return articleAndNoticeService.updateBook(book);
     }
 
 
