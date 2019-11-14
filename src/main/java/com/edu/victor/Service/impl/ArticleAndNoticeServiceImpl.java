@@ -19,7 +19,7 @@ import java.util.Map;
 @Service
 public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
     @Autowired
-    ArticleDao newsDao;
+    ArticleDao articleDao;
     @Autowired
     UserService teacherService;
     @Autowired
@@ -37,7 +37,7 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
         article.setPublisherId(teacher.getId());
         article.setPublisherName(teacher.getName());
         ResponseData responseData = new ResponseData();
-        if(newsDao.addArticle(article))
+        if(articleDao.addArticle(article))
         {
             responseData.setCode(200);
         }else
@@ -61,7 +61,7 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
         article.setTitle(book.getTitle());
         article.setType("book");
         ResponseData responseData = new ResponseData(200);
-        if(!newsDao.addArticle(article))
+        if(!articleDao.addArticle(article))
             responseData.setCode(0);
         return responseData;
     }
@@ -74,7 +74,7 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
       /*  if(news.getPublisherId() != tea_id)
             throw new NotAuthorizedException();*/
         ResponseData responseData = new ResponseData();
-        if(newsDao.deleteArticle(id)){
+        if(articleDao.deleteArticle(id)){
             responseData.setCode(200);
         }else
             responseData.setCode(0);
@@ -88,7 +88,7 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
             throw  new NotAuthorizedException();
         }
         ResponseData responseData = new ResponseData();
-        if(newsDao.updateArticle(article))
+        if(articleDao.updateArticle(article))
             responseData.setCode(200);
         else
             responseData.setCode(0);
@@ -100,11 +100,15 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
         Page page2  = null;
         Map<String, Object> map = new HashMap<>();
         map.put("type", article.getType());
+        if(article.getPublisherName() != null)
+            map.put("publisherName",article.getPublisherName());
+        if(article.getTitle() != null)
+            map.put("title",article.getTitle());
         page.setFilter(map);
         if(isApp == 1){
-            page2 = newsDao.searchArticleForAppByPage(page);
+            page2 = articleDao.searchArticleForAppByPage(page);
         }else
-            page2 = newsDao.searchArticleForWebByPage(page);
+            page2 = articleDao.searchArticleForWebByPage(page);
         page.setPageData(page2 != null ? page2.getPageData() : null);
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);
@@ -114,7 +118,7 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
     @Override
     public ResponseData getSpecificArticle(int id) {
         ResponseData responseData = new ResponseData(200);
-        Article article = newsDao.getSpecificArticle(id);
+        Article article = articleDao.getSpecificArticle(id);
         if(article == null)
             responseData.setCode(0);
         responseData.setData(article);

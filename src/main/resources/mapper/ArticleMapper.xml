@@ -38,7 +38,14 @@
         select article.id,title,teacher.name as publisherName,`time`,type from Article join teacher on publisher_id = teacher.id  where `type` = #{filter.type} order by `time` desc
     </select>
     <select id="searchArticleForAppByPage" parameterType="Page" resultMap="AppArticlePage">
-        select article.id,title,teacher.name as publisherName,image,brief,`time` from Article join teacher on publisher_id = teacher.id where `type` = #{filter.type}  order by `time` desc
+        select article.id,title,teacher.name as publisherName,image,brief,`time` from Article join teacher on publisher_id = teacher.id where `type` = #{filter.type}
+        <if test="filter.publisherName != null">
+         and publisherName like "%${filter.publisherName}%",
+         </if>
+          <if test="filter.title != null">
+              and title like "%${filter.title}%"
+          </if>
+          order by `time` desc
     </select>
     <select id="getSpecificArticle" resultType="Article">
         select *  FROM article where id = #{id}
