@@ -31,7 +31,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     public ResponseData addCourse(Course course, Teacher teacher) throws IncompleteInformationException, UnsupportedFileTypeException {
         /**验证用户信息是否完整*/
         //  teacherService.isCompleted(teacher);
-        String path = FileUtils.saveImage(course.getPic(),"courseImage");
+        String path = FileUtils.saveImage(course.getPic(),"image");
         course.setUrl(path);
         course.setTeaId(teacher.getId());
         ResponseData responseData = new ResponseData();

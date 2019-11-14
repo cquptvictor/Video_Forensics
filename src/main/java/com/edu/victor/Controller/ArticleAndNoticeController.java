@@ -52,7 +52,7 @@ public class ArticleAndNoticeController {
     @RequestMapping(value="/article/{article_id}",method = RequestMethod.POST)
     @ResponseBody
     public ResponseData specificNews(@PathVariable("article_id") Integer articleId){
-        return articleAndNoticeService.getSpecificArticle(articleId);
+        return articleAndNoticeService.getSpecificArticle(articleId,"notBook");
     }
  /**电子书*/
  //添加小说
@@ -73,9 +73,13 @@ public class ArticleAndNoticeController {
     @RequestMapping(value = "/book/delete")
     @ResponseBody
     public ResponseData deleteBook(Integer id){
-        return articleAndNoticeService.deleteArticle(id);
+        return articleAndNoticeService.deleteBook(id);
     }
-
+    @RequestMapping(value = "/book/{id}")
+    @ResponseBody
+    public ResponseData BookSpecificPage(@PathVariable Integer id){
+        return articleAndNoticeService.getSpecificArticle(id,"book");
+    }
     /**通知开发*/
     @RequestMapping(value = "/pNotice")
     @ResponseBody

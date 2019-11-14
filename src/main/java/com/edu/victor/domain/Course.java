@@ -22,16 +22,16 @@ public class Course {
     @Size(min = 6,max = 6)
     private String code;
     @NotNull
-    private Integer weights;
+    private String weights;
     @JsonIgnore
     @NotNull
     private MultipartFile pic;
 
-    public Integer getWeights() {
+    public String getWeights() {
         return weights;
     }
 
-    public void setWeights(Integer weights) {
+    public void setWeights(String weights) {
         this.weights = weights;
     }
 

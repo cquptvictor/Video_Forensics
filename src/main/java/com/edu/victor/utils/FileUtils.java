@@ -68,6 +68,7 @@ public class FileUtils {
 
         bookSuffixes.add("pdf");
         bookSuffixes.add("txt");
+        bookSuffixes.add("epub");
     }
     private static String saveFile(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
         String fileName = multipartFile.getOriginalFilename();
@@ -85,7 +86,7 @@ public class FileUtils {
             if (!coursewareSuffixes.contains(suffix))
                 throw new UnsupportedFileTypeException();
             directory = coursewareBaseUrl + path;
-        }else if (type.equals("courseImage")) {
+        }else if (type.equals("image")) {
             if(!imageSuffixes.contains(suffix))
                 throw new UnsupportedFileTypeException();
             directory = courseImageBaseUrl + path;

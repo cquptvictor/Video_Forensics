@@ -12,7 +12,7 @@ public interface ArticleAndNoticeService {
      ResponseData deleteArticle(Integer id);
      ResponseData updateArticle(Article article,Teacher teacher) throws NotAuthorizedException;
      ResponseData searchArticle(Article article,Integer isApp,Page page);
-     ResponseData getSpecificArticle(int id);
+     ResponseData getSpecificArticle(int id,String type);
 
      //小说
      ResponseData addBook(Book book, Teacher teacher) throws UnsupportedFileTypeException;

@@ -11,6 +11,15 @@ public class ArticleDtoForWeb {
     private String publisherName;
     @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
     private Date time;
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public Date getTime() {
         return time;

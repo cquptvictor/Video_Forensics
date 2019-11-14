@@ -59,6 +59,7 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
         article.setContent(bookPath);
         article.setImage(imagePath);
         article.setTitle(book.getTitle());
+        article.setPublisherId(teacher.getId());
         article.setType("book");
         ResponseData responseData = new ResponseData(200);
         if(!articleDao.addArticle(article))
@@ -79,8 +80,12 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
         Article article1 = new Article();
         article1.setTitle(book.getTitle());
         article1.setBrief(book.getDescription());
+        article1.setId(book.getId());
+        System.out.println(book.getId());
+        System.out.println(book.getDescription());
+
         ResponseData responseData = new ResponseData(200);
-        if(!articleDao.updateArticle(article))
+        if(!articleDao.updateArticle(article1))
             responseData.setCode(0);
         return responseData;
     }
@@ -146,12 +151,19 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
     }
 
     @Override
-    public ResponseData getSpecificArticle(int id) {
+    public ResponseData getSpecificArticle(int id, String type) {
         ResponseData responseData = new ResponseData(200);
-        Article article = articleDao.getSpecificArticle(id);
-        if(article == null)
-            responseData.setCode(0);
-        responseData.setData(article);
+        if(type.equals("book")){
+            BookDto book = articleDao.getSpecificBook(id);
+            if(book == null)
+                responseData.setCode(0);
+            responseData.setData(book);
+        }else {
+            Article article = articleDao.getSpecificArticle(id);
+            if (article == null)
+                responseData.setCode(0);
+            responseData.setData(article);
+        }
         return responseData;
     }
 
