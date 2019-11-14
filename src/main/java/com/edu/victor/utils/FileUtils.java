@@ -26,6 +26,7 @@ public class FileUtils {
     private static String coursewareBaseUrl = "/root/netClass/courseware/";
     private static String SubmittedHomeworkUrl = "/root/netClass/submitted/";
     private static String MarkdownImageBaseUrl = "/root/netClass/markdown/";
+    private static String bookBaseUrl = "/root/netClass/book/";
 
    /* private static String avatarBaseUrl = "/home/redis1/netClass/avatar/";
     private static String courseImageBaseUrl = "/home/redis1/netClass/course/";
@@ -37,7 +38,9 @@ public class FileUtils {
     private static List<String> videoSuffixes = new ArrayList<>();
     private static List<String> coursewareSuffixes = new ArrayList<>();
     private static List<String> homeworkSuffixes = new ArrayList<>();
-   private static List<String> markDownSuffixes = new ArrayList<>();
+    private static List<String> markDownSuffixes = new ArrayList<>();
+    private static List<String> bookSuffixes = new ArrayList<>();
+
     /**添加类型限制*/
     static {
         imageSuffixes.add("jpg");
@@ -62,6 +65,9 @@ public class FileUtils {
         homeworkSuffixes.add("png");
         homeworkSuffixes.add("jpeg");
         homeworkSuffixes.add("txt");
+
+        bookSuffixes.add("pdf");
+        bookSuffixes.add("txt");
     }
     private static String saveFile(MultipartFile multipartFile,String type) throws UnsupportedFileTypeException {
         String fileName = multipartFile.getOriginalFilename();
@@ -95,6 +101,10 @@ public class FileUtils {
             if(!markDownSuffixes.contains(suffix))
                 throw  new UnsupportedFileTypeException();
             directory = MarkdownImageBaseUrl + path;
+        }else if(type.equals("book")){
+            if(!bookSuffixes.contains(suffix))
+                throw  new UnsupportedFileTypeException();
+            directory = bookBaseUrl + path;
         } else{
             throw new UnsupportedFileTypeException();
         }
@@ -152,6 +162,8 @@ public class FileUtils {
         String path = saveFile(multipartFile,type);
         return path;
     }
+
+
     /**更新课程的展示图片*/
     public static void updateCourseImage(MultipartFile multipartFile,String url) throws UnsupportedFileTypeException {
         String fileName = multipartFile.getOriginalFilename();

@@ -211,8 +211,8 @@
     <!--APP端我的课程-->
     <select id="searchMyCoursesByPage" resultMap="PageCourseForApp">
         select course.id as id,title,url,description,stu_id,graduated from course join teacher join stu_course on course.tea_id = teacher.id and stu_course.course_id = course.id
-        where stu_course.stu_id = #{filter.stuId}
-    </select>order by weights
+        where stu_course.stu_id = #{filter.stuId} order by weights
+    </select>
 
     <select id="authCourseCode" resultType="Integer">
         select id from course where id = #{id} and code = #{code}

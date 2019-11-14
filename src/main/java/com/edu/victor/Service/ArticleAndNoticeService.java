@@ -3,13 +3,16 @@ package com.edu.victor.Service;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.InvalidArgumentsException;
 import com.edu.victor.Exception.NotAuthorizedException;
+import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.domain.*;
 
 public interface ArticleAndNoticeService {
      ResponseData addArticle(Article news, Teacher teacher);
+     ResponseData addBook(Book book, Teacher teacher) throws UnsupportedFileTypeException;
+
      ResponseData deleteArticle(Integer id);
      ResponseData updateArticle(Article article,Teacher teacher) throws NotAuthorizedException;
-     ResponseData searchArticle(String type,Integer isApp,Page page);
+     ResponseData searchArticle(Article article,Integer isApp,Page page);
      ResponseData getSpecificArticle(int id);
      //通知
      ResponseData addNotice(Notice notice,Teacher teacher);

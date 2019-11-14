@@ -35,7 +35,7 @@
     </set>where id = #{id};
     </update>
     <select id="searchArticleForWebByPage" parameterType="Page" resultMap="WebArticlePage">
-        select article.id,title,teacher.name as publisherName,`time` from Article join teacher on publisher_id = teacher.id  where `type` = #{filter.type} order by `time` desc
+        select article.id,title,teacher.name as publisherName,`time`,type from Article join teacher on publisher_id = teacher.id  where `type` = #{filter.type} order by `time` desc
     </select>
     <select id="searchArticleForAppByPage" parameterType="Page" resultMap="AppArticlePage">
         select article.id,title,teacher.name as publisherName,image,brief,`time` from Article join teacher on publisher_id = teacher.id where `type` = #{filter.type}  order by `time` desc

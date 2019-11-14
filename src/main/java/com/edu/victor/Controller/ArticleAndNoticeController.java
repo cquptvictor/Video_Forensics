@@ -3,6 +3,7 @@ package com.edu.victor.Controller;
 import com.edu.victor.Exception.IncompleteInformationException;
 import com.edu.victor.Exception.InvalidArgumentsException;
 import com.edu.victor.Exception.NotAuthorizedException;
+import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.ArticleAndNoticeService;
 import com.edu.victor.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,20 +21,27 @@ import java.util.Map;
 public class ArticleAndNoticeController {
     @Autowired
     ArticleAndNoticeService articleAndNoticeService;
-    /**新闻添加*/
+    /**添加*/
     @RequestMapping(value = "/article/add")
     @ResponseBody
     public ResponseData addNews(@Valid Article article, BindingResult bindingResult, HttpServletRequest httpServletRequest) throws IncompleteInformationException {
         Teacher teacher =(Teacher)httpServletRequest.getAttribute("User");
         return articleAndNoticeService.addArticle(article,teacher);
     }
-    /**新闻删除*/
+    //添加小说
+    @RequestMapping(value = "/book/add")
+    @ResponseBody
+    public ResponseData addBook(@Valid Book book, BindingResult bindingResult,HttpServletRequest httpServletRequest) throws UnsupportedFileTypeException {
+        Teacher teacher  = (Teacher)httpServletRequest.getAttribute("User");
+        return articleAndNoticeService.addBook(book,teacher);
+    }
+    /**删除*/
     @RequestMapping(value = "/article/delete")
     @ResponseBody
     public ResponseData deleteNews(Integer id) {
         return articleAndNoticeService.deleteArticle(id);
     }
-    /**新闻修改*/
+    /**修改*/
     @RequestMapping(value = "/article/update")
     @ResponseBody
     public ResponseData updateNews(Article article,HttpServletRequest httpServletRequest) throws NotAuthorizedException {
@@ -41,11 +49,11 @@ public class ArticleAndNoticeController {
         return articleAndNoticeService.updateArticle(article,teacher);
     }
 
-    /**新闻查看*/
+    /**查看*/
     @RequestMapping(value = "/article/search")
     @ResponseBody
-    public ResponseData searchNews(String type ,Integer isApp,Page page,HttpServletRequest httpServletRequest){
-        return articleAndNoticeService.searchArticle(type,isApp,page);
+    public ResponseData searchNews(Article article ,Integer isApp,Page page,HttpServletRequest httpServletRequest){
+        return articleAndNoticeService.searchArticle(article,isApp,page);
     }
 
     @RequestMapping(value="/article/{article_id}",method = RequestMethod.POST)
@@ -53,8 +61,6 @@ public class ArticleAndNoticeController {
     public ResponseData specificNews(@PathVariable("article_id") Integer articleId){
         return articleAndNoticeService.getSpecificArticle(articleId);
     }
-
-
 
 
     /**通知开发*/

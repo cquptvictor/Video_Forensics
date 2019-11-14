@@ -2,9 +2,11 @@ package com.edu.victor.Service.impl;
 
 import com.edu.victor.Dao.*;
 import com.edu.victor.Exception.NotAuthorizedException;
+import com.edu.victor.Exception.UnsupportedFileTypeException;
 import com.edu.victor.Service.ArticleAndNoticeService;
 import com.edu.victor.Service.UserService;
 import com.edu.victor.domain.*;
+import com.edu.victor.utils.FileUtils;
 import com.edu.victor.utils.MessageCreateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +45,29 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
         return responseData;
     }
 
+   /**存封面的图片存
+    * 存书
+    * 设定Article
+    * */
+    @Override
+    public ResponseData addBook(Book book, Teacher teacher) throws UnsupportedFileTypeException {
+        String bookPath = FileUtils.saveImage(book.getBook(),"book");
+        String imagePath = FileUtils.saveImage(book.getImage(),"image");
+        Article article = new Article();
+        article.setPublisherName(teacher.getName());
+        article.setBrief(book.getDescription());
+        article.setContent(bookPath);
+        article.setImage(imagePath);
+        article.setTitle(book.getTitle());
+        article.setType("book");
+        ResponseData responseData = new ResponseData(200);
+        if(!newsDao.addArticle(article))
+            responseData.setCode(0);
+        return responseData;
+    }
+
+
+
     @Override
     public ResponseData deleteArticle(Integer id) {
         /**不是发布人，没有删除权限*/
@@ -71,10 +96,10 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
     }
 
     @Override
-    public ResponseData searchArticle(String type,Integer isApp, Page page) {
+    public ResponseData searchArticle(Article article,Integer isApp, Page page) {
         Page page2  = null;
         Map<String, Object> map = new HashMap<>();
-        map.put("type",type);
+        map.put("type", article.getType());
         page.setFilter(map);
         if(isApp == 1){
             page2 = newsDao.searchArticleForAppByPage(page);
