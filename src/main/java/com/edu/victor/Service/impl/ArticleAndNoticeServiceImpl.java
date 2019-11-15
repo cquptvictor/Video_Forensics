@@ -81,8 +81,7 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
         article1.setTitle(book.getTitle());
         article1.setBrief(book.getDescription());
         article1.setId(book.getId());
-        System.out.println(book.getId());
-        System.out.println(book.getDescription());
+
 
         ResponseData responseData = new ResponseData(200);
         if(!articleDao.updateArticle(article1))

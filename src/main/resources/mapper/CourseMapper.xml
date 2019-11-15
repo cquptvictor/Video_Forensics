@@ -149,6 +149,7 @@
     <update id="updateCourseInfo" >
         update course
         <set>
+        id =#{id},
         <if test="title != null">
             title = #{title},
         </if>

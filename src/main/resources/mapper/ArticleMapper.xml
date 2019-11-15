@@ -20,6 +20,7 @@
     </delete>
     <update id="updateArticle" parameterType="Article">
         update article <set>
+        id = #{id},
         <if test="content != null">
             content = #{content},
         </if>
@@ -51,18 +52,18 @@
 
     </select>
     <select id="searchArticleForAppByPage" parameterType="Page" resultMap="AppArticlePage">
-        select article.id,title,teacher.name as publisherName,image,brief,`time`,typefrom Article join teacher on publisher_id = teacher.id
+        select article.id,title,teacher.name as publisherName,image,brief,`time`,`type` from Article join teacher on publisher_id = teacher.id
         <where>
             <choose>
                 <when test="filter.type == 'news'.toString()">
-                    `type` = #{filter.type},
+                    `type` = #{filter.type}
                 </when>
                 <otherwise>
-                    `type` != "news",
+                    `type` != "news"
                 </otherwise>
             </choose>
         <if test="filter.publisherName != null">
-         and publisherName like "%${filter.publisherName}%",
+            and publisher_name like "%${filter.publisherName}%"
          </if>
           <if test="filter.title != null">
               and title like "%${filter.title}%"
