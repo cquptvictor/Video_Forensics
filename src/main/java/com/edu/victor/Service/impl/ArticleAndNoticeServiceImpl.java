@@ -139,8 +139,9 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
         page.setFilter(map);
         if(article.getIsApp() == 1){
             page2 = articleDao.searchArticleForAppByPage(page);
-        }else
+        }else {
             page2 = articleDao.searchArticleForWebByPage(page);
+        }
         page.setPageData(page2 != null ? page2.getPageData() : null);
         ResponseData responseData = new ResponseData(200);
         responseData.setData(page);

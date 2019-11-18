@@ -37,26 +37,28 @@
     where id = #{id};
     </update>
     <select id="searchArticleForWebByPage" parameterType="Page" resultMap="WebArticlePage">
-        select article.id,title,teacher.name as publisherName,`time`,`type` from Article join teacher on publisher_id = teacher.id where `type` = #{filter.type}  order by `time` desc
+        select article.id,title,teacher.name as publisherName,`time`,`type` from Article join teacher on publisher_id = teacher.id
+        where
+        <choose>
+            <when test="filter.type != null and filter.type == 'news'.toString()">
+                `type` = "news"
+            </when>
+            <otherwise>
+               `type` != "news"
+            </otherwise>
+        </choose>
+          order by `time` desc
     </select>
     <select id="searchArticleForAppByPage" parameterType="Page" resultMap="AppArticlePage">
         select article.id,title,teacher.name as publisherName,image,brief,`time`,`type` from Article join teacher on publisher_id = teacher.id
-        <where>
-            <choose>
-                <when test="filter.type == 'news'.toString()">
-                    `type` = #{filter.type}
-                </when>
-                <otherwise>
-                    `type` != "news"
-                </otherwise>
-            </choose>
+        where `type` =#{filter.type}
         <if test="filter.publisherName != null">
             and publisher_name like "%${filter.publisherName}%"
          </if>
           <if test="filter.title != null">
               and title like "%${filter.title}%"
           </if>
-      </where>
+
         order by `time` desc
 
     </select>
