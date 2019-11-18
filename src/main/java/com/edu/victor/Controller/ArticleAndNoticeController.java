@@ -45,8 +45,8 @@ public class ArticleAndNoticeController {
     /**查看*/
     @RequestMapping(value = "/article/search")
     @ResponseBody
-    public ResponseData searchNews(Article article ,Integer isApp,Page page,HttpServletRequest httpServletRequest){
-        return articleAndNoticeService.searchArticle(article,isApp,page);
+    public ResponseData searchNews(ArticleSearch article,Page page){
+        return articleAndNoticeService.searchArticle(article,page);
     }
 
     @RequestMapping(value="/article/{article_id}",method = RequestMethod.POST)

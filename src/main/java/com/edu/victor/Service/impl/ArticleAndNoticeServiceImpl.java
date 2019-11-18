@@ -130,16 +130,14 @@ public class ArticleAndNoticeServiceImpl implements ArticleAndNoticeService {
     }
 
     @Override
-    public ResponseData searchArticle(Article article,Integer isApp, Page page) {
+    public ResponseData searchArticle(ArticleSearch article, Page page) {
         Page page2  = null;
         Map<String, Object> map = new HashMap<>();
-        map.put("type", article.getType());
-        if(article.getPublisherName() != null)
-            map.put("publisherName",article.getPublisherName());
-        if(article.getTitle() != null)
-            map.put("title",article.getTitle());
+        map.put("publisherName",article.getPublisherName());
+        map.put("title",article.getTitle());
+        map.put("type",article.getType());
         page.setFilter(map);
-        if(isApp == 1){
+        if(article.getIsApp() == 1){
             page2 = articleDao.searchArticleForAppByPage(page);
         }else
             page2 = articleDao.searchArticleForWebByPage(page);

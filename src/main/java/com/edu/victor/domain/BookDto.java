@@ -1,9 +1,11 @@
 package com.edu.victor.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 public class BookDto {
     private Integer id;
@@ -11,6 +13,25 @@ public class BookDto {
     private String title;
     private String description;
     private String image;
+    private String publisherName;
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
+    private Date time;
+
+    public String getPublisherName() {
+        return publisherName;
+    }
+
+    public void setPublisherName(String publisherName) {
+        this.publisherName = publisherName;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
     public Integer getId() {
         return id;

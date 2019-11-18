@@ -11,7 +11,7 @@ public interface ArticleAndNoticeService {
      ResponseData addArticle(Article news, Teacher teacher);
      ResponseData deleteArticle(Integer id);
      ResponseData updateArticle(Article article,Teacher teacher) throws NotAuthorizedException;
-     ResponseData searchArticle(Article article,Integer isApp,Page page);
+     ResponseData searchArticle(ArticleSearch article,Page page);
      ResponseData getSpecificArticle(int id,String type);
 
      //小说
