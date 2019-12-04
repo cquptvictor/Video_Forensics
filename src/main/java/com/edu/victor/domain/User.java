@@ -15,7 +15,7 @@ public class User {
     @Size(min=6)
     private String password;
     @NotNull
-    @Pattern(regexp = "[0|1]")
+    @Pattern(regexp = "(0|1)")
     private String isTeacher;
     private String avatar;
     @JsonIgnore

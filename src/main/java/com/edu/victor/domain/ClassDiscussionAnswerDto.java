@@ -10,7 +10,7 @@ public class ClassDiscussionAnswerDto {
     private String content;
     private UserDto respondent;
     private String isTeacher;
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date time;
 
     public Integer getId() {
