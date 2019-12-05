@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 public class Course {
     private Integer id;
     @NotEmpty
-    @Size(min = 1,max = 10)
+    @Size(min = 1,max = 20)
     private String title;
     @NotEmpty
     @Size(min = 1, max = 50)

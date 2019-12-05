@@ -11,7 +11,7 @@ public class Book {
     @NotNull
     private MultipartFile book;
     @NotNull
-    @Size(min=1,max = 15)
+    @Size(min=1,max = 30)
     private String title;
 
     private String description;
