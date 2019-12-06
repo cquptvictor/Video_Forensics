@@ -65,6 +65,8 @@ public class FileUtils {
         homeworkSuffixes.add("png");
         homeworkSuffixes.add("jpeg");
         homeworkSuffixes.add("txt");
+        homeworkSuffixes.add("xls");
+        homeworkSuffixes.add("xlsx");
 
         bookSuffixes.add("pdf");
         bookSuffixes.add("txt");

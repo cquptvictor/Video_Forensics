@@ -23,7 +23,7 @@ public class GlobalException {
     /**权限不够的问题*/
     @ExceptionHandler(NotAuthorizedException.class)
     @ResponseBody
-    public ResponseData duplicatedUsername(NotAuthorizedException e){
+    public ResponseData notAuthorized(NotAuthorizedException e){
         ResponseData responseData = new ResponseData();
         responseData.setCode(403);
         responseData.setMessage("You do not have permission to perform this operation");
