@@ -25,7 +25,7 @@ public class GlobalException {
     @ResponseBody
     public ResponseData duplicatedUsername(NotAuthorizedException e){
         ResponseData responseData = new ResponseData();
-        responseData.setCode(401);
+        responseData.setCode(403);
         responseData.setMessage("You do not have permission to perform this operation");
         return responseData;
     }
