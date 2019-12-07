@@ -26,7 +26,7 @@ public class GlobalException {
     public ResponseData notAuthorized(NotAuthorizedException e){
         ResponseData responseData = new ResponseData();
         responseData.setCode(403);
-        responseData.setMessage("You do not have permission to perform this operation");
+        responseData.setMessage(e.getMessage());
         return responseData;
     }
 

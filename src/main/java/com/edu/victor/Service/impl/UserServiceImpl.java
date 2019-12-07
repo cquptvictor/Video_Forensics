@@ -35,12 +35,12 @@ public class UserServiceImpl implements UserService {
         Student student;
         if(user.getIsTeacher().equals("1")) {
             teacher = userDao.teacherLogin(user);
-            teacher.setIsTeacher("1");
             if(teacher.getId() != -1){
                 responseData.setCode(200);
                 responseData.setMessage("login Successful");
                 Map<String,String> map = new HashMap();
-                map.put("token", JWT.sign(teacher,12000000));
+                String token  = JWT.sign(teacher,12000000);
+                map.put("token", token);
                 responseData.setData(map);
             }else{
                 responseData.setCode(0);
@@ -53,7 +53,9 @@ public class UserServiceImpl implements UserService {
                 responseData.setCode(200);
                 responseData.setMessage("login Successful");
                 Map<String,String> map = new HashMap();
-                map.put("token", JWT.sign(student,12000000));
+                String token = JWT.sign(student,12000000);
+                map.put("token",token);
+                redisTemplate.opsForValue().set("student_"+student.getId(),token);
                 responseData.setData(map);
             }else{
                 responseData.setCode(0);
