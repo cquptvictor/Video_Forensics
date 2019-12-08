@@ -348,7 +348,7 @@ public class CourseManagementServiceImpl implements CourseManagementService {
     /**老师关闭课程，当前课程下的学生的结业状态由0变为1*/
     @Override
     public ResponseData closeCourse(int courseId, User user) {
-        ResponseData responseData = new ResponseData(0);
+        ResponseData responseData = new ResponseData(200);
         if(user.getIsTeacher().equals("1")){
             Map<String,Object> map = new HashMap<>();
             map.put("courseId",courseId);
@@ -362,8 +362,8 @@ public class CourseManagementServiceImpl implements CourseManagementService {
             //先查询出课程下的学生，再更改学生状态
             List<User> userList = courseDao.getUngraduatedStuByCourse(courseId);
             map.put("userList",userList);
-            if(userList.size() != 0 && courseDao.closeCourse(map))
-                responseData.setCode(200);
+            if(userList.size() != 0)
+                courseDao.closeCourse(map);
         }
         return responseData;
     }
