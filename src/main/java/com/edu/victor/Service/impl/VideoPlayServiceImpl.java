@@ -92,7 +92,7 @@ public class VideoPlayServiceImpl implements VideoPlayService {
     public ResponseData getLastRecord(User user) {
         ResponseData responseData = new ResponseData(200);
         String key = String.format("history%d", user.getId());
-        List<Integer> idList = redisTemplate.opsForList().range(key,0,10);
+        List<Integer> idList = redisTemplate.opsForList().range(key,0,9);
         Map<String, Object> map = new HashMap<>();
         map.put("idList",idList);
         map.put("stuId",user.getId());
