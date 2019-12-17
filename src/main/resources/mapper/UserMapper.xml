@@ -6,10 +6,10 @@
 <mapper namespace="com.edu.victor.Dao.UserDao">
 
     <select id="studentLogin" parameterType="User" resultType="Student">
-      select IFNULL(MAX(stu.id),-1) as id,`name`,phone,sexual,class_num,email,avatar,username from stu left join class on stu.class_id = class.id where username = #{username} and password = #{password};
+      select IFNULL(MAX(stu.id),-1) as id,`name`,phone,sexual,class_num,email,avatar,username from stu left join class on stu.class_id = class.id where username = #{username} and  binary password = #{password};
     </select>
     <select id="teacherLogin" parameterType="User" resultType="Teacher">
-      select IFNULL(MAX(id),-1) as id,`name`,email,avatar,username from teacher where username = #{username} and password = #{password};
+      select IFNULL(MAX(id),-1) as id,`name`,email,avatar,username from teacher where  username = #{username} and binary password = #{password};
     </select>
     <update id="updateTeaInfo" parameterType="Teacher">
         update teacher

@@ -2,21 +2,23 @@ package com.edu.victor.utils;
 
 import com.edu.victor.Exception.StuNumNotFound;
 import com.edu.victor.domain.Student;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 /**
  * Excel文件的第一行为题目
  * 只能导入姓名、学号、性别三个参数
  * */
 public class ExcelUtils {
-    public static File converToFile(MultipartFile file){
+    public static File convertToFile(MultipartFile file){
         // 获取文件名
         String fileName = file.getOriginalFilename();
         // 获取文件后缀
@@ -34,14 +36,13 @@ public class ExcelUtils {
     }
     public static List<Student> excelToStudent(MultipartFile multipartFile) throws StuNumNotFound {
         List<Student> list = new ArrayList<>();
-        File file = converToFile(multipartFile);
+       // File file = convertToFile(multipartFile);
         try{
-            POIFSFileSystem poifsFileSystem = new POIFSFileSystem(file);
-            HSSFWorkbook wb = new HSSFWorkbook(poifsFileSystem);
+            Workbook wb = new XSSFWorkbook(multipartFile.getInputStream());
             /**获取总行，总列数，分析位置*/
-            HSSFSheet sheet = wb.getSheetAt(0);
+            Sheet sheet = wb.getSheetAt(0);
             int totalRows = sheet.getLastRowNum();
-            HSSFRow hssfRow = sheet.getRow(0);
+            Row hssfRow = sheet.getRow(0);
             int totalcolumns = hssfRow.getLastCellNum();
             Map<Integer,String> map = new HashMap<>();
             int stuNum = -1;
@@ -64,6 +65,8 @@ public class ExcelUtils {
             for(int i = 1; i <= totalRows; i++){
                 Student student = new Student();
                 hssfRow = sheet.getRow(i);
+                Cell cell = hssfRow.getCell(stuNum);
+                cell.setCellType(CellType.STRING);
                 student.setUsername(hssfRow.getCell(stuNum).getStringCellValue());
                 student.setPassword(hssfRow.getCell(stuNum).getStringCellValue());
                 if(sexual != -1)
@@ -77,5 +80,15 @@ public class ExcelUtils {
         }
         return list;
     }
-
+   private static Workbook createWorkBook(MultipartFile file) throws IOException, InvalidFormatException {
+        String name = file.getOriginalFilename();
+        String kind = name.split("\\.")[1];
+        if(kind.equals("xlsx"))
+            return new XSSFWorkbook(file.getInputStream());
+        else
+            return new XSSFWorkbook(file.getInputStream());
+    }
+    public static void main(String[] args){
+        System.out.print(Arrays.toString("asdfafds.xls".split("\\.")));
+    }
 }
